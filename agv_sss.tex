@@ -51,9 +51,53 @@ whose shortest reset words are close to conjectured by \v{C}ern\'{y} upper bound
 \end{abstract}
 
 
-\section*{Background and motivation}
+\section{Background and overview}
 
-\newpage
+A \emph{complete deterministic finite automaton} (DFA) is a triple
+$\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$, where $Q$ and
+$\Sigma$ are finite sets called the \emph{state set} and the
+\emph{input alphabet} respectively, and $\delta:Q\times\Sigma\to
+Q$ is a totally defined function called the \emph{transition
+function}. Let $\Sigma^*$ stand for the collection of all finite
+words over the alphabet $\Sigma$, including the empty word.
+The function $\delta$ extends to a function $Q\times\Sigma^*\to Q$
+(still denoted by $\delta$) in the following natural way: for every
+$q\in Q$ and $w\in\Sigma^*$, we set
+$$\delta(q,w)=\begin{cases}
+q &\text{ if $w$ is empty},\\
+\delta(\delta(q,v),a) &\text{ if $w=va$ for some $v\in\Sigma^*$ and $a\in\Sigma$}.
+\end{cases}$$
+Thus, via $\delta$, every word $w\in\Sigma^*$ acts on the set $Q$.
+
+A DFA $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$ is called
+\emph{synchronizing} if the action of some word $w\in\Sigma^*$
+resets $\mathrsfs{A}$, that is, leaves the automaton in one
+particular state no matter at which state in $Q$ it is applied:
+$\delta(q,w)=\delta(q',w)$ for all $q,q'\in Q$. Any word $w$
+with this property is said to be a \emph{reset word} for the DFA.
+
+Synchronizing automata serve as transparent and natural models of
+error-resistant systems in many applications (coding theory, robotics,
+testing of reactive systems) and also reveal interesting connections
+with symbolic dynamics and other parts of mathematics. For a brief
+introduction to the theory of \sa\ we refer the reader to the recent
+surveys~\cite{Sa05,Vo08}. Here we focus on the so-called \v{C}ern\'{y}
+conjecture that constitutes a major open problem in this area.
+
+In~1964 \v{C}ern\'{y}~\cite{Ce64} constructed for each $n>1$ a \san\
+$\mathrsfs{C}_n$ with $n$ states whose shortest reset word has length
+$(n-1)^2$. Soon after that \v{C}ern\'{y} conjectured that these automata
+represent the worst possible case, that is, every \san\ with $n$ states
+can be reset by a word of length $(n-1)^2$. This imply looking conjecture
+resists researchers' efforts for more than 40 years. Even though the
+conjecture has been confirmed for various restricted classes of \sa\ (cf.\
+\cite{Ep90,Du98,Ka03,Tr07,Vo09}, to mention a few advances only), no upper
+bound of magnitude $O(n^2)$ for the minimum length of reset words for
+$n$-state \sa\ is known in general---the best upper bound achieved so
+far is $\frac{n^3-n}6$, see~\cite{Pi83}.
+
+
+
 \section{Correlation between digraphs and automata}
 
 \begin{theorem}\label{dulmage}
@@ -392,34 +436,27 @@ The smallest automaton in the series is shown in Fig.~\ref{B5}.
 \caption{The automaton $\mathrsfs{B}^{\star}_6$}\label{B-star-6}
 \end{figure}
 
-\newpage
 
 
 \begin{thebibliography}{99}
-\itemsep -2pt
-
 \bibitem{AVZ}
 Dimitry S. Ananichev, Mikhail V. Volkov, Yu. I. Zaks,
 Synchronizing automata with a letter of deficiency 2. Theor.\ Comput.\ Sci.
 376 (2007)  30--41.
 
-\bibitem{AV05}
-D.\,S.\,Ananichev, M.\,V.\,Volkov, Synchronizing generalized
-monotonic automata, Theoret.\ Comput.\ Sci. 330 (2005) 3--13.
-
 \bibitem{Ce64}
-J.\,\v{C}ern\'{y}, Pozn\'amka k homog\'{e}nnym eksperimentom s
-konecn\'{y}mi automatami, Mat.-Fyz.\ Cas.\ Slovensk.\ Akad.\ Vied.
-14 (1964) 208--216 [in Slovak].
+\v{C}ern\'{y}, J.: Pozn\'{a}mka k homog\'{e}nnym eksperimentom s
+kone\v{c}n\'{y}mi automatami. Matematicko-fyzikalny \v{C}asopis
+Slovensk.\ Akad.\ Vied 14(3) 208--216 (1964) (in Slovak)
 
 \bibitem{Du98}
-L.\,Dubuc, Sur le automates circulaires et la conjecture de
-\v{C}ern\'y, RAIRO Inform.\ Theor.\ Appl., 32 (1998) 21--34 [in
-French].
+Dubuc, L.: Sur les automates circulaires et la conjecture de
+\v{C}ern\'y. RAIRO Inform.\ Th\'eor.\ Appl. 32, 21--34 (1998) (in
+French)
 
 \bibitem{Ep90}
-D.\,Eppstein, Reset sequences for monotonic automata, SIAM J.
-Comput. 19 (1990) 500--510.
+Eppstein, D.: Reset sequences for monotonic automata. SIAM J.
+Comput. 19, 500--510 (1990)
 
 \bibitem{Fr82}
 P.\,Frankl, An extremal problem for two families of sets, Eur.\ J.
@@ -435,8 +472,8 @@ transformations from a finite full transformation semigroup,
 Semigroup Forum 37 (1988) 31--36.
 
 \bibitem{Ka03}
-J.\,Kari, Synchronizing finite automata on Eulerian digraphs,
-Theoret.\ Comput.\ Sci. 295 (2003) 223--232.
+Kari, J.: Synchronizing finite automata on Eulerian digraphs.
+Theoret.\ Comput.\ Sci. 295, 223--232 (2003)
 
 \bibitem{MS99}
 A.\,Mateescu, A.\,Salomaa, Many-valued truth functions,
@@ -450,30 +487,39 @@ Structures in Algebra and Geometric Combinatorics [Quaderni de la
 Ricerca Scientifica 109], CNR, Roma, 1981, 37--48 [in French].
 
 \bibitem{Pi83}
-J.-E.\,Pin, On two combinatorial problems arising from automata
-theory, Ann.\ Discrete Math. 17 (1983) 535--548.
+Pin, J.-E.: On two combinatorial problems arising from automata
+theory. Ann.\ Discrete Math. 17, 535--548 (1983)
 
 \bibitem{Sa03}
 A.\,Salomaa, Composition sequences for functions over a finite
 domain, Theoret.\ Comput.\ Sci. 292 (2003) 263--281.
 
 \bibitem{Sa05}
-S.\,Sandberg, Homing and synchronizing sequences, in M.\,Broy
-et~al. (eds.), Model-Based Testing of Reactive Systems [Lect.\
-Notes Comput.\ Sci. 3472], Springer-Verlag, Berlin--Heidelberg,
-2005, 5--33.
-
-\bibitem{Tr-JALC}
-A.\,N.\,Trahtman, The \v{C}ern\'y conjecture for aperiodic
-automata, J. Automata, Languages and Combinatorics 11 (2006).
+Sandberg, S.: Homing and synchronizing sequences. In: Broy, M.
+et~al. (eds.), Model-Based Testing of Reactive Systems. Lect.\
+Notes Comput.\ Sci., vol.\, 3472, pp.\,5--33. Springer, Heidelberg
+(2005)
 
 \bibitem{Tr06}
 A.\,N.\,Trahtman, An efficient algorithm finds noticeable trends
 and examples concerning the \v{C}ern\'y conjecture, in
 R.\,Kr\'alovi\v{c}, P.\,Urzyczyn (eds.), Mathematical Foundations
 of Computer Science 2006 [Lect.\ Notes Comput.\ Sci. 4162],
-Springer-Verlag, Berlin--Heidelberg, 2006, 789�-800.
+Springer-Verlag, Berlin--Heidelberg, 2006, 789--800.
 
+\bibitem{Tr07}
+Trahtman, A.: The \v{C}ern\'y conjecture for aperiodic automata.
+Discrete Math.\ Theor.\ Comput.\ Sci. 9(2), 3--10 (2007)
+
+\bibitem{Vo08}
+Volkov, M.V.: Synchronizing automata and the \v{C}ern\'{y}
+conjecture. In: Mart\'\i{}n-Vide, C.; Otto, F.; Fernau, H. (eds.)
+Languages and Automata: Theory and Applications. Lect.\ Notes
+Comput.\ Sci., vol.\,5196, pp.\,11--27.  Springer, Heidelberg (2008)
+
+\bibitem{Vo09}
+Volkov, M.V.: Synchronizing automata preserving a chain of partial
+orders. Theoret.\ Comput.\ Sci. 410, 2992--2998 (2009)
 \end{thebibliography}
 
 \newpage
