@@ -1,302 +1,346 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2009.9.12)  4 APR 2010 12:25
-entering extended mode
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  4 APR 2010 16:23
 **agv_sss.tex
-(C:\Users\gusev\Documents\tex_art\ananichevgusevvolkov\agv_sss.tex
-LaTeX2e <2005/12/01>
-Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
-rman, ngerman, german-x-2009-06-19, ngerman-x-2009-06-19, french, russian, load
-ed.
-("C:\Program Files\MiKTeX 2.8\tex\latex\elsevier\elsart.cls"
-Document Class: elsart 2007/08/16, 2.20: Elsevier
-\@frontmatterwidth=\dimen102
-\@bls=\dimen103
-\eqntopsep=\skip41
-\eqnarraycolsep=\dimen104
-\labelwidthi=\dimen105
-\labelwidthii=\dimen106
-\labelwidthiii=\dimen107
-\labelwidthiv=\dimen108
-\@maxlistdepth=\count79
-\eqnbaselineskip=\skip42
-\eqnlineskip=\skip43
-\mathindent=\dimen109
-\rulepreskip=\dimen110
-\rulepostskip=\dimen111
+(./agv_sss.tex
+LaTeX2e <2001/06/01>
+Loading CZ hyphenation patterns: Pavel Sevecek, v3, 1995
+Loading SK hyphenation patterns: Jana Chlebikova, 1992
+Babel <v3.7h> and hyphenation patterns for english, dumylang, nohyphenation, cz
+ech, slovak, german, ngerman, spanish, catalan, french, ukenglish, italian, dut
+ch, polish, portuguese, russian, loaded.
+(c:/Program Files/TeXLive/texmf-local/tex/latex/llncs.cls
+Document Class: llncs 2004/08/17 v2.14 
+ LaTeX document class for Lecture Notes in Computer Science
+(c:/Program Files/TeXLive/texmf/tex/latex/base/article.cls
+Document Class: article 2001/04/21 v1.4e Standard LaTeX document class
+(c:/Program Files/TeXLive/texmf/tex/latex/base/size11.clo
+File: size11.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
 \c@section=\count80
 \c@subsection=\count81
 \c@subsubsection=\count82
 \c@paragraph=\count83
 \c@subparagraph=\count84
-("C:\Program Files\MiKTeX 2.8\tex\latex\base\latexsym.sty"
-Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
-\symlasy=\mathgroup4
-LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
-(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
 )
-\c@thm=\count85
-\c@alg=\count86
-\c@algorithm=\count87
-\c@note=\count88
-\c@summ=\count89
-\c@case=\count90
-\@tempcntc=\count91
-\c@figure=\count92
-\c@table=\count93
-\t@glob@notes=\toks14
-\t@loc@notes=\toks15
-\note@cnt=\count94
-\corauth@text=\toks16
-\email@text=\toks17
-\url@text=\toks18
-\c@corauth=\count95
-\c@author=\count96
-\n@author=\count97
-\c@collab=\count98
-\n@collab=\count99
-\c@address=\count100
-\sv@mathsurround=\dimen112
-\sv@hyphenpenalty=\count101
-\prev@elem=\count102
-\cur@elem=\count103
-\fm@box=\box26
-\fm@size=\dimen113
-\t@abstract=\box27
-\t@keyword=\box28
-\t@xtheight=\dimen114
-\@logoheight=\dimen115
-\@pubyear=\count104
-\c@firstpage=\count105
-\c@lastpage=\count106
-\slashbox=\box29
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 1415.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 1415.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 1415.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 1415.
-
-
-("C:\Program Files\MiKTeX 2.8\tex\latex\base\ulasy.fd"
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+(c:/Program Files/TeXLive/texmf/tex/latex/tools/multicol.sty
+Package: multicol 2000/07/10 v1.5z multicolumn formatting (FMi)
+\c@tracingmulticols=\count87
+\mult@box=\box26
+\multicol@leftmargin=\dimen103
+\c@unbalance=\count88
+\c@collectmore=\count89
+\doublecol@number=\count90
+\multicoltolerance=\count91
+\multicolpretolerance=\count92
+\full@width=\dimen104
+\page@free=\dimen105
+\premulticols=\dimen106
+\postmulticols=\dimen107
+\multicolsep=\skip43
+\multicolbaselineskip=\skip44
+\partial@page=\box27
+\last@line=\box28
+\mult@rightbox=\box29
+\mult@grightbox=\box30
+\mult@gfirstbox=\box31
+\mult@firstbox=\box32
+\@tempa=\box33
+\@tempa=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\c@columnbadness=\count93
+\c@finalcolumnbadness=\count94
+\last@try=\dimen108
+\multicolovershoot=\dimen109
+\multicolundershoot=\dimen110
+\mult@nat@firstbox=\box50
+\colbreak@box=\box51
 )
-\Slashbox=\box30
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 1416.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 1416.
+\c@chapter=\count95
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 360.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 361.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 362.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 363.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 364.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 365.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 366.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 367.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 368.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 369.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 370.
+\tocchpnum=\dimen111
+\tocsecnum=\dimen112
+\tocsectotal=\dimen113
+\tocsubsecnum=\dimen114
+\tocsubsectotal=\dimen115
+\tocsubsubsecnum=\dimen116
+\tocsubsubsectotal=\dimen117
+\tocparanum=\dimen118
+\tocparatotal=\dimen119
+\tocsubparanum=\dimen120
+\@tempcntc=\count96
+\fnindent=\dimen121
+\c@@inst=\count97
+\c@@auth=\count98
+\c@auco=\count99
+\instindent=\dimen122
+\authrun=\box52
+\authorrunning=\toks14
+\tocauthor=\toks15
+\titrun=\box53
+\titlerunning=\toks16
+\toctitle=\toks17
+\c@theorem=\count100
+\c@case=\count101
+\c@conjecture=\count102
+\c@corollary=\count103
+\c@definition=\count104
+\c@example=\count105
+\c@exercise=\count106
+\c@lemma=\count107
+\c@note=\count108
+\c@problem=\count109
+\c@property=\count110
+\c@proposition=\count111
+\c@question=\count112
+\c@solution=\count113
+\c@remark=\count114
+\headlineindent=\dimen123
 )
-("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsmath.sty"
+(c:/Program Files/TeXLive/texmf/tex/latex/amslatex/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
-\@mathmargin=\skip44
+\@mathmargin=\skip45
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amstext.sty"
+(c:/Program Files/TeXLive/texmf/tex/latex/amslatex/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsgen.sty"
+(c:/Program Files/TeXLive/texmf/tex/latex/amslatex/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks19
-\ex@=\dimen116
+\@emptytoks=\toks18
+\ex@=\dimen124
 ))
-("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsbsy.sty"
+(c:/Program Files/TeXLive/texmf/tex/latex/amslatex/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen117
+\pmbraise@=\dimen125
 )
-("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsopn.sty"
+(c:/Program Files/TeXLive/texmf/tex/latex/amslatex/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
-LaTeX Info: Redefining \operatorname on input line 58.
 )
-\inf@bad=\count107
+\inf@bad=\count115
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count108
-\leftroot@=\count109
+\uproot@=\count116
+\leftroot@=\count117
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count110
-\DOTSCASE@=\count111
+\classnum@=\count118
+\DOTSCASE@=\count119
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
-\Mathstrutbox@=\box31
-\strutbox@=\box32
-\big@size=\dimen118
+\Mathstrutbox@=\box54
+\strutbox@=\box55
+\big@size=\dimen126
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count112
-\c@MaxMatrixCols=\count113
+
+
+Package amsmath Warning: Unable to redefine math accent \vec.
+
+\macc@depth=\count120
+\c@MaxMatrixCols=\count121
 \dotsspace@=\muskip10
-\c@parentequation=\count114
-\dspbrk@lvl=\count115
-\tag@help=\toks20
-\row@=\count116
-\column@=\count117
-\maxfields@=\count118
-\andhelp@=\toks21
-\eqnshift@=\dimen119
-\alignsep@=\dimen120
-\tagshift@=\dimen121
-\tagwidth@=\dimen122
-\totwidth@=\dimen123
-\lineht@=\dimen124
-\@envbody=\toks22
-\multlinegap=\skip45
-\multlinetaggap=\skip46
-\mathdisplay@stack=\toks23
+\c@parentequation=\count122
+\dspbrk@lvl=\count123
+\tag@help=\toks19
+\row@=\count124
+\column@=\count125
+\maxfields@=\count126
+\andhelp@=\toks20
+\eqnshift@=\dimen127
+\alignsep@=\dimen128
+\tagshift@=\dimen129
+\tagwidth@=\dimen130
+\totwidth@=\dimen131
+\lineht@=\dimen132
+\@envbody=\toks21
+\multlinegap=\skip46
+\multlinetaggap=\skip47
+\mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
-)
-("C:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\amssymb.sty"
-Package: amssymb 2009/06/22 v3.00
+) (c:/Program Files/TeXLive/texmf/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
 
-("C:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\amsfonts.sty"
-Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
-\symAMSa=\mathgroup5
-\symAMSb=\mathgroup6
+(c:/Program Files/TeXLive/texmf/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
 ))
-("C:\Program Files\MiKTeX 2.8\tex\latex\eepic\epic.sty"
+(c:/Program Files/TeXLive/texmf-local/tex/latex/epic.sty
 Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
-\@@multicnt=\count119
-\d@lta=\count120
-\@delta=\dimen125
-\@@delta=\dimen126
-\@gridcnt=\count121
-\@joinkind=\count122
-\@dotgap=\dimen127
-\@ddotgap=\dimen128
-\@x@diff=\count123
-\@y@diff=\count124
-\x@diff=\dimen129
-\y@diff=\dimen130
-\@dotbox=\box33
-\num@segments=\count125
-\num@segmentsi=\count126
+\@@multicnt=\count127
+\d@lta=\count128
+\@delta=\dimen133
+\@@delta=\dimen134
+\@gridcnt=\count129
+\@joinkind=\count130
+\@dotgap=\dimen135
+\@ddotgap=\dimen136
+\@x@diff=\count131
+\@y@diff=\count132
+\x@diff=\dimen137
+\y@diff=\dimen138
+\@dotbox=\box56
+\num@segments=\count133
+\num@segmentsi=\count134
 \@datafile=\read1
-) ("C:\Program Files\MiKTeX 2.8\tex\latex\gastex\gastex.sty"
-Package: gastex 2006/11/28 v2.8
+) (c:/Program Files/TeXLive/texmf-local/tex/latex/gastex.sty
+Package: gastex 2004/05/02 v2.7
 
-("C:\Program Files\MiKTeX 2.8\tex\latex\tools\calc.sty"
-Package: calc 2005/08/06 v4.2 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count127
-\calc@Bcount=\count128
-\calc@Adimen=\dimen131
-\calc@Bdimen=\dimen132
-\calc@Askip=\skip47
-\calc@Bskip=\skip48
-LaTeX Info: Redefining \setlength on input line 75.
-LaTeX Info: Redefining \addtolength on input line 76.
-\calc@Ccount=\count129
-\calc@Cskip=\skip49
+(c:/Program Files/TeXLive/texmf-local/tex/latex/calc.sty
+Package: calc 1998/07/07 v4.1b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count135
+\calc@Bcount=\count136
+\calc@Adimen=\dimen139
+\calc@Bdimen=\dimen140
+\calc@Askip=\skip48
+\calc@Bskip=\skip49
+LaTeX Info: Redefining \setlength on input line 55.
+LaTeX Info: Redefining \addtolength on input line 56.
+\calc@denominator=\count137
 )
-("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\trig.sty"
+(c:/Program Files/TeXLive/texmf-local/tex/latex/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-\c@cnt@a=\count130
-\c@cnt@b=\count131
-\c@cnt@c=\count132
-\dim@x=\dimen133
-\dim@y=\dimen134
-\temp@box=\box34
-\d@my@unit=\dimen135
-\c@cnt@@a=\count133
-\c@cnt@@b=\count134
-\c@cnt@@c=\count135
+\c@cnt@a=\count138
+\c@cnt@b=\count139
+\c@cnt@c=\count140
+\dim@x=\dimen141
+\dim@y=\dimen142
+\temp@box=\box57
+\d@my@unit=\dimen143
+\c@cnt@@a=\count141
+\c@cnt@@b=\count142
+\c@cnt@@c=\count143
 )
-\c@theorem=\count136
-\symrsfscript=\mathgroup7
+\symrsfscript=\mathgroup6
+ (./agv_sss.aux
 
-No file agv_sss.aux.
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Try loading font information for U+msa on input line 34.
-("C:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+LaTeX Warning: Label `B5' multiply defined.
+
+
+LaTeX Warning: Label `theo' multiply defined.
+
+
+LaTeX Warning: Label `B5' multiply defined.
+
+
+LaTeX Warning: Label `theo' multiply defined.
+
+
+LaTeX Warning: Label `B5' multiply defined.
+
+
+LaTeX Warning: Label `theo' multiply defined.
+
+
+LaTeX Warning: Label `theo' multiply defined.
+
+
+LaTeX Warning: Label `B-star-6' multiply defined.
+
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 34.
+\openout1 = `agv_sss.aux'.
 
-("C:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Try loading font information for U+msa on input line 45.
+ (c:/Program Files/TeXLive/texmf/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for OMS+rsfs on input line 34.
+LaTeX Font Info:    Try loading font information for U+msb on input line 45.
+
+(c:/Program Files/TeXLive/texmf/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for OMS+rsfs on input line 45.
 
 
-("C:\Program Files\MiKTeX 2.8\tex\latex\calrsfs\omsrsfs.fd")
+(c:/Program Files/TeXLive/texmf/tex/latex/calrsfs/omsrsfs.fd) [1
 
-LaTeX Warning: Reference `cor1' on page 1 undefined on input line 41.
-
-\c@sv@footnote=\count137
-[1]
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+]
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
  []
-
-
-LaTeX Warning: Reference `Anan' on page 2 undefined on input line 127.
 
 [2] [3]
-
-LaTeX Warning: Reference `B5' on page 4 undefined on input line 190.
+Overfull \hbox (13.65317pt too wide) detected at line 180
+\OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
+/10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
+; b\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 m \OT1/cmr/m/n/10.95 + 1  ([]\OML
+/cmm/m/it/10.95 n\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 :
+ []
 
 [4]
-Overfull \hbox (50.82564pt too wide) detected at line 232
-\OML/cmm/m/it/12 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 m; a\OT1/cmr/m/n/12 ) = [] 
- \OML/cmm/m/it/12 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 m; b\OT1/cmr/m/n/12 ) = []
- \OML/cmm/m/it/12 :
+Overfull \hbox (69.63356pt too wide) detected at line 223
+\OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
+/10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
+; b\OT1/cmr/m/n/10.95 ) = [] \OML/cmm/m/it/10.95 :
  []
 
-
-LaTeX Warning: Reference `B5' on page 5 undefined on input line 233.
-
-[5]
-
-LaTeX Warning: Reference `B5' on page 6 undefined on input line 278.
-
-[6]
-Overfull \hbox (73.6448pt too wide) detected at line 326
-\OML/cmm/m/it/12 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 m; a\OT1/cmr/m/n/12 ) = [] 
- \OML/cmm/m/it/12 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 m; b\OT1/cmr/m/n/12 ) = []
- \OML/cmm/m/it/12 :
+[5] [6]
+Overfull \hbox (90.80605pt too wide) detected at line 317
+\OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
+/10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
+; b\OT1/cmr/m/n/10.95 ) = [] \OML/cmm/m/it/10.95 :
  []
-
-
-LaTeX Warning: Reference `B5' on page 7 undefined on input line 327.
 
 [7] [8] [9]
-Missing character: There is no ï in font cmr10!
-Missing character: There is no ¿ in font cmr10!
-Missing character: There is no ½ in font cmr10!
+Missing character: There is no ï in font cmr9!
+Missing character: There is no ¿ in font cmr9!
+Missing character: There is no ½ in font cmr9!
+ [10] [11] (./agv_sss.aux)
 
-Underfull \hbox (badness 6658) in paragraph at lines 480--485
-\OT1/cmr/m/n/10.95 con-cern-ing the []Cerny con-jec-ture, in R.Kralovic, P.U
-rzyczyn (eds.),
- []
-
-[10] [11] (C:\Users\gusev\Documents\tex_art\ananichevgusevvolkov\agv_sss.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2368 strings out of 495060
- 26163 string characters out of 3177627
- 87395 words of memory out of 3000000
- 5592 multiletter control sequences out of 15000+200000
- 18999 words of font info for 81 fonts, out of 3000000 for 9000
- 198 hyphenation exceptions out of 8191
- 27i,12n,24p,223b,283s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 2205 strings out of 50491
+ 24339 string characters out of 1189754
+ 90362 words of memory out of 1500001
+ 5147 multiletter control sequences out of 10000+15000
+ 19975 words of font info for 77 fonts, out of 400000 for 1000
+ 288 hyphenation exceptions out of 1000
+ 29i,12n,24p,223b,360s stack positions out of 1500i,500n,1500p,200000b,5000s
 
-Output written on agv_sss.dvi (11 pages, 46124 bytes).
+Output written on agv_sss.dvi (11 pages, 45516 bytes).
