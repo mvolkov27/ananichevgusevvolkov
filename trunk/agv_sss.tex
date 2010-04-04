@@ -144,11 +144,13 @@ for which $\gamma(D) = (n - 1)^2$.
 \section{Main results and slowly sinchronizing series}
 
 \begin{theorem}
-\theoremtext{n^2-3n+3}
+For each $n$, there exists strongly connected \san\ with $n$ states,
+such that it's shortest reset word is of length $n^2-3n+3$.
 \end{theorem}
 
 \begin{lemma}
-\lemmatext{(ab^{n - 2})^{n - 2}a}
+\label{lemma:anan}
+The word $(ab^{n - 2})^{n - 2}a$ is a reset word for the automaton $\mathrsfs{B}_n$.
 \end{lemma}
 
 \begin{figure}[ht]
@@ -163,7 +165,7 @@ for which $\gamma(D) = (n - 1)^2$.
 \drawedge[ELdist=1.7](n3,n1){$a, b$} \drawedge[ELdist=2.0](n1,n2){$a$}
 \end{picture}
 \end{center}
-\caption{The automaton $\mathrsfs{B}_5$}\label{Anan}
+\caption{The automaton $\mathrsfs{B}_5$}\label{fig:anan}
 \end{figure}
 
 The states of the automaton $\mathrsfs{B}_n$
@@ -177,26 +179,68 @@ $$
   \end{cases}
 \qquad \delta(m,b)=m+1\!\!\pmod{n}.
 $$
-The smallest automaton in the series is shown in Fig.~\ref{Anan}.
+The smallest automaton in the series is shown in Fig.~\ref{fig:anan}.
 
-{\bf proof}:
+\begin{proof}
 Let $w$ be \ssw . It is clear that action of $w$ leaves automaton $\mathrsfs{B}_n$ in state 2.
 For any $u \in \Sigma^*$ word $uw$ is synchronizing too and it also brings automaton to the state 2.
 In other words, there is a path in underlying
 digraph from any vertex to vertex 2 of length $p$, if $p \geq |w|$.
 Let us consider paths from 2 to 2. Every one of them is the combination of cycles of length $n$ and $n - 1$.
-Thus for any $p \ geq |w|$ the following is true: $p = xn + y(n - 1)$, where $x$ and $y$ are nonnegative integers.
+Thus for any $p \geq |w|$ the following is true: $p = xn + y(n - 1)$, where $x$ and $y$ are nonnegative integers.
 It is well known(See smth) that $n(n - 1) - n - (n - 1) = n^2 - 3n + 1$ is the greatest number that could not be represented
 as a nonegative integer combination of $n$ and $n - 1$. Thus $|w| \geq n^2 - 3n + 2$.
-Suppose that $|w| = n^2 - 3n + 2$ then there is a path of such length from state $1$ to state $2$. Applying
-it will immediately follow
+Suppose that $|w| = n^2 - 3n + 2$.
+%and  then there is a path of such length from state $1$ to state $2$.
+If we read this word from state $1$ then we get a path of length $n^2 - 3n + 1$ from $2$ to $2$ which is not possible due to previous
+statement. Thus $|w| \geq n^2 - 3n + 3$ but this bound is tight by lemma~\ref{lemma:anan}.
+\end{proof}
+\newpage
+
+\begin{theorem}\label{theo}
+\theoremtext{n^2-3n+3}
+\end{theorem}
+
+\begin{lemma}
+\lemmatext{(ab^{n - 2})^{n - 2}a}
+\end{lemma}
+
+\begin{figure}[ht]
+\begin{center}
+\unitlength .7mm
+\begin{picture}(112,76)(0,-86)
+\gasset{Nadjustdist=1.5} \node(n0)(56.0,-16.0){0}
+\node(n1)(24.0,-40.0){4} \node(n2)(88.0,-40.0){1}
+\node(n3)(36.0,-72.0){3} \node(n4)(76.0,-72.0){2}
+\drawloop[ELdist=1.5,loopangle=33.34](n2){$a$}
+\drawloop[ELdist=2.4,loopangle=320.0](n4){$a$}
+\drawedge[ELdist=2.0](n1,n0){$b$} \drawedge[ELdist=1.5](n2,n4){$b$}
+\drawedge[ELdist=1.7](n0,n2){$a, b$} \drawedge[ELdist=2.0](n4,n3){$b$}
+\drawedge[ELdist=1.7](n3,n1){$b$}
+%\drawedge[ELdist=2.0](n1,n2){$a$}
+%\drawedge[ELdist=2.0](n0,n4){$a$}
+\drawloop[ELdist=1.5,loopangle=144.55](n1){$a$}
+\drawloop[ELdist=1.5,loopangle=226.55](n3){$a$}
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{B}_5$}\label{B5}
+\end{figure}
+
+The states of the automaton $\mathrsfs{B}_n$
+are the residues modulo $n$ and its input letters $a$ and $b$ act
+as follows:
+$$
+ \delta(m,a)=
+ \begin{cases}
+  m + 2 \!\!\pmod{n} & \text{for $m = 0$}, \\
+  m \!\!\pmod{n} & \text{for $m \neq 0$};
+  \end{cases}
+\qquad \delta(m,b)=m+1\!\!\pmod{n}.
+$$
+The smallest automaton in the series is shown in Fig.~\ref{B5}.
 
 
 \newpage
-
-
-
-
 
 
 
