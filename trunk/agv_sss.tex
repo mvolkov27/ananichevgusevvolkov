@@ -96,7 +96,25 @@ bound of magnitude $O(n^2)$ for the minimum length of reset words for
 $n$-state \sa\ is known in general---the best upper bound achieved so
 far is $\frac{n^3-n}6$, see~\cite{Pi83}.
 
-
+One of the difficulties that one encounters when approaching the
+\v{C}ern\'{y} conjecture is that there are only very few examples
+of \emph{extreme} \sa, that is, $n$-state \sa\ whose shortest reset
+words have lengths $(n-1)^2$. In fact, the \v{C}ern\'{y} series
+$\mathrsfs{C}_n$, $n=2,3,\dotsc$, is the only known infinite series
+of extreme \sa. Besides that, we know only a few isolated examples
+of such automata, see \cite{Vo08} for a complete list of such
+sporadic extreme automata. Moreover, even \sa\ whose shortest reset
+words have lengths close to the \v{C}ern\'{y} bound are very rare.
+The observation that ``slowly'' \sa\ are to be rather exceptional
+is supported also by probabilistic arguments. For instance, Higgins~\cite{Hi88}
+has shown that the probability that a composition of $2n$ random self-maps
+of a set of size $n$ is a constant map tends to~1 as $n$ goes to infinity.
+In terms of automata, Higgins's result means that a random automaton
+with $n$ states and at least $2n$ input letters has a reset word of
+length $2n$. For further results of the same flavor see~\cite{SZ}.
+Thus, there is no hope to find new examples of ``slowly'' \sa, to
+say nothing of a counterexample to the \v{C}ern\'{y} conjecture,
+via a random sampling experiment.
 
 \section{Correlation between digraphs and automata}
 
@@ -458,33 +476,14 @@ French)
 Eppstein, D.: Reset sequences for monotonic automata. SIAM J.
 Comput. 19, 500--510 (1990)
 
-\bibitem{Fr82}
-P.\,Frankl, An extremal problem for two families of sets, Eur.\ J.
-Comb. 3 (1982) 125--127.
-
-\bibitem{Go93}
-K.\,Goldberg, Orienting polygonal parts without sensors,
-Algorithmica 10 (1993) 201--225.
-
 \bibitem{Hi88}
-P.\,M.\,Higgins, The range order of a product of $i$
-transformations from a finite full transformation semigroup,
-Semigroup Forum 37 (1988) 31--36.
+Higgins, P.M.: The range order of a product of $i$ transformations
+from a finite full transformation semigroup, Semigroup Forum 37, 31--36
+(1988)
 
 \bibitem{Ka03}
 Kari, J.: Synchronizing finite automata on Eulerian digraphs.
 Theoret.\ Comput.\ Sci. 295, 223--232 (2003)
-
-\bibitem{MS99}
-A.\,Mateescu, A.\,Salomaa, Many-valued truth functions,
-\v{C}ern\'{y}'s conjecture and road coloring, EATCS Bull. 68
-(1999) 134--150.
-
-\bibitem{Pi81}
-J.-E.\,Pin, Le probl\'eme de la synchronisation et la conjecture
-de \v{C}ern\'{y}, in A.\,De\,Luca (ed.), Non-commutative
-Structures in Algebra and Geometric Combinatorics [Quaderni de la
-Ricerca Scientifica 109], CNR, Roma, 1981, 37--48 [in French].
 
 \bibitem{Pi83}
 Pin, J.-E.: On two combinatorial problems arising from automata
@@ -499,6 +498,12 @@ Sandberg, S.: Homing and synchronizing sequences. In: Broy, M.
 et~al. (eds.), Model-Based Testing of Reactive Systems. Lect.\
 Notes Comput.\ Sci., vol.\, 3472, pp.\,5--33. Springer, Heidelberg
 (2005)
+
+\bibitem{SZ}
+Skvortsov E., Zaks Yu.: Synchronizing random automata. Submitted
+(A preliminary version in: Rigo, M. (ed.), AutoMathA 2009,
+Universit\'e de Li\`ege, 2009)
+
 
 \bibitem{Tr06}
 A.\,N.\,Trahtman, An efficient algorithm finds noticeable trends
