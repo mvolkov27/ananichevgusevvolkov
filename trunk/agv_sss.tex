@@ -1,0 +1,490 @@
+\documentclass[11pt]{elsart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{epic,gastex}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newcommand{\sa}{synchronizing automata}
+\newcommand{\san}{synchronizing automaton}
+\newcommand{\ssw}{the shortest synchronizing word}
+
+
+\DeclareMathOperator{\weight}{wg}
+
+\DeclareSymbolFont{rsfscript}{OMS}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathrsfs}{rsfscript}
+
+\newenvironment{proof}{\trivlist\item[\hskip\labelsep{\bf Proof}.]
+}{\endtrivlist}
+
+\newcommand{\theoremtext}[1]{
+For each $n$, there exists strongly connected \san\ with $n$ states, 
+such that it's shortest reset word is of length $#1$.
+}
+
+\newcommand{\lemmatext}[1]{
+The word $#1$
+is a reset word for the automaton $\mathrsfs{B}_n$.}
+
+
+\begin{document}
+\begin{frontmatter}
+\title{Slowly synchronizing automata and digraphs}
+
+\author{D. S. Ananichev},
+\ead{Dmitry.Ananichev@usu.ru}
+\ead{Mikhail.Volkov@usu.ru}
+\author{V. V. Gusev},
+\ead{vl.gusev@gmail.com}
+\author{M. V. Volkov\corauthref{cor1}}
+\corauth[cor1]{Corresponding author}
+
+\address{Department of Mathematics and Mechanics,\\
+Ural State University, 620083 Ekaterinburg, RUSSIA}
+
+
+%\thanks{Supported
+%by the Russian Foundation for Basic Research, grant 05-01-00540.}
+
+\begin{abstract}
+We present several infinite series of \sa\ 
+whose shortest reset words are close to conjectured by \v{C}ern\'{y} upper bound $(n - 1)^2$.
+%Connection with primitive digraphs with big exponent.
+\end{abstract}
+
+\begin{keyword}
+Deterministic finite automaton \sep Synchronizing automaton \sep
+Reset word \sep Road coloring problem  \sep \v{C}ern\'{y} conjecture \sep Primitive digraphs
+\end{keyword}
+\end{frontmatter}
+
+\section*{Background and motivation}
+
+\newpage
+\section{Correlation between digraphs and automata}
+
+\begin{theorem}\label{dulmage}
+Apart from isomorphism, there is exactly one primitive graph $D$
+on $n$ vertices for which $\gamma(D) = (n - 1)^2 + 1$, and exactly one
+for which $\gamma(D) = (n - 1)^2$.
+\end{theorem}
+
+8 states:\\
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+49 & 48 & 47 & 46 & 45 & 44 & 43 & 42 & 41 & 40 \\
+\hline
+1  & 0  & 0  & 0  & 0  & 1  & 1  & 3  & 1  & 5  \\
+\end{tabular}
+\vspace{0.7cm}
+
+9 states:\\
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+64 & 63 & 62 & 61 & 60 & 59 & 58 & 57 & 56 & 55 & 54 & 53 & 52 & 51 \\
+\hline
+1  & 0  & 0  & 0  & 0  & 0  & 1  & 2  & 3  & 0  & 0  & 0  & 4  & 4   \\
+\end{tabular}
+
+
+\section{Main results and slowly sinchronizing series}
+
+\begin{theorem}
+\theoremtext{n^2-3n+3}
+\end{theorem}
+
+\begin{lemma}
+\lemmatext{(ab^{n - 2})^{n - 2}a}
+\end{lemma}
+
+\begin{figure}[ht]
+\begin{center}
+\unitlength .7mm
+\begin{picture}(112,76)(0,-86)
+\gasset{Nadjustdist=1.5} \node(n0)(56.0,-16.0){1}
+\node(n1)(24.0,-40.0){0} \node(n2)(88.0,-40.0){2}
+\node(n3)(36.0,-72.0){4} \node(n4)(76.0,-72.0){3}
+\drawedge[ELdist=2.0](n1,n0){$b$} \drawedge[ELdist=1.5](n2,n4){$a, b$}
+\drawedge[ELdist=1.7](n0,n2){$a, b$} \drawedge[ELdist=2.0](n4,n3){$a, b$}
+\drawedge[ELdist=1.7](n3,n1){$a, b$} \drawedge[ELdist=2.0](n1,n2){$a$}
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{B}_5$}\label{Anan}
+\end{figure}
+
+The states of the automaton $\mathrsfs{B}_n$
+are the residues modulo $n$ and its input letters $a$ and $b$ act
+as follows:
+$$
+ \delta(m,a)=
+ \begin{cases}
+  m + 2\!\!\pmod{n} & \text{for $m = 0$}, \\
+  m+1\!\!\pmod{n} & \text{for $m \neq 0$};
+  \end{cases}
+\qquad \delta(m,b)=m+1\!\!\pmod{n}.
+$$
+The smallest automaton in the series is shown in Fig.~\ref{Anan}.
+
+{\bf proof}:
+Let $w$ be \ssw . It is clear that action of $w$ leaves automaton $\mathrsfs{B}_n$ in state 2. 
+For any $u \in \Sigma^*$ word $uw$ is synchronizing too and it also brings automaton to the state 2.
+In other words, there is a path in underlying
+digraph from any vertex to vertex 2 of length $p$, if $p \geq |w|$.
+Let us consider paths from 2 to 2. Every one of them is the combination of cycles of length $n$ and $n - 1$.
+Thus for any $p \ geq |w|$ the following is true: $p = xn + y(n - 1)$, where $x$ and $y$ are nonnegative integers.
+It is well known(See smth) that $n(n - 1) - n - (n - 1) = n^2 - 3n + 1$ is the greatest number that could not be represented
+as a nonegative integer combination of $n$ and $n - 1$. Thus $|w| \geq n^2 - 3n + 2$.
+Suppose that $|w| = n^2 - 3n + 2$ then there is a path of such length from state $1$ to state $2$. Applying
+it will immediately follow 
+
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+\begin{lemma}
+\lemmatext{(ab^{n - 2})^{n - 2}ba}
+\end{lemma}
+
+\begin{theorem}\label{theo}
+\theoremtext{n^2-3n+4}
+\end{theorem}
+
+
+\begin{figure}[ht]
+\begin{center}
+\unitlength .7mm
+\begin{picture}(112,76)(0,-86)
+\gasset{Nadjustdist=1.5} \node(n0)(56.0,-16.0){1}
+\node(n1)(24.0,-40.0){0} \node(n2)(88.0,-40.0){2}
+\node(n3)(36.0,-72.0){4} \node(n4)(76.0,-72.0){3}
+\drawedge[ELdist=2.0](n1,n0){$b$} \drawedge[ELdist=1.5](n2,n4){$a, b$}
+\drawedge[ELdist=1.7](n0,n2){$b$} \drawedge[ELdist=2.0](n4,n3){$a, b$}
+\drawedge[ELdist=1.7](n3,n1){$a, b$} \drawedge[ELpos=40, ELdist=2.0](n1,n2){$a$}
+\drawedge[ELpos=60,ELdist=2.0](n0,n4){$a$}
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{B}_5$}\label{B5}
+\end{figure}
+
+The states of the automaton $\mathrsfs{B}_n$
+are the residues modulo $n$ and its input letters $a$ and $b$ act
+as follows:
+$$
+ \delta(m,a)=
+ \begin{cases}
+  m + 2\!\!\pmod{n} & \text{for $m = 0,1$}, \\
+  m+1\!\!\pmod{n} & \text{for $1< m<n$};
+  \end{cases}
+\qquad \delta(m,b)=m+1\!\!\pmod{n}.
+$$
+The smallest automaton in the series is shown in Fig.~\ref{B5}.
+
+\newpage
+
+\begin{theorem}
+\theoremtext{n^2-3n+2}
+\end{theorem}
+
+\begin{lemma}
+\lemmatext{(ba^{n - 1})^{n - 3}ba}
+\end{lemma}
+
+\begin{figure}[ht]
+\begin{center}
+\unitlength .7mm
+\begin{picture}(112,76)(0,-86)
+\gasset{Nadjustdist=1.5} \node(n0)(56.0,-16.0){1}
+\node(n1)(24.0,-40.0){0} \node(n2)(88.0,-40.0){2}
+\node(n3)(36.0,-72.0){4} \node(n4)(76.0,-72.0){3}
+\drawedge[ELdist=2.0](n1,n0){$b$} \drawedge[ELdist=1.5](n2,n4){$a, b$}
+\drawedge[ELdist=1.7](n0,n2){$a$} \drawedge[ELdist=2.0](n4,n3){$a, b$}
+\drawedge[ELdist=1.7](n3,n1){$a, b$} \drawedge[ELpos=40, ELdist=2.0](n1,n2){$a$}
+\drawedge[ELpos=60,ELdist=2.0](n0,n4){$b$}
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{B}_5$}\label{B5}
+\end{figure}
+
+The states of the automaton $\mathrsfs{B}_n$
+are the residues modulo $n$ and its input letters $a$ and $b$ act
+as follows:
+$$
+ \delta(m,a)=
+ \begin{cases}
+  m+2\!\!\pmod{n} & \text{for $m = 1$}, \\
+  m+1\!\!\pmod{n} & \text{for $m \neq 0$};
+  \end{cases}
+\qquad \delta(m,b)=
+  \begin{cases}
+  m + 2\!\!\pmod{n} & \text{for $m = 1$}, \\
+  m+1\!\!\pmod{n} & \text{for $m \neq 1$};
+  \end{cases}.
+$$
+The smallest automaton in the series is shown in Fig.~\ref{B5}.
+
+\newpage
+
+
+\begin{theorem}\label{theo}
+\theoremtext{n^2-3n+3}
+\end{theorem}
+
+\begin{lemma}
+\lemmatext{(ab^{n - 2})^{n - 2}a}
+\end{lemma}
+
+\begin{figure}[ht]
+\begin{center}
+\unitlength .7mm
+\begin{picture}(112,76)(0,-86)
+\gasset{Nadjustdist=1.5} \node(n0)(56.0,-16.0){0}
+\node(n1)(24.0,-40.0){4} \node(n2)(88.0,-40.0){1}
+\node(n3)(36.0,-72.0){3} \node(n4)(76.0,-72.0){2}
+\drawloop[ELdist=1.5,loopangle=33.34](n2){$a$}
+\drawloop[ELdist=2.4,loopangle=320.0](n4){$a$}
+\drawedge[ELdist=2.0](n1,n0){$b$} \drawedge[ELdist=1.5](n2,n4){$b$}
+\drawedge[ELdist=1.7](n0,n2){$b$} \drawedge[ELdist=2.0](n4,n3){$b$}
+\drawedge[ELdist=1.7](n3,n1){$b$} 
+%\drawedge[ELdist=2.0](n1,n2){$a$}
+\drawedge[ELdist=2.0](n0,n4){$a$}
+\drawloop[ELdist=1.5,loopangle=144.55](n1){$a$}
+\drawloop[ELdist=1.5,loopangle=226.55](n3){$a$}
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{B}_5$}\label{B5}
+\end{figure}
+
+The states of the automaton $\mathrsfs{B}_n$
+are the residues modulo $n$ and its input letters $a$ and $b$ act
+as follows:
+$$
+ \delta(m,a)=
+ \begin{cases}
+  m + 2 \!\!\pmod{n} & \text{for $m = 0$}, \\
+  m \!\!\pmod{n} & \text{for $m \neq 0$};
+  \end{cases}
+\qquad \delta(m,b)=m+1\!\!\pmod{n}.
+$$
+The smallest automaton in the series is shown in Fig.~\ref{B5}.
+
+\newpage
+
+
+\begin{theorem}\label{theo}
+\theoremtext{n^2-3n+2}
+\end{theorem}
+
+\begin{lemma}
+\lemmatext{(aab^{n - 2})^{n - 3}aa}
+\end{lemma}
+
+\begin{figure}[ht]
+\begin{center}
+\unitlength .7mm
+\begin{picture}(112,76)(0,-86)
+\gasset{Nadjustdist=1.5} \node(n0)(56.0,-16.0){1}
+\node(n1)(24.0,-40.0){0} \node(n2)(88.0,-40.0){2}
+\node(n3)(36.0,-72.0){4} \node(n4)(76.0,-72.0){3}
+\drawloop[ELdist=1.5,loopangle=33.34](n2){$a$}
+\drawloop[ELdist=2.4,loopangle=320.0](n4){$a$}
+\drawedge[ELdist=2.0](n1,n0){$a$} \drawedge[ELdist=1.5](n2,n4){$b$}
+\drawedge[ELdist=1.7](n0,n2){$a, b$} \drawedge[ELdist=2.0](n4,n3){$b$}
+\drawedge[ELdist=1.7](n3,n1){$b$} 
+\drawedge[ELdist=2.0](n1,n2){$b$}
+%\drawedge[ELdist=2.0](n0,n4){$a$}
+%\drawloop[ELdist=1.5,loopangle=144.55](n1){$a$}
+\drawloop[ELdist=1.5,loopangle=226.55](n3){$a$}
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{B}_5$}\label{B5}
+\end{figure}
+
+The states of the automaton $\mathrsfs{B}_n$
+are the residues modulo $n$ and its input letters $a$ and $b$ act
+as follows:
+$$
+ \delta(m,a)=
+ \begin{cases}
+  m + 1 \!\!\pmod{n} & \text{for $m = 0, 1$}, \\
+  m \!\!\pmod{n} & \text{for $1 < m < n$};
+  \end{cases}
+\qquad 
+ \delta(m,b)=\begin{cases}
+  m + 2 \!\!\pmod{n} & \text{for $m = 0$}, \\
+  m + 1 \!\!\pmod{n} & \text{for $m \neq 0$};
+  \end{cases}.
+$$
+The smallest automaton in the series is shown in Fig.~\ref{B5}.
+
+\newpage
+
+\begin{theorem}\label{theo}
+\theoremtext{n^2-4n+6}
+\end{theorem}
+
+\begin{lemma}
+\lemmatext{b(ab^{n - 2})^{n - 3}ab}
+\end{lemma}
+
+
+\begin{figure}[th]
+\unitlength=.7mm
+\begin{center}
+\begin{picture}(100,70)(0,-80)
+\gasset{Nadjustdist=1.5} \node(n0)(56.0,-16.0){0}
+\node(n1)(24.0,-40.0){4} \node(n2)(88.0,-40.0){1}
+\node(n3)(36.0,-72.0){3} \node(n4)(76.0,-72.0){2}
+\drawloop[ELdist=2.4,loopangle=320.0](n4){$a$}
+\drawedge[ELdist=2.0](n1,n0){$b$} \drawedge[ELdist=1.5](n2,n4){$b$}
+\drawedge[ELdist=1.7](n0,n2){$b$} \drawedge[ELdist=2.0](n4,n3){$b$}
+\drawedge[ELdist=1.7](n3,n1){$b$}
+\node[NLangle=0.0](n16)(56.0,-48.0){5}
+%\drawedge[ELdist=1.6](n1,n16){$a$}
+\drawedge[ELdist=1.7](n16,n4){$b$}
+
+\drawedge[curvedepth=2](n0,n16){$a$}
+\drawedge[curvedepth=2](n16,n0){$a$}
+
+%\drawloop[ELdist=1.5,loopangle=90](n0){$a$}
+%\drawloop[ELdist=1.5](n16){$b$}
+%\drawedge[ELdist=1.5,curvedepth=33](n3,n0){$a$}
+\drawloop[ELdist=1.5,loopangle=144.55](n1){$a$}
+\drawloop[ELdist=1.5,loopangle=226.55](n3){$a$}
+\drawloop[ELdist=1.5,loopangle=33.34](n2){$a$}
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{B}^{\star}_6$}\label{B-star-6}
+\end{figure}
+
+\newpage
+
+\begin{theorem}\label{theo}
+\theoremtext{n^2-4n+6}
+\end{theorem}
+
+\begin{lemma}
+\lemmatext{b(ab^{n - 2})^{n - 3}ba}
+\end{lemma}
+
+
+\begin{figure}[th]
+\unitlength=.7mm
+\begin{center}
+\begin{picture}(100,70)(0,-80)
+\gasset{Nadjustdist=1.5} \node(n0)(56.0,-16.0){0}
+\node(n1)(24.0,-40.0){4} \node(n2)(88.0,-40.0){1}
+\node(n3)(36.0,-72.0){3} \node(n4)(76.0,-72.0){2}
+\drawloop[ELdist=2.4,loopangle=320.0](n4){$a$}
+\drawedge[ELdist=2.0](n1,n0){$b$} \drawedge[ELdist=1.5](n2,n4){$a, b$}
+\drawedge[ELdist=1.7](n0,n2){$b$} \drawedge[ELdist=2.0](n4,n3){$b$}
+\drawedge[ELdist=1.7](n3,n1){$b$}
+\node[NLangle=0.0](n16)(56.0,-48.0){5}
+\drawedge[ELdist=1.7](n16,n4){$b$}
+
+\drawedge[curvedepth=2](n0,n16){$a$}
+\drawedge[curvedepth=2](n16,n0){$a$}
+
+\drawloop[ELdist=1.5,loopangle=144.55](n1){$a$}
+\drawloop[ELdist=1.5,loopangle=226.55](n3){$a$}
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{B}^{\star}_6$}\label{B-star-6}
+\end{figure}
+
+\newpage
+
+
+\begin{thebibliography}{99}
+\itemsep -2pt
+
+\bibitem{AVZ}
+Dimitry S. Ananichev, Mikhail V. Volkov, Yu. I. Zaks, 
+Synchronizing automata with a letter of deficiency 2. Theor.\ Comput.\ Sci. 
+376 (2007)  30--41.
+
+\bibitem{AV05}
+D.\,S.\,Ananichev, M.\,V.\,Volkov, Synchronizing generalized
+monotonic automata, Theoret.\ Comput.\ Sci. 330 (2005) 3--13.
+
+\bibitem{Ce64}
+J.\,\v{C}ern\'{y}, Pozn\'amka k homog\'{e}nnym eksperimentom s
+konecn\'{y}mi automatami, Mat.-Fyz.\ Cas.\ Slovensk.\ Akad.\ Vied.
+14 (1964) 208--216 [in Slovak].
+
+\bibitem{Du98}
+L.\,Dubuc, Sur le automates circulaires et la conjecture de
+\v{C}ern\'y, RAIRO Inform.\ Theor.\ Appl., 32 (1998) 21--34 [in
+French].
+
+\bibitem{Ep90}
+D.\,Eppstein, Reset sequences for monotonic automata, SIAM J.
+Comput. 19 (1990) 500--510.
+
+\bibitem{Fr82}
+P.\,Frankl, An extremal problem for two families of sets, Eur.\ J.
+Comb. 3 (1982) 125--127.
+
+\bibitem{Go93}
+K.\,Goldberg, Orienting polygonal parts without sensors,
+Algorithmica 10 (1993) 201--225.
+
+\bibitem{Hi88}
+P.\,M.\,Higgins, The range order of a product of $i$
+transformations from a finite full transformation semigroup,
+Semigroup Forum 37 (1988) 31--36.
+
+\bibitem{Ka03}
+J.\,Kari, Synchronizing finite automata on Eulerian digraphs,
+Theoret.\ Comput.\ Sci. 295 (2003) 223--232.
+
+\bibitem{MS99}
+A.\,Mateescu, A.\,Salomaa, Many-valued truth functions,
+\v{C}ern\'{y}'s conjecture and road coloring, EATCS Bull. 68
+(1999) 134--150.
+
+\bibitem{Pi81}
+J.-E.\,Pin, Le probl\'eme de la synchronisation et la conjecture
+de \v{C}ern\'{y}, in A.\,De\,Luca (ed.), Non-commutative
+Structures in Algebra and Geometric Combinatorics [Quaderni de la
+Ricerca Scientifica 109], CNR, Roma, 1981, 37--48 [in French].
+
+\bibitem{Pi83}
+J.-E.\,Pin, On two combinatorial problems arising from automata
+theory, Ann.\ Discrete Math. 17 (1983) 535--548.
+
+\bibitem{Sa03}
+A.\,Salomaa, Composition sequences for functions over a finite
+domain, Theoret.\ Comput.\ Sci. 292 (2003) 263--281.
+
+\bibitem{Sa05}
+S.\,Sandberg, Homing and synchronizing sequences, in M.\,Broy
+et~al. (eds.), Model-Based Testing of Reactive Systems [Lect.\
+Notes Comput.\ Sci. 3472], Springer-Verlag, Berlin--Heidelberg,
+2005, 5--33.
+
+\bibitem{Tr-JALC}
+A.\,N.\,Trahtman, The \v{C}ern\'y conjecture for aperiodic
+automata, J. Automata, Languages and Combinatorics 11 (2006).
+
+\bibitem{Tr06}
+A.\,N.\,Trahtman, An efficient algorithm finds noticeable trends
+and examples concerning the \v{C}ern\'y conjecture, in
+R.\,Kr\'alovi\v{c}, P.\,Urzyczyn (eds.), Mathematical Foundations
+of Computer Science 2006 [Lect.\ Notes Comput.\ Sci. 4162],
+Springer-Verlag, Berlin--Heidelberg, 2006, 789�-800.
+
+\end{thebibliography}
+
+\newpage
+\section*{Appendix}
+\end{document}

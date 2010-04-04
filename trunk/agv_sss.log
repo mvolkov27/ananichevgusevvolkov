@@ -1,0 +1,302 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2009.9.12)  4 APR 2010 12:25
+entering extended mode
+**agv_sss.tex
+(C:\Users\gusev\Documents\tex_art\ananichevgusevvolkov\agv_sss.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman, ngerman, german-x-2009-06-19, ngerman-x-2009-06-19, french, russian, load
+ed.
+("C:\Program Files\MiKTeX 2.8\tex\latex\elsevier\elsart.cls"
+Document Class: elsart 2007/08/16, 2.20: Elsevier
+\@frontmatterwidth=\dimen102
+\@bls=\dimen103
+\eqntopsep=\skip41
+\eqnarraycolsep=\dimen104
+\labelwidthi=\dimen105
+\labelwidthii=\dimen106
+\labelwidthiii=\dimen107
+\labelwidthiv=\dimen108
+\@maxlistdepth=\count79
+\eqnbaselineskip=\skip42
+\eqnlineskip=\skip43
+\mathindent=\dimen109
+\rulepreskip=\dimen110
+\rulepostskip=\dimen111
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+("C:\Program Files\MiKTeX 2.8\tex\latex\base\latexsym.sty"
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+\c@thm=\count85
+\c@alg=\count86
+\c@algorithm=\count87
+\c@note=\count88
+\c@summ=\count89
+\c@case=\count90
+\@tempcntc=\count91
+\c@figure=\count92
+\c@table=\count93
+\t@glob@notes=\toks14
+\t@loc@notes=\toks15
+\note@cnt=\count94
+\corauth@text=\toks16
+\email@text=\toks17
+\url@text=\toks18
+\c@corauth=\count95
+\c@author=\count96
+\n@author=\count97
+\c@collab=\count98
+\n@collab=\count99
+\c@address=\count100
+\sv@mathsurround=\dimen112
+\sv@hyphenpenalty=\count101
+\prev@elem=\count102
+\cur@elem=\count103
+\fm@box=\box26
+\fm@size=\dimen113
+\t@abstract=\box27
+\t@keyword=\box28
+\t@xtheight=\dimen114
+\@logoheight=\dimen115
+\@pubyear=\count104
+\c@firstpage=\count105
+\c@lastpage=\count106
+\slashbox=\box29
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 1415.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 1415.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 1415.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 1415.
+
+
+("C:\Program Files\MiKTeX 2.8\tex\latex\base\ulasy.fd"
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+\Slashbox=\box30
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 1416.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 1416.
+)
+("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip44
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks19
+\ex@=\dimen116
+))
+("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen117
+)
+("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+LaTeX Info: Redefining \operatorname on input line 58.
+)
+\inf@bad=\count107
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count108
+\leftroot@=\count109
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count110
+\DOTSCASE@=\count111
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box31
+\strutbox@=\box32
+\big@size=\dimen118
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count112
+\c@MaxMatrixCols=\count113
+\dotsspace@=\muskip10
+\c@parentequation=\count114
+\dspbrk@lvl=\count115
+\tag@help=\toks20
+\row@=\count116
+\column@=\count117
+\maxfields@=\count118
+\andhelp@=\toks21
+\eqnshift@=\dimen119
+\alignsep@=\dimen120
+\tagshift@=\dimen121
+\tagwidth@=\dimen122
+\totwidth@=\dimen123
+\lineht@=\dimen124
+\@envbody=\toks22
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+("C:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2009/06/22 v3.00
+
+("C:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+))
+("C:\Program Files\MiKTeX 2.8\tex\latex\eepic\epic.sty"
+Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
+\@@multicnt=\count119
+\d@lta=\count120
+\@delta=\dimen125
+\@@delta=\dimen126
+\@gridcnt=\count121
+\@joinkind=\count122
+\@dotgap=\dimen127
+\@ddotgap=\dimen128
+\@x@diff=\count123
+\@y@diff=\count124
+\x@diff=\dimen129
+\y@diff=\dimen130
+\@dotbox=\box33
+\num@segments=\count125
+\num@segmentsi=\count126
+\@datafile=\read1
+) ("C:\Program Files\MiKTeX 2.8\tex\latex\gastex\gastex.sty"
+Package: gastex 2006/11/28 v2.8
+
+("C:\Program Files\MiKTeX 2.8\tex\latex\tools\calc.sty"
+Package: calc 2005/08/06 v4.2 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count127
+\calc@Bcount=\count128
+\calc@Adimen=\dimen131
+\calc@Bdimen=\dimen132
+\calc@Askip=\skip47
+\calc@Bskip=\skip48
+LaTeX Info: Redefining \setlength on input line 75.
+LaTeX Info: Redefining \addtolength on input line 76.
+\calc@Ccount=\count129
+\calc@Cskip=\skip49
+)
+("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+\c@cnt@a=\count130
+\c@cnt@b=\count131
+\c@cnt@c=\count132
+\dim@x=\dimen133
+\dim@y=\dimen134
+\temp@box=\box34
+\d@my@unit=\dimen135
+\c@cnt@@a=\count133
+\c@cnt@@b=\count134
+\c@cnt@@c=\count135
+)
+\c@theorem=\count136
+\symrsfscript=\mathgroup7
+
+No file agv_sss.aux.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Try loading font information for U+msa on input line 34.
+("C:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 34.
+
+("C:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for OMS+rsfs on input line 34.
+
+
+("C:\Program Files\MiKTeX 2.8\tex\latex\calrsfs\omsrsfs.fd")
+
+LaTeX Warning: Reference `cor1' on page 1 undefined on input line 41.
+
+\c@sv@footnote=\count137
+[1]
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
+
+ []
+
+
+LaTeX Warning: Reference `Anan' on page 2 undefined on input line 127.
+
+[2] [3]
+
+LaTeX Warning: Reference `B5' on page 4 undefined on input line 190.
+
+[4]
+Overfull \hbox (50.82564pt too wide) detected at line 232
+\OML/cmm/m/it/12 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 m; a\OT1/cmr/m/n/12 ) = [] 
+ \OML/cmm/m/it/12 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 m; b\OT1/cmr/m/n/12 ) = []
+ \OML/cmm/m/it/12 :
+ []
+
+
+LaTeX Warning: Reference `B5' on page 5 undefined on input line 233.
+
+[5]
+
+LaTeX Warning: Reference `B5' on page 6 undefined on input line 278.
+
+[6]
+Overfull \hbox (73.6448pt too wide) detected at line 326
+\OML/cmm/m/it/12 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 m; a\OT1/cmr/m/n/12 ) = [] 
+ \OML/cmm/m/it/12 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 m; b\OT1/cmr/m/n/12 ) = []
+ \OML/cmm/m/it/12 :
+ []
+
+
+LaTeX Warning: Reference `B5' on page 7 undefined on input line 327.
+
+[7] [8] [9]
+Missing character: There is no ï in font cmr10!
+Missing character: There is no ¿ in font cmr10!
+Missing character: There is no ½ in font cmr10!
+
+Underfull \hbox (badness 6658) in paragraph at lines 480--485
+\OT1/cmr/m/n/10.95 con-cern-ing the []Cerny con-jec-ture, in R.Kralovic, P.U
+rzyczyn (eds.),
+ []
+
+[10] [11] (C:\Users\gusev\Documents\tex_art\ananichevgusevvolkov\agv_sss.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 2368 strings out of 495060
+ 26163 string characters out of 3177627
+ 87395 words of memory out of 3000000
+ 5592 multiletter control sequences out of 15000+200000
+ 18999 words of font info for 81 fonts, out of 3000000 for 9000
+ 198 hyphenation exceptions out of 8191
+ 27i,12n,24p,223b,283s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on agv_sss.dvi (11 pages, 46124 bytes).
