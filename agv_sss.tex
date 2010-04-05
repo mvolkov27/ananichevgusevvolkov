@@ -45,9 +45,10 @@ Mikhail.Volkov@usu.ru}}
 \maketitle
 
 \begin{abstract}
-We present several infinite series of \sa\
-whose shortest reset words are close to conjectured by \v{C}ern\'{y} upper bound $(n - 1)^2$.
-%Connection with primitive digraphs with big exponent.
+We present several infinite series of \sa\ for which
+the minimum length of reset words is close to the
+square of the number of states. These automata are
+closely related to primitive  matrices with large exponent.
 \end{abstract}
 
 
@@ -73,8 +74,8 @@ A DFA $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$ is called
 \emph{synchronizing} if the action of some word $w\in\Sigma^*$
 resets $\mathrsfs{A}$, that is, leaves the automaton in one
 particular state no matter at which state in $Q$ it is applied:
-$\delta(q,w)=\delta(q',w)$ for all $q,q'\in Q$. Any word $w$
-with this property is said to be a \emph{reset word} for the DFA.
+$\delta(q,w)=\delta(q',w)$ for all $q,q'\in Q$. Any such word $w$
+is said to be a \emph{reset word} for the DFA.
 
 Synchronizing automata serve as transparent and natural models of
 error-resistant systems in many applications (coding theory, robotics,
@@ -90,22 +91,21 @@ $(n-1)^2$. Soon after that \v{C}ern\'{y} conjectured that these automata
 represent the worst possible case, that is, every \san\ with $n$ states
 can be reset by a word of length $(n-1)^2$. This imply looking conjecture
 resists researchers' efforts for more than 40 years. Even though the
-conjecture has been confirmed for various restricted classes of \sa\ (cf.\
-\cite{Ep90,Du98,Ka03,Tr07,Vo09}, to mention a few advances only), no upper
-bound of magnitude $O(n^2)$ for the minimum length of reset words for
-$n$-state \sa\ is known in general---the best upper bound achieved so
-far is $\frac{n^3-n}6$, see~\cite{Pi83}.
+conjecture has been confirmed for various restricted classes of \sa\
+(cf., e.g., \cite{Ep90,Du98,Ka03,Tr07,AS09,Vo09}, no upper bound of magnitude
+$O(n^2)$ for the minimum length of reset words for $n$-state \sa\ is known
+in general---the best upper bound achieved so far is $\frac{n^3-n}6$,
+see~\cite{Pi83}.
 
 One of the difficulties that one encounters when approaching the
 \v{C}ern\'{y} conjecture is that there are only very few examples
 of \emph{extreme} \sa, that is, $n$-state \sa\ whose shortest reset
-words have lengths $(n-1)^2$. In fact, the \v{C}ern\'{y} series
+words have length $(n-1)^2$. In fact, the \v{C}ern\'{y} series
 $\mathrsfs{C}_n$, $n=2,3,\dotsc$, is the only known infinite series
 of extreme \sa. Besides that, we know only a few isolated examples
-of such automata: up to now their complete list (see~\cite{Vo08})
-consists of 8 automata of which the largest has 6 states. Moreover,
+of such automata, see~\cite{Vo08} for a complete list. Moreover,
 even \emph{slowly} \sa, that is, \sa\ whose shortest reset words have
-lengths close to the \v{C}ern\'{y} bound are very rare. This empirical
+length close to the \v{C}ern\'{y} bound are very rare. This empirical
 observation is supported also by probabilistic arguments. For instance,
 Higgins~\cite{Hi88} has shown that the probability that a composition of $2n$
 random self-maps of a set of size $n$ is a constant map tends to~1 as $n$
@@ -113,24 +113,23 @@ goes to infinity. In terms of automata, Higgins's result means that
 a random automaton with $n$ states and at least $2n$ input letters
 has a reset word of length $2n$. For further results of the same flavor
 see~\cite{SZ}. Thus, there is no hope to find new examples of slowly
-\sa, to say nothing of a counterexample to the \v{C}ern\'{y}
-conjecture, via a random sampling experiment.
+\sa\ via a random sampling experiment.
 
-We therefore have designed and performed a series of exhaustive search
+We therefore have designed and performed a set of exhaustive search
 experiments. Our experiments are briefly described in Section~\ref{experiments}
 while the main body of the paper is devoted to a theoretical analysis
 of their outcome. We concentrate on two principal issues. In Section~\ref{matrices}
 we discuss a remarkable analogy between the distribution of lengths of shortest
-reset words for \sa\ and the distribution of exponents of primitive non-negative
-matrices. Section~\ref{sss} presents several new series of slowly \sa.
-The ``initial'' examples in these series have been discovered in the course
-of the experiments; then each example has been expanded to a series of automata
-that have been proved to be slowly synchronizing. In our opinion, the proof
-technique is also of interest; in fact, we provide a transparent and uniform
-approach to all slowly \sa\ with 2 input letters, both new ones and already
+reset words for \sa\ and the distribution of exponents of primitive matrices.
+Section~\ref{sss} collects several new series of slowly \sa. The ``initial''
+examples in the series were found in the course of the experiments; then
+each example was expanded to a series of automata that have been proved
+to be slowly synchronizing. In our opinion, the proof technique is also
+of interest; in fact, we provide a transparent and uniform approach to all
+sufficiently large slowly \sa\ with 2~input letters, both new and already
 known ones.
 
-
+\section{Preliminaries on automata, graphs and matrices}
 
 \section{Correlation between digraphs and automata}
 \label{matrices}
@@ -520,10 +519,15 @@ The smallest automaton in the series is shown in Fig.~\ref{B5}.
 \label{experiments}
 
 \begin{thebibliography}{99}
+\bibitem{AS09}
+Almeida, J.; Steinberg, B.: Matrix mortality and the \v{C}ern\'{y}--Pin
+conjecture. In:  Diekert, V.; Nowotka, D. (eds.), Developments in
+Language Theory, Lect.\ Notes Comput.\ Sci., vol.\,5583, pp. 67--80.
+Springer, Heidelberg (2009)
+
 \bibitem{AVZ}
-Dimitry S. Ananichev, Mikhail V. Volkov, Yu. I. Zaks,
-Synchronizing automata with a letter of deficiency 2. Theor.\ Comput.\ Sci.
-376 (2007)  30--41.
+Ananichev, D.S., Volkov, M.V., Zaks, Yu.I.: Synchronizing automata
+with a letter of deficiency 2. Theor.\ Comput.\ Sci. 376, 30--41 (2007)
 
 \bibitem{Ce64}
 \v{C}ern\'{y}, J.: Pozn\'{a}mka k homog\'{e}nnym eksperimentom s
