@@ -104,17 +104,17 @@ $\mathrsfs{C}_n$, $n=2,3,\dotsc$, is the only known infinite series
 of extreme \sa. Besides that, we know only a few isolated examples
 of such automata: up to now their complete list (see~\cite{Vo08})
 consists of 8 automata of which the largest has 6 states. Moreover,
-even \sa\ whose shortest reset words have lengths close to the \v{C}ern\'{y}
-bound are very rare. The observation that ``slowly'' \sa\ are to be rather
-exceptional is supported also by probabilistic arguments. For instance,
+even \emph{slowly} \sa, that is, \sa\ whose shortest reset words have
+lengths close to the \v{C}ern\'{y} bound are very rare. This empirical
+observation is supported also by probabilistic arguments. For instance,
 Higgins~\cite{Hi88} has shown that the probability that a composition of $2n$
 random self-maps of a set of size $n$ is a constant map tends to~1 as $n$
 goes to infinity. In terms of automata, Higgins's result means that
 a random automaton with $n$ states and at least $2n$ input letters
 has a reset word of length $2n$. For further results of the same flavor
-see~\cite{SZ}. Thus, there is no hope to find new examples of ``slowly''
-\sa, to say nothing of a counterexample to the \v{C}ern\'{y} conjecture,
-via a random sampling experiment.
+see~\cite{SZ}. Thus, there is no hope to find new examples of slowly
+\sa, to say nothing of a counterexample to the \v{C}ern\'{y}
+conjecture, via a random sampling experiment.
 
 We therefore have designed and performed a series of exhaustive search
 experiments. Our experiments are briefly described in Section~\ref{experiments}
@@ -122,8 +122,13 @@ while the main body of the paper is devoted to a theoretical analysis
 of their outcome. We concentrate on two principal issues. In Section~\ref{matrices}
 we discuss a remarkable analogy between the distribution of lengths of shortest
 reset words for \sa\ and the distribution of exponents of primitive non-negative
-matrices. Section~\ref{sss} contains a description of several new series of
-``slowly'' \sa. The ``initial'' automata of these series have been discovered
+matrices. Section~\ref{sss} presents several new series of slowly \sa.
+The ``initial'' examples in these series have been discovered in the course
+of the experiments; then each example has been expanded to a series of automata
+that have been proved to be slowly synchronizing. In our opinion, the proof
+technique is also of interest; in fact, we provide a transparent and uniform
+approach to all slowly \sa\ with 2 input letters, both new ones and already
+known ones.
 
 
 
