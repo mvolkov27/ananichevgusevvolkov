@@ -5,7 +5,7 @@
 
 \newcommand{\sa}{synchronizing automata}
 \newcommand{\san}{synchronizing automaton}
-\newcommand{\ssw}{the shortest synchronizing word}
+\newcommand{\ssw}{a reset word of minimum length}
 
 
 \DeclareMathOperator{\weight}{wg}
@@ -102,21 +102,33 @@ of \emph{extreme} \sa, that is, $n$-state \sa\ whose shortest reset
 words have lengths $(n-1)^2$. In fact, the \v{C}ern\'{y} series
 $\mathrsfs{C}_n$, $n=2,3,\dotsc$, is the only known infinite series
 of extreme \sa. Besides that, we know only a few isolated examples
-of such automata, see \cite{Vo08} for a complete list of such
-sporadic extreme automata. Moreover, even \sa\ whose shortest reset
-words have lengths close to the \v{C}ern\'{y} bound are very rare.
-The observation that ``slowly'' \sa\ are to be rather exceptional
-is supported also by probabilistic arguments. For instance, Higgins~\cite{Hi88}
-has shown that the probability that a composition of $2n$ random self-maps
-of a set of size $n$ is a constant map tends to~1 as $n$ goes to infinity.
-In terms of automata, Higgins's result means that a random automaton
-with $n$ states and at least $2n$ input letters has a reset word of
-length $2n$. For further results of the same flavor see~\cite{SZ}.
-Thus, there is no hope to find new examples of ``slowly'' \sa, to
-say nothing of a counterexample to the \v{C}ern\'{y} conjecture,
+of such automata: up to now their complete list (see~\cite{Vo08})
+consists of 8 automata of which the largest has 6 states. Moreover,
+even \sa\ whose shortest reset words have lengths close to the \v{C}ern\'{y}
+bound are very rare. The observation that ``slowly'' \sa\ are to be rather
+exceptional is supported also by probabilistic arguments. For instance,
+Higgins~\cite{Hi88} has shown that the probability that a composition of $2n$
+random self-maps of a set of size $n$ is a constant map tends to~1 as $n$
+goes to infinity. In terms of automata, Higgins's result means that
+a random automaton with $n$ states and at least $2n$ input letters
+has a reset word of length $2n$. For further results of the same flavor
+see~\cite{SZ}. Thus, there is no hope to find new examples of ``slowly''
+\sa, to say nothing of a counterexample to the \v{C}ern\'{y} conjecture,
 via a random sampling experiment.
 
+We therefore have designed and performed a series of exhaustive search
+experiments. Our experiments are briefly described in Section~\ref{experiments}
+while the main body of the paper is devoted to a theoretical analysis
+of their outcome. We concentrate on two principal issues. In Section~\ref{matrices}
+we discuss a remarkable analogy between the distribution of lengths of shortest
+reset words for \sa\ and the distribution of exponents of primitive non-negative
+matrices. Section~\ref{sss} contains a description of several new series of
+``slowly'' \sa. The ``initial'' automata of these series have been discovered
+
+
+
 \section{Correlation between digraphs and automata}
+\label{matrices}
 
 \begin{theorem}\label{dulmage}
 Apart from isomorphism, there is exactly one primitive graph $D$
@@ -142,6 +154,7 @@ for which $\gamma(D) = (n - 1)^2$.
 
 
 \section{Main results and slowly sinchronizing series}
+\label{sss}
 
 \begin{theorem}
 For each $n$, there exists strongly connected \san\ with $n$ states,
@@ -498,7 +511,8 @@ The smallest automaton in the series is shown in Fig.~\ref{B5}.
 \caption{The automaton $\mathrsfs{B}^{\star}_6$}\label{B-star-6}
 \end{figure}
 
-
+\section{Experiments}
+\label{experiments}
 
 \begin{thebibliography}{99}
 \bibitem{AVZ}
@@ -540,21 +554,20 @@ domain, Theoret.\ Comput.\ Sci. 292 (2003) 263--281.
 \bibitem{Sa05}
 Sandberg, S.: Homing and synchronizing sequences. In: Broy, M.
 et~al. (eds.), Model-Based Testing of Reactive Systems. Lect.\
-Notes Comput.\ Sci., vol.\, 3472, pp.\,5--33. Springer, Heidelberg
+Notes Comput.\ Sci., vol.\,3472, pp.\,5--33. Springer, Heidelberg
 (2005)
 
 \bibitem{SZ}
-Skvortsov E., Zaks Yu.: Synchronizing random automata. Submitted
-(A preliminary version in: Rigo, M. (ed.), AutoMathA 2009,
-Universit\'e de Li\`ege, 2009)
-
+Skvortsov E., Zaks Yu.: Synchronizing random automata. Submitted;
+proceedings version in: Rigo, M. (ed.), AutoMathA 2009, Universit\'e
+de Li\`ege (2009)
 
 \bibitem{Tr06}
-A.\,N.\,Trahtman, An efficient algorithm finds noticeable trends
-and examples concerning the \v{C}ern\'y conjecture, in
-R.\,Kr\'alovi\v{c}, P.\,Urzyczyn (eds.), Mathematical Foundations
-of Computer Science 2006 [Lect.\ Notes Comput.\ Sci. 4162],
-Springer-Verlag, Berlin--Heidelberg, 2006, 789--800.
+Trahtman, A.: An efficient algorithm finds noticeable trends
+and examples concerning the \v{C}ern\'y conjecture. In:
+Kr\'alovi\v{c}, R.; Urzyczyn, P. (eds.), Mathematical Foundations
+of Computer Science. Lect.\ Notes Comput.\ Sci., vol.\,4162, pp.\,789--800
+Springer, Heidelberg (2006)
 
 \bibitem{Tr07}
 Trahtman, A.: The \v{C}ern\'y conjecture for aperiodic automata.
@@ -562,7 +575,7 @@ Discrete Math.\ Theor.\ Comput.\ Sci. 9(2), 3--10 (2007)
 
 \bibitem{Vo08}
 Volkov, M.V.: Synchronizing automata and the \v{C}ern\'{y}
-conjecture. In: Mart\'\i{}n-Vide, C.; Otto, F.; Fernau, H. (eds.)
+conjecture. In: Mart\'\i{}n-Vide, C.; Otto, F.; Fernau, H. (eds.),
 Languages and Automata: Theory and Applications. Lect.\ Notes
 Comput.\ Sci., vol.\,5196, pp.\,11--27.  Springer, Heidelberg (2008)
 
@@ -571,6 +584,7 @@ Volkov, M.V.: Synchronizing automata preserving a chain of partial
 orders. Theoret.\ Comput.\ Sci. 410, 2992--2998 (2009)
 \end{thebibliography}
 
-\newpage
+
 \section*{Appendix}
+
 \end{document}
