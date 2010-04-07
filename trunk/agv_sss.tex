@@ -87,12 +87,12 @@ conjecture that constitutes a major open problem in this area.
 
 In~1964 \v{C}ern\'{y}~\cite{Ce64} constructed for each $n>1$ a \san\
 $\mathrsfs{C}_n$ with $n$ states whose shortest reset word has length
-$(n-1)^2$. Soon after that \v{C}ern\'{y} conjectured that these automata
+$(n-1)^2$. Soon after that he conjectured that these automata
 represent the worst possible case, that is, every \san\ with $n$ states
 can be reset by a word of length $(n-1)^2$. This imply looking conjecture
 resists researchers' efforts for more than 40 years. Even though the
 conjecture has been confirmed for various restricted classes of \sa\
-(cf., e.g., \cite{Ep90,Du98,Ka03,Tr07,AS09,Vo09}, no upper bound of magnitude
+(cf., e.g., \cite{Ep90,Du98,Ka03,Tr07,AS09,Vo09}), no upper bound of magnitude
 $O(n^2)$ for the minimum length of reset words for $n$-state \sa\ is known
 in general---the best upper bound achieved so far is $\frac{n^3-n}6$,
 see~\cite{Pi83}.
@@ -129,7 +129,15 @@ of interest; in fact, we provide a transparent and uniform approach to all
 sufficiently large slowly \sa\ with 2~input letters, both new and already
 known ones.
 
-\section{Preliminaries on automata, graphs and matrices}
+\section{Preliminaries on automata, digraphs and matrices}
+\label{preliminaries}
+
+Given a DFA $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$, its \emph{underlying
+digraph} $D(\mathrsfs{A})$ has $Q$ as the vertex set and $(q,q')\in Q\times Q$ is
+an arrow of $D(\mathrsfs{A})$ if and only if $q'=\delta(q,a)$ for some $a\in\Sigma$.
+If a digraph $D$ is isomorphic to the underlying digraph of some DFA $\mathrsfs{A}$,
+we say that $\mathrsfs{A}$ is a \emph{coloring} of $D$.
+
 
 \section{Correlation between digraphs and automata}
 \label{matrices}

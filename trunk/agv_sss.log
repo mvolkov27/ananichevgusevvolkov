@@ -1,4 +1,4 @@
-This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  5 APR 2010 18:27
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  7 APR 2010 11:56
 **agv_sss.tex
 (./agv_sss.tex
 LaTeX2e <2001/06/01>
@@ -316,12 +316,12 @@ m/n/10.95 = \OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 Q; ^^F; ^^N\OMS/cmsy/m/n/1
 Underfull \vbox (badness 5787) has occurred while \output is active []
 
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 143--144
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
 
  []
 
 [3] [4] [5]
-Overfull \hbox (13.65317pt too wide) detected at line 303
+Overfull \hbox (13.65317pt too wide) detected at line 309
 \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
 /10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
 ; b\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 m \OT1/cmr/m/n/10.95 + 1  ([]\OML
@@ -329,14 +329,14 @@ Overfull \hbox (13.65317pt too wide) detected at line 303
  []
 
 [6]
-Overfull \hbox (69.63356pt too wide) detected at line 346
+Overfull \hbox (69.63356pt too wide) detected at line 352
 \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
 /10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
 ; b\OT1/cmr/m/n/10.95 ) = [] \OML/cmm/m/it/10.95 :
  []
 
 [7] [8]
-Overfull \hbox (90.80605pt too wide) detected at line 440
+Overfull \hbox (90.80605pt too wide) detected at line 446
 \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
 /10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
 ; b\OT1/cmr/m/n/10.95 ) = [] \OML/cmm/m/it/10.95 :
@@ -348,12 +348,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2210 strings out of 50491
- 24389 string characters out of 1189754
- 90362 words of memory out of 1500001
- 5152 multiletter control sequences out of 10000+15000
+ 2211 strings out of 50491
+ 24404 string characters out of 1189754
+ 92362 words of memory out of 1500001
+ 5153 multiletter control sequences out of 10000+15000
  19975 words of font info for 77 fonts, out of 400000 for 1000
  288 hyphenation exceptions out of 1000
  29i,12n,24p,223b,360s stack positions out of 1500i,500n,1500p,200000b,5000s
 
-Output written on agv_sss.dvi (12 pages, 57300 bytes).
+Output written on agv_sss.dvi (12 pages, 57624 bytes).
