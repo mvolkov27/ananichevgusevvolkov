@@ -120,7 +120,7 @@ experiments. Our experiments are briefly described in Section~\ref{experiments}
 while the main body of the paper is devoted to a theoretical analysis
 of their outcome. We concentrate on two principal issues. In Section~\ref{matrices}
 we discuss a remarkable analogy between the distribution of lengths of shortest
-reset words for \sa\ and the distribution of exponents of primitive matrices.
+reset words for \sa\ and the distribution of exponents of primitive digraphs.
 Section~\ref{sss} collects several new series of slowly \sa. The ``initial''
 examples in the series were found in the course of the experiments; then
 each example was expanded to a series of automata that have been proved
@@ -129,14 +129,16 @@ of interest; in fact, we provide a transparent and uniform approach to all
 sufficiently large slowly \sa\ with 2~input letters, both new and already
 known ones.
 
-\section{Preliminaries on automata, digraphs and matrices}
+\section{Preliminaries on digraphs and their colorings}
 \label{preliminaries}
 
 A \emph{directed graph} (digraph) is a pair $D=\langle V,E\rangle$ where $V$ is
 a finite set and $E\subseteq V\times V$. We refer to elements of $V$ and $E$ as
 \emph{vertices} and \emph{edges}. Observe that our definition allows loops but
 excludes multiple edges. If $v,v'\in V$ and $e=(v,v')\in E$, the edge $e$ is said
-to be \emph{outgoing} for $v$.
+to be \emph{outgoing} for $v$. We assume the reader's acquaintance with basic
+notions of the theory of directed graphs such as (directed) path, cycle,
+isomorphism etc.
 
 Given a DFA $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$, its \emph{underlying
 digraph} $D(\mathrsfs{A})$ has $Q$ as the vertex set and $(q,q')\in Q\times Q$ is
@@ -199,6 +201,40 @@ digraph and two of its colorings by $\Sigma=\{a,b\}$.
  \caption{A digraph and two of its colorings}
  \label{fig:cerny}
 \end{figure}
+
+Given a digraph $D=\langle V,E\rangle$, its matrix $M(D)$ is just
+the incidence matrix of the edge relation, that is, a $V\times V$-matrix
+whose entry in the row $v$ and the column $v'$ is 1 if $(v,v')\in E$ and
+0 otherwise. For instance, the matrix of the digraph in Fig.~1 (with respect
+to the chosen numbering of its vertices) is $\left(\begin{smallmatrix}1&1&0&0\\
+0&1&1&0\\ 0&0&1&1\\ 1&0&0&0 \end{smallmatrix}\right)$. Conversely, given
+an $n\times n$-matrix $P=(p_{ij})$ with non-negative real entries, we assign
+to it a digraph $D(P)$ on the set $\{1,2,\dots,n\}$ as follows: $(i,j)$ is an
+edge of $D(P)$ if and only if $p_{ij}>0$. Clearly, $D(M(D))\cong D$ for every
+digraph $D$. It is this correspondence that allows us to formulate in terms
+of digraphs several important for the sequel notions and results which
+originated in the classical Perron--Frobenius theory of non-negative matrices.
+
+Recall that a digraph $D=\langle V,E\rangle$ is said to be \emph{strongly
+connected} if for every pair $(v,v')\in V\times V$, there exists a path
+from $v$ to $v'$. When studying the \v{C}ern\'{y} conjecture, we may
+restrict ourselves to automata whose underlying digraphs are strongly
+connected because the validity of the conjecture can be easily reduced
+to this case (see \cite{Pi78} for example). By the $t^{th}$ \emph{power}
+of $D$ we mean the digraph $D^t$ with the same vertex set $V$, such that
+$(v,v')\in V\times V$ is an edge of $D^t$ if and only if there is a path
+in $D$ from $v$ to $v'$ of length precisely $t$. A strongly connected digraph
+$D$ is called \emph{primitive} if the greatest common divisor of the lengths
+of all cycles in $D$ is equal to~1. (In the literature such graphs are sometimes
+called \emph{aperiodic}.)
+
+The following elementary result is well known:
+\begin{lemma}[{\mdseries\cite[Theorem 1.0.1]{RaAl05}}]
+\label{schur}
+If $a_1,\dots,a_n$ are positive integer whose greatest common divisor is equal
+to~$1$, then there exists an integer $N$ such that every integer larger than $N$
+is expressible as a non-negative integer combination of $a_1,\dots,a_n$.
+\end{lemma}
 
 
 \section{Correlation between digraphs and automata}
@@ -325,10 +361,6 @@ $$
 \qquad \delta(m,b)=m+1\!\!\pmod{n}.
 $$
 The smallest automaton in the series is shown in Fig.~\ref{B5}.
-
-
-\newpage
-
 
 
 
@@ -622,13 +654,17 @@ from a finite full transformation semigroup, Semigroup Forum 37, 31--36
 Kari, J.: Synchronizing finite automata on Eulerian digraphs.
 Theoret.\ Comput.\ Sci. 295, 223--232 (2003)
 
+\bibitem{Pi78}
+Pin, J.-E.: Le probl\`eme de la synchronization et la conjecture de
+Cerny, Th\`ese de 3\`eme cycle. Universit\'e de Paris 6 (1978)
+
 \bibitem{Pi83}
 Pin, J.-E.: On two combinatorial problems arising from automata
 theory. Ann.\ Discrete Math. 17, 535--548 (1983)
 
-\bibitem{Sa03}
-A.\,Salomaa, Composition sequences for functions over a finite
-domain, Theoret.\ Comput.\ Sci. 292 (2003) 263--281.
+\bibitem{RaAl05}
+Ram\'{\i}rez Alfons\'{\i}n, J.L.: The diophantine Frobenius problem.
+Oxford University Press (2005)
 
 \bibitem{Sa05}
 Sandberg, S.: Homing and synchronizing sequences. In: Broy, M.
