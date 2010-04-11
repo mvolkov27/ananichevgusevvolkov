@@ -132,13 +132,74 @@ known ones.
 \section{Preliminaries on automata, digraphs and matrices}
 \label{preliminaries}
 
+A \emph{directed graph} (digraph) is a pair $D=\langle V,E\rangle$ where $V$ is
+a finite set and $E\subseteq V\times V$. We refer to elements of $V$ and $E$ as
+\emph{vertices} and \emph{edges}. Observe that our definition allows loops but
+excludes multiple edges. If $v,v'\in V$ and $e=(v,v')\in E$, the edge $e$ is said
+to be \emph{outgoing} for $v$.
+
 Given a DFA $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$, its \emph{underlying
 digraph} $D(\mathrsfs{A})$ has $Q$ as the vertex set and $(q,q')\in Q\times Q$ is
-an arrow of $D(\mathrsfs{A})$ if and only if $q'=\delta(q,a)$ for some $a\in\Sigma$.
-If a digraph $D$ is isomorphic to the underlying digraph of some DFA $\mathrsfs{A}$,
-we say that $\mathrsfs{A}$ is a \emph{coloring} of $D$.
+an edge of $D(\mathrsfs{A})$ if and only if $q'=\delta(q,a)$ for some $a\in\Sigma$.
+It is easy to see that a digraph $D$ is isomorphic to the underlying digraph of some
+DFA if and only if each vertex of $D$ has at least one outgoing edge. In the sequel,
+we always consider only digraphs satisfying this property. Every DFA $\mathrsfs{A}$
+such that $D\cong D(\mathrsfs{A})$ is called a \emph{coloring} of $D$. Thus, every
+coloring of $D$ is defined by assigning non-empty sets of labels (colors) from some
+alphabet $\Sigma$ to edges of $D$ such that the label sets assigned to the outgoing
+edges of each vertex form a partition of $\Sigma$. Fig.\,\ref{fig:cerny} shows a
+digraph and two of its colorings by $\Sigma=\{a,b\}$.
 
-this is a test of subversion control
+\begin{figure}[ht]
+ \begin{center}
+  \unitlength=3pt
+    \begin{picture}(18,26)(-60,-4)
+    \gasset{Nw=6,Nh=6,Nmr=3}
+    \node(A1)(0,18){$1$}
+    \node(A2)(18,18){$2$}
+    \node(A3)(18,0){$3$}
+    \node(A4)(0,0){$4$}
+    \drawloop[loopangle=135](A1){$a$}
+    \drawloop[loopangle=45](A2){$b$}
+    \drawloop[loopangle=-45](A3){$b$}
+    \drawedge(A1,A2){$b$}
+    \drawedge(A2,A3){$a$}
+    \drawedge(A3,A4){$a$}
+    \drawedge(A4,A1){$a,b$}
+    \end{picture}
+ \begin{picture}(18,26)(0,-4)
+    \gasset{Nw=6,Nh=6,Nmr=3}
+    \node(A1)(0,18){$1$}
+    \node(A2)(18,18){$2$}
+    \node(A3)(18,0){$3$}
+    \node(A4)(0,0){$4$}
+    \drawloop[loopangle=135](A1){$b$}
+    \drawloop[loopangle=45](A2){$b$}
+    \drawloop[loopangle=-45](A3){$b$}
+    \drawedge(A1,A2){$a$}
+    \drawedge(A2,A3){$a$}
+    \drawedge(A3,A4){$a$}
+    \drawedge(A4,A1){$a,b$}
+    \end{picture}
+ \begin{picture}(18,26)(60,-4)
+    \gasset{Nw=6,Nh=6,Nmr=3}
+    \node(A1)(0,18){$1$}
+    \node(A2)(18,18){$2$}
+    \node(A3)(18,0){$3$}
+    \node(A4)(0,0){$4$}
+    \drawloop[loopangle=135](A1){}
+    \drawloop[loopangle=45](A2){}
+    \drawloop[loopangle=-45](A3){}
+    \drawedge(A1,A2){}
+    \drawedge(A2,A3){}
+    \drawedge(A3,A4){}
+    \drawedge(A4,A1){}
+    \end{picture}
+ \end{center}
+ \caption{A digraph and two of its colorings}
+ \label{fig:cerny}
+\end{figure}
+
 
 \section{Correlation between digraphs and automata}
 \label{matrices}
