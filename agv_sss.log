@@ -1,4 +1,4 @@
-This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  11 APR 2010 17:26
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  12 APR 2010 01:02
 **agv_sss.tex
 (./agv_sss.tex
 LaTeX2e <2001/06/01>
@@ -316,21 +316,21 @@ m/n/10.95 = \OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 Q; ^^F; ^^N\OMS/cmsy/m/n/1
 Underfull \vbox (badness 5787) has occurred while \output is active []
 
  [2]
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 249--250
+[3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 311--312
 
  []
 
-[4] [5]
-Overfull \hbox (13.65317pt too wide) detected at line 405
+[5] [6]
+Overfull \hbox (13.65317pt too wide) detected at line 467
 \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
 /10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
 ; b\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 m \OT1/cmr/m/n/10.95 + 1  ([]\OML
 /cmm/m/it/10.95 n\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 :
  []
 
-[6]
-Overfull \hbox (69.63356pt too wide) detected at line 448
+[7]
+Overfull \hbox (69.63356pt too wide) detected at line 510
 \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
 /10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
 ; b\OT1/cmr/m/n/10.95 ) = [] \OML/cmm/m/it/10.95 :
@@ -339,26 +339,26 @@ Overfull \hbox (69.63356pt too wide) detected at line 448
 
 Underfull \vbox (badness 7468) has occurred while \output is active []
 
- [7]
-[8] [9]
-Overfull \hbox (90.80605pt too wide) detected at line 542
+ [8]
+[9] [10]
+Overfull \hbox (90.80605pt too wide) detected at line 604
 \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
 /10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
 ; b\OT1/cmr/m/n/10.95 ) = [] \OML/cmm/m/it/10.95 :
  []
 
-[10] [11] [12] [13] (./agv_sss.aux)
+[11] [12] [13] [14] (./agv_sss.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2244 strings out of 50491
- 24704 string characters out of 1189754
- 91382 words of memory out of 1500001
- 5186 multiletter control sequences out of 10000+15000
- 19975 words of font info for 77 fonts, out of 400000 for 1000
+ 2256 strings out of 50491
+ 24823 string characters out of 1189754
+ 92434 words of memory out of 1500001
+ 5196 multiletter control sequences out of 10000+15000
+ 20676 words of font info for 79 fonts, out of 400000 for 1000
  288 hyphenation exceptions out of 1000
- 29i,12n,24p,223b,360s stack positions out of 1500i,500n,1500p,200000b,5000s
+ 29i,12n,24p,223b,364s stack positions out of 1500i,500n,1500p,200000b,5000s
 
-Output written on agv_sss.dvi (13 pages, 71792 bytes).
+Output written on agv_sss.dvi (14 pages, 75560 bytes).
