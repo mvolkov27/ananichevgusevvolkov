@@ -129,7 +129,7 @@ of interest; in fact, we provide a transparent and uniform approach to all
 sufficiently large slowly \sa\ with 2~input letters, both new and already
 known ones.
 
-\section{Preliminaries on digraphs and their colorings}
+\section{Preliminaries on digraphs and their exponents}
 \label{preliminaries}
 
 A \emph{directed graph} (digraph) is a pair $D=\langle V,E\rangle$ where $V$ is
@@ -151,10 +151,9 @@ coloring of $D$ is defined by assigning non-empty sets of labels (colors) from s
 alphabet $\Sigma$ to edges of $D$ such that the label sets assigned to the outgoing
 edges of each vertex form a partition of $\Sigma$. Fig.\,\ref{fig:cerny} shows a
 digraph and two of its colorings by $\Sigma=\{a,b\}$.
-
 \begin{figure}[ht]
  \begin{center}
-  \unitlength=3pt
+  \unitlength=2.8pt
     \begin{picture}(18,26)(-60,-4)
     \gasset{Nw=6,Nh=6,Nmr=3}
     \node(A1)(0,18){$1$}
@@ -210,10 +209,10 @@ to the chosen numbering of its vertices) is $\left(\begin{smallmatrix}1&1&0&0\\
 0&1&1&0\\ 0&0&1&1\\ 1&0&0&0 \end{smallmatrix}\right)$. Conversely, given
 an $n\times n$-matrix $P=(p_{ij})$ with non-negative real entries, we assign
 to it a digraph $D(P)$ on the set $\{1,2,\dots,n\}$ as follows: $(i,j)$ is an
-edge of $D(P)$ if and only if $p_{ij}>0$. Clearly, $D(M(D))\cong D$ for every
-digraph $D$. It is this correspondence that allows us to formulate in terms
-of digraphs several important for the sequel notions and results which
-originated in the classical Perron--Frobenius theory of non-negative matrices.
+edge of $D(P)$ if and only if $p_{ij}>0$. This ``two-way'' correspondence
+allows us to formulate in terms of digraphs several important for the sequel
+notions and results which originated in the classical Perron--Frobenius theory
+of non-negative matrices.
 
 Recall that a digraph $D=\langle V,E\rangle$ is said to be \emph{strongly
 connected} if for every pair $(v,v')\in V\times V$, there exists a path
@@ -235,16 +234,79 @@ If $a_1,\dots,a_n$ are positive integer whose greatest common divisor is equal
 to~$1$, then there exists an integer $N$ such that every integer larger than $N$
 is expressible as a non-negative integer combination of $a_1,\dots,a_n$.
 \end{lemma}
-
-
-\section{Correlation between digraphs and automata}
-\label{matrices}
+Lemma~\ref{schur} readily implies that if $D$ is a primitive digraph, then some
+power $D^t$ of $D$ has an edge between any pair of vertices, i.e., is a complete
+digraph with loops. The least $t$ with this property is called the \emph{exponent}
+of the digraph $D$ and is denoted by $\gamma(D)$. We need some results on exponents
+of digraphs summarized as follows.
 
 \begin{theorem}\label{dulmage}
-Apart from isomorphism, there is exactly one primitive graph $D$
-on $n$ vertices for which $\gamma(D) = (n - 1)^2 + 1$, and exactly one
-for which $\gamma(D) = (n - 1)^2$.
+\emph{(a) (\cite{Wi50,DM62}, \cite[Theorem~1]{DM64})} If a primitive graph $D$
+has $n$~vertices, then  $\gamma(D)\le(n-1)^2+1$.
+
+\emph{(b) \cite[Theorem~6 and Corollary 4]{DM64}} Up to isomorphism, there is
+exactly one primitive graph $D$ on $n$ vertices for which $\gamma(D)=(n-1)^2+1$,
+and exactly one for which $\gamma(D)=(n-1)^2$. The matrices of these digraphs
+are
+\begin{equation}
+\label{wielandt}
+\begin{pmatrix}
+0 & 1 & 0 & \dots & 0 & 0\\
+0 & 0 & 1 & \dots & 0 & 0\\
+\hdotsfor{6}\\
+0 & 0 & 0 & \dots & 0 & 1\\
+1 & 1 & 0 & \dots & 0 & 0
+\end{pmatrix} \text{ and }
+\begin{pmatrix}
+0 & 1 & 0 & \dots & 0 & 0\\
+0 & 0 & 1 & \dots & 0 & 0\\
+\hdotsfor{6}\\
+1 & 0 & 0 & \dots & 0 & 1\\
+1 & 1 & 0 & \dots & 0 & 0
+\end{pmatrix}
+\text{ respectively.}
+\end{equation}
+
+\emph{(c) \cite[Theorem~7]{DM64}} If $n>4$ is even, then there is no
+primitive digraph $D$ on $n$ vertices such that
+\begin{equation}
+\label{even gap}
+n^2-4n+6<\gamma(D)<(n-1)^2,
+\end{equation}
+and, up to isomorphism, there are exactly 3 or exactly 4 primitive
+digraphs $D$ on $n$ vertices with $\gamma(D)=n^2-4n+6$, according
+as $n$ is or is not a multiple of $3$.
+
+\emph{(d) \cite[Theorem~8]{DM64}} If $n>3$ is odd, then there is no
+primitive digraph $D$ on $n$ vertices such that
+\begin{equation}
+\label{first odd gap}
+n^2-3n+4<\gamma(D)<(n-1)^2,
+\end{equation}
+and, up to isomorphism, there is exactly one primitive graph $D$ on $n$ vertices
+for which $\gamma(D)=n^2-3n+4$, exactly one for which $\gamma(D)=n^2-3n+3$, and
+exactly two for which $\gamma(D)=n^2-3n+2$. The matrices of these digraphs
+are
+\begin{equation}
+\label{odd island}
+\end{equation}
+
+\emph{(e) \cite[Theorem~8]{DM64}} If $n>3$ is odd, then there is no
+primitive digraph $D$ on $n$ vertices such that
+\begin{equation}
+\label{second odd gap}
+n^2-4n+6<\gamma(D)<n^2-3n+2,
+\end{equation}
+and, up to isomorphism, there are exactly 3 or exactly 4 primitive digraphs $D$
+on $n$ vertices with $\gamma(D)=n^2-4n+6$, according as $n$ is or is not
+a multiple of $3$.
 \end{theorem}
+
+
+
+\section{Exponents of digraphs and lengths of reset words}
+\label{matrices}
+
 
 8 states:\\
 
@@ -641,6 +703,14 @@ Dubuc, L.: Sur les automates circulaires et la conjecture de
 \v{C}ern\'y. RAIRO Inform.\ Th\'eor.\ Appl. 32, 21--34 (1998) (in
 French)
 
+\bibitem{DM62}
+Dulmage, A.L., Mendelsohn, N.S.: The exponent of a primitive matrix.
+Can.\ Math.\ Bull. 5, 241--244 (1962)
+
+\bibitem{DM64}
+Dulmage, A.L., Mendelsohn, N.S.: Gaps in the exponent set of primitive
+matrices. Ill.\ J. Math. 8, 642--656 (1964)
+
 \bibitem{Ep90}
 Eppstein, D.: Reset sequences for monotonic automata. SIAM J.
 Comput. 19, 500--510 (1990)
@@ -697,6 +767,10 @@ Comput.\ Sci., vol.\,5196, pp.\,11--27.  Springer, Heidelberg (2008)
 \bibitem{Vo09}
 Volkov, M.V.: Synchronizing automata preserving a chain of partial
 orders. Theoret.\ Comput.\ Sci. 410, 2992--2998 (2009)
+
+\bibitem{Wi50}
+Wielandt, H.: Unzerlegbare, nicht negative Matrizen. Math.\ Z.
+52, 642--648 (1950) (in German)
 \end{thebibliography}
 
 
