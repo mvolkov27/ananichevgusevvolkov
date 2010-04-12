@@ -329,6 +329,7 @@ a multiple of $3$.
 \label{sss}
 
 \begin{theorem}
+\label{theorem:anan}
 For each $n$, there exists strongly connected \san\ with $n$ states,
 such that it's shortest reset word is of length $n^2-3n+3$.
 \end{theorem}
@@ -382,12 +383,15 @@ statement. Thus $|w| \geq n^2 - 3n + 3$ but this bound is tight by lemma~\ref{le
 \end{proof}
 \newpage
 
-\begin{theorem}\label{theo}
-\theoremtext{n^2-3n+3}
+\begin{theorem}
+\label{theorem:cherny}
+For each $n$, there exists strongly connected \san\ with $n$ states,
+such that it's shortest reset word is of length $n^2-2n+1$.
 \end{theorem}
 
 \begin{lemma}
-\lemmatext{(ab^{n - 2})^{n - 2}a}
+\label{lemma:cherny}
+The word $(ab^{n - 1})^{n - 2}a$ is a reset word for the automaton $\mathrsfs{C}_n$.
 \end{lemma}
 
 \begin{figure}[ht]
@@ -408,23 +412,30 @@ statement. Thus $|w| \geq n^2 - 3n + 3$ but this bound is tight by lemma~\ref{le
 \drawloop[ELdist=1.5,loopangle=226.55](n3){$a$}
 \end{picture}
 \end{center}
-\caption{The automaton $\mathrsfs{B}_5$}\label{B5}
+\caption{The automaton $\mathrsfs{C}_5$}\label{C5}\label{fig:cherny}
 \end{figure}
 
-The states of the automaton $\mathrsfs{B}_n$
+The states of the automaton $\mathrsfs{C}_n$
 are the residues modulo $n$ and its input letters $a$ and $b$ act
 as follows:
 $$
  \delta(m,a)=
  \begin{cases}
-  m + 2 \!\!\pmod{n} & \text{for $m = 0$}, \\
+  m + 1 \!\!\pmod{n} & \text{for $m = 0$}, \\
   m \!\!\pmod{n} & \text{for $m \neq 0$};
   \end{cases}
 \qquad \delta(m,b)=m+1\!\!\pmod{n}.
 $$
-The smallest automaton in the series is shown in Fig.~\ref{B5}.
+The smallest automaton in the series is shown in Fig.~\ref{fig:cherny}.
 
+\begin{proof}
+Let $w$ be \ssw\ of $\mathrsfs{C}_n$. Action of $b$ is cyclic permutation thus $w$ ends on $a$. Let $w = w'a$.
+It is easy to see that action of $a$ and $a^2$ are equal thus every occurence of $a$ in $w$ is
+followed by $b$ except the last one. Let's introduce new letter(and transition) $d = ab$ then $w'$ could be
+transformed into $v \in \{b,d\}^*$. 
 
+\end{proof}
+\newpage
 
 
 
