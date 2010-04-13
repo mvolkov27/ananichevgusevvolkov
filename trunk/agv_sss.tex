@@ -2,6 +2,9 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{epic,gastex}
+\usepackage{array}
+
+\extrarowheight=2pt
 
 \newcommand{\sa}{synchronizing automata}
 \newcommand{\san}{synchronizing automaton}
@@ -53,6 +56,7 @@ closely related to primitive  matrices with large exponent.
 
 
 \section{Background and overview}
+\label{intro}
 
 A \emph{complete deterministic finite automaton} (DFA) is a triple
 $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$, where $Q$ and
@@ -113,13 +117,13 @@ goes to infinity. In terms of automata, Higgins's result means that
 a random automaton with $n$ states and at least $2n$ input letters
 has a reset word of length $2n$. For further results of the same flavor
 see~\cite{SZ}. Thus, there is no hope to find new examples of slowly
-\sa\ via a random sampling experiment.
+\sa\ by a chance or via a random sampling experiment.
 
 We therefore have designed and performed a set of exhaustive search
 experiments. Our experiments are briefly described in Section~\ref{experiments}
 while the main body of the paper is devoted to a theoretical analysis
 of their outcome. We concentrate on two principal issues. In Section~\ref{matrices}
-we discuss a remarkable analogy between the distribution of lengths of shortest
+we discuss a similarity between the distribution of lengths of shortest
 reset words for \sa\ and the distribution of exponents of primitive digraphs.
 Section~\ref{sss} collects several new series of slowly \sa. The ``initial''
 examples in the series were found in the course of the experiments; then
@@ -240,7 +244,8 @@ digraph with loops. The least $t$ with this property is called the \emph{exponen
 of the digraph $D$ and is denoted by $\gamma(D)$. We need some results on exponents
 of digraphs summarized as follows.
 
-\begin{theorem}\label{dulmage}
+\begin{theorem}
+\label{dulmage}
 \emph{(a) (\cite{Wi50,DM62}, \cite[Theorem~1]{DM64})} If a primitive graph $D$
 has $n$~vertices, then  $\gamma(D)\le(n-1)^2+1$.
 
@@ -273,9 +278,9 @@ primitive digraph $D$ on $n$ vertices such that
 \label{even gap}
 n^2-4n+6<\gamma(D)<(n-1)^2,
 \end{equation}
-and, up to isomorphism, there are exactly 3 or exactly 4 primitive
+and, up to isomorphism, there are exactly $3$ or exactly $4$ primitive
 digraphs $D$ on $n$ vertices with $\gamma(D)=n^2-4n+6$, according
-as $n$ is or is not a multiple of $3$.
+as $n$ is or is not a~multiple of $3$.
 
 \emph{(d) \cite[Theorem~8]{DM64}} If $n>3$ is odd, then there is no
 primitive digraph $D$ on $n$ vertices such that
@@ -296,7 +301,7 @@ are:
 0 & 0 & 0 & \dots & 1 & 0\\
 0 & 0 & 0 & \dots & 0 & 1\\
 1 & 0 & 1 & \dots & 0 & 0
-\end{pmatrix},
+\end{pmatrix}\!,
 \begin{pmatrix}
 0 & 1 & 0 & \dots & 0 & 0\\
 0 & 0 & 1 & \dots & 0 & 0\\
@@ -304,7 +309,7 @@ are:
 0 & 0 & 0 & \dots & 1 & 0\\
 0 & 1 & 0 & \dots & 0 & 1\\
 1 & 0 & 1 & \dots & 0 & 0
-\end{pmatrix},
+\end{pmatrix}\!,
 \begin{pmatrix}
 0 & 1 & 0 & \dots & 0 & 0\\
 0 & 0 & 1 & \dots & 0 & 0\\
@@ -312,7 +317,7 @@ are:
 1 & 0 & 0 & \dots & 1 & 0\\
 0 & 1 & 0 & \dots & 0 & 1\\
 1 & 0 & 1 & \dots & 0 & 0
-\end{pmatrix},
+\end{pmatrix}\!,
 \begin{pmatrix}
 0 & 1 & 0 & \dots & 0 & 0\\
 0 & 0 & 1 & \dots & 0 & 0\\
@@ -320,7 +325,7 @@ are:
 1 & 0 & 0 & \dots & 1 & 0\\
 0 & 0 & 0 & \dots & 0 & 1\\
 1 & 0 & 1 & \dots & 0 & 0
-\end{pmatrix}
+\end{pmatrix}\!.
 \end{equation}
 
 \emph{(e) \cite[Theorem~8]{DM64}} If $n>3$ is odd, then there is no
@@ -329,32 +334,76 @@ primitive digraph $D$ on $n$ vertices such that
 \label{second odd gap}
 n^2-4n+6<\gamma(D)<n^2-3n+2,
 \end{equation}
-and, up to isomorphism, there are exactly 3 or exactly 4 primitive digraphs $D$
+and, up to isomorphism, there are exactly $3$ or exactly $4$ primitive digraphs $D$
 on $n$ vertices with $\gamma(D)=n^2-4n+6$, according as $n$ is or is not
-a multiple of $3$.
+a~multiple of $3$.
 \end{theorem}
 
-
-
-\section{Exponents of digraphs and lengths of reset words}
+\section{Exponents of digraphs vs lengths of reset words}
 \label{matrices}
 
+As mentioned in Section~\ref{intro}, this paper has grown
+from certain observations made when we analyzed experimental
+results. One such observation has been a similarity between
+the ``upper parts'' of two sequences: the sequence of possible
+lengths of shortest reset words for 2-letter \sa\ with $n$ states
+and the sequence of possible exponents of primitive digraphs with
+$n$ vertices. As it is clear from Theorem~\ref{dulmage}, the
+upper part of the latter sequence has certain gaps whose sizes
+and positions depend on the parity of $n$; our experiments have
+revealed quite a similar pattern of gaps in the upper part
+of the former sequence. Table~\ref{9 states} illustrates this
+observation for $n=9$.
 
-8 states:\\
-
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-49 & 48 & 47 & 46 & 45 & 44 & 43 & 42 & 41 & 40 \\
+\begin{table}[ht]
+\extrarowheight=2pt
+\caption{Exponents of primitive digraphs with $9$ vertices
+vs lengths of shortest reset words for 2-letter \sa\ with $9$ states}\label{9 states}
+\begin{tabular}{|p{5.4cm}||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-1  & 0  & 0  & 0  & 0  & 1  & 1  & 3  & 1  & 5  \\
-\end{tabular}
-\vspace{0.7cm}
-
-9 states:\\
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-64 & 63 & 62 & 61 & 60 & 59 & 58 & 57 & 56 & 55 & 54 & 53 & 52 & 51 \\
+\centering{$N$} & 65 & 64 & 63 & 62 & 61 & 60 & 59 & 58 & 57 & 56 & 55 & 54 & 53 & 52 & 51 \\
 \hline
-1  & 0  & 0  & 0  & 0  & 0  & 1  & 2  & 3  & 0  & 0  & 0  & 4  & 4   \\
+\raggedright{Number of non-isomorphic primitive digraphs
+with exponent} $N$
+& \raisebox{-6pt}{1} & \raisebox{-6pt}{1} & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{0}
+& \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{1} & \raisebox{-6pt}{1} & \raisebox{-6pt}{2}
+& \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{4} \\
+\hline
+\raggedright{Number of non-isomorphic 2-letter \sa\ whose
+shortest reset words have length $N$}
+&\raisebox{-11pt}{0} &\raisebox{-11pt}{1} &\raisebox{-11pt}{0} &\raisebox{-11pt}{0} &\raisebox{-11pt}{0}
+&\raisebox{-11pt}{0} &\raisebox{-11pt}{0} &\raisebox{-11pt}{1} &\raisebox{-11pt}{2} &\raisebox{-11pt}{3}
+&\raisebox{-11pt}{0} &\raisebox{-11pt}{0} &\raisebox{-11pt}{0} &\raisebox{-11pt}{4} &\raisebox{-11pt}{4} \\
+\hline
 \end{tabular}
+\end{table}
+The data in the second row of Table~\ref{9 states} are calculated
+from Theorem~\ref{dulmage}, while the data in the third row come from
+our experiments.
+
+Concerning gaps in the upper part of the sequence of possible lengths of shortest
+reset words for 2-letter \sa\ with $n$ states, we notice that the first gap has been
+registered in earlier experiments in the area, see~\cite{Tr06,Tr06a}. (Namely, according
+to~\cite{Tr06,Tr06a} for $n=7,8,9,10$ there exists no 2-letter \sa\ with $n$ states
+whose shortest reset words have lengths between $n^2-2n$ and $n^2-3n+5$.) However,
+to the best of our knowledge, the second gap as seen in Table~\ref{9 states} has not
+been reported in the literature up to now.
+
+We strongly believe that the observed similarity is more than a coincidence.
+Clearly, there are deep connections between primitive digraphs and \sa. Indeed,
+it is well known (see~\cite{AGW}) that if the underlying digraph of a \san\
+is strongly connected that the digraph must be primitive; on the other hand,
+as follows from Trahtman's proof~\cite{Tr09} of the so-called Road Coloring
+conjecture by Adler, Goodwyn, and Weiss~\cite{AGW}, every primitive digraph
+admits a synchronizing coloring. This, however, does not suffice to explain
+similarities such as in Table~\ref{9 states} because many of slowly \sa\
+``responsible'' for non-zero entries in the third row cannot be obtained
+as colorings of digraphs with large exponents corresponding to non-zero
+entries in the second row. In the next section we demonstrate some
+new connections between primitive digraphs with large exponents and
+slowly \sa\ with two input letters. In this way, we derive all known
+series of such automata and construct many new other ones.
+
 
 
 \section{Main results and slowly sinchronizing series}
@@ -464,10 +513,9 @@ The smallest automaton in the series is shown in Fig.~\ref{fig:cherny}.
 Let $w$ be \ssw\ of $\mathrsfs{C}_n$. Action of $b$ is cyclic permutation thus $w$ ends on $a$. Let $w = w'a$.
 It is easy to see that action of $a$ and $a^2$ are equal thus every occurence of $a$ in $w$ is
 followed by $b$ except the last one. Let's introduce new letter(and transition) $d = ab$ then $w'$ could be
-transformed into $v \in \{b,d\}^*$. 
+transformed into $v \in \{b,d\}^*$.
 
 \end{proof}
-\newpage
 
 
 
@@ -726,6 +774,10 @@ The smallest automaton in the series is shown in Fig.~\ref{B5}.
 \label{experiments}
 
 \begin{thebibliography}{99}
+\bibitem{AGW}
+Adler, R.L., Goodwyn, L.W., Weiss, B.: Equivalence of topological Markov shifts.
+Israel J. Math. 27, 49--63 (1977)
+
 \bibitem{AS09}
 Almeida, J.; Steinberg, B.: Matrix mortality and the \v{C}ern\'{y}--Pin
 conjecture. In:  Diekert, V.; Nowotka, D. (eds.), Developments in
@@ -791,15 +843,23 @@ proceedings version in: Rigo, M. (ed.), AutoMathA 2009, Universit\'e
 de Li\`ege (2009)
 
 \bibitem{Tr06}
-Trahtman, A.: An efficient algorithm finds noticeable trends
+Trahtman, A.N.: An efficient algorithm finds noticeable trends
 and examples concerning the \v{C}ern\'y conjecture. In:
 Kr\'alovi\v{c}, R.; Urzyczyn, P. (eds.), Mathematical Foundations
 of Computer Science. Lect.\ Notes Comput.\ Sci., vol.\,4162, pp.\,789--800
 Springer, Heidelberg (2006)
 
+\bibitem{Tr06a}
+Trahtman, A.N.: Notable trends concerning the synchronization
+of graphs and automata. Electr.\ Notes Discrete Math. 25, 173--175 (2006)
+
 \bibitem{Tr07}
-Trahtman, A.: The \v{C}ern\'y conjecture for aperiodic automata.
+Trahtman, A.N.: The \v{C}ern\'y conjecture for aperiodic automata.
 Discrete Math.\ Theor.\ Comput.\ Sci. 9(2), 3--10 (2007)
+
+\bibitem{Tr09}
+Trahtman, A.N.: The Road Coloring Problem. Israel J. Math.
+\textbf{172}, 51--60 (2009)
 
 \bibitem{Vo08}
 Volkov, M.V.: Synchronizing automata and the \v{C}ern\'{y}
