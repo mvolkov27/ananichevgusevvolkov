@@ -772,6 +772,17 @@ The smallest automaton in the series is shown in Fig.~\ref{B5}.
 
 \section{Experiments}
 \label{experiments}
+During the experiments every initially-connected deterministic automata was checked on synchronizability and it's shortest reset word was
+calculated. This class of automata was deceided to use because it contains every strongly connected automata and has very simple and convenient 
+way of enumeration which is presented and thoroughly described in [Almeida]. There are about 700 billions of initially-connected deterministic automata
+with 9 states and it is hard task for a single computer to do. That's why this check was distributed and done within a day on 60 cores of 
+amd opteron 2.6 Ghz processors. Program was written in C with mpi. Every obtained slowly synchronizing automaton was rechecked 
+with package TESTAS[trahtman's site]
+developed by A.Trahtman. 
+It is also worth to mention that experiments show that deterministic automata indeed tends to be synchronizible with short reset words. 
+Almost $90\%$ of initially-connected deterministic automata with 9 states could be synchronized with word of length not greater than 9.
+And as shows random sampling experiment this part becomes bigger with growth of number of states.
+
 
 \begin{thebibliography}{99}
 \bibitem{AGW}
