@@ -382,9 +382,9 @@ from Theorem~\ref{dulmage}, while the data in the third row come from
 our experiments.
 
 Concerning gaps in the upper part of the sequence of possible lengths of shortest
-reset words for 2-letter \sa\ with $n$ states, we notice that the first gap has been
-registered in earlier experiments in the area, see~\cite{Tr06,Tr06a}. (Namely, according
-to~\cite{Tr06,Tr06a} for $n=7,8,9,10$ there exists no 2-letter \sa\ with $n$ states
+reset words for 2-letter \sa\ with a given number of states, we notice that
+the first gap has been registered in earlier experiments in the area. (Namely, according
+to~\cite{Tr06,Tr06a}, for $n=7,8,9,10$ there exists no 2-letter \sa\ with $n$ states
 whose shortest reset words have lengths between $n^2-2n$ and $n^2-3n+5$.) However,
 to the best of our knowledge, the second gap as seen in Table~\ref{9 states} has not
 been reported in the literature up to now.
@@ -398,9 +398,9 @@ conjecture by Adler, Goodwyn, and Weiss~\cite{AGW}, every primitive digraph
 admits a synchronizing coloring. This, however, does not suffice to explain
 similarities such as in Table~\ref{9 states} because many of slowly \sa\
 ``responsible'' for non-zero entries in the third row cannot be obtained
-as colorings of digraphs with large exponents corresponding to non-zero
-entries in the second row. In the next section we demonstrate some
-new connections between primitive digraphs with large exponents and
+as colorings of primitive digraphs with large exponents corresponding
+to non-zero entries in the second row. In the next section we demonstrate
+some new connections between primitive digraphs with large exponents and
 slowly \sa\ with two input letters. In this way, we derive all known
 series of such automata and construct many new other ones.
 
@@ -773,16 +773,15 @@ The smallest automaton in the series is shown in Fig.~\ref{B5}.
 \section{Experiments}
 \label{experiments}
 During the experiments every initially-connected deterministic automata was checked on synchronizability and it's shortest reset word was
-calculated. This class of automata was deceided to use because it contains every strongly connected automata and has very simple and convenient 
+calculated. This class of automata was deceided to use because it contains every strongly connected automata and has very simple and convenient
 way of enumeration which is presented and thoroughly described in [Almeida]. There are about 700 billions of initially-connected deterministic automata
-with 9 states and it is hard task for a single computer to do. That's why this check was distributed and done within a day on 60 cores of 
-amd opteron 2.6 Ghz processors. Program was written in C with mpi. Every obtained slowly synchronizing automaton was rechecked 
+with 9 states and it is hard task for a single computer to do. That's why this check was distributed and done within a day on 60 cores of
+amd opteron 2.6 Ghz processors. Program was written in C with mpi. Every obtained slowly synchronizing automaton was rechecked
 with package TESTAS[trahtman's site]
-developed by A.Trahtman. 
-It is also worth to mention that experiments show that deterministic automata indeed tends to be synchronizible with short reset words. 
+developed by A.Trahtman.
+It is also worth to mention that experiments show that deterministic automata indeed tends to be synchronizible with short reset words.
 Almost $90\%$ of initially-connected deterministic automata with 9 states could be synchronized with word of length not greater than 9.
 And as shows random sampling experiment this part becomes bigger with growth of number of states.
-
 
 \begin{thebibliography}{99}
 \bibitem{AGW}
