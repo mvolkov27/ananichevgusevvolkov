@@ -8,22 +8,13 @@
 
 \newcommand{\sa}{synchronizing automata}
 \newcommand{\san}{synchronizing automaton}
-\newcommand{\ssw}{a reset word of minimum length}
-
+\newcommand{\sw}{reset word}
+\newcommand{\ssw}{reset word of minimum length}
 
 \DeclareMathOperator{\weight}{wg}
 
 \DeclareSymbolFont{rsfscript}{OMS}{rsfs}{m}{n}
 \DeclareSymbolFontAlphabet{\mathrsfs}{rsfscript}
-
-\newcommand{\theoremtext}[1]{
-For each $n$, there exists strongly connected \san\ with $n$ states,
-such that it's shortest reset word is of length $#1$.
-}
-
-\newcommand{\lemmatext}[1]{
-The word $#1$ is a reset word for the automaton $\mathrsfs{B}_n$.}
-
 
 \begin{document}
 \title{Slowly synchronizing automata and digraphs\thanks{Supported
@@ -93,7 +84,7 @@ In~1964 \v{C}ern\'{y}~\cite{Ce64} constructed for each $n>1$ a \san\
 $\mathrsfs{C}_n$ with $n$ states whose shortest reset word has length
 $(n-1)^2$. Soon after that he conjectured that these automata
 represent the worst possible case, that is, every \san\ with $n$ states
-can be reset by a word of length $(n-1)^2$. This imply looking conjecture
+can be reset by a word of length $(n-1)^2$. This simply looking conjecture
 resists researchers' efforts for more than 40 years. Even though the
 conjecture has been confirmed for various restricted classes of \sa\
 (cf., e.g., \cite{Ep90,Du98,Ka03,Tr07,AS09,Vo09}), no upper bound of magnitude
@@ -106,10 +97,10 @@ One of the difficulties that one encounters when approaching the
 of \emph{extreme} \sa, that is, $n$-state \sa\ whose shortest reset
 words have length $(n-1)^2$. In fact, the \v{C}ern\'{y} series
 $\mathrsfs{C}_n$, $n=2,3,\dotsc$, is the only known infinite series
-of extreme \sa. Besides that, we know only a few isolated examples
-of such automata, see~\cite{Vo08} for a complete list. Moreover,
-even \emph{slowly} \sa, that is, \sa\ whose shortest reset words have
-length close to the \v{C}ern\'{y} bound are very rare. This empirical
+of extreme \sa. Besides that, only a few isolated examples
+of such automata have been found, see~\cite{Vo08} for a complete list.
+Moreover, even \emph{slowly} \sa, that is, \sa\ whose shortest reset words
+have length close to the \v{C}ern\'{y} bound are very rare. This empirical
 observation is supported also by probabilistic arguments. For instance,
 Higgins~\cite{Hi88} has shown that the probability that a composition of $2n$
 random self-maps of a set of size $n$ is a constant map tends to~1 as $n$
@@ -117,7 +108,7 @@ goes to infinity. In terms of automata, Higgins's result means that
 a random automaton with $n$ states and at least $2n$ input letters
 has a reset word of length $2n$. For further results of the same flavor
 see~\cite{SZ}. Thus, there is no hope to find new examples of slowly
-\sa\ by a chance or via a random sampling experiment.
+\sa\ by a lucky chance or via a random sampling experiment.
 
 We therefore have designed and performed a set of exhaustive search
 experiments. Our experiments are briefly described in Section~\ref{experiments}
@@ -205,11 +196,11 @@ digraph and two of its colorings by $\Sigma=\{a,b\}$.
  \label{fig:cerny}
 \end{figure}
 
-Given a digraph $D=\langle V,E\rangle$, its matrix $M(D)$ is just
-the incidence matrix of the edge relation, that is, a $V\times V$-matrix
-whose entry in the row $v$ and the column $v'$ is 1 if $(v,v')\in E$ and
-0 otherwise. For instance, the matrix of the digraph in Fig.~1 (with respect
-to the chosen numbering of its vertices) is $\left(\begin{smallmatrix}1&1&0&0\\
+The \emph{matrix} of a digraph $D=\langle V,E\rangle$ is just the incidence
+matrix of the edge relation, that is, a $V\times V$-matrix whose entry in
+the row $v$ and the column $v'$ is 1 if $(v,v')\in E$ and 0 otherwise. For
+instance, the matrix of the digraph in Fig.~1 (with respect to the chosen
+numbering of its vertices) is $\left(\begin{smallmatrix}1&1&0&0\\
 0&1&1&0\\ 0&0&1&1\\ 1&0&0&0 \end{smallmatrix}\right)$. Conversely, given
 an $n\times n$-matrix $P=(p_{ij})$ with non-negative real entries, we assign
 to it a digraph $D(P)$ on the set $\{1,2,\dots,n\}$ as follows: $(i,j)$ is an
@@ -226,23 +217,38 @@ connected because the validity of the conjecture can be easily reduced
 to this case (see \cite{Pi78} for example). By the $t^{th}$ \emph{power}
 of $D$ we mean the digraph $D^t$ with the same vertex set $V$, such that
 $(v,v')\in V\times V$ is an edge of $D^t$ if and only if there is a path
-in $D$ from $v$ to $v'$ of length precisely $t$. A strongly connected digraph
-$D$ is called \emph{primitive} if the greatest common divisor of the lengths
-of all cycles in $D$ is equal to~1. (In the literature such graphs are sometimes
-called \emph{aperiodic}.)
+in $D$ from $v$ to $v'$ of length precisely $t$. If $M$ is the matrix of $D$,
+then the digraph $D^t$ can be equivalently defined as $D(M^t)$, where
+$M^t$ is the usual $t^{th}$ power of $M$.
 
-The following elementary result is well known:
+A strongly connected digraph $D$ is called \emph{primitive} if the greatest
+common divisor of the lengths of all cycles in $D$ is equal to~1. (In the
+literature such graphs are sometimes called \emph{aperiodic}.) The following
+elementary result is well known:
 \begin{lemma}[{\mdseries\cite[Theorem 1.0.1]{RaAl05}}]
 \label{schur}
-If $a_1,\dots,a_n$ are positive integer whose greatest common divisor is equal
+If $k_1,\dots,k_m$ are positive integers whose greatest common divisor is equal
 to~$1$, then there exists an integer $N$ such that every integer larger than $N$
-is expressible as a non-negative integer combination of $a_1,\dots,a_n$.
+is expressible as a non-negative integer combination of $k_1,\dots,k_m$.
 \end{lemma}
+The question of how the least $N$ with the property stated in Lemma~\ref{schur}
+depends on the integers $k_1,\dots,k_m$ is known as the \emph{diophantine Frobenius
+problem} and in general is highly non-trivial, see~\cite{RaAl05}. There is, however,
+an elementary special case which will be used in the sequel.
+\begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RaAl05}}]
+\label{sylvester}
+If $k_1,k_2$ are relatively prime positive integers, then $k_1k_2-k_1-k_2$ is
+the largest integer that is not expressible as a non-negative integer combination
+of $k_1$ and $k_2$.
+\end{lemma}
+
 Lemma~\ref{schur} readily implies that if $D$ is a primitive digraph, then some
 power $D^t$ of $D$ has an edge between any pair of vertices, i.e., is a complete
-digraph with loops. The least $t$ with this property is called the \emph{exponent}
-of the digraph $D$ and is denoted by $\gamma(D)$. We need some results on exponents
-of digraphs summarized as follows.
+digraph with loops. (This is equivalent to saying that every entry of the matrix
+$M^t$, where $M$ is the matrix of $D$, is positive.) The least $t$ with this
+property is called the \emph{exponent} of the digraph $D$ and is denoted
+by $\gamma(D)$. We need some results on exponents of digraphs summarized
+as follows.
 
 \begin{theorem}
 \label{dulmage}
@@ -250,7 +256,7 @@ of digraphs summarized as follows.
 has $n$~vertices, then  $\gamma(D)\le(n-1)^2+1$.
 
 \emph{(b) \cite[Theorem~6 and Corollary 4]{DM64}} Up to isomorphism, there is
-exactly one primitive graph $D$ on $n$ vertices for which $\gamma(D)=(n-1)^2+1$,
+exactly one primitive graph $D$ on $n>2$ vertices for which $\gamma(D)=(n-1)^2+1$,
 and exactly one for which $\gamma(D)=(n-1)^2$. The matrices of these digraphs
 are
 \begin{equation}
@@ -404,65 +410,82 @@ some new connections between primitive digraphs with large exponents and
 slowly \sa\ with two input letters. In this way, we derive all known
 series of such automata and construct many new other ones.
 
-
-
-\section{Main results and slowly sinchronizing series}
+\section{Series of slowly \sa}
 \label{sss}
+
+Due to space limitations, we present here only a part of our results on slowly \sa.
+Namely, we restrict ourselves to series derived from primitive digraphs whose matrices
+are listed in Theorem~\ref{dulmage}. We start with the digraph $W_n$ corresponding
+to the first matrix in \eqref{wielandt}. The digraph (more precisely, its matrix)
+first appeared in Wielandt's seminal paper~\cite{Wi50}. It has $n$ vertices
+$1,2,\dots,n$, say, and the following $n+1$ edges: $(i,i+1)$ for $i=1,\dots,n-1$,
+$(n,1)$, and $(n,2)$.
+
+It is easy to see that, up to isomorphism and renaming of letters, there exists
+a unique coloring of the digraph $W_n$ by two letters. Let $\mathrsfs{W}_n$ denote
+this coloring. Fig.\,\ref{fig:anan} shows the digraph $W_n$ and the DFA $\mathrsfs{W}_n$.
+\begin{figure}[ht]
+\begin{center}
+\unitlength .45mm
+\begin{picture}(72,56)(20,-72)
+\gasset{Nw=16,Nh=16,Nmr=8}
+\node(n0)(36.0,-16.0){1}
+\node(n1)(4.0,-40.0){$n$} \node(n2)(68.0,-40.0){2}
+\node(n3)(16.0,-72.0){$n{-}1$} \node(n4)(56.0,-72.0){3}
+\drawedge[ELdist=2.0](n1,n0){} \drawedge[ELdist=1.5](n2,n4){}
+\drawedge[ELdist=1.7](n0,n2){}
+\drawedge[ELdist=1.7](n3,n1){} \drawedge[ELdist=2.0](n1,n2){}
+\put(31,-73){$\dots$}
+\end{picture}
+\begin{picture}(72,56)(-20,-72)
+\gasset{Nw=16,Nh=16,Nmr=8}
+\node(n0)(36.0,-16.0){1}
+\node(n1)(4.0,-40.0){$n$} \node(n2)(68.0,-40.0){2}
+\node(n3)(16.0,-72.0){$n{-}1$} \node(n4)(56.0,-72.0){3}
+\drawedge[ELdist=2.0](n1,n0){$b$} \drawedge[ELdist=1.5](n2,n4){$a, b$}
+\drawedge[ELdist=1.7](n0,n2){$a, b$}
+\drawedge[ELdist=1.7](n3,n1){$a, b$} \drawedge[ELdist=2.0](n1,n2){$a$}
+\put(31,-73){$\dots$}
+\end{picture}
+\end{center}
+\caption{The digraph $W_n$ and its unique coloring $\mathrsfs{W}_n$}\label{fig:anan}
+\end{figure}
 
 \begin{theorem}
 \label{theorem:anan}
-For each $n$, there exists strongly connected \san\ with $n$ states,
-such that it's shortest reset word is of length $n^2-3n+3$.
+The automaton $\mathrsfs{W}_n$ is synchronizing and the minimum length
+of its reset words is $n^2-3n+3$.
 \end{theorem}
 
-\begin{lemma}
-\label{lemma:anan}
-The word $(ab^{n - 2})^{n - 2}a$ is a reset word for the automaton $\mathrsfs{B}_n$.
-\end{lemma}
-
-\begin{figure}[ht]
-\begin{center}
-\unitlength .7mm
-\begin{picture}(112,76)(0,-86)
-\gasset{Nadjustdist=1.5} \node(n0)(56.0,-16.0){1}
-\node(n1)(24.0,-40.0){0} \node(n2)(88.0,-40.0){2}
-\node(n3)(36.0,-72.0){4} \node(n4)(76.0,-72.0){3}
-\drawedge[ELdist=2.0](n1,n0){$b$} \drawedge[ELdist=1.5](n2,n4){$a, b$}
-\drawedge[ELdist=1.7](n0,n2){$a, b$} \drawedge[ELdist=2.0](n4,n3){$a, b$}
-\drawedge[ELdist=1.7](n3,n1){$a, b$} \drawedge[ELdist=2.0](n1,n2){$a$}
-\end{picture}
-\end{center}
-\caption{The automaton $\mathrsfs{B}_5$}\label{fig:anan}
-\end{figure}
-
-The states of the automaton $\mathrsfs{B}_n$
-are the residues modulo $n$ and its input letters $a$ and $b$ act
-as follows:
-$$
- \delta(m,a)=
- \begin{cases}
-  m + 2\!\!\pmod{n} & \text{for $m = 0$}, \\
-  m+1\!\!\pmod{n} & \text{for $m \neq 0$};
-  \end{cases}
-\qquad \delta(m,b)=m+1\!\!\pmod{n}.
-$$
-The smallest automaton in the series is shown in Fig.~\ref{fig:anan}.
-
 \begin{proof}
-Let $w$ be \ssw . It is clear that action of $w$ leaves automaton $\mathrsfs{B}_n$ in state 2.
-For any $u \in \Sigma^*$ word $uw$ is synchronizing too and it also brings automaton to the state 2.
-In other words, there is a path in underlying
-digraph from any vertex to vertex 2 of length $p$, if $p \geq |w|$.
-Let us consider paths from 2 to 2. Every one of them is the combination of cycles of length $n$ and $n - 1$.
-Thus for any $p \geq |w|$ the following is true: $p = xn + y(n - 1)$, where $x$ and $y$ are nonnegative integers.
-It is well known(See smth) that $n(n - 1) - n - (n - 1) = n^2 - 3n + 1$ is the greatest number that could not be represented
-as a nonegative integer combination of $n$ and $n - 1$. Thus $|w| \geq n^2 - 3n + 2$.
-Suppose that $|w| = n^2 - 3n + 2$.
-%and  then there is a path of such length from state $1$ to state $2$.
-If we read this word from state $1$ then we get a path of length $n^2 - 3n + 1$ from $2$ to $2$ which is not possible due to previous
-statement. Thus $|w| \geq n^2 - 3n + 3$ but this bound is tight by lemma~\ref{lemma:anan}.
+It is routine to verify that the word $(ab^{n-2})^{n-2}a$, whose length
+is $(n-1)(n-2)+1=n^2-3n+3$, is a reset word for $\mathrsfs{W}_n$.
+
+Now let $w$ be a \sw\ for $\mathrsfs{W}_n$ and assume that the length
+of $w$ (denoted $|w|$) is minimal. Let $j\in Q=\{1,2,\dots,n\}$ be the
+state to which the action of $w$ brings $\mathrsfs{W}_n$. Then from
+every state in $Q$ there is a path to $j$ labelled $w$. It is clear
+that for each $j\ne 2$ all paths ending at $j$ share the last edge.
+Therefore, if $j\ne 2$, removing the last letter from the word $w$
+produces a word that still would be a \sw\ for $\mathrsfs{W}_n$.
+We conclude that $j=2$ because $|w|$ is minimal.
+
+If $u\in\Sigma^*$, the word $uw$ also is a reset word and it also
+brings the automaton to the state~2. Hence, for every $\ell\ge|w|$,
+there is a path of length $\ell$ in $W_n$ from any given vertex $i$
+to~2. In particular, setting $i=2$, we conclude that for every
+$\ell\ge|w|$ there is a cycle of length $\ell$ in $W_n$. The digraph
+$W_n$ has only two simple cycles: one of length $n$ and one of length $n-1$.
+Each cycle of $W_n$ must consist of these two cycles traversed several times
+whence each number $\ell\ge|w|$ must be expressible as a non-negative integer
+combination of $n$ and $n-1$. Here we invoke Lemma~\ref{sylvester} which
+implies that $|w|>n(n-1)-n-(n-1)=n^2-3n+1$. Suppose that $|w|=n^2-3n+2$.
+Then there should be a path of this length from the vertex~1 to the vertex~2.
+The only outgoing edge of~1 is $(1,2)$, and thus, in the path it must be
+followed by a cycle of length $n^2-3n+1$. No cycle of such length may
+exist by  Lemma~\ref{sylvester}. Hence $|w|\ge n^2-3n+3$.
 \end{proof}
-\newpage
+
 
 \begin{theorem}
 \label{theorem:cherny}
@@ -521,11 +544,11 @@ transformed into $v \in \{b,d\}^*$.
 
 
 \begin{lemma}
-\lemmatext{(ab^{n - 2})^{n - 2}ba}
+$(ab^{n - 2})^{n - 2}ba$
 \end{lemma}
 
 \begin{theorem}\label{theo}
-\theoremtext{n^2-3n+4}
+$n^2-3n+4$
 \end{theorem}
 
 
@@ -558,14 +581,14 @@ $$
 $$
 The smallest automaton in the series is shown in Fig.~\ref{B5}.
 
-\newpage
+
 
 \begin{theorem}
-\theoremtext{n^2-3n+2}
+$n^2-3n+2$
 \end{theorem}
 
 \begin{lemma}
-\lemmatext{(ba^{n - 1})^{n - 3}ba}
+$(ba^{n - 1})^{n - 3}ba$
 \end{lemma}
 
 \begin{figure}[ht]
@@ -601,15 +624,13 @@ $$
 $$
 The smallest automaton in the series is shown in Fig.~\ref{B5}.
 
-\newpage
-
 
 \begin{theorem}\label{theo}
-\theoremtext{n^2-3n+3}
+$n^2-3n+3$
 \end{theorem}
 
 \begin{lemma}
-\lemmatext{(ab^{n - 2})^{n - 2}a}
+$(ab^{n - 2})^{n - 2}a$
 \end{lemma}
 
 \begin{figure}[ht]
@@ -646,15 +667,14 @@ $$
 $$
 The smallest automaton in the series is shown in Fig.~\ref{B5}.
 
-\newpage
 
 
 \begin{theorem}\label{theo}
-\theoremtext{n^2-3n+2}
+$n^2-3n+2$
 \end{theorem}
 
 \begin{lemma}
-\lemmatext{(aab^{n - 2})^{n - 3}aa}
+$aab^{n - 2})^{n - 3}aa$
 \end{lemma}
 
 \begin{figure}[ht]
@@ -695,14 +715,13 @@ $$
 $$
 The smallest automaton in the series is shown in Fig.~\ref{B5}.
 
-\newpage
 
 \begin{theorem}\label{theo}
-\theoremtext{n^2-4n+6}
+$n^2-4n+6$
 \end{theorem}
 
 \begin{lemma}
-\lemmatext{b(ab^{n - 2})^{n - 3}ab}
+$b(ab^{n - 2})^{n - 3}ab$
 \end{lemma}
 
 
@@ -735,14 +754,14 @@ The smallest automaton in the series is shown in Fig.~\ref{B5}.
 \caption{The automaton $\mathrsfs{B}^{\star}_6$}\label{B-star-6}
 \end{figure}
 
-\newpage
+
 
 \begin{theorem}\label{theo}
-\theoremtext{n^2-4n+6}
+$n^2-4n+6$
 \end{theorem}
 
 \begin{lemma}
-\lemmatext{b(ab^{n - 2})^{n - 3}ba}
+$b(ab^{n - 2})^{n - 3}ba$
 \end{lemma}
 
 
