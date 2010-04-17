@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.14159-1.00b-pretest-20020211 (Web2c 7.3.7x) (format=pdflatex 2006.6.6)  17 APR 2010 23:35
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  18 APR 2010 01:49
 **agv_sss.tex
-(./agv_sss.tex{c:/Program Files/TeXLive/texmf-var/pdftex/config/pdftex.cfg}
+(./agv_sss.tex
 LaTeX2e <2001/06/01>
 Loading CZ hyphenation patterns: Pavel Sevecek, v3, 1995
 Loading SK hyphenation patterns: Jana Chlebikova, 1992
 Babel <v3.7h> and hyphenation patterns for english, dumylang, nohyphenation, cz
 ech, slovak, german, ngerman, spanish, catalan, french, ukenglish, italian, dut
-ch, polish, portuguese, loaded.
+ch, polish, portuguese, russian, loaded.
 (c:/Program Files/TeXLive/texmf-local/tex/latex/llncs.cls
 Document Class: llncs 2004/08/17 v2.14 
  LaTeX document class for Lecture Notes in Computer Science
@@ -260,10 +260,10 @@ LaTeX Warning: Label `B5' multiply defined.
 LaTeX Warning: Label `theo' multiply defined.
 
 
-LaTeX Warning: Label `theo' multiply defined.
-
-
 LaTeX Warning: Label `B5' multiply defined.
+
+
+LaTeX Warning: Label `theo' multiply defined.
 
 
 LaTeX Warning: Label `theo' multiply defined.
@@ -280,264 +280,101 @@ LaTeX Warning: Label `B-star-6' multiply defined.
 )
 \openout1 = `agv_sss.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Try loading font information for U+msa on input line 39.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Try loading font information for U+msa on input line 38.
  (c:/Program Files/TeXLive/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 39.
+LaTeX Font Info:    Try loading font information for U+msb on input line 38.
 
 (c:/Program Files/TeXLive/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for OMS+rsfs on input line 39.
+LaTeX Font Info:    Try loading font information for OMS+rsfs on input line 38.
 
 
 (c:/Program Files/TeXLive/texmf/tex/latex/calrsfs/omsrsfs.fd)
-Overfull \hbox (3.05316pt too wide) in paragraph at lines 52--62
-/cmr10@10.95pt/A /cmti10@10.95pt/com-plete de-ter-min-is-tic fi-nite au-toma-to
-n /cmr10@10.95pt/(DFA) is a triple $/rsfs10@10.95pt/A /cmr10@10.95pt/= /cmsy10@
-10.95pt/h/cmmi10@10.95pt/Q; ^^F; ^^N/cmsy10@10.95pt/i$/cmr10@10.95pt/,
+Overfull \hbox (3.05316pt too wide) in paragraph at lines 51--61
+\OT1/cmr/m/n/10.95 A \OT1/cmr/m/it/10.95 com-plete de-ter-min-is-tic fi-nite au
+-toma-ton \OT1/cmr/m/n/10.95 (DFA) is a triple $\OMS/rsfs/m/n/10.95 A \OT1/cmr/
+m/n/10.95 = \OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 Q; ^^F; ^^N\OMS/cmsy/m/n/1
+0.95 i$\OT1/cmr/m/n/10.95 ,
  []
 
 [1
 
-
-Non-PDF special ignored!{c:/Program Files/TeXLive/texmf-var/dvips/config/pdftex
-.map}]
+]
 Underfull \vbox (badness 5787) has occurred while \output is active []
 
  [2]
-[3
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!] [4] [5] [6]
-Overfull \hbox (5.71097pt too wide) in paragraph at lines 456--458
-[]/cmti10@10.95pt/The au-toma-ton $/rsfs10@10.95pt/W[]$ /cmti10@10.95pt/is syn-
-chro-niz-ing and the min-i-mum length
+[3] [4]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
+Overfull \hbox (5.71097pt too wide) in paragraph at lines 452--454
+[]\OT1/cmr/m/it/10.95 The au-toma-ton $\OMS/rsfs/m/n/10.95 W[]$ \OT1/cmr/m/it/1
+0.95 is syn-chro-niz-ing and the min-i-mum length
  []
 
-[7
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!]
-Underfull \vbox (badness 2173) has occurred while \output is active []
+[7]
 
- [8
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!]
-Overfull \hbox (14.56567pt too wide) detected at line 581
-/cmmi10@10.95pt/^^N/cmr10@10.95pt/(/cmmi10@10.95pt/m; a/cmr10@10.95pt/) = []  /
-cmmi10@10.95pt/^^N/cmr10@10.95pt/(/cmmi10@10.95pt/m; b/cmr10@10.95pt/) = /cmmi1
-0@10.95pt/m /cmr10@10.95pt/+ 1  ([]/cmmi10@10.95pt/n/cmr10@10.95pt/)/cmmi10@10.
-95pt/:
- []
+LaTeX Warning: Reference `fig:cherny' on page 8 undefined on input line 554.
 
-[9
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!]
-Overfull \hbox (71.45857pt too wide) detected at line 624
-/cmmi10@10.95pt/^^N/cmr10@10.95pt/(/cmmi10@10.95pt/m; a/cmr10@10.95pt/) = []  /
-cmmi10@10.95pt/^^N/cmr10@10.95pt/(/cmmi10@10.95pt/m; b/cmr10@10.95pt/) = [] /cm
-mi10@10.95pt/:
+[8]
+Overfull \hbox (13.6532pt too wide) detected at line 602
+\OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
+/10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
+; b\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 m \OT1/cmr/m/n/10.95 + 1  ([]\OML
+/cmm/m/it/10.95 n\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 :
  []
 
 
-Overfull \hbox (92.63106pt too wide) detected at line 715
-/cmmi10@10.95pt/^^N/cmr10@10.95pt/(/cmmi10@10.95pt/m; a/cmr10@10.95pt/) = []  /
-cmmi10@10.95pt/^^N/cmr10@10.95pt/(/cmmi10@10.95pt/m; b/cmr10@10.95pt/) = [] /cm
-mi10@10.95pt/:
+Underfull \vbox (badness 7722) has occurred while \output is active []
+
+ [9]
+Overfull \hbox (69.63362pt too wide) detected at line 645
+\OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
+/10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
+; b\OT1/cmr/m/n/10.95 ) = [] \OML/cmm/m/it/10.95 :
  []
 
-[10
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!] [11
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!]
-Underfull \vbox (badness 1168) has occurred while \output is active []
+[10]
+Overfull \hbox (90.8061pt too wide) detected at line 736
+\OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
+/10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
+; b\OT1/cmr/m/n/10.95 ) = [] \OML/cmm/m/it/10.95 :
+ []
 
- [12
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!] [13
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!] [14] (./agv_sss.aux)
+[11] [12] [13] [14] (./agv_sss.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2315 strings out of 50283
- 25555 string characters out of 1187001
- 107103 words of memory out of 1500001
- 5311 multiletter control sequences out of 10000+15000
- 20676 words of font info for 79 fonts, out of 210000 for 1000
- 109 hyphenation exceptions out of 1000
- 29i,12n,24p,248b,364s stack positions out of 3000i,500n,3000p,200000b,40000s
- 102 PDF objects out of 200000
- 0 named destinations out of 131072
- 0 words of extra memory for PDF output out of 65536
-<c:/Program Files/TeXLive/texmf/fonts/type1/bluesky/cm/cmsy9.pfb><c:/Program 
-Files/TeXLive/texmf/fonts/type1/bluesky/cm/cmbx10.pfb><c:/Program Files/TeXLive
-/texmf/fonts/type1/bluesky/cm/cmmi9.pfb><c:/Program Files/TeXLive/texmf/fonts/t
-ype1/bluesky/cm/cmr6.pfb><c:/Program Files/TeXLive/texmf/fonts/type1/bluesky/cm
-/cmr8.pfb><c:/Program Files/TeXLive/texmf/fonts/type1/bluesky/cm/cmmi8.pfb><c:/
-Program Files/TeXLive/texmf/fonts/type1/bluesky/cm/cmmi6.pfb><c:/Program Files/
-TeXLive/texmf/fonts/type1/bluesky/cm/cmex10.pfb><c:/Program Files/TeXLive/texmf
-/fonts/type1/bluesky/cm/cmsy8.pfb><c:/Program Files/TeXLive/texmf/fonts/type1/b
-luesky/cm/cmmi10.pfb><c:/Program Files/TeXLive/texmf/fonts/type1/bluesky/cm/cms
-y10.pfb><c:/Program Files/TeXLive/texmf/fonts/type1/hoekwater/rsfs/rsfs10.pfb><
-c:/Program Files/TeXLive/texmf/fonts/type1/bluesky/cm/cmti10.pfb><c:/Program Fi
-les/TeXLive/texmf/fonts/type1/bluesky/cm/cmbx9.pfb><c:/Program Files/TeXLive/te
-xmf/fonts/type1/bluesky/cm/cmtt9.pfb><c:/Program Files/TeXLive/texmf/fonts/type
-1/bluesky/cm/cmr9.pfb><c:/Program Files/TeXLive/texmf/fonts/type1/bluesky/cm/cm
-r10.pfb><c:/Program Files/TeXLive/texmf/fonts/type1/bluesky/cm/cmmib10.pfb><c:/
-Program Files/TeXLive/texmf/fonts/type1/bluesky/cm/cmbx12.pfb>
-Output written on agv_sss.pdf (14 pages, 155992 bytes).
+ 2310 strings out of 50491
+ 25413 string characters out of 1189754
+ 107625 words of memory out of 1500001
+ 5248 multiletter control sequences out of 10000+15000
+ 20676 words of font info for 79 fonts, out of 400000 for 1000
+ 288 hyphenation exceptions out of 1000
+ 29i,12n,24p,248b,364s stack positions out of 1500i,500n,1500p,200000b,5000s
+
+Output written on agv_sss.dvi (14 pages, 88728 bytes).
