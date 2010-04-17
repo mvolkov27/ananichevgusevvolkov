@@ -4,11 +4,10 @@
 \usepackage{epic,gastex}
 \usepackage{array}
 
-\extrarowheight=2pt
-
 \newcommand{\sa}{synchronizing automata}
 \newcommand{\san}{synchronizing automaton}
 \newcommand{\sw}{reset word}
+\newcommand{\sws}{reset words}
 \newcommand{\ssw}{reset word of minimum length}
 
 \DeclareMathOperator{\weight}{wg}
@@ -124,16 +123,34 @@ of interest; in fact, we provide a transparent and uniform approach to all
 sufficiently large slowly \sa\ with 2~input letters, both new and already
 known ones.
 
-\section{Preliminaries on digraphs and their exponents}
+\section{Preliminaries}
 \label{preliminaries}
+
+We start with recalling two elementary and well-known number-theoretic results.
+\begin{lemma}[{\mdseries\cite[Theorem 1.0.1]{RaAl05}}]
+\label{schur}
+If $k_1,\dots,k_m$ are positive integers whose greatest common divisor is equal
+to\/ $1$, then there exists an integer $N$ such that every integer larger than $N$
+is expressible as a non-negative integer combination of $k_1,\dots,k_m$.
+\end{lemma}
+The question of how the least $N$ with the property stated in Lemma~\ref{schur}
+depends on the integers $k_1,\dots,k_m$ is known as the \emph{diophantine Frobenius
+problem} and in general is highly non-trivial, see~\cite{RaAl05}. There is, however,
+a simple special case which we frequently use in Section~\ref{sss}.
+\begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RaAl05}}]
+\label{sylvester}
+If $k_1,k_2$ are relatively prime positive integers, then $k_1k_2-k_1-k_2$ is
+the largest integer that is not expressible as a non-negative integer combination
+of $k_1$ and $k_2$.
+\end{lemma}
 
 A \emph{directed graph} (digraph) is a pair $D=\langle V,E\rangle$ where $V$ is
 a finite set and $E\subseteq V\times V$. We refer to elements of $V$ and $E$ as
 \emph{vertices} and \emph{edges}. Observe that our definition allows loops but
 excludes multiple edges. If $v,v'\in V$ and $e=(v,v')\in E$, the edge $e$ is said
 to be \emph{outgoing} for $v$. We assume the reader's acquaintance with basic
-notions of the theory of directed graphs such as (directed) path, cycle,
-isomorphism etc.
+notions of the theory of directed graphs such as (directed) path,
+cycle, isomorphism etc.
 
 Given a DFA $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$, its \emph{underlying
 digraph} $D(\mathrsfs{A})$ has $Q$ as the vertex set and $(q,q')\in Q\times Q$ is
@@ -211,10 +228,7 @@ of non-negative matrices.
 
 Recall that a digraph $D=\langle V,E\rangle$ is said to be \emph{strongly
 connected} if for every pair $(v,v')\in V\times V$, there exists a path
-from $v$ to $v'$. When studying the \v{C}ern\'{y} conjecture, we may
-restrict ourselves to automata whose underlying digraphs are strongly
-connected because the validity of the conjecture can be easily reduced
-to this case (see \cite{Pi78} for example). By the $t^{th}$ \emph{power}
+from $v$ to $v'$. By the $t^{th}$ \emph{power}
 of $D$ we mean the digraph $D^t$ with the same vertex set $V$, such that
 $(v,v')\in V\times V$ is an edge of $D^t$ if and only if there is a path
 in $D$ from $v$ to $v'$ of length precisely $t$. If $M$ is the matrix of $D$,
@@ -223,37 +237,19 @@ $M^t$ is the usual $t^{th}$ power of $M$.
 
 A strongly connected digraph $D$ is called \emph{primitive} if the greatest
 common divisor of the lengths of all cycles in $D$ is equal to~1. (In the
-literature such graphs are sometimes called \emph{aperiodic}.) The following
-elementary result is well known:
-\begin{lemma}[{\mdseries\cite[Theorem 1.0.1]{RaAl05}}]
-\label{schur}
-If $k_1,\dots,k_m$ are positive integers whose greatest common divisor is equal
-to~$1$, then there exists an integer $N$ such that every integer larger than $N$
-is expressible as a non-negative integer combination of $k_1,\dots,k_m$.
-\end{lemma}
-The question of how the least $N$ with the property stated in Lemma~\ref{schur}
-depends on the integers $k_1,\dots,k_m$ is known as the \emph{diophantine Frobenius
-problem} and in general is highly non-trivial, see~\cite{RaAl05}. There is, however,
-an elementary special case which will be used in the sequel.
-\begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RaAl05}}]
-\label{sylvester}
-If $k_1,k_2$ are relatively prime positive integers, then $k_1k_2-k_1-k_2$ is
-the largest integer that is not expressible as a non-negative integer combination
-of $k_1$ and $k_2$.
-\end{lemma}
-
-Lemma~\ref{schur} readily implies that if $D$ is a primitive digraph, then some
-power $D^t$ of $D$ has an edge between any pair of vertices, i.e., is a complete
-digraph with loops. (This is equivalent to saying that every entry of the matrix
-$M^t$, where $M$ is the matrix of $D$, is positive.) The least $t$ with this
-property is called the \emph{exponent} of the digraph $D$ and is denoted
-by $\gamma(D)$. We need some results on exponents of digraphs summarized
-as follows.
+literature such graphs are sometimes called \emph{aperiodic}.)
+Lemma~\ref{schur} readily implies that if $D$ is a primitive digraph, then
+in some power $D^t$ of $D$ every pair of vertices constitutes an edge, i.e.,
+$D^t$ is a complete digraph with loops. (This is equivalent to saying that
+every entry of the matrix $M^t$, where $M$ is the matrix of $D$, is positive.)
+The least $t$ with this property is called the \emph{exponent} of the digraph $D$
+and is denoted by $\gamma(D)$. We need some results on exponents of digraphs
+summarized as follows.
 
 \begin{theorem}
 \label{dulmage}
-\emph{(a) (\cite{Wi50,DM62}, \cite[Theorem~1]{DM64})} If a primitive graph $D$
-has $n$~vertices, then  $\gamma(D)\le(n-1)^2+1$.
+\emph{(a) (Wielandt's theorem, see \cite{Wi50,DM62}, \cite[Theorem~1]{DM64})}
+If a primitive graph $D$ has $n$~vertices, then  $\gamma(D)\le(n-1)^2+1$.
 
 \emph{(b) \cite[Theorem~6 and Corollary 4]{DM64}} Up to isomorphism, there is
 exactly one primitive graph $D$ on $n>2$ vertices for which $\gamma(D)=(n-1)^2+1$,
@@ -361,8 +357,8 @@ revealed quite a similar pattern of gaps in the upper part
 of the former sequence. Table~\ref{9 states} illustrates this
 observation for $n=9$.
 
-\begin{table}[ht]
-\extrarowheight=2pt
+\begin{table}[h]
+\extrarowheight=1pt
 \caption{Exponents of primitive digraphs with $9$ vertices
 vs lengths of shortest reset words for 2-letter \sa\ with $9$ states}\label{9 states}
 \begin{tabular}{|p{5.4cm}||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -486,6 +482,31 @@ followed by a cycle of length $n^2-3n+1$. No cycle of such length may
 exist by  Lemma~\ref{sylvester}. Hence $|w|\ge n^2-3n+3$.
 \end{proof}
 
+The series $\mathrsfs{W}_n$ was discovered by the first author in 2008
+(unpublished). He gave a (rather involved) proof of Theorem~\ref{theorem:anan}
+using a game-theoretic technique developed in~\cite{AVZ}.
+
+As mentioned in Section~\ref{matrices}, Trahtman's recent result~\cite{Tr09}
+implies that every primitive digraph admits a synchronizing coloring. This
+gives rise to the following natural question: given a primitive digraph on
+$n$ vertices, what is the minimum length of \sws\ for its synchronizing
+colorings? Observe that in general underlying digraphs of slowly \sa\ may
+admit colorings with rather short \sws. Fig.~\ref{fig:cerny} illustrates
+this phenomenon: the first coloring of the 4-vertex digraph in Fig.~\ref{fig:cerny}
+is the \v{C}ern\'{y} automaton $\mathrsfs{C}_4$ with shortest reset word of
+length~9 while the second coloring can be reset of the word $a^3$ of length~3.
+Wielandt's digraphs $W_n$, however, can be colored in a essentially unique
+way, whence Theorem~\ref{theorem:anan} gives the lower bound $n^2-3n+3$
+for the value in question. We strongly believe that this lower bound in fact
+tight, in other words, we suggest a conjecture that is in a sense parallel
+to the \v{C}ern\'{y} one.
+\begin{conjecture}
+\label{hybrid}
+Every primitive digraph on $n$ vertices admits a synchronizing coloring
+that can be reset by a word of length $n^2-3n+3$.
+\end{conjecture}
+We observe that while there is a clear analogy between Conjecture~\ref{hybrid}
+and the \v{C}ern\'{y} conjecture, none of them immediately implies the other.
 
 \begin{theorem}
 \label{theorem:cherny}
@@ -500,7 +521,7 @@ The word $(ab^{n - 1})^{n - 2}a$ is a reset word for the automaton $\mathrsfs{C}
 
 \begin{figure}[ht]
 \begin{center}
-\unitlength .7mm
+\unitlength .45mm
 \begin{picture}(112,76)(0,-86)
 \gasset{Nadjustdist=1.5} \node(n0)(56.0,-16.0){0}
 \node(n1)(24.0,-40.0){4} \node(n2)(88.0,-40.0){1}
@@ -516,7 +537,7 @@ The word $(ab^{n - 1})^{n - 2}a$ is a reset word for the automaton $\mathrsfs{C}
 \drawloop[ELdist=1.5,loopangle=226.55](n3){$a$}
 \end{picture}
 \end{center}
-\caption{The automaton $\mathrsfs{C}_5$}\label{C5}\label{fig:cherny}
+\caption{The automaton $\mathrsfs{C}_5$}\label{fig:cerny-n}
 \end{figure}
 
 The states of the automaton $\mathrsfs{C}_n$
@@ -847,10 +868,6 @@ from a finite full transformation semigroup, Semigroup Forum 37, 31--36
 \bibitem{Ka03}
 Kari, J.: Synchronizing finite automata on Eulerian digraphs.
 Theoret.\ Comput.\ Sci. 295, 223--232 (2003)
-
-\bibitem{Pi78}
-Pin, J.-E.: Le probl\`eme de la synchronization et la conjecture de
-Cerny, Th\`ese de 3\`eme cycle. Universit\'e de Paris 6 (1978)
 
 \bibitem{Pi83}
 Pin, J.-E.: On two combinatorial problems arising from automata
