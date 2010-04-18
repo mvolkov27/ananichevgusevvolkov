@@ -87,7 +87,7 @@ the worst possible case, that is, every \san\ with $n$ states
 can be reset by a word of length $(n-1)^2$. This simply looking conjecture
 resists researchers' efforts for more than 40 years. Even though the
 conjecture has been confirmed for various restricted classes of \sa\
-(cf., e.g., \cite{Ep90,Du98,Ka03,Tr07,AS09,Vo09}), no upper bound of magnitude
+(cf., e.g., \cite{Ep90,Du98,Ka03,Tr07,Tr08,AS09,Vo09}), no upper bound of magnitude
 $O(n^2)$ for the \rl\ of $n$-state \sa\ is known in general---the best upper
 bound achieved so far is $\frac{n^3-n}6$, see~\cite{Pi83}.
 
@@ -707,16 +707,36 @@ The details of the proof see in the Appendix.
 
 \section{Experiments}
 \label{experiments}
-During the experiments every initially-connected deterministic automata was checked on synchronizability and it's shortest reset word was
-calculated. This class of automata was deceided to use because it contains every strongly connected automata and has very simple and convenient
-way of enumeration which is presented and thoroughly described in [Almeida]. There are about 700 billions of initially-connected deterministic automata
-with 9 states and it is hard task for a single computer to do. That's why this check was distributed and done within a day on 60 cores of
-amd opteron 2.6 Ghz processors. Program was written in C with mpi. Every obtained slowly synchronizing automaton was rechecked
-with package TESTAS[trahtman's site]
-developed by A.Trahtman.
-It is also worth to mention that experiments show that deterministic automata indeed tends to be synchronizible with short reset words.
-Almost $90\%$ of initially-connected deterministic automata with 9 states could be synchronized with word of length not greater than 9.
-And as shows random sampling experiment this part becomes bigger with growth of number of states.
+
+Here we briefly describe the settings of our experiments. Recall that a DFA
+$\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$ is said to be \emph{initially-connected}
+if there exists a state $q_0\in Q$ from which every state $q\in Q$ is reachable,
+that is, $q=\delta(q_0,w)$ for some $w\in\Sigma^*$. In general a \san\ need not
+be initially-connected. However, it is well known that when studying the \v{C}ern\'{y}
+conjecture, we may restrict ourselves to DFA whose underlying digraphs are strongly
+connected because the validity of the conjecture can be easily reduced to this case
+(see \cite{Pi78} for example). Clearly, DFA with strongly connected underlying digraphs
+are initially-connected.
+
+We used a convenient string representation of initially-connected DFA (ICDFA)
+developed in~\cite{AMR} to generate all such DFA with up to 9 states and 2 input
+letters. Each ICDFA was tested for synchronizability and then for each \san\
+its reset length was calculated. For these tasks, we implemented standard
+algorithms (see~\cite{Sa05,Vo08}) in C.
+
+The main difficulty that had to be overcome is that the number of ICDFA dramatically
+grows with the number of states. (For 9 states, there are about 700 billions
+ICDFA with 2 input letters.) The problem, however, can be efficiently parallelized.
+For this, a dedicated processor was programmed to generate ICDFA in portions (slices
+in terminology of~\cite{AMR}) that were fed to other processors for synchronization
+tests etc. The management program was written in C with MPI. Calculations organized
+this took less than a day on a grid of AMD Opteron 2.6 GHz processors with 60 cores.
+
+All slowly synchronizing automata that we found were double-checked by running on
+them the package TESTAS developed by Trahtman~\cite{Tr06}.
+
+Our experiments have also produced some interesting statistical results that will
+be discussed elsewhere.
 
 \begin{thebibliography}{99}
 \bibitem{AGW}
@@ -728,6 +748,10 @@ Almeida, J.; Steinberg, B.: Matrix mortality and the \v{C}ern\'{y}--Pin
 conjecture. In:  Diekert, V.; Nowotka, D. (eds.), Developments in
 Language Theory, Lect.\ Notes Comput.\ Sci., vol.\,5583, pp. 67--80.
 Springer, Heidelberg (2009)
+
+\bibitem{AMR}
+Almeida, M.; Moreira, N.; Reis, R.: Enumeration and generation with a string
+automata representation. Theor.\ Comput.\ Sci. 387, 93--102 (2007)
 
 \bibitem{AVZ}
 Ananichev, D.S., Volkov, M.V., Zaks, Yu.I.: Synchronizing automata
@@ -764,6 +788,11 @@ from a finite full transformation semigroup, Semigroup Forum 37, 31--36
 Kari, J.: Synchronizing finite automata on Eulerian digraphs.
 Theoret.\ Comput.\ Sci. 295, 223--232 (2003)
 
+\bibitem{Pi78}
+Pin, J.-E.: Le probl\`eme de la synchronization et la conjecture de
+\v{C}ern\'y. Th\`ese de 3\`eme cycle. Universit\'e de Paris 6 (1978) (in
+French)
+
 \bibitem{Pi83}
 Pin, J.-E.: On two combinatorial problems arising from automata
 theory. Ann.\ Discrete Math. 17, 535--548 (1983)
@@ -797,6 +826,10 @@ of graphs and automata. Electr.\ Notes Discrete Math. 25, 173--175 (2006)
 \bibitem{Tr07}
 Trahtman, A.N.: The \v{C}ern\'y conjecture for aperiodic automata.
 Discrete Math.\ Theor.\ Comput.\ Sci. 9(2), 3--10 (2007)
+
+\bibitem{Tr08}
+Trahtman, A.N.: Some aspects of synchronization of DFA. J. Comput.\ Sci.\
+Technol. 23, 719--727 (2008)
 
 \bibitem{Tr09}
 Trahtman, A.N.: The Road Coloring Problem. Israel J. Math.

@@ -1,4 +1,4 @@
-This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  18 APR 2010 20:30
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  18 APR 2010 22:34
 **agv_sss.tex
 (./agv_sss.tex
 LaTeX2e <2001/06/01>
@@ -263,6 +263,9 @@ LaTeX Warning: Label `B5' multiply defined.
 LaTeX Warning: Label `theo' multiply defined.
 
 
+LaTeX Warning: Label `B5' multiply defined.
+
+
 LaTeX Warning: Label `theo' multiply defined.
 
 
@@ -273,9 +276,6 @@ LaTeX Warning: Label `theo' multiply defined.
 
 
 LaTeX Warning: Label `theo' multiply defined.
-
-
-LaTeX Warning: Label `B5' multiply defined.
 
 
 LaTeX Warning: Label `B-star-6' multiply defined.
@@ -318,19 +318,19 @@ m/n/10.95 = \OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 Q; ^^F; ^^N\OMS/cmsy/m/n/1
 [1
 
 ] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11]
-Overfull \hbox (5.68044pt too wide) in paragraph at lines 825--827
+Overfull \hbox (5.68044pt too wide) in paragraph at lines 858--860
 []\OT1/cmr/m/it/10.95 The au-toma-ton $\OMS/rsfs/m/n/10.95 A[]$ \OT1/cmr/m/it/1
 0.95 is syn-chro-niz-ing and the min-i-mum length
  []
 
 [12] [13]
-Overfull \hbox (5.68044pt too wide) in paragraph at lines 918--920
+Overfull \hbox (5.68044pt too wide) in paragraph at lines 951--953
 []\OT1/cmr/m/it/10.95 The au-toma-ton $\OMS/rsfs/m/n/10.95 A[]$ \OT1/cmr/m/it/1
 0.95 is syn-chro-niz-ing and the min-i-mum length
  []
 
 [14]
-Overfull \hbox (13.6532pt too wide) detected at line 1027
+Overfull \hbox (13.6532pt too wide) detected at line 1060
 \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
 /10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
 ; b\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 m \OT1/cmr/m/n/10.95 + 1  ([]\OML
@@ -338,31 +338,31 @@ Overfull \hbox (13.6532pt too wide) detected at line 1027
  []
 
 [15]
-Overfull \hbox (69.63362pt too wide) detected at line 1070
+Overfull \hbox (69.63362pt too wide) detected at line 1103
 \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
 /10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
 ; b\OT1/cmr/m/n/10.95 ) = [] \OML/cmm/m/it/10.95 :
  []
 
-
-Overfull \hbox (90.8061pt too wide) detected at line 1161
+[16]
+Overfull \hbox (90.8061pt too wide) detected at line 1194
 \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
 /10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
 ; b\OT1/cmr/m/n/10.95 ) = [] \OML/cmm/m/it/10.95 :
  []
 
-[16] [17] [18] (./agv_sss.aux)
+[17] [18] [19] (./agv_sss.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2333 strings out of 50491
- 25645 string characters out of 1189754
- 107134 words of memory out of 1500001
- 5271 multiletter control sequences out of 10000+15000
+ 2336 strings out of 50491
+ 25662 string characters out of 1189754
+ 102384 words of memory out of 1500001
+ 5274 multiletter control sequences out of 10000+15000
  20676 words of font info for 79 fonts, out of 400000 for 1000
  288 hyphenation exceptions out of 1000
  29i,12n,24p,248b,364s stack positions out of 1500i,500n,1500p,200000b,5000s
 
-Output written on agv_sss.dvi (18 pages, 139032 bytes).
+Output written on agv_sss.dvi (19 pages, 140720 bytes).
