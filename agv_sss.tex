@@ -131,7 +131,7 @@ is expressible as a non-negative integer combination of $k_1,\dots,k_m$.
 The question of how the least $N$ with the property stated in Lemma~\ref{schur}
 depends on the integers $k_1,\dots,k_m$ is known as the \emph{diophantine Frobenius
 problem} and in general is highly non-trivial, see~\cite{RaAl05}. There is, however,
-a simple special case which we frequently use in Section~\ref{sss}.
+a simple special case which we will need in Section~\ref{sss}.
 \begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RaAl05}}]
 \label{sylvester}
 If $k_1,k_2$ are relatively prime positive integers, then $k_1k_2-k_1-k_2$ is
@@ -625,15 +625,85 @@ $n^2-3n+4$ and $n^2-3n+2$ respectively.
 The proof of Theorem~\ref{theorem:new series} is similar to that of Theorem~\ref{theorem:anan}
 and is presented in the Appendix. The series $\mathrsfs{D}'_n$ is of interest because
 for $n>6$ it yields the maximum known value of reset length beyond the \v{C}ern\'y series
-and also the maximum known value of reset length for \sa\ without loops. The series
-$\mathrsfs{D}''_n$ also enjoys an extremal property: it provides the maximum known
-value of reset length for \sa\ in which no letter acts as a permutation.
+$\mathrsfs{C}_n$ and also the maximum known value of reset length for \sa\ without loops.
+The series $\mathrsfs{D}''_n$ also enjoys an extremal property: it provides the maximum
+known value of reset length for \sa\ in which no letter acts as a permutation.
 
 One more series of slowly \sa\ related to the digraphs $D_n$ has reset length
 $n^2-4n+6$. It will be presented in an extended version of this paper.
 
-The only series
+Except the \v{C}ern\'y series $\mathrsfs{C}_n$, the only infinite series of
+2-letter slowly \sa\ published so far was the series $\mathrsfs{B}_n$ ($n>3$
+is odd) constructed in~\cite{AVZ}. The automaton $\mathrsfs{B}_n$ has $Q=\{1,2,\dots,n\}$
+as its state set, and its input letters $a$ and $b$ act on $Q$ as follows:
+$$\delta(i,a)=\begin{cases}
+i &\text{if } i<n-1,\\
+1 &\text{if } i=n-1,\\
+2 &\text{if } i=n;
+\end{cases}\quad
+\delta(i,b)=\begin{cases}
+i+1 &\text{if } i<n,\\
+1 &\text{if } i=n.
+\end{cases}$$
+The automaton $\mathrsfs{B}_n$ is shown in Fig.\,\ref{fig:avz-n} on the left.
 
+\begin{figure}[ht]
+\begin{center}
+\unitlength .45mm
+\begin{picture}(72,66)(30,-76)
+\gasset{Nw=16,Nh=16,Nmr=8}
+\node(n1)(56.0,-16.0){1}
+\node(n2)(68.0,-44.0){2}
+\node(n3)(56.0,-72.0){3}
+\node(n4)(16.0,-72.0){$n{-}2$}
+\node(n5)(4.0,-44.0){$n{-}1$}
+\node(n6)(16.0,-16.0){$n$}
+\drawedge[ELdist=1.7](n1,n2){$b$}
+\drawedge[ELdist=1.7](n2,n3){$b$}
+\drawedge[ELdist=1.7](n4,n5){$b$}
+\drawedge[ELdist=1.7](n5,n6){$b$}
+\drawedge[ELdist=1.7](n6,n1){$b$}
+\drawedge[ELdist=1.7,ELpos=40](n5,n1){$a$}
+\drawedge[ELdist=1.7,ELpos=60](n6,n2){$a$}
+\drawloop[ELdist=1.5,loopangle=30](n1){$a$}
+\drawloop[ELdist=1.5,loopangle=0](n2){$a$}
+\drawloop[ELdist=1.5,loopangle=-30](n3){$a$}
+\drawloop[ELdist=1.5,loopangle=210](n4){$a$}
+\put(31,-73){$\dots$}
+\end{picture}
+\begin{picture}(72,66)(-30,-76)
+\gasset{Nw=16,Nh=16,Nmr=8}
+\node(n1)(56.0,-16.0){1}
+\node(n2)(68.0,-44.0){2}
+\node(n3)(56.0,-72.0){3}
+\node(n4)(16.0,-72.0){$n{-}2$}
+\node(n5)(4.0,-44.0){$n{-}1$}
+\node(n6)(16.0,-16.0){$n$}
+\drawedge[ELdist=1.7](n1,n2){$b,c$}
+\drawedge[ELdist=1.7](n2,n3){$b,c$}
+\drawedge[ELdist=1.7](n4,n5){$b,c$}
+\drawedge[ELdist=1.7](n5,n6){$b$}
+\drawedge[ELdist=1.7](n6,n1){$b$}
+\drawedge[ELdist=1.7,ELpos=60](n5,n2){$c$}
+\drawedge[ELdist=1.7,ELpos=40](n6,n3){$c$}
+\put(31,-73){$\dots$}
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{B}_n$ and the automaton induced by the actions of $b$ and $c=ab$}\label{fig:avz-n}
+\end{figure}
+
+\begin{theorem}[{\mdseries\cite[Theorem~1.1]{AVZ}}]
+\label{theorem:avz}
+If $n>3$ is odd, then the automaton $\mathrsfs{B}_n$ is synchronizing and
+its reset length is $n^2-3n+2$.
+\end{theorem}
+
+The proof of Theorem~\ref{theorem:avz} in \cite{AVZ} is quite involved. Now we can easily
+prove this result using an argument similar to that in our proof of Theorem~\ref{theorem:cerny}.
+The key observation is that the automaton induced by the actions of $b$ and $c=ab$ on the set $Q$
+as shown in Fig.\,\ref{fig:avz-n} on the right is nothing but a coloring of one of the digraphs
+with exponent $n^2-3n+2$, namely, of the digraph defined by the third matrix in \eqref{odd island}.
+The details of the proof see in the Appendix.
 
 \section{Experiments}
 \label{experiments}
