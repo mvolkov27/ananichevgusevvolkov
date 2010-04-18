@@ -741,7 +741,173 @@ Wielandt, H.: Unzerlegbare, nicht negative Matrizen. Math.\ Z.
 
 \section*{Appendix}
 
+\begin{theorem}
+\label{theorem:appendix1}
+The automaton $\mathrsfs{A}_n$ is synchronizing and the minimum length
+of its reset words is $n^2-4n+6$.
+\end{theorem}
 
+
+\begin{figure}[th]
+\unitlength=.7mm
+\begin{center}
+\begin{picture}(100,70)(0,-80)
+\gasset{Nadjustdist=1.5} \node(n0)(56.0,-16.0){0}
+\node(n1)(24.0,-40.0){4} \node(n2)(88.0,-40.0){1}
+\node(n3)(36.0,-72.0){3} \node(n4)(76.0,-72.0){2}
+\drawloop[ELdist=2.4,loopangle=320.0](n4){$a$}
+\drawedge[ELdist=2.0](n1,n0){$b$} \drawedge[ELdist=1.5](n2,n4){$b$}
+\drawedge[ELdist=1.7](n0,n2){$b$} \drawedge[ELdist=2.0](n4,n3){$b$}
+\drawedge[ELdist=1.7](n3,n1){$b$}
+\node[NLangle=0.0](n16)(56.0,-48.0){5}
+%\drawedge[ELdist=1.6](n1,n16){$a$}
+\drawedge[ELdist=1.7](n16,n4){$b$}
+
+\drawedge[curvedepth=2](n0,n16){$a$}
+\drawedge[curvedepth=2](n16,n0){$a$}
+
+%\drawloop[ELdist=1.5,loopangle=90](n0){$a$}
+%\drawloop[ELdist=1.5](n16){$b$}
+%\drawedge[ELdist=1.5,curvedepth=33](n3,n0){$a$}
+\drawloop[ELdist=1.5,loopangle=144.55](n1){$a$}
+\drawloop[ELdist=1.5,loopangle=226.55](n3){$a$}
+\drawloop[ELdist=1.5,loopangle=33.34](n2){$a$}
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{A}_6$}\label{fig:appendix1}
+\end{figure}
+
+\begin{figure}[th]
+\unitlength=.7mm
+\begin{center}
+\begin{picture}(100,70)(0,-80)
+\gasset{Nadjustdist=1.5} \node(n0)(56.0,-16.0){0}
+\node(n1)(24.0,-40.0){4} \node(n2)(88.0,-40.0){1}
+\node(n3)(36.0,-72.0){3} \node(n4)(76.0,-72.0){2}
+
+\drawedge[ELdist=2.0](n1,n0){$b,c$} \drawedge[ELdist=1.5](n2,n4){$b,c$}
+\drawedge[ELdist=1.7](n0,n2){$b$} \drawedge[ELdist=2.0](n4,n3){$b,c$}
+\drawedge[ELdist=1.7](n3,n1){$b,c$}
+\node[NLangle=0.0](n16)(56.0,-48.0){5}
+
+\drawedge[ELdist=1.7](n16,n4){$b$}
+
+\drawedge(n16,n2){$c$}
+\drawedge[ELpos=30](n0,n4){$c$}
+
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{A}^{\star}_6$}\label{fig:appendix12}
+\end{figure}
+
+
+
+\begin{proof}
+It is routine to verify that the word $b(ab^{n - 2})^{n - 3}ab$, whose length
+is $1 + (n - 1)(n - 3) + 2 = n^2 - 4n + 6$, is a reset word for $\mathrsfs{A}_n$.
+
+Now let $w$ be a \ssw\ for $\mathrsfs{A}_n$. Since the letter $a$
+acts on $Q$ as a permutation, the word $w$ cannot end with $a$.
+(Otherwise removing the last letter gives a shorter \sw.) 
+Since $a^2$ is identity transformation,
+every occurrence of $a$ in $w$ is followed by an
+occurrence of $b$. (Otherwise $a^2$ occurs in $w$ as a factor and
+removing this factor results in a shorter \sw.)
+
+Therefore,
+if we let $c = ab$, then the word $w$ can be rewritten into word $v$
+over the alphabet $\{b,c\}$. The actions of $b$ and $c$ induce
+a new automaton on the state set $Q$. Since $w$ and $v$ act on $Q$ 
+in the same way, the word $v$ is a \sw\ for the induced automaton. 
+This induced automaton is "almost" automaton $\mathrsfs{W}_{n - 1}$. 
+It is not important with which letter starts $v$ since resulting image
+is always $Q - {n}$. Thus word $v$ without starting letter synchronizes
+$\mathrsfs{W}_{n - 1}$. By Theorem~\ref{theorem:anan} this could be done
+in $(n  - 1)^2 - 3(n - 1) + 3 = n^2 -5n + 7$ steps and therefore the length of
+$v$ could not be less than $n^2 -5n + 8$. 
+Since the action of $b$ in $\mathrsfs{W}_{n - 1}$ on any set $S$ of states
+cannot change the cardinality of $S$ and the action of $c$ can decrease the
+cardinality by~1 at most, the word $v$ must contain at least $n-2$ occurrences of $c$.
+Since each occurrence of $c$ in $v$ corresponds to an occurrence of the factor $ab$
+in $w$, we conclude that the length of $w$ over $\{a,b\}$ is at
+least $n^2-5n+8+n-2=n^2-4n + 6$.
+\end{proof}
+
+
+\begin{theorem}
+\label{theorem:appendix1}
+The automaton $\mathrsfs{A}_n$ is synchronizing and the minimum length
+of its reset words is $n^2-3n+2$.
+\end{theorem}
+
+
+\begin{figure}[ht]
+\begin{center}
+\unitlength .7mm
+\begin{picture}(112,76)(0,-86)
+\gasset{Nadjustdist=1.5} \node(n0)(56.0,-16.0){1}
+\node(n1)(24.0,-40.0){0} \node(n2)(88.0,-40.0){2}
+\node(n3)(36.0,-72.0){4} \node(n4)(76.0,-72.0){3}
+\drawloop[ELdist=1.5,loopangle=33.34](n2){$a$}
+\drawloop[ELdist=2.4,loopangle=320.0](n4){$a$}
+\drawedge[ELdist=2.0](n1,n0){$a$} \drawedge[ELdist=1.5](n2,n4){$b$}
+\drawedge[ELdist=1.7](n0,n2){$a, b$} \drawedge[ELdist=2.0](n4,n3){$b$}
+\drawedge[ELdist=1.7](n3,n1){$b$}
+\drawedge[ELdist=2.0](n1,n2){$b$}
+%\drawedge[ELdist=2.0](n0,n4){$a$}
+%\drawloop[ELdist=1.5,loopangle=144.55](n1){$a$}
+\drawloop[ELdist=1.5,loopangle=226.55](n3){$a$}
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{A}_5$}\label{fig:appendix2}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\unitlength .7mm
+\begin{picture}(112,76)(0,-86)
+\gasset{Nadjustdist=1.5} \node(n0)(56.0,-16.0){1}
+\node(n1)(24.0,-40.0){0} \node(n2)(88.0,-40.0){2}
+\node(n3)(36.0,-72.0){4} \node(n4)(76.0,-72.0){3}
+\drawloop[ELdist=1.5,loopangle=33.34](n2){$c$}
+\drawloop[ELdist=2.4,loopangle=320.0](n4){$c$}
+\drawedge[ELdist=1.5](n2,n4){$b$}
+\drawedge[ELdist=1.7](n0,n2){$b, c$} \drawedge[ELdist=2.0](n4,n3){$b$}
+\drawedge[ELdist=1.7](n3,n1){$b$}
+\drawedge[ELdist=2.0](n1,n2){$b, c$}
+%\drawedge[ELdist=2.0](n0,n4){$a$}
+%\drawloop[ELdist=1.5,loopangle=144.55](n1){$a$}
+\drawloop[ELdist=1.5,loopangle=226.55](n3){$c$}
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{A}^{\star}_5$}\label{fig:appendix22}
+\end{figure}
+
+\begin{proof}
+It is routine to verify that the word $(aab^{n - 2})^{n - 3}a^2$, whose length
+is $n(n - 3) + 2 = n^2 -3n + 2$, is a reset word for $\mathrsfs{A}_n$.
+
+Now let $w$ be a \ssw\ for $\mathrsfs{A}_n$. 
+The word $w$ could not begin with $ab$(Otherwise changing this factor 
+to just $b$ results in a shorter \sw.) It is also clear that $w$ could not
+end on $ba$.
+Since $bab = bb$ and $a^3 = a$ every occurence of the letter $a$ in $w$
+is a square.
+Therefore,
+if we let $c = aa$, then the word $w$ can be rewritten into word $v$
+over the alphabet $\{b,c\}$. The actions of $b$ and $c$ induce
+a new automaton on the state set $Q$. Since $w$ and $v$ act on $Q$ 
+in the same way, the word $v$ is a \sw\ for the induced automaton. 
+This induced automaton contains $\mathrsfs{C}_{n - 1}$ as subautomaton.
+Since $v$ synchronizes $\mathrsfs{C}_{n - 1}$ by Theorem~\ref{theorem:cerny}
+we have that $|v| \geq (n - 2)^2$. 
+Since the action of $b$ in $\mathrsfs{C}_{n - 1}$ on any set $S$ of states
+cannot change the cardinality of $S$ and the action of $c$ can decrease the
+cardinality by~1 at most, the word $v$ must contain at least $n-2$ occurrences of $c$.
+Since each occurrence of $c$ in $v$ corresponds to an occurrence of the factor $aa$
+in $w$, we conclude that the length of $w$ over $\{a,b\}$ is at
+least $(n - 2)^2 + (n - 2) = n^2 -3n + 2$.
+\end{proof}
 
 
 \begin{lemma}
