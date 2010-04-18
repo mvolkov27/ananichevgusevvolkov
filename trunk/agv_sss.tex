@@ -383,7 +383,7 @@ as colorings of primitive digraphs with large exponents corresponding
 to non-zero entries in the second row. In the next section we demonstrate
 some new connections between primitive digraphs with large exponents and
 slowly \sa\ with two input letters. In this way, we derive all known
-series of such automata and construct many new other ones.
+series of such automata and construct many new ones.
 
 \section{Series of slowly \sa}
 \label{sss}
@@ -537,8 +537,7 @@ The automaton $\mathrsfs{C}_n$ is shown in Fig.\,\ref{fig:cerny-n} on the left.
 Now we present a new simple proof for the following classic result.
 \begin{theorem}[{\mdseries\cite[Lemma~1]{Ce64}}]
 \label{theorem:cerny}
-The automaton $\mathrsfs{C}_n$ is synchronizing and the minimum length
-of its reset words is $(n-1)^2$.
+The automaton $\mathrsfs{C}_n$ is synchronizing and its reset length is $(n-1)^2$.
 \end{theorem}
 
 \begin{proof}
@@ -619,12 +618,22 @@ its colorings $\mathrsfs{D}'_n$ and $\mathrsfs{D}''_n$.
 
 \begin{theorem}
 \label{theorem:new series}
-The automata $\mathrsfs{D}'_n$ and $\mathrsfs{D}''_n$ are synchronizing. The minimum length
-of reset words is $n^2-3n+4$ for $\mathrsfs{D}'_n$ and $n^2-3n+2$ for $\mathrsfs{D}''_n$.
+The automata $\mathrsfs{D}'_n$ and $\mathrsfs{D}''_n$ are synchronizing with reset lengths
+$n^2-3n+4$ and $n^2-3n+2$ respectively.
 \end{theorem}
 
 The proof of Theorem~\ref{theorem:new series} is similar to that of Theorem~\ref{theorem:anan}
-and is presented in the Appendix.
+and is presented in the Appendix. The series $\mathrsfs{D}'_n$ is of interest because
+for $n>6$ it yields the maximum known value of reset length beyond the \v{C}ern\'y series
+and also the maximum known value of reset length for \sa\ without loops. The series
+$\mathrsfs{D}''_n$ also enjoys an extremal property: it provides the maximum known
+value of reset length for \sa\ in which no letter acts as a permutation.
+
+One more series of slowly \sa\ related to the digraphs $D_n$ has reset length
+$n^2-4n+6$. It will be presented in an extended version of this paper.
+
+The only series
+
 
 \section{Experiments}
 \label{experiments}
@@ -808,7 +817,7 @@ is $1 + (n - 1)(n - 3) + 2 = n^2 - 4n + 6$, is a reset word for $\mathrsfs{A}_n$
 
 Now let $w$ be a \ssw\ for $\mathrsfs{A}_n$. Since the letter $a$
 acts on $Q$ as a permutation, the word $w$ cannot end with $a$.
-(Otherwise removing the last letter gives a shorter \sw.) 
+(Otherwise removing the last letter gives a shorter \sw.)
 Since $a^2$ is identity transformation,
 every occurrence of $a$ in $w$ is followed by an
 occurrence of $b$. (Otherwise $a^2$ occurs in $w$ as a factor and
@@ -817,14 +826,14 @@ removing this factor results in a shorter \sw.)
 Therefore,
 if we let $c = ab$, then the word $w$ can be rewritten into word $v$
 over the alphabet $\{b,c\}$. The actions of $b$ and $c$ induce
-a new automaton on the state set $Q$. Since $w$ and $v$ act on $Q$ 
-in the same way, the word $v$ is a \sw\ for the induced automaton. 
-This induced automaton is "almost" automaton $\mathrsfs{W}_{n - 1}$. 
+a new automaton on the state set $Q$. Since $w$ and $v$ act on $Q$
+in the same way, the word $v$ is a \sw\ for the induced automaton.
+This induced automaton is "almost" automaton $\mathrsfs{W}_{n - 1}$.
 It is not important with which letter starts $v$ since resulting image
 is always $Q - {n}$. Thus word $v$ without starting letter synchronizes
 $\mathrsfs{W}_{n - 1}$. By Theorem~\ref{theorem:anan} this could be done
 in $(n  - 1)^2 - 3(n - 1) + 3 = n^2 -5n + 7$ steps and therefore the length of
-$v$ could not be less than $n^2 -5n + 8$. 
+$v$ could not be less than $n^2 -5n + 8$.
 Since the action of $b$ in $\mathrsfs{W}_{n - 1}$ on any set $S$ of states
 cannot change the cardinality of $S$ and the action of $c$ can decrease the
 cardinality by~1 at most, the word $v$ must contain at least $n-2$ occurrences of $c$.
@@ -887,8 +896,8 @@ of its reset words is $n^2-3n+2$.
 It is routine to verify that the word $(aab^{n - 2})^{n - 3}a^2$, whose length
 is $n(n - 3) + 2 = n^2 -3n + 2$, is a reset word for $\mathrsfs{A}_n$.
 
-Now let $w$ be a \ssw\ for $\mathrsfs{A}_n$. 
-The word $w$ could not begin with $ab$(Otherwise changing this factor 
+Now let $w$ be a \ssw\ for $\mathrsfs{A}_n$.
+The word $w$ could not begin with $ab$(Otherwise changing this factor
 to just $b$ results in a shorter \sw.) It is also clear that $w$ could not
 end on $ba$.
 Since $bab = bb$ and $a^3 = a$ every occurence of the letter $a$ in $w$
@@ -896,11 +905,11 @@ is a square.
 Therefore,
 if we let $c = aa$, then the word $w$ can be rewritten into word $v$
 over the alphabet $\{b,c\}$. The actions of $b$ and $c$ induce
-a new automaton on the state set $Q$. Since $w$ and $v$ act on $Q$ 
-in the same way, the word $v$ is a \sw\ for the induced automaton. 
+a new automaton on the state set $Q$. Since $w$ and $v$ act on $Q$
+in the same way, the word $v$ is a \sw\ for the induced automaton.
 This induced automaton contains $\mathrsfs{C}_{n - 1}$ as subautomaton.
 Since $v$ synchronizes $\mathrsfs{C}_{n - 1}$ by Theorem~\ref{theorem:cerny}
-we have that $|v| \geq (n - 2)^2$. 
+we have that $|v| \geq (n - 2)^2$.
 Since the action of $b$ in $\mathrsfs{C}_{n - 1}$ on any set $S$ of states
 cannot change the cardinality of $S$ and the action of $c$ can decrease the
 cardinality by~1 at most, the word $v$ must contain at least $n-2$ occurrences of $c$.
