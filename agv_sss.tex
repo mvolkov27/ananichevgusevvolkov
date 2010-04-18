@@ -510,14 +510,9 @@ and the \v{C}ern\'{y} conjecture, none of them immediately implies the other.
 
 \begin{theorem}
 \label{theorem:cherny}
-For each $n$, there exists strongly connected \san\ with $n$ states,
-such that it's shortest reset word is of length $n^2-2n+1$.
+The automaton $\mathrsfs{C}_n$ is synchronizing and the minimum length
+of its reset words is $n^2-3n+3$.
 \end{theorem}
-
-\begin{lemma}
-\label{lemma:cherny}
-The word $(ab^{n - 1})^{n - 2}a$ is a reset word for the automaton $\mathrsfs{C}_n$.
-\end{lemma}
 
 \begin{figure}[ht]
 \begin{center}
@@ -540,23 +535,23 @@ The word $(ab^{n - 1})^{n - 2}a$ is a reset word for the automaton $\mathrsfs{C}
 \caption{The automaton $\mathrsfs{C}_5$}\label{fig:cerny-n}
 \end{figure}
 
-The states of the automaton $\mathrsfs{C}_n$
-are the residues modulo $n$ and its input letters $a$ and $b$ act
-as follows:
-$$
- \delta(m,a)=
- \begin{cases}
-  m + 1 \!\!\pmod{n} & \text{for $m = 0$}, \\
-  m \!\!\pmod{n} & \text{for $m \neq 0$};
-  \end{cases}
-\qquad \delta(m,b)=m+1\!\!\pmod{n}.
-$$
-The smallest automaton in the series is shown in Fig.~\ref{fig:cherny}.
-
 \begin{proof}
-Let $w$ be \ssw\ of $\mathrsfs{C}_n$. Action of $b$ is cyclic permutation thus $w$ ends on $a$. Let $w = w'a$.
-It is easy to see that action of $a$ and $a^2$ are equal thus every occurence of $a$ in $w$ is
-followed by $b$ except the last one. Let's introduce new letter(and transition) $d = ab$ then $w'$ could be
+It is routine to verify that the word $(ab^{n - 1})^{n - 2}a$, whose length
+is $n(n-2)+1=n^2-2n+1$, is a reset word for $\mathrsfs{C}_n$.
+
+Now let $w$ be a \sw\ for $\mathrsfs{C}_n$ and assume that the length
+of $w$ (denoted $|w|$) is minimal.
+Let us note that action of $b$ is cyclic permutation of states. 
+Therefore, if $w$ ends on $b$, we could simply remove it, and modified word
+still would be a \sw\ for $\mathrsfs{C}_n$.
+We conclude that $w = w'a$ because $|w|$ is minimal.
+
+Actions of $a$ and $a^2$ in $\mathrsfs{C}_n$ are equal. Therefore, every
+subword $a^l$ in $w$ could be reduced to just $a$ and the word $w$ would still be
+synchronizing. In other words, every occurence of $a$ in $w$ is
+followed by $b$ except the last one.
+
+Let's introduce new letter(and transition) $d = ab$ then $w'$ could be
 transformed into $v \in \{b,d\}^*$.
 
 \end{proof}
