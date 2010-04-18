@@ -447,7 +447,7 @@ Therefore, if $j\ne 2$, removing the last letter from the word $w$
 produces a word that still would be a \sw\ for $\mathrsfs{W}_n$.
 We conclude that $j=2$ because $|w|$ is minimal.
 
-If $u\in\Sigma^*$, the word $uw$ also is a reset word and it also
+If $u\in\{a,b\}^*$, the word $uw$ also is a reset word and it also
 brings the automaton to the state~2. Hence, for every $\ell\ge|w|$,
 there is a path of length $\ell$ in $W_n$ from any given vertex $i$
 to~2. In particular, setting $i=2$, we conclude that for every
@@ -868,41 +868,38 @@ is $(n - 1)(n - 2) + 2 = n^2 -3n + 4$, is a reset word for $\mathrsfs{D}'_n$.
 Now let $w$ be a \ssw\ for $\mathrsfs{D}'_n$. Since the letter $b$ acts
 as cyclic permutation of $Q$,  the word $w$ ends on $a$. The action of $a$
 sends the states $n$ and $1$ to the state 2. Therefore the action of $w$
-also brings the automaton to the state $2$.
+also brings the automaton to the state $2$ and so does the action of
+the word $uw$ for any $u\in\{a,b\}^*$. Hence, for every $\ell\ge|w|$,
+there is a path of length $\ell$ in $D_n$ from any given vertex $i$
+to~2. In particular, setting $i=2$, we conclude that for every $\ell\ge|w|$
+there is a cycle of length $\ell$ in $D_n$. The digraph $D_n$ has only
+three simple cycles: one of length $n$ and two of length $n-1$.
+Since each cycle of $D_n$ must be composed from these three cycles,
+$\ell\ge|w|$ must be expressible as a non-negative integer combination
+of $n$ and $n-1$. Then Lemma~\ref{sylvester} implies that $|w|>n(n-1)-n-(n-1)=n^2-3n+1$.
 
-If $u\in\Sigma^*$, the word $uw$ also is a reset word and it also
-brings the automaton to the state~2. Hence, for every $\ell\ge|w|$,
-there is a path of length $\ell$ in $\mathrsfs{D}'_n$ from any given vertex $i$
-to~2. In particular, setting $i=2$, we conclude that for every
-$\ell\ge|w|$ there is a cycle of length $\ell$ in $\mathrsfs{D}'_n$. The digraph
-$\mathrsfs{D}'_n$ has only three simple cycles: one of length $n$ and two of length $n-1$.
-Each cycle of $\mathrsfs{D}'_n$ must consist of these three cycles traversed several times
-whence each number $\ell\ge|w|$ must be expressible as a non-negative integer
-combination of $n$ and $n-1$. Here we invoke Lemma~\ref{sylvester} which
-implies that $|w|>n(n-1)-n-(n-1)=n^2-3n+1$. Suppose that $|w|=n^2-3n+2$.
-Then there should be a path of this length from the vertex~1 to the vertex~2.
-The only outgoing edge of~1 is $(1,2)$, and thus, in the path it must be
-followed by a cycle of length $n^2-3n+1$. No cycle of such length may
-exist by  Lemma~\ref{sylvester}. Hence $|w|\ge n^2-3n+3$.
-Suppose that $|w|=n^2-3n+3$. There should be a path of this length from vertex~$n - 1$ to the
-vertex~2. Since $b$ is just cylcic permutation, $a$ is first letter of $w$.
-Therefore there is a path of length $n^2-3n+2$ from the state~$n$ to the state~2 that
-is not possible by previous case. Hence $|w|\ge n^2-3n+4$.
+Suppose that $|w|=n^2-3n+2$. Then in $D_n$ there should be a path of this length
+from the vertex~1 to the vertex~2. The only outgoing edge of~1 is $(1,2)$, and thus,
+in the path it must be followed by a cycle of length $n^2-3n+1$. No cycle of such
+length may exist by Lemma~\ref{sylvester}. Hence $|w|\ge n^2-3n+3$.
+
+Finally, suppose that $|w|=n^2-3n+3$. There should be a path of this length
+from the vertex~$n-1$ to the vertex~2. Since $b$ is a cyclic permutation,
+the first letter of $w$ must be $a$ but $a$ sends $n-1$ to $1$. Therefore
+in $D_n$ there is a path of length $n^2-3n+2$ from the vertex~$1$ to the vertex~2.
+In the previous paragraph we have shown that this is not possible. Hence $|w|\ge n^2-3n+4$.
 
 \medskip
 
-Now we prove that the automaton $\mathrsfs{D}''_n$ is synchronizing and
+Now we show that the automaton $\mathrsfs{D}''_n$ is synchronizing and
 its reset length is $n^2-3n+2$.
 
-It is routine to verify that the word $(ba^{n - 1})^{n - 3}ba$ , whose length
-is $n(n - 3) + 2 = n^2 -3n + 2$, is a reset word for $\mathrsfs{D}''_n$.
+Again, the word $(ba^{n - 1})^{n - 3}ba$ of length $n(n - 3) + 2 = n^2 -3n + 2$
+is easily seen to be a reset word for $\mathrsfs{D}''_n$.
 
-Now let $w$ be a \sw\ for $\mathrsfs{W}_n$ and assume that the length
-of $w$ (denoted $|w|$) is minimal.
-As straightforward observation we could say that action of $w$ brings
-$\mathrsfs{D}''_n$ either to the state~1 or to the state~2. In both cases
-the reasoning from Theorem~\ref{theorem:anan} is easily applicable.
-Hence $|w|>n(n-1)-n-(n-1)=n^2-3n+1$.
+Now let $w$ be a \sw\ for $\mathrsfs{D}''_n$. Then, as above, each
+$\ell\ge|w|$ must be the length of a cycle in the digraph $D_n$
+whence $|w|>n(n-1)-n-(n-1)=n^2-3n+1$ by Lemma~\ref{sylvester}.
 
 
 
