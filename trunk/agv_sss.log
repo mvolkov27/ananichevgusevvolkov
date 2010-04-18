@@ -1,4 +1,4 @@
-This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  18 APR 2010 15:38
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  18 APR 2010 17:25
 **agv_sss.tex
 (./agv_sss.tex
 LaTeX2e <2001/06/01>
@@ -260,10 +260,7 @@ LaTeX Warning: Label `B5' multiply defined.
 LaTeX Warning: Label `theo' multiply defined.
 
 
-LaTeX Warning: Label `theo' multiply defined.
-
-
-LaTeX Warning: Label `theo' multiply defined.
+LaTeX Warning: Label `B5' multiply defined.
 
 
 LaTeX Warning: Label `theo' multiply defined.
@@ -272,7 +269,10 @@ LaTeX Warning: Label `theo' multiply defined.
 LaTeX Warning: Label `B5' multiply defined.
 
 
-LaTeX Warning: Label `B5' multiply defined.
+LaTeX Warning: Label `theo' multiply defined.
+
+
+LaTeX Warning: Label `theo' multiply defined.
 
 
 LaTeX Warning: Label `B-star-6' multiply defined.
@@ -280,32 +280,32 @@ LaTeX Warning: Label `B-star-6' multiply defined.
 )
 \openout1 = `agv_sss.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Try loading font information for U+msa on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Try loading font information for U+msa on input line 39.
  (c:/Program Files/TeXLive/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 38.
+LaTeX Font Info:    Try loading font information for U+msb on input line 39.
 
 (c:/Program Files/TeXLive/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for OMS+rsfs on input line 38.
+LaTeX Font Info:    Try loading font information for OMS+rsfs on input line 39.
 
 
 (c:/Program Files/TeXLive/texmf/tex/latex/calrsfs/omsrsfs.fd)
-Overfull \hbox (3.05316pt too wide) in paragraph at lines 51--61
+Overfull \hbox (3.05316pt too wide) in paragraph at lines 52--65
 \OT1/cmr/m/n/10.95 A \OT1/cmr/m/it/10.95 com-plete de-ter-min-is-tic fi-nite au
 -toma-ton \OT1/cmr/m/n/10.95 (DFA) is a triple $\OMS/rsfs/m/n/10.95 A \OT1/cmr/
 m/n/10.95 = \OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 Q; ^^F; ^^N\OMS/cmsy/m/n/1
@@ -314,21 +314,8 @@ m/n/10.95 = \OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 Q; ^^F; ^^N\OMS/cmsy/m/n/1
 
 [1
 
-]
-Underfull \vbox (badness 5787) has occurred while \output is active []
-
- [2]
-[3] [4] [5]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6]
-Overfull \hbox (5.71097pt too wide) in paragraph at lines 452--454
-[]\OT1/cmr/m/it/10.95 The au-toma-ton $\OMS/rsfs/m/n/10.95 W[]$ \OT1/cmr/m/it/1
-0.95 is syn-chro-niz-ing and the min-i-mum length
- []
-
-[7] [8] [9] [10] [11]
-Overfull \hbox (13.6532pt too wide) detected at line 805
+] [2] [3] [4] [5] [6] [7] [8] [9] [10]
+Overfull \hbox (13.6532pt too wide) detected at line 782
 \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
 /10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
 ; b\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 m \OT1/cmr/m/n/10.95 + 1  ([]\OML
@@ -336,31 +323,31 @@ Overfull \hbox (13.6532pt too wide) detected at line 805
  []
 
 
-Overfull \hbox (69.63362pt too wide) detected at line 848
+Overfull \hbox (69.63362pt too wide) detected at line 825
 \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
 /10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
 ; b\OT1/cmr/m/n/10.95 ) = [] \OML/cmm/m/it/10.95 :
  []
 
-[12]
-Overfull \hbox (90.8061pt too wide) detected at line 939
+[11]
+Overfull \hbox (90.8061pt too wide) detected at line 916
 \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m; a\OT1/cmr/m/n
 /10.95 ) = []  \OML/cmm/m/it/10.95 ^^N\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 m
 ; b\OT1/cmr/m/n/10.95 ) = [] \OML/cmm/m/it/10.95 :
  []
 
-[13] [14] [15] (./agv_sss.aux)
+[12] [13] [14] [15] (./agv_sss.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2316 strings out of 50491
- 25465 string characters out of 1189754
- 110508 words of memory out of 1500001
- 5254 multiletter control sequences out of 10000+15000
+ 2314 strings out of 50491
+ 25426 string characters out of 1189754
+ 110198 words of memory out of 1500001
+ 5252 multiletter control sequences out of 10000+15000
  20676 words of font info for 79 fonts, out of 400000 for 1000
  288 hyphenation exceptions out of 1000
  29i,12n,24p,248b,364s stack positions out of 1500i,500n,1500p,200000b,5000s
 
-Output written on agv_sss.dvi (15 pages, 104664 bytes).
+Output written on agv_sss.dvi (15 pages, 104024 bytes).

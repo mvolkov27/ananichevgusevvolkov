@@ -9,6 +9,7 @@
 \newcommand{\sw}{reset word}
 \newcommand{\sws}{reset words}
 \newcommand{\ssw}{reset word of minimum length}
+\newcommand{\rl}{reset length}
 
 \DeclareMathOperator{\weight}{wg}
 
@@ -41,7 +42,7 @@ Mikhail.Volkov@usu.ru}}
 We present several infinite series of \sa\ for which
 the minimum length of reset words is close to the
 square of the number of states. These automata are
-closely related to primitive  matrices with large exponent.
+closely related to primitive digraphs with large exponent.
 \end{abstract}
 
 
@@ -57,19 +58,19 @@ function}. Let $\Sigma^*$ stand for the collection of all finite
 words over the alphabet $\Sigma$, including the empty word.
 The function $\delta$ extends to a function $Q\times\Sigma^*\to Q$
 (still denoted by $\delta$) in the following natural way: for every
-$q\in Q$ and $w\in\Sigma^*$, we set
-$$\delta(q,w)=\begin{cases}
-q &\text{ if $w$ is empty},\\
-\delta(\delta(q,v),a) &\text{ if $w=va$ for some $v\in\Sigma^*$ and $a\in\Sigma$}.
-\end{cases}$$
-Thus, via $\delta$, every word $w\in\Sigma^*$ acts on the set $Q$.
+$q\in Q$ and $w\in\Sigma^*$, we set $\delta(q,w)=q$ if $w$ is empty
+and $\delta(q,w)=\delta(\delta(q,v),a)$ if $w=va$ for some $v\in\Sigma^*$
+and $a\in\Sigma$. Thus, via $\delta$, every word $w\in\Sigma^*$ acts
+on the set $Q$.
 
 A DFA $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$ is called
 \emph{synchronizing} if the action of some word $w\in\Sigma^*$
 resets $\mathrsfs{A}$, that is, leaves the automaton in one
 particular state no matter at which state in $Q$ it is applied:
 $\delta(q,w)=\delta(q',w)$ for all $q,q'\in Q$. Any such word $w$
-is said to be a \emph{reset word} for the DFA.
+is said to be a \emph{reset word} for the DFA. The minimum length
+of reset words for $\mathrsfs{A}$ is called the \emph{\rl} of
+$\mathrsfs{A}$.
 
 Synchronizing automata serve as transparent and natural models of
 error-resistant systems in many applications (coding theory, robotics,
@@ -80,48 +81,42 @@ surveys~\cite{Sa05,Vo08}. Here we focus on the so-called \v{C}ern\'{y}
 conjecture that constitutes a major open problem in this area.
 
 In~1964 \v{C}ern\'{y}~\cite{Ce64} constructed for each $n>1$ a \san\
-$\mathrsfs{C}_n$ with $n$ states whose shortest reset word has length
-$(n-1)^2$. Soon after that he conjectured that these automata
-represent the worst possible case, that is, every \san\ with $n$ states
+$\mathrsfs{C}_n$ with $n$ states whose reset length is $(n-1)^2$.
+Soon after that he conjectured that these automata represent
+the worst possible case, that is, every \san\ with $n$ states
 can be reset by a word of length $(n-1)^2$. This simply looking conjecture
 resists researchers' efforts for more than 40 years. Even though the
 conjecture has been confirmed for various restricted classes of \sa\
 (cf., e.g., \cite{Ep90,Du98,Ka03,Tr07,AS09,Vo09}), no upper bound of magnitude
-$O(n^2)$ for the minimum length of reset words for $n$-state \sa\ is known
-in general---the best upper bound achieved so far is $\frac{n^3-n}6$,
-see~\cite{Pi83}.
+$O(n^2)$ for the \rl\ of $n$-state \sa\ is known in general---the best upper
+bound achieved so far is $\frac{n^3-n}6$, see~\cite{Pi83}.
 
-One of the difficulties that one encounters when approaching the
-\v{C}ern\'{y} conjecture is that there are only very few examples
-of \emph{extreme} \sa, that is, $n$-state \sa\ whose shortest reset
-words have length $(n-1)^2$. In fact, the \v{C}ern\'{y} series
-$\mathrsfs{C}_n$, $n=2,3,\dotsc$, is the only known infinite series
-of extreme \sa. Besides that, only a few isolated examples
-of such automata have been found, see~\cite{Vo08} for a complete list.
-Moreover, even \emph{slowly} \sa, that is, \sa\ whose shortest reset words
-have length close to the \v{C}ern\'{y} bound are very rare. This empirical
-observation is supported also by probabilistic arguments. For instance,
-Higgins~\cite{Hi88} has shown that the probability that a composition of $2n$
-random self-maps of a set of size $n$ is a constant map tends to~1 as $n$
-goes to infinity. In terms of automata, Higgins's result means that
-a random automaton with $n$ states and at least $2n$ input letters
-has a reset word of length $2n$. For further results of the same flavor
-see~\cite{SZ}. Thus, there is no hope to find new examples of slowly
+One of the difficulties that one encounters when approaching the \v{C}ern\'{y}
+conjecture is that there are only very few \emph{extreme} automata, that is,
+$n$-state \sa\ with reset length $(n-1)^2$. In fact, the \v{C}ern\'{y} series
+$\mathrsfs{C}_n$ is the only known infinite series of extreme automata. Besides
+that, only a few isolated examples of such automata have been found, see~\cite{Vo08}
+for a complete list. Moreover, even \emph{slowly} \sa, that is, automata with reset
+length close to the \v{C}ern\'{y} bound are very rare. This empirical observation
+is supported also by probabilistic arguments. For instance, the probability that
+a composition of $2n$ random self-maps of a set of size $n$ is a constant map
+tends to~1 as $n$ goes to infinity~\cite{Hi88}. In terms of automata, this
+result means that the \rl\ of a random automaton with $n$ states and at least
+$2n$ input letters does not exceed $2n$. For further results of the same
+flavor see~\cite{SZ}. Thus, there is no hope to find new examples of slowly
 \sa\ by a lucky chance or via a random sampling experiment.
 
 We therefore have designed and performed a set of exhaustive search
 experiments. Our experiments are briefly described in Section~\ref{experiments}
 while the main body of the paper is devoted to a theoretical analysis
 of their outcome. We concentrate on two principal issues. In Section~\ref{matrices}
-we discuss a similarity between the distribution of lengths of shortest
-reset words for \sa\ and the distribution of exponents of primitive digraphs.
-Section~\ref{sss} presents a few series of slowly \sa. Most of the series
-are new and their ``initial'' automata were found in the course of the experiments;
-then each example was expanded to a series of automata that have been proved
-to be slowly synchronizing. In our opinion, the proof technique is also
-of interest; in fact, we provide a transparent and uniform approach to all
-sufficiently large slowly \sa\ with 2~input letters, both new and already
-known ones.
+we discuss a similarity between the distribution of reset lengths of \sa\
+and the distribution of exponents of primitive digraphs. Section~\ref{sss}
+presents a few series of slowly \sa. Most of these series have been expanded
+from new examples discovered in the course of our experiments. In our opinion,
+the proof technique is also of interest; in fact, we provide a transparent
+and uniform approach to all sufficiently large slowly \sa\ with 2~input letters,
+both new and already known ones.
 
 \section{Preliminaries}
 \label{preliminaries}
@@ -252,9 +247,8 @@ summarized as follows.
 If a primitive graph $D$ has $n$~vertices, then  $\gamma(D)\le(n-1)^2+1$.
 
 \emph{(b) \cite[Theorem~6 and Corollary 4]{DM64}} Up to isomorphism, there is
-exactly one primitive graph $D$ on $n>2$ vertices for which $\gamma(D)=(n-1)^2+1$,
-and exactly one for which $\gamma(D)=(n-1)^2$. The matrices of these digraphs
-are
+exactly one primitive digraph $D$ on $n>2$ vertices with $\gamma(D)=(n-1)^2+1$,
+and exactly one with $\gamma(D)=(n-1)^2$. The matrices of the digraphs are
 \begin{equation}
 \label{wielandt}
 \begin{pmatrix}
@@ -275,25 +269,16 @@ are
 \end{equation}
 
 \emph{(c) \cite[Theorem~7]{DM64}} If $n>4$ is even, then there is no
-primitive digraph $D$ on $n$ vertices such that
-\begin{equation}
-\label{even gap}
-n^2-4n+6<\gamma(D)<(n-1)^2,
-\end{equation}
-and, up to isomorphism, there are exactly $3$ or exactly $4$ primitive
+primitive digraph $D$ on $n$ vertices such that $n^2-4n+6<\gamma(D)<(n-1)^2$,
+and, up to isomorphism, there are either $3$ or $4$ primitive
 digraphs $D$ on $n$ vertices with $\gamma(D)=n^2-4n+6$, according
 as $n$ is or is not a~multiple of $3$.
 
 \emph{(d) \cite[Theorem~8]{DM64}} If $n>3$ is odd, then there is no
-primitive digraph $D$ on $n$ vertices such that
-\begin{equation}
-\label{first odd gap}
-n^2-3n+4<\gamma(D)<(n-1)^2,
-\end{equation}
-and, up to isomorphism, there is exactly one primitive graph $D$ on $n$ vertices
-for which $\gamma(D)=n^2-3n+4$, exactly one for which $\gamma(D)=n^2-3n+3$, and
-exactly two for which $\gamma(D)=n^2-3n+2$. The matrices of these digraphs
-are:
+primitive digraph $D$ on $n$ vertices such that $n^2-3n+4<\gamma(D)<(n-1)^2$,
+and, up to isomorphism, there is exactly one primitive digraph $D$ on $n$ vertices
+with $\gamma(D)=n^2-3n+4$, exactly one with $\gamma(D)=n^2-3n+3$, and
+exactly two with $\gamma(D)=n^2-3n+2$. The matrices of these digraphs are:
 \begin{equation}
 \label{odd island}
 \begin{pmatrix}
@@ -331,12 +316,8 @@ are:
 \end{equation}
 
 \emph{(e) \cite[Theorem~8]{DM64}} If $n>3$ is odd, then there is no
-primitive digraph $D$ on $n$ vertices such that
-\begin{equation}
-\label{second odd gap}
-n^2-4n+6<\gamma(D)<n^2-3n+2,
-\end{equation}
-and, up to isomorphism, there are exactly $3$ or exactly $4$ primitive digraphs $D$
+primitive digraph $D$ on $n$ vertices such that $n^2-4n+6<\gamma(D)<n^2-3n+2$,
+and, up to isomorphism, there are either $3$ or $4$ primitive digraphs $D$
 on $n$ vertices with $\gamma(D)=n^2-4n+6$, according as $n$ is or is not
 a~multiple of $3$.
 \end{theorem}
@@ -348,16 +329,15 @@ As mentioned in Section~\ref{intro}, this paper has grown
 from certain observations made when we analyzed experimental
 results. One such observation has been a similarity between
 the ``upper parts'' of two sequences: the sequence of possible
-lengths of shortest reset words for 2-letter \sa\ with $n$ states
-and the sequence of possible exponents of primitive digraphs with
-$n$ vertices. As it is clear from Theorem~\ref{dulmage}, the
-upper part of the latter sequence has certain gaps whose sizes
-and positions depend on the parity of $n$; our experiments have
-revealed quite a similar pattern of gaps in the upper part
-of the former sequence. Table~\ref{9 states} illustrates this
-observation for $n=9$.
+reset lengths of 2-letter \sa\ with $n$ states and the sequence
+of possible exponents of primitive digraphs with $n$ vertices.
+As it is clear from Theorem~\ref{dulmage}, the upper part of the
+latter sequence has certain gaps whose sizes and positions depend
+on the parity of $n$; our experiments have revealed a similar pattern
+of gaps in the upper part of the former sequence. Table~\ref{9 states}
+illustrates this observation for $n=9$.
 
-\begin{table}[t]
+\begin{table}[hbt]
 \extrarowheight=1pt
 \caption{Exponents of primitive digraphs with $9$ vertices
 vs lengths of shortest reset words for 2-letter \sa\ with $9$ states}\label{9 states}
@@ -371,8 +351,8 @@ with exponent} $N$
 & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{1} & \raisebox{-6pt}{1} & \raisebox{-6pt}{2}
 & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{4} \\
 \hline
-\raggedright{Number of non-isomorphic 2-letter \sa\ whose
-shortest reset words have length $N$}
+\raggedright{Number of non-isomorphic 2-letter \sa\ with
+reset length $N$}
 &\raisebox{-11pt}{0} &\raisebox{-11pt}{1} &\raisebox{-11pt}{0} &\raisebox{-11pt}{0} &\raisebox{-11pt}{0}
 &\raisebox{-11pt}{0} &\raisebox{-11pt}{0} &\raisebox{-11pt}{1} &\raisebox{-11pt}{2} &\raisebox{-11pt}{3}
 &\raisebox{-11pt}{0} &\raisebox{-11pt}{0} &\raisebox{-11pt}{0} &\raisebox{-11pt}{4} &\raisebox{-11pt}{4} \\
@@ -383,13 +363,12 @@ The data in the second row of Table~\ref{9 states} are calculated
 from Theorem~\ref{dulmage}, while the data in the third row come from
 our experiments.
 
-Concerning gaps in the upper part of the sequence of possible lengths of shortest
-reset words for 2-letter \sa\ with a given number of states, we notice that
-the first gap has been registered in earlier experiments in the area. (Namely, according
-to~\cite{Tr06,Tr06a}, for $n=7,8,9,10$ there exists no 2-letter \sa\ with $n$ states
-whose shortest reset words have lengths between $n^2-2n$ and $n^2-3n+5$.) However,
-to the best of our knowledge, the second gap as seen in Table~\ref{9 states} has not
-been reported in the literature up to now.
+Concerning gaps in the upper part of the sequence of possible reset lengths of
+2-letter \sa\ with a given number of states, we notice that the first gap was
+registered in earlier experiments. (Namely, according to~\cite{Tr06,Tr06a},
+for $n=7,8,9,10$ there exists no 2-letter \sa\ with $n$ states with reset lengths
+between $n^2-2n$ and $n^2-3n+5$.) However, to the best of our knowledge, the second
+gap as seen in Table~\ref{9 states} has not been reported in the literature up to now.
 
 We strongly believe that the observed similarity is more than a coincidence.
 Clearly, there are deep connections between primitive digraphs and \sa. Indeed,
@@ -449,8 +428,7 @@ this coloring. Fig.\,\ref{fig:anan} shows the digraph $W_n$ and the DFA $\mathrs
 
 \begin{theorem}
 \label{theorem:anan}
-The automaton $\mathrsfs{W}_n$ is synchronizing and the minimum length
-of its reset words is $n^2-3n+3$.
+The automaton $\mathrsfs{W}_n$ is synchronizing and its reset length is $n^2-3n+3$.
 \end{theorem}
 
 \begin{proof}
@@ -538,7 +516,7 @@ The automaton $\mathrsfs{C}_n$ is shown in Fig.\,\ref{fig:cerny-n} on the left.
 \drawedge[ELdist=1.7](n3,n1){$b$}
 \drawloop[ELdist=1.5,loopangle=30](n2){$a$}
 \drawloop[ELdist=2.4,loopangle=-30](n4){$a$}
-\drawloop[ELdist=1.5,loopangle=90](n0){$a$}
+\drawloop[ELdist=1.5,loopangle=-90](n0){$a$}
 \drawloop[ELdist=1.5,loopangle=210](n3){$a$}
 \put(31,-73){$\dots$}
 \end{picture}
@@ -595,9 +573,8 @@ Thus, $|w|=|w'a|\ge n^2-2n+1=(n-1)^2$.
 \end{proof}
 
 We have found two more series of slowly \sa\ related to Wielandt's digraphs
-$W_n$: a series with the minimum length of \sws\ equal to $n^2-3n+2$ and
-another one with the minimum length of \sws\ equal to $n^2-4n+6$. These
-two series are presented in the Appendix.
+$W_n$: a series with reset length $n^2-3n+2$ and another one with reset length
+$n^2-4n+6$. These two series are presented in the Appendix.
 
 Now we discuss a few series related to the digraph $D_n$ defined by the second
 matrix in \eqref{wielandt}. The digraph is obtained from $W_n$ by adding
