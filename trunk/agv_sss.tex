@@ -88,7 +88,7 @@ can be reset by a word of length $(n-1)^2$. This simply looking conjecture
 resists researchers' efforts for more than 40 years. Even though the
 conjecture has been confirmed for various restricted classes of \sa\
 (cf., e.g., \cite{Ep90,Du98,Ka03,Tr07,Tr08,AS09,Vo09}), no upper bound of magnitude
-$O(n^2)$ for the \rl\ of $n$-state \sa\ is known in general---the best upper
+$O(n^2)$ for the \rl\ of $n$-state \sa\ is known in general. The best upper
 bound achieved so far is $\frac{n^3-n}6$, see~\cite{Pi83}.
 
 One of the difficulties that one encounters when approaching the \v{C}ern\'{y}
@@ -706,7 +706,7 @@ The proof of Theorem~\ref{theorem:avz} in \cite{AVZ} is quite involved. Now we c
 prove this result using an argument similar to that in our proof of Theorem~\ref{theorem:cerny}.
 The key observation is that the automaton induced by the actions of $b$ and $c=ab$ on the set $Q$
 as shown in Fig.\,\ref{fig:avz-n} on the right is nothing but a coloring of one of the digraphs
-with exponent $n^2-3n+2$, namely, of the digraph defined by the third matrix in \eqref{odd island}.
+with exponent $n^2-3n+2$, namely, of the digraph defined by the second matrix in \eqref{odd island}.
 The details of the proof will appear in an extended version of this paper.
 
 \section{Experiments}
@@ -866,7 +866,7 @@ It is routine to verify that the word $(ab^{n - 2})^{n - 2}ba$, whose length
 is $(n - 1)(n - 2) + 2 = n^2 -3n + 4$, is a reset word for $\mathrsfs{D}'_n$.
 
 Now let $w$ be a \ssw\ for $\mathrsfs{D}'_n$. Since the letter $b$ acts
-as cyclic permutation of $Q$,  the word $w$ ends on $a$. The action of $a$
+as cyclic permutation of $Q$,  the word $w$ ends with $a$. The action of $a$
 sends the states $n$ and $1$ to the state 2. Therefore the action of $w$
 also brings the automaton to the state $2$ and so does the action of
 the word $uw$ for any $u\in\{a,b\}^*$. Hence, for every $\ell\ge|w|$,
@@ -875,7 +875,7 @@ to~2. In particular, setting $i=2$, we conclude that for every $\ell\ge|w|$
 there is a cycle of length $\ell$ in $D_n$. The digraph $D_n$ has only
 three simple cycles: one of length $n$ and two of length $n-1$.
 Since each cycle of $D_n$ must be composed from these three cycles,
-$\ell\ge|w|$ must be expressible as a non-negative integer combination
+every number $\ell\ge|w|$ must be expressible as a non-negative integer combination
 of $n$ and $n-1$. Then Lemma~\ref{sylvester} implies that $|w|>n(n-1)-n-(n-1)=n^2-3n+1$.
 
 Suppose that $|w|=n^2-3n+2$. Then in $D_n$ there should be a path of this length
