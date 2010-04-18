@@ -115,9 +115,9 @@ while the main body of the paper is devoted to a theoretical analysis
 of their outcome. We concentrate on two principal issues. In Section~\ref{matrices}
 we discuss a similarity between the distribution of lengths of shortest
 reset words for \sa\ and the distribution of exponents of primitive digraphs.
-Section~\ref{sss} collects several new series of slowly \sa. The ``initial''
-examples in the series were found in the course of the experiments; then
-each example was expanded to a series of automata that have been proved
+Section~\ref{sss} presents a few series of slowly \sa. Most of the series
+are new and their ``initial'' automata were found in the course of the experiments;
+then each example was expanded to a series of automata that have been proved
 to be slowly synchronizing. In our opinion, the proof technique is also
 of interest; in fact, we provide a transparent and uniform approach to all
 sufficiently large slowly \sa\ with 2~input letters, both new and already
@@ -410,12 +410,12 @@ series of such automata and construct many new other ones.
 \label{sss}
 
 Due to space limitations, we present here only a part of our results on slowly \sa.
-Namely, we restrict ourselves to series derived from primitive digraphs whose matrices
-are listed in Theorem~\ref{dulmage}. We start with the digraph $W_n$ corresponding
-to the first matrix in \eqref{wielandt}. The digraph (more precisely, its matrix)
-first appeared in Wielandt's seminal paper~\cite{Wi50}. It has $n$ vertices
-$1,2,\dots,n$, say, and the following $n+1$ edges: $(i,i+1)$ for $i=1,\dots,n-1$,
-$(n,1)$, and $(n,2)$.
+Namely, we restrict ourselves to series derived from some of the primitive digraphs
+whose matrices are listed in Theorem~\ref{dulmage}. We start with the digraph $W_n$
+corresponding to the first matrix in \eqref{wielandt}. The digraph (more precisely,
+its matrix) first appeared in Wielandt's seminal paper~\cite{Wi50}. It has $n$
+vertices $1,2,\dots,n$, say, and the following $n+1$ edges: $(i,i+1)$ for
+$i=1,\dots,n-1$, $(n,1)$, and $(n,2)$.
 
 It is easy to see that, up to isomorphism and renaming of letters, there exists
 a unique coloring of the digraph $W_n$ by two letters. Let $\mathrsfs{W}_n$ denote
@@ -497,16 +497,17 @@ is the \v{C}ern\'{y} automaton $\mathrsfs{C}_4$ with shortest reset word of
 length~9 while the second coloring can be reset of the word $a^3$ of length~3.
 Wielandt's digraphs $W_n$, however, can be colored in a essentially unique
 way, whence Theorem~\ref{theorem:anan} gives the lower bound $n^2-3n+3$
-for the value in question. We strongly believe that this lower bound in fact
-tight, in other words, we suggest a conjecture that is in a sense parallel
-to the \v{C}ern\'{y} one.
+for the value in question. We strongly believe that this lower bound is
+in fact tight, in other words, we suggest a conjecture that is in a sense
+parallel to the \v{C}ern\'{y} one.
 \begin{conjecture}
 \label{hybrid}
 Every primitive digraph on $n$ vertices admits a synchronizing coloring
 that can be reset by a word of length $n^2-3n+3$.
 \end{conjecture}
 We observe that while there is a clear analogy between Conjecture~\ref{hybrid}
-and the \v{C}ern\'{y} conjecture, none of them immediately implies the other.
+and the \v{C}ern\'{y} conjecture, the validity of none of them immediately
+implies the validity of the other.
 
 Now we discuss a less straightforward way to get a slowly synchronizing series
 from Wielandt's digraphs $W_n$. Namely, we aim to show that the \v{C}ern\'{y}
@@ -563,8 +564,8 @@ of its reset words is $(n-1)^2$.
 \end{theorem}
 
 \begin{proof}
-It is routine to verify that the word $(ab^{n-1})^{n-2}a$, whose length
-is $n(n-2)+1=(n-1)^2$, is a reset word for $\mathrsfs{C}_n$.
+It is easy to see that the word $(ab^{n-1})^{n-2}a$ of length
+$n(n-2)+1=(n-1)^2$ is a reset word for $\mathrsfs{C}_n$.
 
 Now let $w$ be a \ssw\ for $\mathrsfs{C}_n$. Since the letter $b$
 acts on $Q$ as a cyclic permutation, the word $w$ cannot end with $b$.
@@ -576,12 +577,12 @@ Since the letter $a$ fixes each state in its image $\{1,2,\dots,n-1\}$,
 every occurrence of $a$ in $w$ except the last one is followed by an
 occurrence of $b$. (Otherwise $a^2$ occurs in $w$ as a factor and
 reducing this factor to just $a$ results in a shorter \sw.) Therefore,
-if we let $c = ab$, then the word $w'$ can be rewritten into word $v$
+if we let $c=ab$, then the word $w'$ can be rewritten into a word $v$
 over the alphabet $\{b,c\}$. The actions of $b$ and $c$ induce
 a new automaton on the state set $Q$; this induced automaton (shown in
 Fig.\,\ref{fig:cerny-n} on the right) is obviously isomorphic to the
-automaton $\mathrsfs{W}_n$. Since $w'$ and $v$ act on $Q$ in the same
-way, the word $vc$ is a \sw\ for the induced automaton. By Theorem~\ref{theorem:anan}
+automaton $\mathrsfs{W}_n$. Since $w'$ and $v$ act on $Q$ in the same way,
+the word $vc$ is a \sw\ for the induced automaton. By Theorem~\ref{theorem:anan}
 the length of $vc$ (as a word over $\{b,c\}$) is at least $n^2-3n+3$.
 Since the action of $b$ on any set $S$ of states cannot change the
 cardinality of $S$ and the action of $c$ can decrease the cardinality
@@ -592,6 +593,176 @@ $c$ in $v$ corresponds to an occurrence of the factor $ab$ in $w'$, we
 conclude that the length of $w'$ over $\{a,b\}$ is at least $n^2-3n+2+n-2=n^2-2n$.
 Thus, $|w|=|w'a|\ge n^2-2n+1=(n-1)^2$.
 \end{proof}
+
+We have found two more series of slowly \sa\ related to Wielandt's digraphs
+$W_n$: a series with the minimum length of \sws\ equal to $n^2-3n+2$ and
+another one with the minimum length of \sws\ equal to $n^2-4n+6$. These
+two series are presented in the Appendix.
+
+Now we discuss a few series related to the digraph $D_n$ defined by the second
+matrix in \eqref{wielandt}. The digraph is obtained from $W_n$ by adding
+the edge $(n-1,1)$. Fig.\,\ref{fig:dulmage} shows the digraph $D_n$ and
+its colorings $\mathrsfs{D}'_n$ and $\mathrsfs{D}''_n$.
+\begin{figure}[ht]
+\begin{center}
+\unitlength .45mm
+\begin{picture}(64,56)(30,-72)
+\gasset{Nw=16,Nh=16,Nmr=8}
+\node(n0)(32.0,-16.0){1}
+\node(n1)(0,-40.0){$n$} \node(n2)(64.0,-40.0){2}
+\node(n3)(12.0,-72.0){$n{-}1$} \node(n4)(52.0,-72.0){3}
+\drawedge[ELdist=2.0](n1,n0){} \drawedge[ELdist=1.5](n2,n4){}
+\drawedge[ELdist=1.7](n0,n2){} \drawedge[ELdist=1.7](n3,n0){}
+\drawedge[ELdist=1.7](n3,n1){} \drawedge[ELdist=2.0](n1,n2){}
+\put(31,-73){$\dots$}
+\end{picture}
+\begin{picture}(64,56)(0,-72)
+\gasset{Nw=16,Nh=16,Nmr=8}
+\node(n0)(32.0,-16.0){1}
+\node(n1)(0,-40.0){$n$} \node(n2)(64.0,-40.0){2}
+\node(n3)(12.0,-72.0){$n{-}1$} \node(n4)(52.0,-72.0){3}
+\drawedge[ELdist=2.0](n1,n0){$b$} \drawedge[ELdist=1.5](n2,n4){$a, b$}
+\drawedge[ELdist=1.7](n0,n2){$a,b$} \drawedge[ELdist=1.7](n3,n0){$a$}
+\drawedge[ELdist=1.7](n3,n1){$b$} \drawedge[ELdist=2.0](n1,n2){$a$}
+\put(31,-73){$\dots$}
+\end{picture}
+\begin{picture}(64,56)(-30,-72)
+\gasset{Nw=16,Nh=16,Nmr=8}
+\node(n0)(32.0,-16.0){1}
+\node(n1)(0,-40.0){$n$} \node(n2)(64.0,-40.0){2}
+\node(n3)(12.0,-72.0){$n{-}1$} \node(n4)(52.0,-72.0){3}
+\drawedge[ELdist=2.0](n1,n0){$a$} \drawedge[ELdist=1.5](n2,n4){$a, b$}
+\drawedge[ELdist=1.7](n0,n2){$a, b$} \drawedge[ELdist=1.7](n3,n0){$a$}
+\drawedge[ELdist=1.7](n3,n1){$b$} \drawedge[ELdist=2.0](n1,n2){$b$}
+\put(31,-73){$\dots$}
+\end{picture}
+\end{center}
+\caption{The digraph $D_n$ and its colorings $\mathrsfs{D}'_n$ and $\mathrsfs{D}''_n$}\label{fig:dulmage}
+\end{figure}
+
+\begin{theorem}
+\label{theorem:new series}
+The automata $\mathrsfs{D}'_n$ and $\mathrsfs{D}''_n$ are synchronizing. The minimum length
+of reset words is $n^2-3n+4$ for $\mathrsfs{D}'_n$ and $n^2-3n+2$ for $\mathrsfs{D}''_n$.
+\end{theorem}
+
+The proof of Theorem~\ref{theorem:new series} is similar to that of Theorem~\ref{theorem:anan}
+and is presented in the Appendix.
+
+\section{Experiments}
+\label{experiments}
+During the experiments every initially-connected deterministic automata was checked on synchronizability and it's shortest reset word was
+calculated. This class of automata was deceided to use because it contains every strongly connected automata and has very simple and convenient
+way of enumeration which is presented and thoroughly described in [Almeida]. There are about 700 billions of initially-connected deterministic automata
+with 9 states and it is hard task for a single computer to do. That's why this check was distributed and done within a day on 60 cores of
+amd opteron 2.6 Ghz processors. Program was written in C with mpi. Every obtained slowly synchronizing automaton was rechecked
+with package TESTAS[trahtman's site]
+developed by A.Trahtman.
+It is also worth to mention that experiments show that deterministic automata indeed tends to be synchronizible with short reset words.
+Almost $90\%$ of initially-connected deterministic automata with 9 states could be synchronized with word of length not greater than 9.
+And as shows random sampling experiment this part becomes bigger with growth of number of states.
+
+\begin{thebibliography}{99}
+\bibitem{AGW}
+Adler, R.L., Goodwyn, L.W., Weiss, B.: Equivalence of topological Markov shifts.
+Israel J. Math. 27, 49--63 (1977)
+
+\bibitem{AS09}
+Almeida, J.; Steinberg, B.: Matrix mortality and the \v{C}ern\'{y}--Pin
+conjecture. In:  Diekert, V.; Nowotka, D. (eds.), Developments in
+Language Theory, Lect.\ Notes Comput.\ Sci., vol.\,5583, pp. 67--80.
+Springer, Heidelberg (2009)
+
+\bibitem{AVZ}
+Ananichev, D.S., Volkov, M.V., Zaks, Yu.I.: Synchronizing automata
+with a letter of deficiency 2. Theor.\ Comput.\ Sci. 376, 30--41 (2007)
+
+\bibitem{Ce64}
+\v{C}ern\'{y}, J.: Pozn\'{a}mka k homog\'{e}nnym eksperimentom s
+kone\v{c}n\'{y}mi automatami. Matematicko-fyzikalny \v{C}asopis
+Slovensk.\ Akad.\ Vied 14(3) 208--216 (1964) (in Slovak)
+
+\bibitem{Du98}
+Dubuc, L.: Sur les automates circulaires et la conjecture de
+\v{C}ern\'y. RAIRO Inform.\ Th\'eor.\ Appl. 32, 21--34 (1998) (in
+French)
+
+\bibitem{DM62}
+Dulmage, A.L., Mendelsohn, N.S.: The exponent of a primitive matrix.
+Can.\ Math.\ Bull. 5, 241--244 (1962)
+
+\bibitem{DM64}
+Dulmage, A.L., Mendelsohn, N.S.: Gaps in the exponent set of primitive
+matrices. Ill.\ J. Math. 8, 642--656 (1964)
+
+\bibitem{Ep90}
+Eppstein, D.: Reset sequences for monotonic automata. SIAM J.
+Comput. 19, 500--510 (1990)
+
+\bibitem{Hi88}
+Higgins, P.M.: The range order of a product of $i$ transformations
+from a finite full transformation semigroup, Semigroup Forum 37, 31--36
+(1988)
+
+\bibitem{Ka03}
+Kari, J.: Synchronizing finite automata on Eulerian digraphs.
+Theoret.\ Comput.\ Sci. 295, 223--232 (2003)
+
+\bibitem{Pi83}
+Pin, J.-E.: On two combinatorial problems arising from automata
+theory. Ann.\ Discrete Math. 17, 535--548 (1983)
+
+\bibitem{RaAl05}
+Ram\'{\i}rez Alfons\'{\i}n, J.L.: The diophantine Frobenius problem.
+Oxford University Press (2005)
+
+\bibitem{Sa05}
+Sandberg, S.: Homing and synchronizing sequences. In: Broy, M.
+et~al. (eds.), Model-Based Testing of Reactive Systems. Lect.\
+Notes Comput.\ Sci., vol.\,3472, pp.\,5--33. Springer, Heidelberg
+(2005)
+
+\bibitem{SZ}
+Skvortsov E., Zaks Yu.: Synchronizing random automata. Submitted;
+proceedings version in: Rigo, M. (ed.), AutoMathA 2009, Universit\'e
+de Li\`ege (2009)
+
+\bibitem{Tr06}
+Trahtman, A.N.: An efficient algorithm finds noticeable trends
+and examples concerning the \v{C}ern\'y conjecture. In:
+Kr\'alovi\v{c}, R.; Urzyczyn, P. (eds.), Mathematical Foundations
+of Computer Science. Lect.\ Notes Comput.\ Sci., vol.\,4162, pp.\,789--800
+Springer, Heidelberg (2006)
+
+\bibitem{Tr06a}
+Trahtman, A.N.: Notable trends concerning the synchronization
+of graphs and automata. Electr.\ Notes Discrete Math. 25, 173--175 (2006)
+
+\bibitem{Tr07}
+Trahtman, A.N.: The \v{C}ern\'y conjecture for aperiodic automata.
+Discrete Math.\ Theor.\ Comput.\ Sci. 9(2), 3--10 (2007)
+
+\bibitem{Tr09}
+Trahtman, A.N.: The Road Coloring Problem. Israel J. Math.
+\textbf{172}, 51--60 (2009)
+
+\bibitem{Vo08}
+Volkov, M.V.: Synchronizing automata and the \v{C}ern\'{y}
+conjecture. In: Mart\'\i{}n-Vide, C.; Otto, F.; Fernau, H. (eds.),
+Languages and Automata: Theory and Applications. Lect.\ Notes
+Comput.\ Sci., vol.\,5196, pp.\,11--27.  Springer, Heidelberg (2008)
+
+\bibitem{Vo09}
+Volkov, M.V.: Synchronizing automata preserving a chain of partial
+orders. Theoret.\ Comput.\ Sci. 410, 2992--2998 (2009)
+
+\bibitem{Wi50}
+Wielandt, H.: Unzerlegbare, nicht negative Matrizen. Math.\ Z.
+52, 642--648 (1950) (in German)
+\end{thebibliography}
+
+
+\section*{Appendix}
 
 
 
@@ -841,120 +1012,5 @@ $b(ab^{n - 2})^{n - 3}ba$
 \end{center}
 \caption{The automaton $\mathrsfs{B}^{\star}_6$}\label{B-star-6}
 \end{figure}
-
-\section{Experiments}
-\label{experiments}
-During the experiments every initially-connected deterministic automata was checked on synchronizability and it's shortest reset word was
-calculated. This class of automata was deceided to use because it contains every strongly connected automata and has very simple and convenient
-way of enumeration which is presented and thoroughly described in [Almeida]. There are about 700 billions of initially-connected deterministic automata
-with 9 states and it is hard task for a single computer to do. That's why this check was distributed and done within a day on 60 cores of
-amd opteron 2.6 Ghz processors. Program was written in C with mpi. Every obtained slowly synchronizing automaton was rechecked
-with package TESTAS[trahtman's site]
-developed by A.Trahtman.
-It is also worth to mention that experiments show that deterministic automata indeed tends to be synchronizible with short reset words.
-Almost $90\%$ of initially-connected deterministic automata with 9 states could be synchronized with word of length not greater than 9.
-And as shows random sampling experiment this part becomes bigger with growth of number of states.
-
-\begin{thebibliography}{99}
-\bibitem{AGW}
-Adler, R.L., Goodwyn, L.W., Weiss, B.: Equivalence of topological Markov shifts.
-Israel J. Math. 27, 49--63 (1977)
-
-\bibitem{AS09}
-Almeida, J.; Steinberg, B.: Matrix mortality and the \v{C}ern\'{y}--Pin
-conjecture. In:  Diekert, V.; Nowotka, D. (eds.), Developments in
-Language Theory, Lect.\ Notes Comput.\ Sci., vol.\,5583, pp. 67--80.
-Springer, Heidelberg (2009)
-
-\bibitem{AVZ}
-Ananichev, D.S., Volkov, M.V., Zaks, Yu.I.: Synchronizing automata
-with a letter of deficiency 2. Theor.\ Comput.\ Sci. 376, 30--41 (2007)
-
-\bibitem{Ce64}
-\v{C}ern\'{y}, J.: Pozn\'{a}mka k homog\'{e}nnym eksperimentom s
-kone\v{c}n\'{y}mi automatami. Matematicko-fyzikalny \v{C}asopis
-Slovensk.\ Akad.\ Vied 14(3) 208--216 (1964) (in Slovak)
-
-\bibitem{Du98}
-Dubuc, L.: Sur les automates circulaires et la conjecture de
-\v{C}ern\'y. RAIRO Inform.\ Th\'eor.\ Appl. 32, 21--34 (1998) (in
-French)
-
-\bibitem{DM62}
-Dulmage, A.L., Mendelsohn, N.S.: The exponent of a primitive matrix.
-Can.\ Math.\ Bull. 5, 241--244 (1962)
-
-\bibitem{DM64}
-Dulmage, A.L., Mendelsohn, N.S.: Gaps in the exponent set of primitive
-matrices. Ill.\ J. Math. 8, 642--656 (1964)
-
-\bibitem{Ep90}
-Eppstein, D.: Reset sequences for monotonic automata. SIAM J.
-Comput. 19, 500--510 (1990)
-
-\bibitem{Hi88}
-Higgins, P.M.: The range order of a product of $i$ transformations
-from a finite full transformation semigroup, Semigroup Forum 37, 31--36
-(1988)
-
-\bibitem{Ka03}
-Kari, J.: Synchronizing finite automata on Eulerian digraphs.
-Theoret.\ Comput.\ Sci. 295, 223--232 (2003)
-
-\bibitem{Pi83}
-Pin, J.-E.: On two combinatorial problems arising from automata
-theory. Ann.\ Discrete Math. 17, 535--548 (1983)
-
-\bibitem{RaAl05}
-Ram\'{\i}rez Alfons\'{\i}n, J.L.: The diophantine Frobenius problem.
-Oxford University Press (2005)
-
-\bibitem{Sa05}
-Sandberg, S.: Homing and synchronizing sequences. In: Broy, M.
-et~al. (eds.), Model-Based Testing of Reactive Systems. Lect.\
-Notes Comput.\ Sci., vol.\,3472, pp.\,5--33. Springer, Heidelberg
-(2005)
-
-\bibitem{SZ}
-Skvortsov E., Zaks Yu.: Synchronizing random automata. Submitted;
-proceedings version in: Rigo, M. (ed.), AutoMathA 2009, Universit\'e
-de Li\`ege (2009)
-
-\bibitem{Tr06}
-Trahtman, A.N.: An efficient algorithm finds noticeable trends
-and examples concerning the \v{C}ern\'y conjecture. In:
-Kr\'alovi\v{c}, R.; Urzyczyn, P. (eds.), Mathematical Foundations
-of Computer Science. Lect.\ Notes Comput.\ Sci., vol.\,4162, pp.\,789--800
-Springer, Heidelberg (2006)
-
-\bibitem{Tr06a}
-Trahtman, A.N.: Notable trends concerning the synchronization
-of graphs and automata. Electr.\ Notes Discrete Math. 25, 173--175 (2006)
-
-\bibitem{Tr07}
-Trahtman, A.N.: The \v{C}ern\'y conjecture for aperiodic automata.
-Discrete Math.\ Theor.\ Comput.\ Sci. 9(2), 3--10 (2007)
-
-\bibitem{Tr09}
-Trahtman, A.N.: The Road Coloring Problem. Israel J. Math.
-\textbf{172}, 51--60 (2009)
-
-\bibitem{Vo08}
-Volkov, M.V.: Synchronizing automata and the \v{C}ern\'{y}
-conjecture. In: Mart\'\i{}n-Vide, C.; Otto, F.; Fernau, H. (eds.),
-Languages and Automata: Theory and Applications. Lect.\ Notes
-Comput.\ Sci., vol.\,5196, pp.\,11--27.  Springer, Heidelberg (2008)
-
-\bibitem{Vo09}
-Volkov, M.V.: Synchronizing automata preserving a chain of partial
-orders. Theoret.\ Comput.\ Sci. 410, 2992--2998 (2009)
-
-\bibitem{Wi50}
-Wielandt, H.: Unzerlegbare, nicht negative Matrizen. Math.\ Z.
-52, 642--648 (1950) (in German)
-\end{thebibliography}
-
-
-\section*{Appendix}
 
 \end{document}
