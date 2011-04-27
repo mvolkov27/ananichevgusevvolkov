@@ -1,0 +1,817 @@
+\documentclass[12pt,twoside]{article}
+
+%\setcounter{page}{11}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{epic,gastex}
+\usepackage{array}
+\usepackage{ocg}
+
+\newcommand{\sa}{synchronizing automata}
+\newcommand{\sea}{synchronizing eulerian automata}
+\newcommand{\san}{synchronizing automaton}
+\newcommand{\sean}{synchronizing eulerian automaton}
+\newcommand{\sw}{reset word}
+\newcommand{\sws}{reset words}
+\newcommand{\ssw}{reset word of minimum length}
+\newcommand{\rl}{reset length}
+\newcommand{\reth}{reset threshold}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}{Corollary}
+
+\DeclareMathOperator{\rt}{rt}
+
+\DeclareSymbolFont{rsfscript}{OMS}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathrsfs}{rsfscript}
+
+
+\pagestyle{myheadings}
+\markboth{V. Gusev}{LOWER BOUNDS FOR THE RESET LENGTH IN EULERIAN AUTOMATA}
+
+
+\begin{document}
+
+\title{LOWER BOUNDS FOR THE LENGTH OF RESET WORDS IN EULERIAN AUTOMATA\thanks{Supported
+by the Russian Foundation for Basic Research, grant 10-01-00524, and by the
+Federal Education Agency of Russia, grant 2.1.1/13995.}}
+\author{Vladimir V. Gusev}
+\institute{Ural State University, Ekaterinburg, Russia\\
+Email: \texttt{vl.gusev@gmail.com}}
+
+\maketitle
+
+\begin{abstract}
+For each odd $n\ge 5$ we present a synchronizing Eulerian automaton with $n$
+states for which the minimum length of reset words is equal to $\frac{n^2 - 3n
++ 4}{2}$. We also discuss various connections between the \reth\ of a \san\ and
+the exponent sequence of its underlying graph.
+\end{abstract}
+
+\thispagestyle{empty}
+
+\section{Background and overview}
+\label{intro}
+
+
+A complete deterministic finite automaton $\mathrsfs{A}$ is called
+\emph{synchronizing} if the action of some word $w$ resets $\mathrsfs{A}$, that
+is, leaves the automaton in one particular state no matter at which state it is
+applied. Any such word $w$ is said to be a \emph{reset word} for the automaton.
+The minimum length of reset words for $\mathrsfs{A}$ is called the \emph{\reth}
+of $\mathrsfs{A}$ and denoted by $\rt(\mathrsfs{A})$. Synchronizing automata
+constitute an interesting combinatorial object and naturally appear in many
+applications such as coding theory, robotics and testing of reactive systems.
+For a brief introduction to the theory of synchronizing automata we refer the
+reader to the recent surveys~\cite{Sa05,Vo08}. The interest to the field is
+also heated by the famous \v{C}ern\'{y} conjecture.
+
+In~1964 Jan \v{C}ern\'{y}~\cite{Ce64} constructed for each $n>1$ a
+synchronizing automaton $\mathrsfs{C}_n$ with $n$ states whose \reth\ is
+$(n-1)^2$. Soon after that he conjectured that these automata represent the
+worst possible case, that is, every synchronizing automaton with $n$ states can
+be reset by a word of length $(n-1)^2$. Despite intensive research, the best
+upper bound on the \reth\ of synchronizing automata with $n$ states achieved so
+far is $\frac{n^3-n}6$, see~\cite{Pi83}, so it is much larger than the
+conjectured value. Though the \v{C}ern\'{y} conjecture is open in general, it
+has been confirmed for various restricted classes of synchronizing automata,
+see, e.g., \cite{Ep90,Du98,Ka03,Tr07,Vo09}. We recall here a result by Jarkko
+Kari from~\cite{Ka03} as it has served as a departure point for the present
+paper.
+
+Kari~\cite{Ka03} has shown that every synchronizing Eulerian automaton with $n$
+states possesses a reset word of length at most $n^2 -3n + 3$. Even though this
+result confirms the \v{C}ern\'{y} conjecture for Eulerian automata, it does not
+close the synchronizability question for this class of automata since no
+matching lower bound for the \reth\ of Eulerian automata has been found so far.
+In order to find such a matching bound, we need a series of Eulerian automata
+with large \reth. It is this problem that we address in the present paper.
+
+Our first attempt was following an approach from~\cite{AGV}. In that paper,
+several examples of slowly synchronizing automata that had been discovered in
+the course of a massive computational experiment have been related to known
+examples of primitive graphs with large exponent from~\cite{DM64} and then have
+been expanded to infinite series. The idea was to apply a similar analysis to
+Eulerian graphs with large exponent that have been characterized
+in~\cite{Shen00}. However, it turns out that this way we cannot achieve results
+close to what we get by computational experiments. Thus, a refinement of the
+approach from~\cite{AGV} appears to necessary. Here we suggest such a
+refinement, and this is the main novelty of the present paper. As a concrete
+demonstration of our modified approach, we exhibit a series of slowly
+synchronizing Eulerian automata whose \reth\ is twice as large as the \reth\ of
+automata that can be obtained by a direct application of techniques
+from~\cite{AGV}. We believe that the method suggested in this paper can find a
+number of other applications and its further development may shed a new light
+on the properties of synchronizing automata.
+
+
+\section{Preliminaries}
+\label{preliminaries}
+A \emph{complete deterministic finite automaton} (DFA) is
+a couple $\mathrsfs{A}=\langle Q,\Sigma\rangle$, where $Q$ stands for the
+\emph{state set} and $\Sigma$ for the \emph{input alphabet} whose letters act
+on $Q$ by totally defined transformations. The action of $\Sigma$ on $Q$
+extends in natural way to an action of the set $\Sigma^*$ of all words over
+$\Sigma$. The result of the action of a word $w \in \Sigma^*$ on the state $q
+\in Q$ is denoted by $q \cdot w$. Triples of the from $(q,a,q\cdot a)$ where
+$q\in Q$ and $a\in\Sigma$ are called \emph{transitions} of the DFA; $q$, $a$
+and $q\cdot a$ are referred to as, respectively, the \emph{source}, the
+\emph{label} and the \emph{target} of the transition $(q,a,q\cdot a)$.
+
+By a \emph{graph} we mean a tuple of sets and maps: the set of \emph{vertices}
+$V$, the set of \emph{edges} $E$, a map $t: E\to V$ that maps every edge to its
+\emph{tail} vertex, and a map $h:E\to V$ that maps every edge to its
+\emph{head} vertex. Notice that in a graph, there may be several edges with the
+same tail and head. (Thus, our graphs are in fact directed multigraphs but
+since no other graph species will show up in this paper, we use a short name.)
+We assume the reader's acquaintance with basic notions of the theory of graphs
+such as path, cycle, isomorphism etc.
+
+Given a DFA $\mathrsfs{A}=\langle Q,\Sigma\rangle$, its \emph{underlying graph}
+$D(\mathrsfs{A})$ has $Q$ as the vertex set and has an edge $e_\tau$ with
+$t(e_\tau)=q$, $h(e_\tau)=q\cdot a$ for each transition $\tau=(q,a,q\cdot a)$
+of $\mathrsfs{A}$. We stress that if two transitions have a common source and a
+common target (but different labels), then they give rise to different edges
+(with a common tail and a common head). It is easy to see that a graph $D$ is
+isomorphic to the underlying graph of some DFA if and only if each vertex of
+$D$ serves as the tail for the same number of edges (the number is called the
+\emph{outdegree} of $D$). In the sequel, we always consider only graphs
+satisfying this property. Every DFA $\mathrsfs{A}$ such that $D\cong
+D(\mathrsfs{A})$ is called a \emph{coloring} of $D$. Thus, every coloring of
+$D$ is labeling its edges of by letters from some alphabet whose cardinality is
+equal to the outdegree of $D$ such that edges with a common tail get different
+colors. Fig.\,\ref{fig:two colorings} shows a graph and two of its colorings by
+$\Sigma=\{a,b\}$.
+\begin{figure}[ht]
+ \begin{center}
+  \unitlength=2.8pt
+    \begin{picture}(18,30)(-70,-4)
+    \gasset{Nw=6,Nh=6,Nmr=3}
+    \node(A1)(0,18){$1$}
+    \node(A2)(18,18){$2$}
+    \node(A3)(18,0){$3$}
+    \node(A4)(0,0){$4$}
+    \drawloop[loopangle=135](A1){$a$}
+    \drawloop[loopangle=45](A2){$b$}
+    \drawloop[loopangle=-45](A3){$b$}
+    \drawedge(A1,A2){$b$}
+    \drawedge(A2,A3){$a$}
+    \drawedge(A3,A4){$a$}
+    \drawedge[curvedepth=3](A4,A1){$a$}
+    \drawedge[curvedepth=-3,ELside=r](A4,A1){$b$}
+    \end{picture}
+ \begin{picture}(18,30)(0,-4)
+    \gasset{Nw=6,Nh=6,Nmr=3}
+    \node(A1)(0,18){$1$}
+    \node(A2)(18,18){$2$}
+    \node(A3)(18,0){$3$}
+    \node(A4)(0,0){$4$}
+    \drawloop[loopangle=135](A1){$a$}
+    \drawloop[loopangle=45](A2){$a$}
+    \drawloop[loopangle=-45](A3){$a$}
+    \drawedge(A1,A2){$b$}
+    \drawedge(A2,A3){$b$}
+    \drawedge(A3,A4){$b$}
+    \drawedge[curvedepth=3](A4,A1){$a$}
+    \drawedge[curvedepth=-3,ELside=r](A4,A1){$b$}
+    \end{picture}
+ \begin{picture}(18,30)(70,-4)
+    \gasset{Nw=6,Nh=6,Nmr=3}
+    \node(A1)(0,18){$1$}
+    \node(A2)(18,18){$2$}
+    \node(A3)(18,0){$3$}
+    \node(A4)(0,0){$4$}
+    \drawloop[loopangle=135](A1){}
+    \drawloop[loopangle=45](A2){}
+    \drawloop[loopangle=-45](A3){}
+    \drawedge(A1,A2){}
+    \drawedge(A2,A3){}
+    \drawedge(A3,A4){}
+    \drawedge[curvedepth=3](A4,A1){}
+    \drawedge[curvedepth=-3](A4,A1){}
+    \end{picture}
+ \end{center}
+ \caption{A graph and two of its colorings}
+ \label{fig:two colorings}
+\end{figure}
+
+A graph $D=\langle V,E\rangle$ is said to be \emph{strongly connected} if for
+every pair $(v,v')\in V\times V$, there exists a path from $v$ to $v'$. A graph
+is \emph{Eulerian} if it is strongly connected and each of its vertices serves
+as the tail and as the head for the same number of edges. A DFA is said to be
+\emph{Eulerian} if so is its underlying graph. More generally, we will freely
+transfer graph notions (such as path, cycle, etc) from graphs to automata they
+underlie.
+
+A graph $D=\langle V,E\rangle$ is called \emph{primitive} if there exists a
+positive integer $t$ such that for every pair $(v,v')\in V\times V$, there
+exists a path from $v$ to $v'$ of length precisely $t$. The least $t$ with this
+property is called the \emph{exponent} of the digraph $D$ and is denoted by
+$\exp(D)$.
+
+Let $w$ be a word over the alphabet $\Sigma = \{a_1, a_2, \ldots, a_k\}$. We
+say that a word $u\in\Sigma^*$ \emph{occurs $\ell$ times as a factor of $w$} if
+there are exactly $\ell$ different words $x_1, \ldots, x_\ell \in \Sigma^*$
+such that for each $i$, $1 \leq i \leq \ell$, there is a word $y_i \in
+\Sigma^*$ such that $w$ decomposes as $w = x_iuy_i$. The number $\ell$ is
+called the \emph{number of occurrences of $u$ in $w$} and is denoted by
+$|w|_u$. The vector $(|w|_{a_1}, |w|_{a_2}, \ldots,
+|w|_{a_k})\in\mathbb{N}^k_0$ is called the \emph{Parikh vector} of the word
+$w$; here $\mathbb{N}_0$ stands for the set of non-negative integers.
+
+Now suppose that $\mathrsfs{A}=\langle Q,\Sigma\rangle$ is a DFA and $\alpha$
+is a path in $\mathrsfs{A}$ labelled by a word $w\in\Sigma^*$. If a vector
+$\mathsf{v}\in\mathbb{N}^k_0$ is equal to the Parikh vector of $w$, then we say
+that $\mathsf{v}$ is the \emph{Parikh vector} of the path $\alpha$. We refer to
+any path that has $\mathsf{v}$ as its Parikh vector as a
+$\mathsf{v}$-\emph{path}.
+
+\section{Main results}
+\label{sea}
+
+We start with revisiting the technique used in \cite{AGV} to obtain lower
+bounds for the \reth\ of certain \sa.
+
+Consider an arbitrary synchronizing automaton $\mathrsfs{A} = \langle Q, \Sigma
+\rangle$. Let $w$ be a \sw\ for $\mathrsfs{A}$ that leaves the automaton in
+some state $r \in Q$, that is, $p\cdot w=r$ for every $p\in Q$. Then, for every
+state $p \in Q$, the word $w$ labels a path from $p$ to $r$. Therefore, for
+every state $p \in Q$ there is a path of length $|w|$ from $p$ to $r$ in the
+underlying graph $D(\mathrsfs{A})$. This leads us to the following notion. We
+say that a strongly connected graph $D=(V,E)$ is 0-\emph{primitive} if there
+exists an integer $k > 0$ and a vertex $r \in V$ such that for every vertex
+$p\in V$ there is a path of length exactly $k$ from $p$ to $r$. The minimal
+integer $k$ with this property (over all possible choices of $r$) is called the
+0-\emph{exponent} of $D$ and is denoted by $\exp_0(D)$. We write
+$\exp_0(\mathrsfs{A})$ instead of $\exp_0(D(\mathrsfs{A}))$. Then we have that
+every synchronizing automaton $\mathrsfs{A}$ is 0-primitive and
+\begin{equation}
+\label{first inequality} \rt(\mathrsfs{A})\geq \exp_0(\mathrsfs{A}).
+\end{equation}
+
+It is not hard to see that the notions of 0-primitivity and primitivity are
+equivalent. Indeed, every primitive digraph is obviously 0-primitive.
+Conversely, let $D$ be a 0-primitive digraph with $n$ vertices. By the
+definition there are paths of length exactly $\exp_0(D)$ from every vertex to
+some fixed vertex $r$. Consider two arbitrary vertices $p$ and $q$ of $D$.
+Since $D$ is strongly connected, there is a path $\alpha$ of length at most $n
+- 1$ from $r$ to $q$. Now take any path $\beta$ of length $n - 1 - |\alpha|$
+starting at $p$ and let $s$ be the endpoint of $\beta$. There is a path
+$\gamma$ of length $\exp_0(D)$ from $s$ to $r$. Now the path
+$\beta\gamma\alpha$ leads from $p$ to $q$ (through $s$ and $r$) and
+$|\beta\gamma\alpha|=n - 1 + \exp_0(D)$. Thus, the digraph $D$ is primitive,
+and moreover, we have the following inequality:
+\begin{equation}
+\label{second inequality} \exp_0(D) + n - 1 \geq \exp(D).
+\end{equation}
+The reader who may wonder why we need such a slight variation of the standard
+notion will see that this variation fits better into a more general framework
+that we will present below.
+
+First, however, we demonstrate how to construct Eulerian automata with a
+relatively large \reth\ on the basis of the notion of 0-primitivity. For this,
+we need Eulerian digraphs with the largest possible exponent (or 0-exponent)
+among all primitive Eulerian digraphs with $n$ vertices. Such digraphs have
+been classified by Shen~\cite{Shen00}.
+
+For every odd $n \geq 5$, consider the automaton $\mathrsfs{D}_n$ with the
+state set $Q=\{1,2,\dots,n\}$ and the input letters $a$ and $b$ acting on $Q$
+as follows:
+
+$ 1 \cdot a = 2$, $1 \cdot b = 3$; $(n - 1) \cdot a = 2$, $(n - 1) \cdot b =
+1$; $n \cdot a = 1$, $n \cdot b = 3$; and for every $1 < k < n - 1$
+$$k \cdot a=\begin{cases}
+k + 2 &\text{if } k \text{ is even},\\
+k + 1 &\text{if } k \text{ is odd};
+\end{cases}\quad
+k \cdot b=\begin{cases}
+k + 3 &\text{if } k \text{ is even},\\
+k + 2 &\text{if } k \text{ is odd}.
+\end{cases}$$
+The automaton $\mathrsfs{D}_n$ is shown in Fig.\,\ref{fig:d}. We denote the
+underlying graph of $\mathrsfs{D}_n$ by $\mathcal{D}_n$.
+
+\begin{figure}[h]
+  \begin{center}
+    \unitlength=4pt
+    \begin{picture}(75, 35)(0,-7)
+    \gasset{curvedepth=0}
+    \thinlines
+    \node(A0)(0,7){$1$}
+    \node(A1)(12,15){$2$}
+    \node(A2)(12,0){$3$}
+    \node(A3)(27,15){$4$}
+    \node(A4)(27,0){$5$}
+    \node(A5)(43,15){$6$}
+    \node(A6)(43,0){$7$}
+    \node(An3)(60,15){$n{-}3$}
+    \node(An2)(60,0){$n{-}2$}
+    \node(An1)(75,15){$n{-}1$}
+    \node(An)(75,0){$n$}
+    \drawedge(A0,A1){$a$}
+    \drawedge[ELpos=45](A0,A2){$b$}
+    \drawedge[ELpos=45](A1,A3){$a$}
+    \drawedge[ELpos=30](A1,A4){$b$}
+    \drawedge[ELpos=30](A2,A3){$a$}
+    \drawedge[ELpos=45](A2,A4){$b$}
+    \drawedge[ELpos=45](A3,A5){$a$}
+    \drawedge[ELpos=30](A3,A6){$b$}
+    \drawedge[ELpos=30](A4,A5){$a$}
+    \drawedge[ELpos=45](A4,A6){$b$}
+     \put(50,0){$\ldots$}
+     \put(50,15){$\ldots$}
+    \drawedge[ELpos=45](An3,An1){$a$}
+    \drawedge[ELpos=30](An3,An){$b$}
+    \drawedge[ELpos=30](An2,An1){$a$}
+    \drawedge[ELpos=45](An2,An){$b$}
+    \drawcurve(72.7,17)(60,19)(27,19)(14.2, 17)
+    \drawcurve(74.5,18)(60,22)(27,23)(10,20)(0, 10)
+    \put(39,24){$b$}
+    \put(45,20){$a$}
+    \drawcurve(72.7,-2)(60,-4)(27,-4)(14.2, -2)
+    \drawcurve(74.5,-3)(60,-7)(27,-7)(10,-5)(0, 4)
+    \put(39,-9){$a$}
+    \put(45,-6.5){$b$}
+    \end{picture}
+  \end{center}
+  \caption{The automaton $\mathrsfs{D}_n$}
+  \label{fig:d}
+\end{figure}
+
+
+\begin{proposition}
+\label{shen} If $\mathcal{G}$ is a primitive Eulerian graph with outdegree $2$
+and $n$ vertices, $n \geq 8$, then $\exp(\mathcal{G}) \leq \frac{(n - 1)^2}{4}
++ 1$. The equality holds only for the graph $\mathcal{D}_n$.
+\end{proposition}
+
+Proposition~\ref{shen} and the inequalities \eqref{first inequality} and
+\eqref{second inequality} guarantee that every synchronizing coloring of the
+graph $\mathcal{D}_n$ has \reth\ of magnitude $\frac{n^2}{4} + o(n^2)$. In
+particular, we can prove the following result using the technique developed
+in~\cite{AGV}.
+
+\begin{proposition}
+The \reth\ of the automaton $\mathrsfs{D}_n$ is equal to $\frac{n^2 - 4n +
+11}{4}$.
+\end{proposition}
+
+\begin{proof}
+%\textbf{To be inserted. Lemma~1 perhaps should appear here.}
+
+Major part of the proof is devoted to estimation of $\exp_0(\mathrsfs{D}_n)$.
+Observe, that for every $\ell \geq \exp_0(\mathrsfs{D}_n)$ there
+is cycle of length $\ell$ in $\mathrsfs{D}_n$. Indeed, let $r$ be a state such
+that for every $p \in Q$ there is a path of length $\exp_0(\mathrsfs{D}_n)$ from
+$p$ to $r$. Now take any path $\alpha$ of length $\ell - \exp_0(\mathrsfs{D}_n)$
+starting at $r$ and let $s$ be endpoint of $\alpha$. By definition of $r$ there is a path
+$\beta$ of length $\exp_0(\mathrsfs{D}_n)$ from $s$ to $r$. Thus, the path $\alpha\beta$
+is a cycle of length exactly $\ell$.
+
+Consider now $V =\bigcup\limits_{i = 0}^{\frac{n - 1}{2}} V_i$, where $V_0 = {1}$ and $V_i = \{2i,\text{ } 2i + 1\}$ for
+every $1 < i \leq \frac{n - 1}{2}$. Let us introduce factor digraph $\mathcal{G}_n$ of
+$\mathcal{D}_n$ with vertex set $V$ as follows: there is an edge $e$ with $t(e) = V_i$
+and $h(e) = V_j$ if and only if there is a transition $(p,x,q)$ for some states $p \in V_i$,
+$q \in V_j$ and a letter $x$.
+%It is depicted in Fig.\,\ref{fig:g}.
+Let $\alpha$ be arbitrary cycle of length $\ell$ in $\mathrsfs{D}_n$.
+It is not hard to see, that there is corresponding
+cycle $\alpha'$ of the same length in $\mathcal{G}_n$. Since simple cycles of $\mathcal{G}_n$
+are only of lengths $\frac{n - 1}{2}$ and $\frac{n + 1}{2}$ we conclude that $\ell$ is
+expressible as a non-neative integer combination of $\frac{n - 1}{2}$
+and $\frac{n + 1}{2}$.
+
+Here we invoke the following well-known and elementary result from arithmetics:
+\begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RaAl05}}]
+\label{sylvester} If $k_1,k_2$ are relatively prime positive integers, then
+$k_1k_2-k_1-k_2$ is the largest integer that is not expressible as a
+non-negative integer combination of $k_1$ and $k_2$.
+\end{lemma}
+Since for every $\ell \geq \exp_0(\mathrsfs{D}_n)$ there is a cycle of
+length $\ell$ in $\mathrsfs{D}_n$, applying lemma~\ref{sylvester} we conclude that
+$\exp_0(\mathrsfs{D}_n) \geq \frac{n^2 -4n + 3}{4}$ and there is no cycle of length $\frac{n^2 -4n - 1}{4}$ in $\mathcal{G}_n$.
+From inequality~\ref{first inequality} trivially follows that $\rt(\mathrsfs{D}_n) \geq \frac{n^2 -4n + 3}{4}$
+and it remained now to settle few simple cases.
+
+Suppose that $w$ is a \sw\ of length $\frac{n^2 -4n + 3}{4}$ which leaves $\mathrsfs{D}_n$
+in the state $r \in V_i$. Note, that $i \neq 0$(otherwise we will have shorter \sw). Thus, if we apply
+$w = xw'$, for some letter $x$, to some state from $V_{i - 1}$ then $w'$ induces a cycle from $V_i$ to $V_i$
+in $\mathcal{G}_n$ of length $\frac{n^2 -4n - 1}{4}$. Contradiction.
+
+Suppose now that the length of $w$ is $\frac{n^2 -4n + 7}{4}$. If $i \neq 1$ then arguments as above(applied to
+a state from $V_{i - 2}$) imply a contradiction. Thus, $i = 1$. Let $w = xyw'$ for some letters $x$ and $y$.
+Depending on $x$ either $n \cdot xy  \in V_1$ or $(n - 1) \cdot xy \in V_1$. In both cases $w'$ induces a cycle from $V_1$ to $V_1$
+in $\mathcal{G}_n$ of length $\frac{n^2 -4n - 1}{4}$, which is impossible.
+
+In summary, \reth\ of automaton $\mathrsfs{D}_n$ is at least $\frac{n^2 -4n + 11}{4}$. Since the word
+$aa(ba^{\frac{n - 1}{2}})^\frac{n - 5}{2}bb$ resets $\mathrsfs{D}_n$ we conclude that this bound is tight.
+
+%Consider now arbitrary cycle $\alpha$ of length $\ell$ in $\mathrsfs{D}_n$. Note, that
+%$\ell$ can be represented as a non-negative integer combination of $\frac{n - 1}{2}$ and
+%$\frac{n + 1}{2}$. It can be easily seen if we introduce factor digraph $\mathcal{G}_n$ of $\mathcal{D}_n$.
+%Let $V_0 = {1}$ and $V_i = \{2i, 2i + 1\}$ for every $1 < i \leq \frac{n - 1}{2}$.
+\end{proof}
+
+Computational experiments show that the largest \reth\ among all synchronizing
+colorings of $\mathcal{D}_n$ is equal to $\frac{(n - 1)^2}{4} + 1$. Therefore,
+$\frac{n^2}{4} + o(n^2)$ is the best lower bound on the \reth\ of synchronizing
+Eulerian automata with $n$ states that can be obtained by a direct encoding of
+Eulerian graphs with large exponent. However, our main result
+(Theorem~\ref{th:matr} below) shows that for every odd $n$ there is a
+synchronizing Eulerian automaton with $n$ states and \reth\ $\frac{n^2 -3n +
+4}{2}$. This indicates that the notion of 0-exponent is too weak to be useful
+for isolating synchronizing Eulerian automata with maximal \reth. The reason
+for this is that we have discarded too much information when passing from
+synchronizability to 0-primitivity---we forget everything about paths labeled
+by \sws\ except their length. Thus, we try to use another notion in which more
+information is preserved, namely, the Parikh vectors of the paths are taken
+into account.
+
+Consider a DFA $\mathrsfs{A} = \langle Q, \Sigma \rangle$ with $|\Sigma| = k$
+and fix some ordering of the letters in $\Sigma$. We define a subset
+$\mathrm{E}_1(\mathrsfs{A})$ of $\mathbb{N}^{k}_0$ as follows: a vector
+$\mathsf{v} \in \mathbb{N}^{k}_0$ belongs to $\mathrm{E}_1(\mathrsfs{A})$ if
+and only if there is state $r \in Q$ such that for every $p \in Q$, there
+exists a $\mathsf{v}$-path from $p$ to $r$. If the set
+$\mathrm{E}_1(\mathrsfs{A})$ is non-empty, then the automaton $\mathrsfs{A}$ is
+called \emph{$1$-primitive}. The minimum value of the sum $i_1 + i_2 + \dots +
+i_k$ over all $k$-tuples $(i_1, i_2, \ldots, i_k)$ from
+$\mathrm{E}_1(\mathrsfs{A})$ is called the \emph{$1$-exponent} of
+$\mathrsfs{A}$ and denoted by $\exp_1(\mathrsfs{A})$. We would like to note
+that a very close concept for colored multigraphs has been studied in
+\cite{ShSu03,OlShDr02}. Clearly, every synchronizing automaton $\mathrsfs{A}$
+is 1-primitive and
+\begin{equation}
+\label{third inequality} \rt(\mathrsfs{A})\geq \exp_1(\mathrsfs{A}).
+\end{equation}
+
+In order to illustrate how the notion of $1$-exponent may be utilized, we prove
+a statement concerning the \v{C}ern\'{y} automata $\mathrsfs{C}_n$ (this
+statement will be used in the proof of our main result). Recall the definition
+of $\mathrsfs{C}_n$. The state set of $\mathrsfs{C}_n$ is $Q=\{1,2,\dots,n\}$
+and the letters $a$ and $b$ act on $Q$ as follows:
+$$i \cdot a =\begin{cases}
+2 &\text{if } i = 1,\\
+i &\text{if } 1 < i;
+\end{cases}\quad
+i \cdot b =\begin{cases}
+i+1 &\text{if } i<n,\\
+1 &\text{if } i=n.
+\end{cases}$$
+The automaton $\mathrsfs{C}_n$ for $n = 7$ is shown in Fig.~\ref{fig:cerny}.
+Here and below we adopt the convention that edges bearing multiple labels
+represent bunches of edges sharing tails and heads. In particular, the edge
+$1\xrightarrow{a,b}2$ in Fig.\,\ref{fig:cerny} represents the two parallel
+edges $1\xrightarrow{a}2$ and $1\xrightarrow{b}2$.
+
+\begin{figure}[ht]
+\begin{center}
+\unitlength .5mm
+\begin{picture}(50,80)(-20,-80)
+\gasset{Nw=14,Nh=14,Nmr=7,loopdiam=10}
+\node(n0)(0,-5){1}
+\node(n1)(-30,-20){7} \node(n2)(30,-20){2}
+\node(n3)(-35,-50){6} \node(n4)(35,-50){3}
+\node(n5)(-17,-75){5} \node(n6)(17,-75){4}
+\drawedge[ELdist=2.0](n1,n0){$b$}
+\drawedge[ELdist=1.5](n2,n4){$b$}
+\drawedge[ELdist=1.7](n0,n2){$a, b$}
+\drawedge[ELdist=1.7](n3,n1){$b$}
+\drawedge[ELdist=1.7](n4,n6){$b$}
+\drawedge[ELdist=1.7](n6,n5){$b$}
+\drawedge[ELdist=1.7](n5,n3){$b$}
+\drawloop[ELdist=1.5,loopangle=25](n2){$a$}
+\drawloop[ELdist=1.5,loopangle=150](n1){$a$}
+\drawloop[ELdist=2.4,loopangle=340](n4){$a$}
+\drawloop[ELdist=1.5,loopangle=200](n3){$a$}
+\drawloop[ELdist=1.5,loopangle=300](n6){$a$}
+\drawloop[ELdist=1.5,loopangle=240](n5){$a$}
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{C}_n$ for $n = 7$} \label{fig:cerny}
+\end{figure}
+
+
+\begin{proposition}
+\label{th:cerny} Every reset word of the automaton $\mathrsfs{C}_n$ contains at
+least $n^2 - 3n + 2$ occurrences of the letter $b$ and at least $n - 1$
+occurrence of the letter $a$.
+\end{proposition}
+
+\begin{proof}
+Since the automaton $\mathrsfs{C}_n$ is synchronizing, the set
+$\mathrm{E}_1(\mathrsfs{C}_n)$ is non-empty. We make use of the following
+simple property of $\mathrm{E}_1(\mathrsfs{C}_n)$: if $\mathsf{v} = (\alpha,
+\beta) \in \mathrm{E}_1(\mathrsfs{C}_n)$, then for every $t \in \mathbb{N}$ we
+have $(\alpha, \beta + t) \in \mathrm{E}_1(\mathrsfs{C}_n)$. Indeed, let $r$ be
+a state such that for every $p \in Q$ there is a $\mathsf{v}$-path from $p$ to
+$r$. We aim to show that there is also an $(\alpha, \beta + t)$-path from an
+arbitrary state $p$ to $r$. Let $q = p\cdot b^{t}$, then by definition of $r$
+there is a $\mathsf{v}$-path from $q$ to $r$. Augmenting this path in the
+beginning by the path staring at $p$ and labeled $b^t$, we obtain an $(\alpha,
+\beta + t)$-path from $p$ to $r$.
+
+Now observe that there is a $\mathsf{v}$-path from $r$ to $r$. This path is a
+cycle and it can be decomposed into simple cycles of the automaton
+$\mathrsfs{C}_n$. The simple paths in $\mathrsfs{C}_n$ are loops labeled $a$
+with the Parikh vector $(1,0)$, the cycle
+$$1\xrightarrow{a}2\xrightarrow{b}3\xrightarrow{b}\dots\xrightarrow{b}n-1\xrightarrow{b}n\xrightarrow{b}1$$
+with the Parikh vector $(1,n-1)$ and the cycle
+$$1\xrightarrow{b}2\xrightarrow{b}3\xrightarrow{b}\dots\xrightarrow{b}n-1\xrightarrow{b}n\xrightarrow{b}1$$
+with the Parikh vector $(1,n-1)$. Thus, there are some $x, y, z \in
+\mathbb{N}_0$ such that the following equality holds true:
+$$(\alpha,\beta) = x (1,0) + y (1, n - 1) + z(0,n).$$
+It readily implies that $\beta = y(n - 1) + zn$. Since for every $t \in
+\mathbb{N}$ the vector $(\alpha, \beta + t)$ also belongs to
+$\mathrm{E}_1(\mathrsfs{C}_n)$, we conclude that $\beta + t$ is also
+expressible as a non-negative integer combination of $n$ and $n - 1$.
+%Here we
+%invoke the following well-known and elementary result from arithmetics:
+%\begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RaAl05}}]
+%\label{sylvester} If $k_1,k_2$ are relatively prime positive integers, then
+%$k_1k_2-k_1-k_2$ is the largest integer that is not expressible as a
+%non-negative integer combination of $k_1$ and $k_2$.
+%\end{lemma}
+Lemma~\ref{sylvester} implies that $\beta\ge
+n(n-1)-n-(n-1)+1=n^2-3n+2$. If $w$ is a \sw\ of the automaton $\mathrsfs{C}_n$,
+then the Parikh vector of $w$ belongs to $\mathrm{E}_1(\mathrsfs{C}_n)$,
+whence $w$ contains at least $n^2 - 3n + 2$ occurrences of the letter $b$.
+
+It remains to prove that $w$ contains at least $n - 1$ occurrences of the
+letter $a$. Note that for every set $S$ of states, we have $|S\cdot b|=|S|$ and
+$|S\cdot a|\ge|S|-1$. Hence, to decrease the cardinality from $n$ to 1, one has
+to apply $a$ at least $n-1$ times, and any word $w$ such that $|Q\cdot w|=1$
+must contain at least $n - 1$ occurrences of $a$.
+\end{proof}
+
+As a corollary we immediately obtain \v{C}ern\'{y}'s
+result~\cite[Lemma~1]{Ce64} that $\rt(\mathrsfs{C}_n)=(n - 1)^2$. Indeed,
+Proposition~\ref{th:cerny} implies that the \reth\ is at least $(n - 1)^2$, and
+it is easy to check that the word $(ab^{n - 1})^{n - 2}a$ of length $(n - 1)^2$
+resets $\mathrsfs{C}_n$. Also we see that a \sw\ $w$ of minimal length for
+$\mathrsfs{C}_n$ is unique. Indeed, $w$ cannot start or end with $b$ because
+$b$ acts as a cyclic permutation. Thus, $w = aua$ and the word $u$ has $n^2 -
+3n + 2$ occurrences of $b$ and $n - 3$ occurrences of $a$. Note that $b^n$
+cannot occur as a factor of $u$ since $b^n$ acts is an identity mapping.
+Clearly, there is only one way to insert $n - 3$ letters $a$ in the word
+$b^{n^2-3n+2}$ such that the resulting word contains no factor $b^n$. Though
+the series $\mathrsfs{C}_n$ is very well studied, to the best of our knowledge
+the uniqueness of the shortest \sw\ for $\mathrsfs{C}_n$ has not been
+explicitly stated in the literature.
+
+Observe that $\exp_0(\mathrsfs{C}_n)=n-1$ and we could not extract any strong
+lower bound for $\rt(\mathrsfs{C}_n)$ from the inequality~\eqref{second
+inequality}. In~\cite{AGV} a tight lower bound for $\rt(\mathrsfs{C}_n)$ has
+been obtained in an indirect way, via relating $\mathrsfs{C}_n$ to graphs with
+largest possible 0-exponent from \cite{Wi50}. In contrast, proposition~\ref{th:cerny}
+implies that $\exp_1(\mathrsfs{C}_n)$ is close to $(n-1)^2$ so the inequality
+~\eqref{third inequality} gives a strong lower bound.
+
+
+%Observe that $\exp_0(\mathrsfs{C}_n)=n-1$ and we could not extract any strong
+%lower bound for $\rt(\mathrsfs{C}_n)$ from the inequality~\eqref{second
+%inequality}. In~\cite{AGV} a tight lower bound for $\rt(\mathrsfs{C}_n)$ has
+%been obtained in an indirect way, via relating $\mathrsfs{C}_n$ to graphs with
+%largest possible 0-exponent from \cite{Wi50}. In contrast, it can be shown that
+%$\exp_1(\mathrsfs{C}_n)=(n-1)^2$ (\textbf{Is this correct??}) so the inequality
+%~\eqref{third inequality} gives a correct answer. (We have not included the
+%full calculation of $\exp_1(\mathrsfs{C}_n)$ because the information provided
+%by Proposition~\ref{th:cerny} suffices for our purposes.)
+
+Now we are ready to present main result of this paper. We define the automaton
+$\mathrsfs{M}_n$ (from Matricaria) on the state set $Q=\{1,2,\dots,n\}$, where
+$n \geq 5$ is odd, in which the letters $a$ and $b$ act as follows:
+$$k \cdot a=\begin{cases}
+k &\text{if } k \text{ is odd},\\
+k + 1 &\text{if } k \text{ is even};
+\end{cases}\quad
+k \cdot b=\begin{cases}
+k + 1 &\text{if } k \neq n \text{ is odd},\\
+k &\text{if } k \text{ is even},\\
+1 &\text{if } k = n.
+\end{cases}$$
+Observe that $\mathrsfs{M}_n$ is Eulerian. The automaton $\mathrsfs{M}_n$ for
+$n = 7$ is shown in Fig.~\ref{fig:matr} on the left.
+\begin{figure}[ht]
+\begin{center}
+\unitlength .5mm
+\begin{picture}(50,100)(40,-88)
+\gasset{Nw=14,Nh=14,Nmr=7,loopdiam=10}
+\node(n0)(0,-5){1}
+\node(n1)(-30,-20){7} \node(n2)(30,-20){2}
+\node(n3)(-35,-50){6} \node(n4)(35,-50){3}
+\node(n5)(-17,-75){5} \node(n6)(17,-75){4}
+\drawedge[ELdist=2.0](n1,n0){$b$}
+\drawedge[ELdist=1.5](n2,n4){$a$}
+\drawedge[ELdist=1.7](n0,n2){$b$}
+\drawedge[ELdist=1.7](n3,n1){$a$}
+\drawedge[ELdist=1.7](n4,n6){$b$}
+\drawedge[ELdist=1.7](n6,n5){$a$}
+\drawedge[ELdist=1.7](n5,n3){$b$}
+\drawloop[ELdist=1.5,loopangle=90](n0){$a$}
+\drawloop[ELdist=1.5,loopangle=25](n2){$b$}
+\drawloop[ELdist=1.5,loopangle=150](n1){$a$}
+\drawloop[ELdist=2.4,loopangle=340](n4){$a$}
+\drawloop[ELdist=1.5,loopangle=200](n3){$b$}
+\drawloop[ELdist=1.5,loopangle=300](n6){$b$}
+\drawloop[ELdist=1.5,loopangle=240](n5){$a$}
+\end{picture}
+
+\begin{picture}(1,1)(-65,-96)
+\gasset{Nw=14,Nh=14,Nmr=7,loopdiam=10}
+\node(n0)(0,-5){1}
+\node(n1)(-30,-20){7} \node(n2)(30,-20){2}
+\node(n3)(-35,-50){6} \node(n4)(35,-50){3}
+\node(n5)(-17,-75){5} \node(n6)(17,-75){4}
+\drawedge[ELdist=2.0](n1,n0){$b,c$}
+\drawedge[ELdist=1.5,ELside=r](n2,n6){$c$}
+\drawedge[ELdist=1.5](n0,n2){$b,c$}
+\drawedge[ELdist=1.7,ELside=r](n3,n0){$c$}
+\drawedge[ELdist=1.7](n4,n6){$b,c$}
+\drawedge[ELdist=1.7,ELside=r](n6,n3){$c$}
+\drawedge[ELdist=1.7](n5,n3){$b,c$}
+\drawloop[ELdist=1.5,loopangle=25](n2){$b$}
+\drawloop[ELdist=1.5,loopangle=200](n3){$b$}
+\drawloop[ELdist=1.5,loopangle=300](n6){$b$}
+\end{picture}
+\end{center}
+\caption{The automaton $\mathrsfs{M}_n$ for $n=7$ and the automaton induced by
+the actions of $b$ and $c=ab$} \label{fig:matr}
+\end{figure}
+
+\begin{theorem}
+\label{th:matr} If $n \geq 5$ is odd, then the automaton $\mathrsfs{M}_n$ is
+synchronizing and its \reth\ is equal to $\frac{n^2 -3n + 4}{2}$.
+\end{theorem}
+
+\begin{proof}
+Let $w$ be a \sw\ of minimum length for $\mathrsfs{M}_n$. Note that the action
+of $aa$ is the same as the action of $a$. Therefore $aa$ could not be a factor
+of $w$. (Otherwise reducing this factor to just $a$ results in a shorter \sw.)
+So every occurrence of $a$, maybe except the last one, is followed by $b$. If
+we let $c = ab$, then either $w$ or $wb$ (if $w$ ends with $a$) could be
+rewritten into a word $u$ over the alphabet $\{b,c\}$. The actions of $b$ and
+$c$ induce a new automaton on the state set of $\mathrsfs{M}_n$ (this induced
+automaton is shown in Fig.~\ref{fig:matr} on the right). It is not hard to see
+that in both cases $u$ is a \sw\ for the induced automaton. After applying the
+first letter of $u$ it remains to synchronize the subautomaton on the set of
+states $S =\{1\} \cup \{2k \mid 1 \leq k \leq \frac{n - 1}{2}\}$, and this
+subautomaton is isomorphic to $\mathrsfs{C}_{\frac{n + 1}{2}}$.
+
+Suppose $u = u'c$ for some word $u'$ over $\{b,c\}$. Since the action of $c$ on
+any subset of $S$ cannot decrease its cardinality, we conclude that $u'$ is
+also a \sw\ for the induced automaton. But $c$ is the last letter of $u$ only
+if $w = w'a$ and $w'$ was rewritten into $u'$. Thus, $w'$ also is a \sw\ for
+$\mathrsfs{M}_n$, which is a contradiction.
+
+If $u = xu'$ for some letter $x$, then by Proposition~\ref{th:cerny} we
+conclude that $u'$ has at least $(\frac{n + 1}{2})^2 - 3(\frac{n + 1}{2}) + 2 =
+\frac{n^2 - 4n + 3}{4}$ occurrences of $c$ and at least $\frac{n - 1}{2}$
+occurrences of $b$. Since each occurrence of $c$ in $u'$ corresponds to an
+occurrence of the factor $ab$ in $w$, we conclude that the length of $w$ is at
+least $1 + 2\frac{n^2 - 4n + 3}{4} + \frac{n - 1}{2} = \frac{n^2 - 3n + 4}{2}$.
+
+One can verify that the word $b(b(ab)^{\frac{n - 1}{2}})^{\frac{n - 3}{2}}b$ is
+a \sw\ for $\mathrsfs{M}_n$ whence the above bound is tight.
+\end{proof}
+
+It is not hard to see that $\exp_0(\mathrsfs{M}_n)=n-1$ and also
+$\exp_1(\mathrsfs{M}_n)$ is linear in $n$. Thus, both 0-exponent and 1-exponent
+are far too weak to give a good lower bound for the \reth\ of $\mathrsfs{M}_n$.
+That is why we have obtained a tight lower bound for $\rt(\mathrsfs{M}_n)$ in an
+indirect way, via relating $\mathrsfs{M}_n$ to and automaton with a large
+1-exponent (namely, to $\mathrsfs{C}_{\frac{n + 1}{2}}$). Can one develop a
+notion that would give a good bound in a more direct way?
+
+
+Observe that the most important part of the proof of Theorem~\ref{th:matr}
+deals with estimating the number of occurrences of the factor $ab$ in a reset
+word. In fact, a rough estimation can be done directly. Let $w$ be a \sw\ that
+leaves $\mathrsfs{M}_n$ in the state 2 and $k=|w|_{ab}$. Consider a path from 2
+to 2 in which the state 2 does not occur in the middle. Words labeling such
+paths come from the language $L=b^*(a^+b^+)^{\frac{n - 1}{2}}ba^*b$. Thus, $w$
+can be divided into several blocks from $L$. Since every block has either
+$\frac{n - 1}{2}$ or $\frac{n+1}{2}$ occurrences of the factor $ab$, we
+conclude that $k$ is expressible as a non-negative integer combination of the
+numbers $\frac{n-1}{2}$ and $\frac{n+1}{2}$. Note that $(ab)^tw$, where $t \in
+\mathbb{N}$, is a \sw\ that leaves $\mathrsfs{M}_n$ in the state 2. Since $ab$
+occurs $k + t$ times as a factor in $(ab)^tw$, we see that $k + t$ also is
+expressible as a non-negative integer combination of $\frac{n-1}{2}$ and
+$\frac{n+1}{2}$. Applying lemma~\ref{sylvester} we conclude that $k \geq
+\frac{n^2 - 4n + 3}{4}$. Thus, the length of $w$ is at least $\frac{n^2 - 4n +
+3}{2}$.
+
+The above reasoning  suggests the following generalization. Let $\mathrsfs{A} =
+\langle Q, \Sigma \rangle$ be a DFA with $Q=\{1,2,\dots,n\}$ and let $k$ be a
+non-negative integer. We say that the automaton $\mathrsfs{A}$ is
+\emph{$k$-primitive} if there exist words $u_1,u_2,\dots,u_n$ such that $1\cdot
+u_1=2\cdot u_2=\dots=n\cdot u_n$ and for every word $v$ of length at most $k$
+we have $|u_1|_v = |u_2|_v = \ldots = |u_n|_v$. Note that the last condition
+implies that all words $u_1,u_2,\dots,u_n$ have the same length. The minimal
+length of words that witness $k$-primitivity of  $\mathrsfs{A}$ is called the
+\emph{$k$-exponent} of $\mathrsfs{A}$ and is denoted by $\exp_k(\mathrsfs{A})$.
+Observe that the rough estimation in the previous paragraph shows that
+$\exp_2(\mathrsfs{M}_n)$ is close to $\rt(\mathrsfs{M}_n)$.
+
+Consider now an arbitrary synchronizing automaton $\mathrsfs{A}$. It is clear
+that $\mathrsfs{A}$ is $k$-primitive for every $k$ automaton  and
+$\rt(\mathrsfs{A}) \geq \exp_k(\mathrsfs{A})$. Thus, we have the following
+non-decreasing sequence:
+\begin{equation}
+\label{sequence}
+\exp_0(\mathrsfs{A}) \leq \exp_1(\mathrsfs{A}) \leq \dots \leq
+\exp_k(\mathrsfs{A}) \leq \exp_{k + 1}(\mathrsfs{A}) \leq \dotsc.
+\end{equation}
+At every next step we require that words $u_1,u_2,\dots,u_n$ get more similar
+to each other than they were in previous step. Thus, sooner or later these
+words converge to a \sw\ and the sequence stabilizes at $\rt(\mathrsfs{A})$.
+Thus, we think that studying the sequence~\eqref{sequence} may lead to a new
+approach to the \v{C}ern\'{y} conjecture.
+
+\begin{thebibliography}{99}
+
+%\bibitem{AS09}
+%Almeida, J.; Steinberg, B.: Matrix mortality and the \v{C}ern\'{y}--Pin
+%conjecture. In:  Diekert, V.; Nowotka, D. (eds.), Developments in
+%Language Theory, Lect.\ Notes Comput.\ Sci., vol.\,5583, pp. 67--80.
+%Springer, Heidelberg (2009)
+
+\bibitem{AGV}
+Ananichev, D.S.,Gusev, V.V., Volkov, M.V.: Slowly Synchronizing Automata and Digraphs.
+LNCS 6281(2010), MFCS 2010, 55--65
+
+
+\bibitem{Ce64}
+\v{C}ern\'{y}, J.: Pozn\'{a}mka k homog\'{e}nnym eksperimentom s
+kone\v{c}n\'{y}mi automatami. Matematicko-fyzikalny \v{C}asopis
+Slovensk.\ Akad.\ Vied 14(3) 208--216 (1964) (in Slovak)
+
+\bibitem{Du98}
+Dubuc, L.: Sur les automates circulaires et la conjecture de
+\v{C}ern\'y. RAIRO Inform.\ Th\'eor.\ Appl. 32, 21--34 (1998) (in
+French)
+
+
+\bibitem{DM64}
+Dulmage, A.L., Mendelsohn, N.S.: Gaps in the exponent set of primitive
+matrices. Ill.\ J. Math. 8, 642--656 (1964)
+
+\bibitem{Ep90}
+Eppstein, D.: Reset sequences for monotonic automata. SIAM J.
+Comput. 19, 500--510 (1990)
+
+
+\bibitem{Ka03}
+Kari, J.: Synchronizing finite automata on Eulerian digraphs.
+Theoret.\ Comput.\ Sci. 295, 223--232 (2003)
+
+\bibitem{OlShDr02}
+Olesky, D.D., Shader, B., P. van den Driessche: Exponents of tuples of nonnegative matrices. Linear Algebra and its Applications
+Volume 356, Issues 1--3, 2002, Pages 123--134.
+
+\bibitem{Pi83}
+Pin, J.-E.: On two combinatorial problems arising from automata
+theory. Ann.\ Discrete Math. 17, 535--548 (1983)
+
+\bibitem{RaAl05}
+Ram\'{\i}rez Alfons\'{\i}n, J.L.: The diophantine Frobenius problem.
+Oxford University Press (2005)
+
+\bibitem{Sa05}
+Sandberg, S.: Homing and synchronizing sequences. In: Broy, M.
+et~al. (eds.), Model-Based Testing of Reactive Systems. Lect.\
+Notes Comput.\ Sci., vol.\,3472, pp.\,5--33. Springer, Heidelberg
+(2005)
+
+\bibitem{ShSu03}
+Shader, B.L., Suwilo, S.: Exponents of nonnegative matrix pairs, Linear Algebra and its Applications, Volume 363, 2003, Pages 275--293.
+
+
+\bibitem{Shen00}
+Shen, J.:Exponents of 2-regular digraphs. Discrete Mathematics,Volume 214, Issues 1--3,2000, Pages 211--219
+
+\bibitem{Tr07}
+Trahtman, A.N.: The \v{C}ern\'y conjecture for aperiodic automata. Discrete
+Math.\ Theor.\ Comput.\ Sci. 9(2), 3--10 (2007)
+
+\bibitem{Vo08}
+Volkov, M.V.: Synchronizing automata and the \v{C}ern\'{y}
+conjecture. In: Mart\'\i{}n-Vide, C.; Otto, F.; Fernau, H. (eds.),
+Languages and Automata: Theory and Applications. Lect.\ Notes
+Comput.\ Sci., vol.\,5196, pp.\,11--27.  Springer, Heidelberg (2008)
+
+\bibitem{Vo09}
+Volkov, M.V.: Synchronizing automata preserving a chain of partial
+orders. Theoret.\ Comput.\ Sci. 410, 2992--2998 (2009)
+
+\bibitem{Wi50}
+Wielandt, H.: Unzerlegbare, nicht negative Matrizen. Math.\ Z.
+52, 642--648 (1950) (in German)
+\end{thebibliography}
+
+
+\end{document}

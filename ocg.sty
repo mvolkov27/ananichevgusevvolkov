@@ -1,0 +1,64 @@
+
+\setlength{\textwidth}{170mm}
+\topmargin 30mm \advance  \topmargin -1in
+
+\textheight 297mm
+\advance\textheight -1in
+\advance\textheight -\topmargin
+\advance\textheight -\headheight
+\advance\textheight -\headsep
+\advance\textheight -26mm
+
+
+
+\leftmargin 210mm \advance \leftmargin -\textwidth
+\divide \leftmargin by 2 \advance \leftmargin -1in
+\oddsidemargin \leftmargin \evensidemargin \leftmargin
+
+\setlength{\parindent}{0pt} 
+\addtolength{\parskip}{\baselineskip}
+
+\def\institute#1{\gdef\@institute{#1}}
+\gdef\@institute{no institute}
+
+\def\@maketitle{%
+  \newpage
+  \null
+  \vspace*{-8em}%
+  \begin{center}%
+    {\LARGE \bfseries \@title \par}%
+    \vskip 2em%
+    {\large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \LARGE\@author
+      \end{tabular}\par}%
+    \vskip -0.9em%
+    {\normalsize \@institute}%
+  \end{center}%
+  \par
+  \vskip 2.5em}
+  
+  \renewenvironment{abstract}{
+        %\begin{center}%
+          {\itshape\bfseries \abstractname}\newline\itshape%
+        %\end{center}%
+     }
+      {\vskip 1.9em}
+
+
+
+\renewcommand\@seccntformat[1]{\csname the#1\endcsname. }
+
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                    {-0.2ex\@plus -0.2ex \@minus -.2ex}%
+                    {0.2ex \@plus 0.2ex}%
+                    {\normalfont\large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                    {-0.2ex\@plus -0.2ex \@minus -.2ex}%
+                    {0.2ex \@plus 0.2ex}%
+                    {\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                    {-0.2ex\@plus -0.2ex \@minus -.2ex}%
+                    {0.2ex \@plus 0.2ex}%
+                    {\normalfont}}
