@@ -45,7 +45,7 @@ Federal Education Agency of Russia, grant 2.1.1/13995.}}
 For each odd $n\ge 5$ we present a synchronizing Eulerian automaton with $n$
 states for which the minimum length of reset words is equal to $\frac{n^2 - 3n
 + 4}{2}$. We also discuss various connections between the \reth\ of a \san\ and
-the exponent sequence of its underlying graph.
+a sequence of reachability properties in its underlying graph.
 \end{abstract}
 
 %\thispagestyle{empty}
@@ -88,8 +88,8 @@ In order to find such a matching bound, we need a series of Eulerian automata
 with large \reth. It is this problem that we address in the present paper.
 
 Our first attempt was following an approach from~\cite{AGV}. In that paper,
-several examples of slowly synchronizing automata that had been discovered in
-the course of a massive computational experiment have been related to known
+several examples of slowly synchronizing automata, which had been discovered in
+the course of a massive computational experiment, have been related to known
 examples of primitive graphs with large exponent from~\cite{DM64} and then have
 been expanded to infinite series. The idea was to apply a similar analysis to
 Eulerian graphs with large exponent that have been characterized
@@ -144,7 +144,7 @@ colors. Fig.\,\ref{fig:two colorings} shows a graph and two of its colorings by
 $\Sigma=\{a,b\}$.
 \begin{figure}[ht]
  \begin{center}
-  \unitlength=2.8pt
+  \unitlength=2.4pt
     \begin{picture}(18,30)(-70,-4)
     \gasset{Nw=6,Nh=6,Nmr=3}
     \node(A1)(0,18){$1$}
@@ -213,7 +213,7 @@ Let $w$ be a word over the alphabet $\Sigma = \{a_1, a_2, \ldots, a_k\}$. We
 say that a word $u\in\Sigma^*$ \emph{occurs $\ell$ times as a factor of $w$} if
 there are exactly $\ell$ different words $x_1, \ldots, x_\ell \in \Sigma^*$
 such that for each $i$, $1 \leq i \leq \ell$, there is a word $y_i \in
-\Sigma^*$ such that $w$ decomposes as $w = x_iuy_i$. The number $\ell$ is
+\Sigma^*$ for which $w$ decomposes as $w = x_iuy_i$. The number $\ell$ is
 called the \emph{number of occurrences of $u$ in $w$} and is denoted by
 $|w|_u$. The vector $(|w|_{a_1}, |w|_{a_2}, \ldots,
 |w|_{a_k})\in\mathbb{N}^k_0$ is called the \emph{Parikh vector} of the word
@@ -357,22 +357,21 @@ The \reth\ of the automaton $\mathrsfs{D}_n$ is equal to $\frac{n^2 - 4n +
 \end{proposition}
 
 \begin{proof}
-%\textbf{To be inserted. Lemma~1 perhaps should appear here.}
+We start with estimating $\exp_0(\mathrsfs{D}_n)$. Observe that for every $\ell
+\geq \exp_0(\mathrsfs{D}_n)$ there is cycle of length $\ell$ in
+$\mathrsfs{D}_n$. Indeed, let $r$ be a state such that for every $p \in Q$
+there is a path of length $\exp_0(\mathrsfs{D}_n)$ from $p$ to $r$. Now take an
+arbitrary path $\alpha$ of length $\ell - \exp_0(\mathrsfs{D}_n)$ starting at
+$r$ and let $s$ be the endpoint of $\alpha$. By the choice of $r$, there is a
+path $\beta$ of length $\exp_0(\mathrsfs{D}_n)$ from $s$ to $r$. Thus, the path
+$\alpha\beta$ is a cycle of length exactly $\ell$.
 
-Major part of the proof is devoted to estimation of $\exp_0(\mathrsfs{D}_n)$.
-Observe, that for every $\ell \geq \exp_0(\mathrsfs{D}_n)$ there
-is cycle of length $\ell$ in $\mathrsfs{D}_n$. Indeed, let $r$ be a state such
-that for every $p \in Q$ there is a path of length $\exp_0(\mathrsfs{D}_n)$ from
-$p$ to $r$. Now take any path $\alpha$ of length $\ell - \exp_0(\mathrsfs{D}_n)$
-starting at $r$ and let $s$ be endpoint of $\alpha$. By definition of $r$ there is a path
-$\beta$ of length $\exp_0(\mathrsfs{D}_n)$ from $s$ to $r$. Thus, the path $\alpha\beta$
-is a cycle of length exactly $\ell$.
-
-Consider now $V =\bigcup\limits_{i = 0}^{\frac{n - 1}{2}} V_i$, where $V_0 = {1}$ and $V_i = \{2i,\text{ } 2i + 1\}$ for
-every $1 < i \leq \frac{n - 1}{2}$. Let us introduce factor digraph $\mathcal{G}_n$ of
-$\mathcal{D}_n$ with vertex set $V$ as follows: there is an edge $e$ with $t(e) = V_i$
-and $h(e) = V_j$ if and only if there is a transition $(p,x,q)$ for some states $p \in V_i$,
-$q \in V_j$ and a letter $x$.
+Now consider the partition $\pi$ of the set $Q$ into $\frac{n+1}{2}}$ classes
+$V_i$, $0\le i \le \frac{n - 1}{2}$, where $V_0 = {1}$ and $V_i = \{2i,2i+1\}$
+for every $0 < i \le \frac{n - 1}{2}$. It is clear that $\pi$ a congruence of
+the  automaton $\mathcal{D}_n$ and . with vertex set $V$ as follows: there is
+an edge $e$ with $t(e) = V_i$ and $h(e) = V_j$ if and only if there is a
+transition $(p,x,q)$ for some states $p \in V_i$, $q \in V_j$ and a letter $x$.
 %It is depicted in Fig.\,\ref{fig:g}.
 Let $\alpha$ be arbitrary cycle of length $\ell$ in $\mathrsfs{D}_n$.
 It is not hard to see, that there is corresponding
