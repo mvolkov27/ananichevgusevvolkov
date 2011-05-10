@@ -358,7 +358,7 @@ The \reth\ of the automaton $\mathrsfs{D}_n$ is equal to $\frac{n^2 - 4n +
 
 \begin{proof}
 We start with estimating $\exp_0(\mathrsfs{D}_n)$. Observe that for every $\ell
-\geq \exp_0(\mathrsfs{D}_n)$ there is cycle of length $\ell$ in
+\geq \exp_0(\mathrsfs{D}_n)$ there is a cycle of length $\ell$ in
 $\mathrsfs{D}_n$. Indeed, let $r$ be a state such that for every $p \in Q$
 there is a path of length $\exp_0(\mathrsfs{D}_n)$ from $p$ to $r$. Now take an
 arbitrary path $\alpha$ of length $\ell - \exp_0(\mathrsfs{D}_n)$ starting at
@@ -366,19 +366,20 @@ $r$ and let $s$ be the endpoint of $\alpha$. By the choice of $r$, there is a
 path $\beta$ of length $\exp_0(\mathrsfs{D}_n)$ from $s$ to $r$. Thus, the path
 $\alpha\beta$ is a cycle of length exactly $\ell$.
 
-Now consider the partition $\pi$ of the set $Q$ into $\frac{n+1}{2}}$ classes
+Now consider the partition $\pi$ of the set $Q$ into $\frac{n+1}{2}$ classes
 $V_i$, $0\le i \le \frac{n - 1}{2}$, where $V_0 = {1}$ and $V_i = \{2i,2i+1\}$
-for every $0 < i \le \frac{n - 1}{2}$. It is clear that $\pi$ a congruence of
-the  automaton $\mathcal{D}_n$ and . with vertex set $V$ as follows: there is
-an edge $e$ with $t(e) = V_i$ and $h(e) = V_j$ if and only if there is a
-transition $(p,x,q)$ for some states $p \in V_i$, $q \in V_j$ and a letter $x$.
-%It is depicted in Fig.\,\ref{fig:g}.
-Let $\alpha$ be arbitrary cycle of length $\ell$ in $\mathrsfs{D}_n$.
-It is not hard to see, that there is corresponding
-cycle $\alpha'$ of the same length in $\mathcal{G}_n$. Since simple cycles of $\mathcal{G}_n$
-are only of lengths $\frac{n - 1}{2}$ and $\frac{n + 1}{2}$ we conclude that $\ell$ is
-expressible as a non-neative integer combination of $\frac{n - 1}{2}$
-and $\frac{n + 1}{2}$.
+for every $0 < i \le \frac{n - 1}{2}$. We define a graph $\mathcal{G}_n$ with
+the quotient set $Q/\pi$ as the vertex set and with the edges induced by the
+edges of  $\mathcal{D}_n$ as follows: there is an edge $e'$ in $\mathcal{G}_n$
+with $t(e') = V_i$ and $h(e) = V_j$ if and only if there is an edge $e$ in
+$\mathcal{D}_n$ with $t(e)\in V_i$ and $h(e) \in V_j$. Then every cycle in
+$\mathcal{D}_n$ induces a cycle of the same length in $\mathcal{G}_n$. In
+particular,  for every $\ell \ge \exp_0(\mathrsfs{D}_n)$ there is a cycle of
+length $\ell$ in $\mathcal{G}_n$. It is easy to see that the graph
+$\mathcal{G}_n$ has precisely two simple cycles: one of length $\frac{n -
+1}{2}$ and one of length $\frac{n + 1}{2}$. We conclude that every $\ell\ge
+\exp_0(\mathrsfs{D}_n)$ is expressible as a non-negative integer combination of
+$\frac{n - 1}{2}$ and $\frac{n + 1}{2}$.
 
 Here we invoke the following well-known and elementary result from arithmetics:
 \begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RaAl05}}]
@@ -386,42 +387,47 @@ Here we invoke the following well-known and elementary result from arithmetics:
 $k_1k_2-k_1-k_2$ is the largest integer that is not expressible as a
 non-negative integer combination of $k_1$ and $k_2$.
 \end{lemma}
-Since for every $\ell \geq \exp_0(\mathrsfs{D}_n)$ there is a cycle of
-length $\ell$ in $\mathrsfs{D}_n$, applying lemma~\ref{sylvester} we conclude that
-$\exp_0(\mathrsfs{D}_n) \geq \frac{n^2 -4n + 3}{4}$ and there is no cycle of length $\frac{n^2 -4n - 1}{4}$ in $\mathcal{G}_n$.
-From inequality~\ref{first inequality} trivially follows that $\rt(\mathrsfs{D}_n) \geq \frac{n^2 -4n + 3}{4}$
-and it remained now to settle few simple cases.
+Applying lemma~\ref{sylvester} we conclude that $\exp_0(\mathrsfs{D}_n) \geq
+\frac{n^2 -4n + 3}{4}$ and there is no cycle of length $\frac{n^2 -4n - 1}{4}$
+in $\mathcal{G}_n$. The inequality~\ref{first inequality} implies that
+$\rt(\mathrsfs{D}_n) \geq \frac{n^2 -4n + 3}{4}$, and it remains to exclude two
+cases: $\rt(\mathrsfs{D}_n)= \frac{n^2 -4n + 3}{4}$ and $\rt(\mathrsfs{D}_n) =
+\frac{n^2 -4n + 7}{4}$. This is easy.
 
-Suppose that $w$ is a \sw\ of length $\frac{n^2 -4n + 3}{4}$ which leaves $\mathrsfs{D}_n$
-in the state $r \in V_i$. Note, that $i \neq 0$(otherwise we will have shorter \sw). Thus, if we apply
-$w = xw'$, for some letter $x$, to some state from $V_{i - 1}$ then $w'$ induces a cycle from $V_i$ to $V_i$
-in $\mathcal{G}_n$ of length $\frac{n^2 -4n - 1}{4}$. Contradiction.
+Suppose that $w$ is a shortest \sw\ for $\mathrsfs{D}_n$ which leaves
+$\mathrsfs{D}_n$ in some state $r \in V_i$. Note that $i \neq 0$ (otherwise the
+word obtained by removing the last letter from $w$ would be a shorter \sw, and
+this is impossible).
 
-Suppose now that the length of $w$ is $\frac{n^2 -4n + 7}{4}$. If $i \neq 1$ then arguments as above(applied to
-a state from $V_{i - 2}$) imply a contradiction. Thus, $i = 1$. Let $w = xyw'$ for some letters $x$ and $y$.
-Depending on $x$ either $n \cdot xy  \in V_1$ or $(n - 1) \cdot xy \in V_1$. In both cases $w'$ induces a cycle from $V_1$ to $V_1$
-in $\mathcal{G}_n$ of length $\frac{n^2 -4n - 1}{4}$, which is impossible.
+If $|w|=\frac{n^2 -4n + 3}{4}$, we write $w = xw'$ for some letter $x$ and
+apply the word $w$ to some state from $V_{i - 1}$. We conclude that $w'$
+induces a cycle from $V_i$ to $V_i$ in $\mathcal{G}_n$. This cycle would be of
+length $\frac{n^2 -4n - 1}{4}$, which is impossible.
 
-In summary, \reth\ of automaton $\mathrsfs{D}_n$ is at least $\frac{n^2 -4n + 11}{4}$. Since the word
-$aa(ba^{\frac{n - 1}{2}})^\frac{n - 5}{2}bb$ resets $\mathrsfs{D}_n$ we conclude that this bound is tight.
+Finally suppose that the length of $w$ is $\frac{n^2 -4n + 7}{4}$. If $i \neq
+1$, then the same argument as in the previous paragraph leads to a
+contradiction. (We just apply $w$ to a state from $V_{i - 2}$.)  If $i = 1$,
+let $w = xyw'$ for some letters $x$ and $y$. Depending on $x$, either $n \cdot
+xy \in V_1$ or $(n - 1) \cdot xy \in V_1$. In both cases $w'$ induces a cycle
+from $V_1$ to $V_1$ in $\mathcal{G}_n$ of length $\frac{n^2 -4n - 1}{4}$, which
+is impossible.
 
-%Consider now arbitrary cycle $\alpha$ of length $\ell$ in $\mathrsfs{D}_n$. Note, that
-%$\ell$ can be represented as a non-negative integer combination of $\frac{n - 1}{2}$ and
-%$\frac{n + 1}{2}$. It can be easily seen if we introduce factor digraph $\mathcal{G}_n$ of $\mathcal{D}_n$.
-%Let $V_0 = {1}$ and $V_i = \{2i, 2i + 1\}$ for every $1 < i \leq \frac{n - 1}{2}$.
+We thus see that the \reth\ of the automaton $\mathrsfs{D}_n$ is at least
+$\frac{n^2 -4n + 11}{4}$. Since the word $aa(ba^{\frac{n - 1}{2}})^\frac{n -
+5}{2}bb$ resets $\mathrsfs{D}_n$, we conclude that this bound is tight.
 \end{proof}
 
-Computational experiments show that the largest \reth\ among all synchronizing
-colorings of $\mathcal{D}_n$ is equal to $\frac{(n - 1)^2}{4} + 1$. Therefore,
-$\frac{n^2}{4} + o(n^2)$ is the best lower bound on the \reth\ of synchronizing
-Eulerian automata with $n$ states that can be obtained by a direct encoding of
-Eulerian graphs with large exponent. However, our main result
-(Theorem~\ref{th:matr} below) shows that for every odd $n$ there is a
+Our computational experiments show that the largest \reth\ among all
+synchronizing colorings of $\mathcal{D}_n$ is equal to $\frac{(n - 1)^2}{4} +
+1$. Therefore, $\frac{n^2}{4} + o(n^2)$ is the best lower bound on the \reth\
+of synchronizing Eulerian automata with $n$ states that can be obtained by a
+direct encoding of Eulerian graphs with large exponent. However, our main
+result (Theorem~\ref{th:matr} below) shows that for every odd $n$ there is a
 synchronizing Eulerian automaton with $n$ states and \reth\ $\frac{n^2 -3n +
 4}{2}$. This indicates that the notion of 0-exponent is too weak to be useful
 for isolating synchronizing Eulerian automata with maximal \reth. The reason
 for this is that we have discarded too much information when passing from
-synchronizability to 0-primitivity---we forget everything about paths labeled
+synchronizability to 0-primitivity---we forget everything about paths labelled
 by \sws\ except their length. Thus, we try to use another notion in which more
 information is preserved, namely, the Parikh vectors of the paths are taken
 into account.
@@ -524,17 +530,10 @@ It readily implies that $\beta = y(n - 1) + zn$. Since for every $t \in
 \mathbb{N}$ the vector $(\alpha, \beta + t)$ also belongs to
 $\mathrm{E}_1(\mathrsfs{C}_n)$, we conclude that $\beta + t$ is also
 expressible as a non-negative integer combination of $n$ and $n - 1$.
-%Here we
-%invoke the following well-known and elementary result from arithmetics:
-%\begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RaAl05}}]
-%\label{sylvester} If $k_1,k_2$ are relatively prime positive integers, then
-%$k_1k_2-k_1-k_2$ is the largest integer that is not expressible as a
-%non-negative integer combination of $k_1$ and $k_2$.
-%\end{lemma}
-Lemma~\ref{sylvester} implies that $\beta\ge
-n(n-1)-n-(n-1)+1=n^2-3n+2$. If $w$ is a \sw\ of the automaton $\mathrsfs{C}_n$,
-then the Parikh vector of $w$ belongs to $\mathrm{E}_1(\mathrsfs{C}_n)$,
-whence $w$ contains at least $n^2 - 3n + 2$ occurrences of the letter $b$.
+Lemma~\ref{sylvester} implies that $\beta\ge n(n-1)-n-(n-1)+1=n^2-3n+2$. If $w$
+is a \sw\ of the automaton $\mathrsfs{C}_n$, then the Parikh vector of $w$
+belongs to $\mathrm{E}_1(\mathrsfs{C}_n)$, whence $w$ contains at least $n^2 -
+3n + 2$ occurrences of the letter $b$.
 
 It remains to prove that $w$ contains at least $n - 1$ occurrences of the
 letter $a$. Note that for every set $S$ of states, we have $|S\cdot b|=|S|$ and
@@ -562,20 +561,10 @@ Observe that $\exp_0(\mathrsfs{C}_n)=n-1$ and we could not extract any strong
 lower bound for $\rt(\mathrsfs{C}_n)$ from the inequality~\eqref{second
 inequality}. In~\cite{AGV} a tight lower bound for $\rt(\mathrsfs{C}_n)$ has
 been obtained in an indirect way, via relating $\mathrsfs{C}_n$ to graphs with
-largest possible 0-exponent from \cite{Wi50}. In contrast, proposition~\ref{th:cerny}
-implies that $\exp_1(\mathrsfs{C}_n)$ is close to $(n-1)^2$ so the inequality
-~\eqref{third inequality} gives a strong lower bound.
-
-
-%Observe that $\exp_0(\mathrsfs{C}_n)=n-1$ and we could not extract any strong
-%lower bound for $\rt(\mathrsfs{C}_n)$ from the inequality~\eqref{second
-%inequality}. In~\cite{AGV} a tight lower bound for $\rt(\mathrsfs{C}_n)$ has
-%been obtained in an indirect way, via relating $\mathrsfs{C}_n$ to graphs with
-%largest possible 0-exponent from \cite{Wi50}. In contrast, it can be shown that
-%$\exp_1(\mathrsfs{C}_n)=(n-1)^2$ (\textbf{Is this correct??}) so the inequality
-%~\eqref{third inequality} gives a correct answer. (We have not included the
-%full calculation of $\exp_1(\mathrsfs{C}_n)$ because the information provided
-%by Proposition~\ref{th:cerny} suffices for our purposes.)
+largest possible 0-exponent from \cite{Wi50}. In contrast,
+Proposition~\ref{th:cerny} implies that $\exp_1(\mathrsfs{C}_n)$ is close to
+$(n-1)^2$ so the inequality~\eqref{third inequality} gives a stronger lower
+bound.
 
 Now we are ready to present main result of this paper. We define the automaton
 $\mathrsfs{M}_n$ (from Matricaria) on the state set $Q=\{1,2,\dots,n\}$, where
@@ -713,9 +702,8 @@ Observe that the rough estimation in the previous paragraph shows that
 $\exp_2(\mathrsfs{M}_n)$ is close to $\rt(\mathrsfs{M}_n)$.
 
 Consider now an arbitrary synchronizing automaton $\mathrsfs{A}$. It is clear
-that $\mathrsfs{A}$ is $k$-primitive for every $k$ automaton  and
-$\rt(\mathrsfs{A}) \geq \exp_k(\mathrsfs{A})$. Thus, we have the following
-non-decreasing sequence:
+that $\mathrsfs{A}$ is $k$-primitive for every $k$  and $\rt(\mathrsfs{A}) \geq
+\exp_k(\mathrsfs{A})$. Thus, we have the following non-decreasing sequence:
 \begin{equation}
 \label{sequence}
 \exp_0(\mathrsfs{A}) \leq \exp_1(\mathrsfs{A}) \leq \dots \leq
@@ -730,20 +718,19 @@ approach to the \v{C}ern\'{y} conjecture.
 \begin{thebibliography}{99}
 
 \bibitem{AGV}
-Ananichev, D.S.,Gusev, V.V., Volkov, M.V.: Slowly Synchronizing Automata and Digraphs.
-LNCS 6281, MFCS 2010, 55--65 (2010)
+Ananichev, D.S., Gusev, V.V., Volkov, M.V.: Slowly synchronizing automata and
+digraphs. MFCS 2010, LNCS 6281,  55--65 (2010)
 
 
 \bibitem{Ce64}
 \v{C}ern\'{y}, J.: Pozn\'{a}mka k homog\'{e}nnym eksperimentom s
-kone\v{c}n\'{y}mi automatami. Matematicko-fyzikalny \v{C}asopis
-Slovensk.\ Akad.\ Vied 14(3) 208--216 (1964) (in Slovak)
+kone\v{c}n\'{y}mi automatami. Matem.-fyzikalny \v{C}asopis Slovensk.\ Akad.\
+Vied 14(3), 208--216 (1964) (in Slovak)
 
 \bibitem{Du98}
 Dubuc, L.: Sur les automates circulaires et la conjecture de
 \v{C}ern\'y. RAIRO Inform.\ Th\'eor.\ Appl. 32, 21--34 (1998) (in
 French)
-
 
 \bibitem{DM64}
 Dulmage, A.L., Mendelsohn, N.S.: Gaps in the exponent set of primitive
@@ -759,7 +746,8 @@ Kari, J.: Synchronizing finite automata on Eulerian digraphs.
 Theoret.\ Comput.\ Sci. 295, 223--232 (2003)
 
 \bibitem{OlShDr02}
-Olesky, D.D., Shader, B., van den Driessche, P.: Exponents of tuples of nonnegative matrices. Linear Algebra Appl. 356, 
+Olesky, D.D., Shader, B., van den Driessche, P.:
+Exponents of tuples of nonnegative matrices. Linear Algebra Appl. 356,
 123--134 (2002)
 
 \bibitem{Pi83}
@@ -771,14 +759,18 @@ Ram\'{\i}rez Alfons\'{\i}n, J.L.: The diophantine Frobenius problem.
 Oxford University Press (2005)
 
 \bibitem{Sa05}
-Sandberg, S.: Homing and synchronizing sequences, Model-Based Testing of Reactive Systems 2004, LNCS 3472, 5--33 (2005)
+Sandberg, S.: Homing and synchronizing sequences,
+Model-Based Testing of Reactive Systems 2004, LNCS 3472,
+5--33 (2005)
 
 \bibitem{ShSu03}
-Shader, B.L., Suwilo, S.: Exponents of nonnegative matrix pairs, Linear Algebra Appl. 363, 275--293 (2003)
+Shader, B.L., Suwilo, S.: Exponents of nonnegative matrix
+pairs, Linear Algebra Appl. 363, 275--293 (2003)
 
 
 \bibitem{Shen00}
-Shen, J.: Exponents of 2-regular digraphs, Discrete Math. 214, 211--219 (2000)
+Shen, J.: Exponents of 2-regular digraphs, Discrete Math. 214,
+211--219 (2000)
 
 \bibitem{Tr07}
 Trahtman, A.N.: The \v{C}ern\'y conjecture for aperiodic automata. Discrete
