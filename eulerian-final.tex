@@ -1,13 +1,8 @@
-\documentclass[12pt,twoside]{article}
-
-%\setcounter{page}{11}
-
+\documentclass[11pt]{llncs}
 \usepackage{amsmath}
-\usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{epic,gastex}
 \usepackage{array}
-\usepackage{ocg}
 
 \newcommand{\sa}{synchronizing automata}
 \newcommand{\sea}{synchronizing eulerian automata}
@@ -19,10 +14,10 @@
 \newcommand{\rl}{reset length}
 \newcommand{\reth}{reset threshold}
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}{Corollary}
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{corollary}{Corollary}
 
 \DeclareMathOperator{\rt}{rt}
 
@@ -30,18 +25,19 @@
 \DeclareSymbolFontAlphabet{\mathrsfs}{rsfscript}
 
 
-\pagestyle{myheadings}
-\markboth{V. Gusev}{LOWER BOUNDS FOR THE RESET LENGTH IN EULERIAN AUTOMATA}
+
+%\markboth{V. Gusev}{LOWER BOUNDS FOR THE RESET LENGTH IN EULERIAN AUTOMATA}
 
 
 \begin{document}
 
-\title{LOWER BOUNDS FOR THE LENGTH OF RESET WORDS IN EULERIAN AUTOMATA\thanks{Supported
+\title{Lower Bounds for the Length of Reset Words in Eulerian Automata\thanks{Supported
 by the Russian Foundation for Basic Research, grant 10-01-00524, and by the
 Federal Education Agency of Russia, grant 2.1.1/13995.}}
 \author{Vladimir V. Gusev}
+\authorrunning{V. V. Gusev}
 \institute{Ural State University, Ekaterinburg, Russia\\
-Email: \texttt{vl.gusev@gmail.com}}
+\email{vl.gusev@gmail.com}}
 
 \maketitle
 
@@ -52,7 +48,7 @@ states for which the minimum length of reset words is equal to $\frac{n^2 - 3n
 the exponent sequence of its underlying graph.
 \end{abstract}
 
-\thispagestyle{empty}
+%\thispagestyle{empty}
 
 \section{Background and overview}
 \label{intro}
