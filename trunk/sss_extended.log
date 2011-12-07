@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2009.9.12)  6 DEC 2011 17:27
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2009.9.12)  7 DEC 2011 18:17
 entering extended mode
 **sss_extended.tex
 (C:\Users\gusev\Documents\tex_art\ananichevgusevvolkov3\sss_extended.tex
@@ -651,62 +651,47 @@ $\OMS/rsfs/m/n/10.95 D[]$ \T2A/cmr/m/it/10.95 син-хро-ни-зи-ру-е-мые и гра-ни-ц
 ы син-
  []
 
-[11]
-Overfull \hbox (0.94296pt too wide) in paragraph at lines 1151--1152
-[]\T2A/cmr/m/it/10.95 Граница син-хро-ни-за-ции ав-то-ма-та, изоб-ра-жен-но-го 
-на
- []
-
-[12]
-Overfull \hbox (27.1352pt too wide) in paragraph at lines 1173--1179
+[11] [12] [13]
+Overfull \hbox (27.1352pt too wide) in paragraph at lines 1272--1278
 []\T2A/cmr/m/n/10.95 Кроме ав-то-ма-тов Чер-ни $\OMS/rsfs/m/n/10.95 C[]$\T2A/cm
 r/m/n/10.95 , един-ствен-ной бес-ко-неч-ной се-ри-ей 2-буквенных
  []
 
-[13]
+[14] [15]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Overfull \hbox (2.05487pt too wide) in paragraph at lines 1334--1335
-[]\T2A/cmr/m/it/10.95 Граница син-хро-ни-за-ции ав-то-ма-та с рис. 10[] рав-на 
-$\OML/cmm/m/it/10.95 n[] \OMS/cmsy/m/n/10.95  
- []
-
-[14] [15]
-Overfull \hbox (7.20934pt too wide) in paragraph at lines 1425--1430
+[16] [17]
+Overfull \hbox (7.20934pt too wide) in paragraph at lines 1571--1576
 []\T2A/cmr/m/n/10.95 Мы ис-поль-зо-ва-ли удоб-ное стро-ко-вое пред-став-ле-ние 
 до-сти-жи-мых ДКА,
  []
 
 
-Overfull \hbox (53.90193pt too wide) in paragraph at lines 1425--1430
+Overfull \hbox (53.90193pt too wide) in paragraph at lines 1571--1576
 \T2A/cmr/m/n/10.95 хро-ни-за-ции. В хо-де про-ве-рок ис-поль-зо-ва-лись стан-да
 рт-ные ал-го-рит-мы(смотрите [[],
  []
 
-[16]
-Underfull \hbox (badness 1127) in paragraph at lines 1474--1478
+[18]
+Underfull \hbox (badness 1127) in paragraph at lines 1620--1624
 []\T2A/cmr/m/n/10.95 Almeida, J.; Steinberg, B.: Matrix mortality and the []Cer
 ny--Pin
  []
 
-[17] [18] [19] [20]
+[19] [20] [21]
 (C:\Users\gusev\Documents\tex_art\ananichevgusevvolkov3\sss_extended.aux)
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
  3117 strings out of 495060
  33746 string characters out of 3177627
- 113545 words of memory out of 3000000
+ 109326 words of memory out of 3000000
  6291 multiletter control sequences out of 15000+200000
  26810 words of font info for 77 fonts, out of 3000000 for 9000
  198 hyphenation exceptions out of 8191
  29i,10n,24p,1336b,298s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on sss_extended.dvi (20 pages, 154552 bytes).
+Output written on sss_extended.dvi (21 pages, 162884 bytes).
