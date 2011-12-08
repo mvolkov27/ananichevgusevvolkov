@@ -220,23 +220,50 @@ $2n$ буквами не превосходит $2n$. Похожие резул�
 \section{Предварительные сведения}
 \label{preliminaries}
 
-We start with recalling two elementary and well-known number-theoretic results.
-\begin{lemma}[{\mdseries\cite[Theorem 1.0.1]{RaAl05}}]
+Мы начнем с напоминания двух хорошо изветстных теоретико-числовых результатов.
+
+%We start with recalling two elementary and well-known number-theoretic results.
+
+\begin{lemma}[{\mdseries\cite[Теорема 1.0.1]{RaAl05}}]
 \label{schur}
-If $k_1,\dots,k_m$ are positive integers whose greatest common divisor is equal
-to\/ $1$, then there exists an integer $N$ such that every integer larger than $N$
-is expressible as a non-negative integer combination of $k_1,\dots,k_m$.
+Пусть $k_1,\dots,k_m$ -- некоторый набор натуральных чисел, чей наибольший общий
+делитель равен еденице. Тогда найдется натуральное число $N$ такое, что всякое число
+превосходящее $N$ представимо в виде целой неотрицательной линейной комбинации
+$k_1,\dots,k_m$.
 \end{lemma}
-The question of how the least $N$ with the property stated in Lemma~\ref{schur}
-depends on the integers $k_1,\dots,k_m$ is known as the \emph{diophantine Frobenius
-problem} and in general is highly non-trivial, see~\cite{RaAl05}. There is, however,
-a simple special case which we will need in Section~\ref{sss}.
-\begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RaAl05}}]
+
+%\begin{lemma}[{\mdseries\cite[Theorem 1.0.1]{RaAl05}}]
+%\label{schur}
+%If $k_1,\dots,k_m$ are positive integers whose greatest common divisor is equal
+%to\/ $1$, then there exists an integer $N$ such that every integer larger than $N$
+%is expressible as a non-negative integer combination of $k_1,\dots,k_m$.
+%\end{lemma}
+
+Вопрос о том, как зависит наименьшее возможное $N$ удовлетворяющее свойтству из леммы~\ref{schur}
+от набора чисел $k_1,\dots,k_m$ известен как \emph{диофантова проблема Фробениуса},
+и в общем случае, крайне нетривиален, смотрите~\cite{RaAl05}. Однако, если набор состоит
+лишь из пары чисел, то ответ на него не представляет большого труда. Мы будем активно использовать
+следующее утверждение в разделе~\ref{sss}.
+
+
+%The question of how the least $N$ with the property stated in Lemma~\ref{schur}
+%depends on the integers $k_1,\dots,k_m$ is known as the \emph{diophantine Frobenius
+%problem} and in general is highly non-trivial, see~\cite{RaAl05}. There is, however,
+%a simple special case which we will need in Section~\ref{sss}.
+
+\begin{lemma}[{\mdseries\cite[Теорема 2.1.1]{RaAl05}}]
 \label{sylvester}
-If $k_1,k_2$ are relatively prime positive integers, then $k_1k_2-k_1-k_2$ is
-the largest integer that is not expressible as a non-negative integer combination
-of $k_1$ and $k_2$.
+Для всякой пары $k_1,k_2$ взаимнопростых натуральных чисел $k_1k_2-k_1-k_2$ является
+наибольшим числом не представимым в виде целой неотрицательной линейной комбинации 
+чисел $k_1$ и $k_2$.
 \end{lemma}
+
+%\begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RaAl05}}]
+%\label{sylvester}
+%If $k_1,k_2$ are relatively prime positive integers, then $k_1k_2-k_1-k_2$ is
+%the largest integer that is not expressible as a non-negative integer combination
+%of $k_1$ and $k_2$.
+%\end{lemma}
 
 
 \emph{Ориентированным графом} (орграфом) называется пара $D=\langle V,E\rangle$,
@@ -771,12 +798,12 @@ $|w|>n(n-1)-n-(n-1)=n^2-3n+1$. Предположим, что $|w|=n^2-3n+2$.
 Мы можем считать, что множество состояний $\mathrsfs{C}_n$ есть $Q=\{1,2,\dots,n\}$,
 а буквы $a$ и $b$ действуют на $Q$ следующим образом:
 $$\delta(i,a)=\begin{cases}
-i &\text{if } i<n,\\
-1 &\text{if } i=n;
+i &\text{если } i<n,\\
+1 &\text{если } i=n;
 \end{cases}\quad
 \delta(i,b)=\begin{cases}
-i+1 &\text{if } i<n,\\
-1 &\text{if } i=n.
+i+1 &\text{если } i<n,\\
+1 &\text{если } i=n.
 \end{cases}$$
 Автомат $\mathrsfs{C}_n$ изображен на рис.\,\ref{fig:cerny-n} слева.
 
@@ -905,37 +932,89 @@ $c=ab$, то слово $w'$ может быть превращено в сло�
 %$n^2-4n+6$. These two series will be presented in an extended version of
 %the paper.
 
-Следующая серия также сводится к автомату $\mathrsfs{W}_{n - 1}$, но доказательство мы
+Следующая серия $\mathrsfs{E}_n$ также сводится к автомату $\mathrsfs{W}_{n - 1}$, но доказательство мы
 проведем сведением к $\mathrsfs{C}_{n - 1}$ из соображений простоты.
-\unitlength .45mm
-\begin{figure}[h]
+Множество состояний $\mathrsfs{E}_n$ есть $Q=\{1,2,\dots,n\}$,
+а буквы $a$ и $b$ действуют на $Q$ следующим образом:
+$$\delta(i,a)=\begin{cases}
+2, &\text{если } i = 1,\\
+3, &\text{если } i = 2,\\
+i, &\text{если } i>2;
+\end{cases}\quad
+\delta(i,b)=\begin{cases}
+i+1, &\text{если } i<n,\\
+1, &\text{если } i=n.
+\end{cases}$$
+Автомат $\mathrsfs{E}_n$ изображен на рис.\,\ref{fig:e-n} слева.
+
+
+\begin{figure}[ht]
 \begin{center}
-%\begin{picture}(104,96)(0,-92)
-\begin{picture}(104,60)(0,-80)
-%\put(0,-96){\framebox(104,96){}}
-\gasset{Nw=11.0,Nh=11.0,Nmr=5.5, loopdiam=8}
-\node[NLangle=0.0](n0)(23.93,-27.69){n}
-\node[NLangle=0.0](n1)(51.93,-11.69){1}
-\node[NLangle=0.0](n2)(79.93,-27.69){2}
-\node[NLangle=0.0](n3)(23.93,-51.69){n - 1}
-\node[NLangle=0.0](n4)(43.93,-71.69){n - 2}
-\node[NLangle=0.0](n6)(79.93,-51.69){3}
-\drawedge[ELdist=1.0](n1,n2){a, b}
-\drawedge[ELdist=1.0](n2,n6){b}
-\drawedge[ELdist=1.0](n0,n1){a}
-\drawedge[ELdist=1.0](n3,n0){b}
-\drawedge[ELdist=1.0](n4,n3){b}
-\drawedge[dash={2.0 2.0 2.0 3.0}{0.0},curvedepth=5.82](n6,n4){ }
-\drawloop[loopangle=0.0](n2){a}
-\drawloop[loopangle=0.0](n6){a}
-\drawloop[loopangle=180.0](n3){a}
-\drawloop[loopangle=270.0](n4){a}
-\drawedge(n0,n2){b}
+\unitlength .45mm
+\begin{picture}(72,66)(25,-76)
+\gasset{Nw=16,Nh=16,Nmr=8}
+\node(n0)(36.0,-16.0){2}
+\node(n1)(4.0,-40.0){$1$} \node(n2)(68.0,-40.0){3}
+\node(n3)(16.0,-72.0){$n$} \node(n4)(56.0,-72.0){4}
+\drawedge[ELdist=2.0](n1,n0){$a$} \drawedge[ELdist=1.5](n2,n4){$b$}
+\drawedge[ELdist=1.7](n0,n2){$a,b$}
+\drawedge[ELdist=1.7](n3,n1){$b$}
+\drawedge[ELdist=1.7](n1,n2){$b$}
+\drawloop[ELdist=1.5,loopangle=30](n2){$a$}
+\drawloop[ELdist=2.4,loopangle=-30](n4){$a$}
+\drawloop[ELdist=1.5,loopangle=210](n3){$a$}
+\put(31,-73){$\dots$}
+\end{picture}
+\begin{picture}(72,66)(-25,-76)
+\gasset{Nw=16,Nh=16,Nmr=8}
+\node(n0)(36.0,-16.0){2}
+\node(n1)(4.0,-40.0){1} \node(n2)(68.0,-40.0){3}
+\node(n3)(16.0,-72.0){$n$} \node(n4)(56.0,-72.0){4}
+\drawedge[ELdist=1.5](n2,n4){$b$}
+\drawedge[ELdist=1.7](n0,n2){$b,c$}
+\drawedge[ELdist=1.7](n3,n1){$b$} 
+\drawedge[ELdist=2.0](n1,n2){$b,c$}
+\drawloop[ELdist=1.5,loopangle=30](n2){$c$}
+\drawloop[ELdist=2.4,loopangle=-30](n4){$c$}
+\drawloop[ELdist=1.5,loopangle=210](n3){$c$}
+\put(31,-73){$\dots$}
 \end{picture}
 \end{center}
-\caption{ Автомат $\mathrsfs{E}_n$ $n^2 - 3n + 2$}
-\label{fig:aut:shortcycle}
+\caption{Автомат $\mathrsfs{E}_n$ и автомат порожденный действием $b$ и $c=aa$}\label{fig:e-n}
+%\caption{The automaton $\mathrsfs{C}_n$ and the automaton induced by the actions of $b$ and $c=ab$}\label{fig:cerny-n}
 \end{figure}
+
+
+%ИСХОДНЫЙ ИЗ ДИПЛОМА
+%\unitlength .45mm
+%\begin{figure}[h]
+%\begin{center}
+%%\begin{picture}(104,96)(0,-92)
+%\begin{picture}(104,60)(0,-80)
+%%\put(0,-96){\framebox(104,96){}}
+%\gasset{Nw=11.0,Nh=11.0,Nmr=5.5, loopdiam=8}
+%\node[NLangle=0.0](n0)(23.93,-27.69){n}
+%\node[NLangle=0.0](n1)(51.93,-11.69){1}
+%\node[NLangle=0.0](n2)(79.93,-27.69){2}
+%\node[NLangle=0.0](n3)(23.93,-51.69){n - 1}
+%\node[NLangle=0.0](n4)(43.93,-71.69){n - 2}
+%\node[NLangle=0.0](n6)(79.93,-51.69){3}
+%\drawedge[ELdist=1.0](n1,n2){a, b}
+%\drawedge[ELdist=1.0](n2,n6){b}
+%\drawedge[ELdist=1.0](n0,n1){a}
+%\drawedge[ELdist=1.0](n3,n0){b}
+%\drawedge[ELdist=1.0](n4,n3){b}
+%\drawedge[dash={2.0 2.0 2.0 3.0}{0.0},curvedepth=5.82](n6,n4){ }
+%\drawloop[loopangle=0.0](n2){a}
+%\drawloop[loopangle=0.0](n6){a}
+%\drawloop[loopangle=180.0](n3){a}
+%\drawloop[loopangle=270.0](n4){a}
+%\drawedge(n0,n2){b}
+%\end{picture}
+%\end{center}
+%\caption{ Автомат $\mathrsfs{E}_n$ $n^2 - 3n + 2$}
+%\label{fig:aut:shortcycle}
+%\end{figure}
 
 %
 %МОДИФИЦИРОВАННЫЙ АВТОМАТ
@@ -997,7 +1076,7 @@ $c=ab$, то слово $w'$ может быть превращено в сло�
 что $bab = bb$ и $a^3 = a^2$. Отметим теперь, что 
 $w$ не может начинаться с $ab$, поскольку заменив данный префикс на $b$ мы получим более короткое
 синхронизирующее слово. А также, слово $w$ не может заканчиваться на $ba$. Действительно, из минимальности
-$|w|$ мы заключаем, что букве $a$ предшествует позиция $\{1,2\}$, но ее невозможно получить
+$|w|$ мы заключаем, что букве $a$ предшествует позиция $\{2,3\}$, но ее невозможно получить
 применением буквы $b$. Суммируя вышесказанное, мы получаем, что	буква $a$ в слове $w$ входит всегда
 во второй степени. Легко видеть, что автомат порожденный действиями $aa$ и $b$ содержит в себе $\mathrsfs{C}_{n - 1}$.
 А тогда, по теореме~\ref{theorem:cerny} $w$ содержит $aa$ не менее $n - 2$ раз в качестве фактора, и
@@ -1187,62 +1266,113 @@ $|w|>n(n-1)-n-(n-1)=n^2-3n+1$ по лемме~\ref{sylvester}.
 %ЕЩЕ СЕРИЯ НА ВЫХОД
 %One more series of slowly \sa\ related to the digraphs $D_n$ has reset length
 %$n^2-4n+6$. It will be presented in an extended version of this paper.
-Еще одна серия с острова.
+Приведем еще одну серию $\mathrsfs{F}_n$ с острова. 
+Множество состояний $\mathrsfs{F}_n$ есть $Q=\{1,2,\dots,n\}$,
+а буквы $a$ и $b$ действуют на $Q$ следующим образом:
+$$\delta(i,a)=\begin{cases}
+3, &\text{если } i = 1,\\
+i, &\text{если } i>1;
+\end{cases}\quad
+\delta(i,b)=\begin{cases}
+i+1, &\text{если } i<n,\\
+1, &\text{если } i=n.
+\end{cases}$$
+Автомат $\mathrsfs{F}_n$ изображен на рис.\,\ref{fig:f-n} слева.
+
+
+\begin{figure}[ht]
+\begin{center}
 \unitlength .45mm
-\begin{figure}[h]
-\begin{center}
-%\begin{picture}(107,110)(0,-110)
-%\begin{picture}(104,96)(0,-97)
-\begin{picture}(104,80)(0,-90)
-\gasset{Nw=11.0,Nh=11.0,Nmr=5.5, loopdiam=8}
-\node[NLangle=0.0](n0)(24.25,-39.28){n}
-\node[NLangle=0.0](n1)(52.25,-23.28){1}
-\node[NLangle=0.0](n2)(80.25,-39.28){2}
-\node[NLangle=0.0](n3)(24.25,-63.28){n - 1}
-\node[NLangle=0.0](n4)(44.25,-83.28){n - 2}
-\node[NLangle=0.0](n6)(80.25,-63.28){3}
-\drawedge[ELdist=1.0](n1,n2){b}
-\drawedge[ELdist=1.0](n2,n6){b}
-\drawedge[ELdist=1.0](n0,n1){b}
-\drawedge[ELdist=1.0](n3,n0){b}
-\drawedge[ELdist=1.0](n4,n3){b}
-\drawedge[dash={2.0 2.0 2.0 3.0}{0.0},curvedepth=5.82](n6,n4){ }
-\drawloop[loopangle=0.0](n2){a}
-\drawloop[loopangle=0.0](n6){a}
-\drawloop[loopangle=270.0](n4){a}
-\drawloop[loopangle=180.0](n3){a}
-\drawloop(n1){a}
-\drawedge(n0,n2){a}
+\begin{picture}(72,86)(25,-76)
+\gasset{Nw=16,Nh=16,Nmr=8}
+\node(n0)(36.0,-16.0){2}
+\node(n1)(4.0,-40.0){$1$} \node(n2)(68.0,-40.0){3}
+\node(n3)(16.0,-72.0){$n$} \node(n4)(56.0,-72.0){4}
+\drawedge[ELdist=2.0](n1,n0){$b$} \drawedge[ELdist=1.5](n2,n4){$b$}
+\drawedge[ELdist=1.7](n0,n2){$b$}
+\drawedge[ELdist=1.7](n3,n1){$b$}
+\drawedge[ELdist=1.7](n1,n2){$a$}
+\drawloop[ELdist=1.5,loopangle=30](n2){$a$}
+\drawloop[ELdist=2.4,loopangle=-30](n4){$a$}
+\drawloop[ELdist=1.5,loopangle=210](n3){$a$}
+\drawloop[ELdist=1.5,loopangle=90](n0){$a$}
+\put(31,-73){$\dots$}
+\end{picture}
+\begin{picture}(72,86)(-25,-76)
+\gasset{Nw=16,Nh=16,Nmr=8}
+\node(n0)(36.0,-16.0){2}
+\node(n1)(4.0,-40.0){1} \node(n2)(68.0,-40.0){3}
+\node(n3)(16.0,-72.0){$n$} \node(n4)(56.0,-72.0){4}
+\drawedge[ELdist=1.5](n2,n4){$b,c$}
+\drawedge[ELdist=1.7](n0,n2){$b,c$}
+\drawedge[ELdist=1.7](n3,n1){$b,c$} 
+\drawedge[ELdist=2.0](n1,n0){$b$}
+\drawedge[ELdist=2.0](n1,n4){$c$}
+\put(31,-73){$\dots$}
 \end{picture}
 \end{center}
-\caption{ Автомат $\mathrsfs{F}_n$ $n^2 - 3n + 3$, $n$ нечетно}
-\label{fig:aut:middleisland}
+\caption{Автомат $\mathrsfs{F}_n$ и автомат порожденный действием $b$ и $c=aa$}\label{fig:f-n}
+%\caption{The automaton $\mathrsfs{C}_n$ and the automaton induced by the actions of $b$ and $c=ab$}\label{fig:cerny-n}
 \end{figure}
 
 
-\begin{figure}[h]
-\begin{center}
-%\begin{picture}(107,110)(0,-110)
-%\begin{picture}(104,96)(0,-97)
-\begin{picture}(104,60)(0,-80)
-\gasset{Nw=11.0,Nh=11.0,Nmr=5.5, loopdiam=8}
-\node[NLangle=0.0](n0)(24.25,-39.28){n}
-\node[NLangle=0.0](n1)(52.25,-23.28){1}
-\node[NLangle=0.0](n2)(80.25,-39.28){2}
-\node[NLangle=0.0](n3)(24.25,-63.28){n - 1}
-\node[NLangle=0.0](n4)(44.25,-83.28){n - 2}
-\node[NLangle=0.0](n6)(80.25,-63.28){3}
-\drawedge[ELdist=1.0](n1,n2){b, d}
-\drawedge[ELdist=1.0](n2,n6){b, d}
-\drawedge[ELdist=1.0](n0,n1){b}
-\drawedge[ELdist=1.0](n3,n0){b, d}
-\drawedge[ELdist=1.0](n4,n3){b, d}
-\drawedge[dash={2.0 2.0 2.0 3.0}{0.0},curvedepth=5.82](n6,n4){ }
-\drawedge(n0,n6){d}
-\end{picture}
-\end{center}
-\caption{ Автомат $\mathrsfs{F'}_n$, модифицированный, одна штука.}
-\end{figure}
+
+%ОРИГИНАЛЬНЫЙ РИСУНОК
+%\unitlength .45mm
+%\begin{figure}[h]
+%\begin{center}
+%%\begin{picture}(107,110)(0,-110)
+%%\begin{picture}(104,96)(0,-97)
+%\begin{picture}(104,80)(0,-90)
+%\gasset{Nw=11.0,Nh=11.0,Nmr=5.5, loopdiam=8}
+%\node[NLangle=0.0](n0)(24.25,-39.28){n}
+%\node[NLangle=0.0](n1)(52.25,-23.28){1}
+%\node[NLangle=0.0](n2)(80.25,-39.28){2}
+%\node[NLangle=0.0](n3)(24.25,-63.28){n - 1}
+%\node[NLangle=0.0](n4)(44.25,-83.28){n - 2}
+%\node[NLangle=0.0](n6)(80.25,-63.28){3}
+%\drawedge[ELdist=1.0](n1,n2){b}
+%\drawedge[ELdist=1.0](n2,n6){b}
+%\drawedge[ELdist=1.0](n0,n1){b}
+%\drawedge[ELdist=1.0](n3,n0){b}
+%\drawedge[ELdist=1.0](n4,n3){b}
+%\drawedge[dash={2.0 2.0 2.0 3.0}{0.0},curvedepth=5.82](n6,n4){ }
+%\drawloop[loopangle=0.0](n2){a}
+%\drawloop[loopangle=0.0](n6){a}
+%\drawloop[loopangle=270.0](n4){a}
+%\drawloop[loopangle=180.0](n3){a}
+%\drawloop(n1){a}
+%\drawedge(n0,n2){a}
+%\end{picture}
+%\end{center}
+%\caption{ Автомат $\mathrsfs{F}_n$ $n^2 - 3n + 3$, $n$ нечетно}
+%\label{fig:aut:middleisland}
+%\end{figure}
+%
+%
+%\begin{figure}[h]
+%\begin{center}
+%%\begin{picture}(107,110)(0,-110)
+%%\begin{picture}(104,96)(0,-97)
+%\begin{picture}(104,60)(0,-80)
+%\gasset{Nw=11.0,Nh=11.0,Nmr=5.5, loopdiam=8}
+%\node[NLangle=0.0](n0)(24.25,-39.28){n}
+%\node[NLangle=0.0](n1)(52.25,-23.28){1}
+%\node[NLangle=0.0](n2)(80.25,-39.28){2}
+%\node[NLangle=0.0](n3)(24.25,-63.28){n - 1}
+%\node[NLangle=0.0](n4)(44.25,-83.28){n - 2}
+%\node[NLangle=0.0](n6)(80.25,-63.28){3}
+%\drawedge[ELdist=1.0](n1,n2){b, d}
+%\drawedge[ELdist=1.0](n2,n6){b, d}
+%\drawedge[ELdist=1.0](n0,n1){b}
+%\drawedge[ELdist=1.0](n3,n0){b, d}
+%\drawedge[ELdist=1.0](n4,n3){b, d}
+%\drawedge[dash={2.0 2.0 2.0 3.0}{0.0},curvedepth=5.82](n6,n4){ }
+%\drawedge(n0,n6){d}
+%\end{picture}
+%\end{center}
+%\caption{ Автомат $\mathrsfs{F'}_n$, модифицированный, одна штука.}
+%\end{figure}
 
 \begin{theorem}
 Автомат $\mathrsfs{F}_n$ синхронизируем при нечетном $n$, и его граница синхронизации равна $n^2 - 3n + 3$.
@@ -1417,6 +1547,7 @@ $(ab^{n - 2})^{\left[\frac{n}{2}\right] - 1}ab^{n - 3}(ab^{n - 2})^{\left[\frac{
 В конце, мы решили забубенить ограничители. Раньше, мы старательно описывали остров, а теперь, покажем,
 где зазор нулей точно обрывается.
 
+\unitlength .44mm
 \begin{figure}[h]
 \begin{center}
 \begin{picture}(104,92)(0,-86)
