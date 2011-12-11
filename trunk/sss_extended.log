@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2009.9.12)  8 DEC 2011 19:40
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2009.9.12)  11 DEC 2011 19:43
 entering extended mode
 **sss_extended.tex
 (C:\Users\gusev\Documents\tex_art\ananichevgusevvolkov3\sss_extended.tex
@@ -595,87 +595,83 @@ Overfull \hbox (94.89165pt too wide) detected at line 503
  []
 
 
-Overfull \hbox (158.16277pt too wide) in paragraph at lines 545--560
+Overfull \hbox (89.87633pt too wide) in paragraph at lines 546--561
 [][] 
  []
 
 
-Overfull \hbox (3.22453pt too wide) in paragraph at lines 582--596
+Overfull \hbox (3.22453pt too wide) in paragraph at lines 583--597
 \T2A/cmr/m/n/10.95 ны-ми ор-гра-фа-ми с боль-шой экс-по-нен-той и медленно-синх
 ронизируемыми
  []
 
 [6]
-Overfull \hbox (0.89977pt too wide) in paragraph at lines 613--613
+Overfull \hbox (0.89977pt too wide) in paragraph at lines 614--614
 []\T2A/cmr/bx/n/14.4 Некоторые се-рии медленно-синхронизируемых
  []
 
-[7]
-Overfull \hbox (6.12529pt too wide) in paragraph at lines 737--740
+[7] [8]
+Overfull \hbox (6.12529pt too wide) in paragraph at lines 738--741
 []\T2A/cmr/m/n/10.95 Серия $\OMS/rsfs/m/n/10.95 W[]$ \T2A/cmr/m/n/10.95 бы-ла о
 б-на-ру-же-на Ана-ни-че-вым в 2008 го-ду(неопубликовано).
  []
 
-[8]
-Overfull \hbox (7.83324pt too wide) in paragraph at lines 795--800
+
+Overfull \hbox (7.83324pt too wide) in paragraph at lines 796--801
 []\T2A/cmr/m/n/10.95 Теперь мы пред-ло-жим ме-нее про-стой спо-соб по-лу-чить с
 е-рию медленно-
  []
 
 
-Overfull \hbox (5.85359pt too wide) in paragraph at lines 865--867
+Overfull \hbox (5.85359pt too wide) in paragraph at lines 866--868
 []\T2A/cmr/m/it/10.95 Автомат $\OMS/rsfs/m/n/10.95 C[]$ \T2A/cmr/m/it/10.95 син
 -хро-ни-зи-ру-ем, и его гра-
  []
 
-[9] [10]
-Overfull \hbox (3.52933pt too wide) in paragraph at lines 1143--1145
+[9] [10] [11]
+Overfull \hbox (3.52933pt too wide) in paragraph at lines 1144--1146
 []\T2A/cmr/m/it/10.95 Автоматы $\OMS/rsfs/m/n/10.95 D[]$ \T2A/cmr/m/it/10.95 и 
 $\OMS/rsfs/m/n/10.95 D[]$ \T2A/cmr/m/it/10.95 син-хро-ни-зи-ру-е-мые и гра-ни-ц
 ы син-
  []
 
-[11] [12] [13]
-Overfull \hbox (27.1352pt too wide) in paragraph at lines 1402--1408
+[12] [13]
+Overfull \hbox (27.1352pt too wide) in paragraph at lines 1403--1409
 []\T2A/cmr/m/n/10.95 Кроме ав-то-ма-тов Чер-ни $\OMS/rsfs/m/n/10.95 C[]$\T2A/cm
 r/m/n/10.95 , един-ствен-ной бес-ко-неч-ной се-ри-ей 2-буквенных
  []
 
-[14] [15]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[16] [17]
-Overfull \hbox (7.20934pt too wide) in paragraph at lines 1702--1707
+[14] [15] [16] [17]
+Overfull \hbox (7.20934pt too wide) in paragraph at lines 1765--1770
 []\T2A/cmr/m/n/10.95 Мы ис-поль-зо-ва-ли удоб-ное стро-ко-вое пред-став-ле-ние 
 до-сти-жи-мых ДКА,
  []
 
 
-Overfull \hbox (53.90193pt too wide) in paragraph at lines 1702--1707
+Overfull \hbox (53.90193pt too wide) in paragraph at lines 1765--1770
 \T2A/cmr/m/n/10.95 хро-ни-за-ции. В хо-де про-ве-рок ис-поль-зо-ва-лись стан-да
 рт-ные ал-го-рит-мы(смотрите [[],
  []
 
 [18]
-Underfull \hbox (badness 1127) in paragraph at lines 1751--1755
+Underfull \hbox (badness 1127) in paragraph at lines 1814--1818
 []\T2A/cmr/m/n/10.95 Almeida, J.; Steinberg, B.: Matrix mortality and the []Cer
 ny--Pin
  []
 
-[19] [20] [21]
+[19] [20]
 (C:\Users\gusev\Documents\tex_art\ananichevgusevvolkov3\sss_extended.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3117 strings out of 495060
- 33722 string characters out of 3177627
- 110902 words of memory out of 3000000
- 6291 multiletter control sequences out of 15000+200000
+ 3116 strings out of 495060
+ 33704 string characters out of 3177627
+ 111088 words of memory out of 3000000
+ 6290 multiletter control sequences out of 15000+200000
  26810 words of font info for 77 fonts, out of 3000000 for 9000
  198 hyphenation exceptions out of 8191
  29i,10n,24p,1336b,298s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on sss_extended.dvi (21 pages, 165056 bytes).
+Output written on sss_extended.dvi (20 pages, 163648 bytes).

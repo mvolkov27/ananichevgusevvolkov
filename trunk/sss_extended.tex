@@ -542,16 +542,17 @@ $n=9$.
 \extrarowheight=1pt
 \caption{Экспоненты примитивных графов с $9$ вершинами и границы синхронизации для 2-буквенных автоматов с $9$ состояниями}
 \label{9 states}
-\begin{tabular}{|p{5.4cm}||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+%\begin{tabular}{|p{5.4cm}||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\begin{tabular}{|p{3cm}||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
 \centering{$N$} & 65 & 64 & 63 & 62 & 61 & 60 & 59 & 58 & 57 & 56 & 55 & 54 & 53 & 52 & 51 \\
 \hline
-\raggedright{Число неизоморфных примитивных орграфов с экспонентой} $N$
+\raggedright{Число примитивных орграфов с экспонентой} $N$
 & \raisebox{-6pt}{1} & \raisebox{-6pt}{1} & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{0}
 & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{1} & \raisebox{-6pt}{1} & \raisebox{-6pt}{2}
 & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{4} \\
 \hline
-\raggedright{Число неизоморфных 2-буквенных автоматов с границей синхронизации $N$}
+\raggedright{Число 2-буквенных автоматов с границей синхронизации $N$}
 &\raisebox{-11pt}{0} &\raisebox{-11pt}{1} &\raisebox{-11pt}{0} &\raisebox{-11pt}{0} &\raisebox{-11pt}{0}
 &\raisebox{-11pt}{0} &\raisebox{-11pt}{0} &\raisebox{-11pt}{1} &\raisebox{-11pt}{2} &\raisebox{-11pt}{3}
 &\raisebox{-11pt}{0} &\raisebox{-11pt}{0} &\raisebox{-11pt}{0} &\raisebox{-11pt}{4} &\raisebox{-11pt}{4} \\
@@ -1547,65 +1548,125 @@ $(ab^{n - 2})^{\left[\frac{n}{2}\right] - 1}ab^{n - 3}(ab^{n - 2})^{\left[\frac{
 В конце, мы решили забубенить ограничители. Раньше, мы старательно описывали остров, а теперь, покажем,
 где зазор нулей точно обрывается.
 
-\unitlength .44mm
-\begin{figure}[h]
+
+\begin{figure}[ht]
+\unitlength .45mm
 \begin{center}
-\begin{picture}(104,92)(0,-86)
+\begin{picture}(72,72)(20,-75)
 %\put(0,-92){\framebox(104,92){}}
-\gasset{Nw=11.0,Nh=11.0,Nmr=5.5, loopdiam=8}
-\node[NLangle=0.0](n0)(24.25,-23.6){n - 1}
-\node[NLangle=0.0](n1)(52.25,-7.6){1}
-\node[NLangle=0.0](n2)(80.25,-23.6){2}
-\node[NLangle=0.0](n3)(24.25,-47.6){n - 2}
-\node[NLangle=0.0](n4)(44.25,-67.6){n - 3}
-\node[NLangle=0.0](n6)(80.25,-47.6){3}
-\drawedge(n1,n2){b}
-\drawedge(n2,n6){b}
-\drawedge(n0,n1){b}
-\drawedge(n3,n0){b}
-\drawedge(n4,n3){b}
-\drawedge[dash={2.0 2.0 2.0 3.0}{0.0},curvedepth=5.82](n6,n4){ }
-\drawloop[loopangle=0.0](n6){a}
-\drawloop[loopangle=270.0](n4){a}
-\drawloop[loopangle=180.0](n3){a}
-\drawloop[loopangle=0.0](n2){a}
-\node[NLangle=0.0](n31)(52.0,-32.0){n}
-\drawedge[ELdist=2.0,curvedepth=-3.0](n1,n31){a}
-\drawedge[curvedepth=-3.0](n31,n1){}
-\drawloop[loopangle=180.0](n0){a}
-\drawedge(n31,n6){b}
+%\gasset{Nw=11.0,Nh=11.0,Nmr=5.5, loopdiam=8}
+\gasset{Nw=16,Nh=16,Nmr=8, loopdiam=10}
+\node[NLangle=0.0](n0)(24.25,-23.6){$n{-}1$}
+\node[NLangle=0.0](n1)(52.25,-7.6){$1$}
+\node[NLangle=0.0](n2)(80.25,-23.6){$2$}
+\node[NLangle=0.0](n3)(24.25,-52){$n{-}2$}
+\node[NLangle=0.0](n4)(55,-67.6){$4$}
+\node[NLangle=0.0](n6)(80.25,-52){$3$}
+\drawedge(n1,n2){$b$}
+\drawedge(n2,n6){$b$}
+\drawedge(n0,n1){$b$}
+\drawedge(n3,n0){$b$}
+%\drawedge(n4,n3){$b$}
+\drawedge(n6,n4){$b$}
+%\drawedge[dash={2.0 2.0 2.0 3.0}{0.0},curvedepth=5.82](n6,n4){ }
+\drawloop[loopangle=0.0](n6){$a$}
+\drawloop[loopangle=270.0](n4){$a$}
+\drawloop[loopangle=180.0](n3){$a$}
+\drawloop[loopangle=0.0](n2){$a$}
+\node[NLangle=0.0](n31)(52.0,-38){$n$}
+\drawedge[ELdist=3.0,curvedepth=-5.0](n1,n31){$a$}
+\drawedge[curvedepth=-5.0](n31,n1){}
+\drawloop[loopangle=180.0](n0){$a$}
+\drawedge(n31,n6){$b$}
+\put(31,-67){$\dots$}
+\end{picture}
+\begin{picture}(72,72)(-20,-75)
+%\put(0,-92){\framebox(104,92){}}
+%\gasset{Nw=11.0,Nh=11.0,Nmr=5.5, loopdiam=8}
+\gasset{Nw=16,Nh=16,Nmr=8, loopdiam=10}
+\node[NLangle=0.0](n0)(24.25,-23.6){$n{-}1$}
+\node[NLangle=0.0](n1)(52.25,-7.6){$1$}
+\node[NLangle=0.0](n2)(80.25,-23.6){$2$}
+\node[NLangle=0.0](n3)(24.25,-52){$n{-}2$}
+\node[NLangle=0.0](n4)(55,-67.6){$4$}
+\node[NLangle=0.0](n6)(80.25,-52){$3$}
+\drawedge[ELdist=0.7](n1,n2){$b$}
+\drawedge[ELpos=35, ELdist=0.5](n1,n6){$c$}
+\drawedge(n2,n6){$b, c$}
+\drawedge(n0,n1){$b, c$}
+\drawedge(n3,n0){$b, c$}
+%\drawedge(n4,n3){$b, d$}
+\drawedge(n6,n4){$b,c$}
+%\drawedge[dash={2.0 2.0 2.0 3.0}{0.0},curvedepth=5.82](n6,n4){ }
+\node[NLangle=0.0](n31)(50,-40){$n$}
+\drawedge[ELpos=35,ELdist=0.7](n31,n6){$b$}
+\drawedge[ELpos=35,ELdist=0.7](n31,n2){$c$}
+\put(31,-67){$\dots$}
 \end{picture}
 \end{center}
-\caption{Автомат $\mathrsfs{H}_n$, $n^2 - 4n + 6$}
-\label{fig:aut:evenidem}
+\caption{Автомат $\mathrsfs{H}_n$ и автомат порожденный действием $b$ и $c = ab$}
 \end{figure}
 
-%\setlength{\unitlength}{2pt}
-\begin{figure}[h!]
-\begin{center}
-\begin{picture}(104,92)(0,-86)
-%\put(0,-92){\framebox(104,92){}}
-\gasset{Nw=11.0,Nh=11.0,Nmr=5.5, loopdiam=8}
-\node[NLangle=0.0](n0)(24.25,-23.6){n - 1}
-\node[NLangle=0.0](n1)(52.25,-7.6){1}
-\node[NLangle=0.0](n2)(80.25,-23.6){2}
-\node[NLangle=0.0](n3)(24.25,-47.6){n - 2}
-\node[NLangle=0.0](n4)(44.25,-67.6){n - 3}
-\node[NLangle=0.0](n6)(80.25,-47.6){3}
-\drawedge(n1,n2){b}
-\drawedge[ELpos=35](n1,n6){d}
-\drawedge(n2,n6){b, d}
-\drawedge(n0,n1){b, d}
-\drawedge(n3,n0){b, d}
-\drawedge(n4,n3){b, d}
-\drawedge[dash={2.0 2.0 2.0 3.0}{0.0},curvedepth=5.82](n6,n4){ }
-\node[NLangle=0.0](n31)(53.0,-37.0){n}
-\drawedge(n31,n6){b}
-\drawedge[ELpos=40](n31,n2){d}
-\end{picture}
-\end{center}
-\caption{Автомат $\mathrsfs{H'}_n$, модифицированный, одна штука}
-\end{figure}
+
+%\unitlength .44mm
+%\begin{figure}[h]
+%\begin{center}
+%\begin{picture}(104,92)(0,-86)
+%%\put(0,-92){\framebox(104,92){}}
+%\gasset{Nw=11.0,Nh=11.0,Nmr=5.5, loopdiam=8}
+%\node[NLangle=0.0](n0)(24.25,-23.6){n - 1}
+%\node[NLangle=0.0](n1)(52.25,-7.6){1}
+%\node[NLangle=0.0](n2)(80.25,-23.6){2}
+%\node[NLangle=0.0](n3)(24.25,-47.6){n - 2}
+%\node[NLangle=0.0](n4)(44.25,-67.6){n - 3}
+%\node[NLangle=0.0](n6)(80.25,-47.6){3}
+%\drawedge(n1,n2){b}
+%\drawedge(n2,n6){b}
+%\drawedge(n0,n1){b}
+%\drawedge(n3,n0){b}
+%\drawedge(n4,n3){b}
+%\drawedge[dash={2.0 2.0 2.0 3.0}{0.0},curvedepth=5.82](n6,n4){ }
+%\drawloop[loopangle=0.0](n6){a}
+%\drawloop[loopangle=270.0](n4){a}
+%\drawloop[loopangle=180.0](n3){a}
+%\drawloop[loopangle=0.0](n2){a}
+%\node[NLangle=0.0](n31)(52.0,-32.0){n}
+%\drawedge[ELdist=2.0,curvedepth=-3.0](n1,n31){a}
+%\drawedge[curvedepth=-3.0](n31,n1){}
+%\drawloop[loopangle=180.0](n0){a}
+%\drawedge(n31,n6){b}
+%\end{picture}
+%\end{center}
+%\caption{Автомат $\mathrsfs{H}_n$, $n^2 - 4n + 6$}
+%\label{fig:aut:evenidem}
+%\end{figure}
+%
+%%\setlength{\unitlength}{2pt}
+%\begin{figure}[h!]
+%\begin{center}
+%\begin{picture}(104,92)(0,-86)
+%%\put(0,-92){\framebox(104,92){}}
+%\gasset{Nw=11.0,Nh=11.0,Nmr=5.5, loopdiam=8}
+%\node[NLangle=0.0](n0)(24.25,-23.6){n - 1}
+%\node[NLangle=0.0](n1)(52.25,-7.6){1}
+%\node[NLangle=0.0](n2)(80.25,-23.6){2}
+%\node[NLangle=0.0](n3)(24.25,-47.6){n - 2}
+%\node[NLangle=0.0](n4)(44.25,-67.6){n - 3}
+%\node[NLangle=0.0](n6)(80.25,-47.6){3}
+%\drawedge(n1,n2){b}
+%\drawedge[ELpos=35](n1,n6){d}
+%\drawedge(n2,n6){b, d}
+%\drawedge(n0,n1){b, d}
+%\drawedge(n3,n0){b, d}
+%\drawedge(n4,n3){b, d}
+%\drawedge[dash={2.0 2.0 2.0 3.0}{0.0},curvedepth=5.82](n6,n4){ }
+%\node[NLangle=0.0](n31)(53.0,-37.0){n}
+%\drawedge(n31,n6){b}
+%\drawedge[ELpos=40](n31,n2){d}
+%\end{picture}
+%\end{center}
+%\caption{Автомат $\mathrsfs{H'}_n$, модифицированный, одна штука}
+%\end{figure}
 
 \begin{theorem}
 Автомат $\mathrsfs{H}_n$ синхронизируем, и его граница синхронизации равна $n^2 - 4n + 6$.
@@ -1634,28 +1695,30 @@ $v$ синхронизирующее слово для автомата $\mathrs
 \begin{center}
 %\begin{picture}(102,102)(0,-102)
 \begin{picture}(100,95)(0,-95)
-\gasset{Nw=11.0,Nh=11.0,Nmr=5.5}
-\node[NLangle=0.0](n0)(24.09,-24.01){n}
-\node[NLangle=0.0](n1)(51.93,-12.0){1}
-\node[NLangle=0.0](n2)(80.09,-24.01){2}
-\node[NLangle=0.0](n3)(12.09,-48.01){n - 1}
-\node[NLangle=0.0](n4)(16.09,-76.01){n - 2}
-\node[NLangle=0.0](n5)(92.09,-48.01){3}
-\node[NLangle=0.0](n6)(64.09,-92.01){5}
-\node[NLangle=0.0](n7)(88.09,-76.01){4}
-\drawedge(n1,n2){b}
-\drawedge(n2,n5){a, b}
-\drawedge(n5,n7){a, b}
-\drawedge(n7,n6){a, b}
-\drawedge[dash={2.0 2.0 2.0 3.0}{0.0},curvedepth=5.65](n6,n4){ }
-\drawedge(n4,n3){a, b}
-\drawedge(n3,n0){b}
-\drawedge(n0,n1){a, b}
-\drawedge(n1,n7){a}
-\drawedge(n3,n2){a}
+\gasset{Nw=16,Nh=16,Nmr=8, loopdiam=10}
+%\gasset{Nw=11.0,Nh=11.0,Nmr=5.5}
+\node[NLangle=0.0](n0)(24.09,-24.01){$n$}
+\node[NLangle=0.0](n1)(51.93,-12.0){$1$}
+\node[NLangle=0.0](n2)(80.09,-24.01){$2$}
+\node[NLangle=0.0](n3)(12.09,-48.01){$n{-}1$}
+\node[NLangle=0.0](n4)(16.09,-76.01){$n{-}2$}
+\node[NLangle=0.0](n5)(92.09,-48.01){$3$}
+\node[NLangle=0.0](n6)(64.09,-92.01){$5$}
+\node[NLangle=0.0](n7)(88.09,-76.01){$4$}
+\drawedge(n1,n2){$b$}
+\drawedge(n2,n5){$a, b$}
+\drawedge(n5,n7){$a, b$}
+\drawedge(n7,n6){$a, b$}
+%\drawedge[dash={2.0 2.0 2.0 3.0}{0.0},curvedepth=5.65](n6,n4){ }
+\drawedge(n4,n3){$a, b$}
+\drawedge(n3,n0){$b$}
+\drawedge(n0,n1){$a, b$}
+\drawedge(n1,n7){$a$}
+\drawedge(n3,n2){$a$}
+\put(33,-90){$\dots$}
 \end{picture}
 \end{center}
-\caption{ Автомат $\mathrsfs{G}_n$ $n^2 - 4n + 7$, $n$ нечетно}
+\caption{ Автомат $\mathrsfs{G}_n$ }
 \label{fig:aut:fat}
 \end{figure}
 
