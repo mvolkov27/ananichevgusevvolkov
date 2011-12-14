@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2009.9.12)  12 DEC 2011 12:58
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2009.9.12)  14 DEC 2011 18:53
 entering extended mode
 **sss_extended.tex
 (C:\Users\gusev\Documents\tex_art\ananichevgusevvolkov3\sss_extended.tex
@@ -147,10 +147,31 @@ Package: array 2005/08/23 v2.4b Tabular extension package (FMi)
 \extratabsurround=\skip49
 \backup@length=\skip50
 )
+("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks20
+)
+("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\graphics.sty"
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.8\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: dvips.def on input line 90.
+
+("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\dvips.def"
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen125
+\Gin@req@width=\dimen126
+)
 ("C:\Program Files\MiKTeX 2.8\tex\latex\base\inputenc.sty"
 Package: inputenc 2006/05/05 v1.1b Input encoding file
-\inpenc@prehook=\toks20
-\inpenc@posthook=\toks21
+\inpenc@prehook=\toks21
+\inpenc@posthook=\toks22
 
 ("C:\Program Files\MiKTeX 2.8\tex\latex\base\utf8.def"
 File: utf8.def 2006/03/30 v1.1i UTF-8 support for inputenc
@@ -379,7 +400,7 @@ Language: russianb 2008/03/21 v1.1r Russian support from the babel system
 ("C:\Program Files\MiKTeX 2.8\tex\generic\babel\babel.def"
 File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count116
-\U@D=\dimen125
+\U@D=\dimen127
 )
 ("C:\Program Files\MiKTeX 2.8\tex\latex\cyrillic\t2aenc.def"
 File: t2aenc.def 2005/09/27 v1.0i Cyrillic encoding definition file
@@ -543,25 +564,25 @@ Package babel Info: Making " an active character on input line 199.
 \c@lemma=\count119
 
 (C:\Users\gusev\Documents\tex_art\ananichevgusevvolkov3\sss_extended.aux
-LaTeX Font Info:    Try loading font information for T2A+cmr on input line 5.
+LaTeX Font Info:    Try loading font information for T2A+cmr on input line 3.
 
 ("C:\Program Files\MiKTeX 2.8\tex\latex\cyrillic\t2acmr.fd"
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
 LaTeX Font Info:    Try loading font information for U+msa on input line 49.
 
 ("C:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\umsa.fd"
@@ -603,69 +624,65 @@ Overfull \hbox (0.89977pt too wide) in paragraph at lines 615--615
  []
 
 [7] [8]
-Overfull \hbox (6.12529pt too wide) in paragraph at lines 739--742
+Overfull \hbox (6.12529pt too wide) in paragraph at lines 743--746
 []\T2A/cmr/m/n/10.95 Серия $\OMS/rsfs/m/n/10.95 W[]$ \T2A/cmr/m/n/10.95 бы-ла о
 б-на-ру-же-на Ана-ни-че-вым в 2008 го-ду(неопубликовано).
  []
 
 
-Overfull \hbox (7.83324pt too wide) in paragraph at lines 797--802
+Overfull \hbox (7.83324pt too wide) in paragraph at lines 801--806
 []\T2A/cmr/m/n/10.95 Теперь мы пред-ло-жим ме-нее про-стой спо-соб по-лу-чить с
 е-рию медленно-
  []
 
-
-Overfull \hbox (5.85359pt too wide) in paragraph at lines 867--869
+[9]
+Overfull \hbox (5.85359pt too wide) in paragraph at lines 871--873
 []\T2A/cmr/m/it/10.95 Автомат $\OMS/rsfs/m/n/10.95 C[]$ \T2A/cmr/m/it/10.95 син
 -хро-ни-зи-ру-ем, и его гра-
  []
 
-[9] [10] [11]
-Overfull \hbox (3.52933pt too wide) in paragraph at lines 1144--1146
+[10] [11]
+Overfull \hbox (3.52933pt too wide) in paragraph at lines 1148--1150
 []\T2A/cmr/m/it/10.95 Автоматы $\OMS/rsfs/m/n/10.95 D[]$ \T2A/cmr/m/it/10.95 и 
 $\OMS/rsfs/m/n/10.95 D[]$ \T2A/cmr/m/it/10.95 син-хро-ни-зи-ру-е-мые и гра-ни-ц
 ы син-
  []
 
 [12] [13]
-Overfull \hbox (27.1352pt too wide) in paragraph at lines 1399--1405
+Overfull \hbox (27.1352pt too wide) in paragraph at lines 1403--1409
 []\T2A/cmr/m/n/10.95 Кроме ав-то-ма-тов Чер-ни $\OMS/rsfs/m/n/10.95 C[]$\T2A/cm
 r/m/n/10.95 , един-ствен-ной бес-ко-неч-ной се-ри-ей 2-буквенных
  []
 
 [14] [15] [16] [17]
-Overfull \hbox (7.20934pt too wide) in paragraph at lines 1759--1764
+Overfull \hbox (7.20934pt too wide) in paragraph at lines 1763--1768
 []\T2A/cmr/m/n/10.95 Мы ис-поль-зо-ва-ли удоб-ное стро-ко-вое пред-став-ле-ние 
 до-сти-жи-мых ДКА,
  []
 
-
-Overfull \hbox (53.90193pt too wide) in paragraph at lines 1759--1764
-\T2A/cmr/m/n/10.95 хро-ни-за-ции. В хо-де про-ве-рок ис-поль-зо-ва-лись стан-да
-рт-ные ал-го-рит-мы(смотрите [[],
- []
-
 [18]
-Underfull \hbox (badness 1127) in paragraph at lines 1808--1812
+File: stat.eps Graphic file (type eps)
+ <stat.eps> [19]
+Underfull \hbox (badness 1127) in paragraph at lines 1848--1852
 []\T2A/cmr/m/n/10.95 Almeida, J.; Steinberg, B.: Matrix mortality and the []Cer
 ny--Pin
  []
 
-
-Underfull \hbox (badness 1675) in paragraph at lines 1822--1823
+[20]
+Underfull \hbox (badness 1675) in paragraph at lines 1862--1863
 []\T2A/cmr/m/n/10.95 Brualdi R., Ryser H.: Combinatorial Matrix Theory. Cambrid
 ge
  []
 
-[19] [20] [21]
+[21] [22]
 (C:\Users\gusev\Documents\tex_art\ananichevgusevvolkov3\sss_extended.aux) ) 
 Here is how much of TeX's memory you used:
- 3116 strings out of 495060
- 33704 string characters out of 3177627
- 110065 words of memory out of 3000000
- 6290 multiletter control sequences out of 15000+200000
+ 3385 strings out of 495060
+ 37186 string characters out of 3177627
+ 115458 words of memory out of 3000000
+ 6543 multiletter control sequences out of 15000+200000
  26810 words of font info for 77 fonts, out of 3000000 for 9000
  198 hyphenation exceptions out of 8191
  29i,10n,24p,1336b,298s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on sss_extended.dvi (21 pages, 164096 bytes).
+Output written on sss_extended.dvi (22 pages, 171076 bytes).
