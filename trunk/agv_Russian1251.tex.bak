@@ -100,7 +100,7 @@ $q,q'\in Q$. Всякое такое слово $w$ называется \emph{синхронизирующим}. Минимум
 $n$-\emph{ав\-то\-ма\-том}. В~1964 г.\ Черни~\cite{Ce64} указал серию
 синхронизируемых $n$-автоматов с порогом синхронизации $(n-1)^2$. Немного
 позднее он высказал предположение, что автоматы из этой серии реализуют
-наихудший (в смысле скорости синхронизации) случай, то есть, что каждый
+наихудший (в смысле скорости синхронизации) случай, т.\,е. что каждый
 синхронизируемый $n$-автомат может быть синхронизирован словом длины не более
 $(n-1)^2$. За этим предположением закрепилось имя \emph{гипотеза Черни}.
 Несмотря на простоту формулировки и усилия многочисленных исследователей,
@@ -122,54 +122,128 @@ $(n-1)^2$. За этим предположением закрепилось имя \emph{гипотеза Черни}.
 кроме нее, известно лишь несколько спорадических примеров экстремальных
 автоматов, наибольшим из которых по числу состояний является 6-автомат,
 открытый Кари~\cite{Ka01} в 2001 г. (Полный список известных экстремальных
-автоматов см.\ в~\cite{Vo08}.) Более того, даже $n$-автоматы с порогом
-синхронизации, близким к $(n-1)^2$, встречаются крайне редко. Эксперименты
-(см., например, \cite{ST11}) показывают, что взятый наугад автомат с
-вероятностью, очень близкой к~1, синхронизируем словом, длина которого
-значительно меньше числа состояний. Поэтому обнаружить медленно
-синхронизируемые автоматы достаточно сложно.
+автоматов см.\ в~\cite{Vo08}.) Более того, до сих пор даже $n$-автоматы с
+порогом синхронизации, близким к $(n-1)^2$, встречались в литературе крайне
+редко -- кроме серии Черни, здесь можно назвать только серии из~\cite{AVZ}. В
+условиях, когда число примеров крайне ограничено, трудно было подвергать
+проверке различные предположения и допущения, возникавшие при поисках подходов
+к гипотезе Черни. Именно поэтому история исследований в данной области богата
+<<ложными следами>> -- вспомогательными гипотезами, которые сперва казались
+перспективными, но по прошествии некоторого времени опровергались. (Ряд таких
+<<ложных следов>> проанализирован в~\cite{Be11}.)
 
-%One of the difficulties that one encounters when approaching the \v{C}ern\'{y}
-%conjecture is that there are only very few \emph{extreme} automata, that is,
-%$n$-state \sa\ with reset length $(n-1)^2$. In fact, the \v{C}ern\'{y} series
-%$\mathrsfs{C}_n$ is the only known infinite series of extreme automata. Besides
-%that, only a few isolated examples of such automata have been found, see~\cite{Vo08}
-%for a complete list. Moreover, even \emph{slowly} \sa, that is, automata with reset
-%length close to the \v{C}ern\'{y} bound are very rare. This empirical observation
-%is supported also by probabilistic arguments. For instance, the probability that
-%a composition of $2n$ random self-maps of a set of size $n$ is a constant map
-%tends to~1 as $n$ goes to infinity~\cite{Hi88}. In terms of automata, this
-%result means that the \rl\ of a random automaton with $n$ states and at least
-%$2n$ input letters does not exceed $2n$. For further results of the same
-%flavor see~\cite{SZ}. Thus, there is no hope to find new examples of slowly
-%\sa\ by a lucky chance or via a random sampling experiment.
+Как же находить медленно синхронизируемые автоматы? Эксперименты (см.,
+например, \cite{ST11}) показывают, что взятый наугад автомат с вероятностью,
+очень близкой к~1, синхронизируем словом, длина которого значительно меньше
+числа состояний. Поэтому случайно натолкнуться на автомат, порог синхронизации
+которого близок к квадрату числа состояний, невозможно. Приходится выявлять
+такие автоматы путем исчерпывающего перебора. Именно такой переборный
+эксперимент и послужил отправной точкой данной работы.
+
+Методика и некоторые результаты эксперимента описаны в \S2. Наше внимание
+привлекло сходство между наблюдаемым поведением количества синхронизируемых
+автоматов с фиксированным числом состояний как функции от значения порога
+синхронизации и хорошо изученным поведением количества примитивных орграфов с
+фиксированным числом вершин как функции от значения экспоненты. В \S3 мы
+обсуждаем это сходство, предварительно напомнив необходимые понятия и
+результаты теории примитивных орграфов. Основные результаты работы содержатся в
+\S4. Мы показываем, что все медленно синхронизируемые автоматы, обнаруженные в
+нашем эксперименте, являются представителями бесконечных серий таких автоматов
+и что каждая такая серия тесно связана с некоторой известной серией примитивных
+орграфов с большой экспонентой. Установленная связь между орграфами и
+автоматами позволила дать прозрачные и единообразные доказательства утверждений
+о пороге синхронизации для всех без исключения медленно синхронизируемых
+автоматов -- как для серий, уже встречавшихся в литературе, так и для серий,
+впервые появившихся в данной работе. Техника, примененная в этих
+доказательствах, насколько нам известно, является новой и, на наш взгляд,
+представляет самостоятельный интерес. В заключительном \S5 обсуждаются
+дальнейшие перспективы подхода, развитого в работе.
+
+\section*{{\centerline{\large\bf \S2. Методика и некоторые результаты эксперимента}}}
+
+Как отмечено в \S1, поиск автоматов с порогом синхронизации, близким к квадрату
+числа состояний, требует исчерпывающего перебора. Поскольку число $n$-автоматов
+стремительно растет с ростом $n$, такой перебор должен быть разумным образом
+организован. Так, задание 9-автомата с двумя входными буквами равносильно
+заданию пары функций на 9-элементном множестве. Число таких пар равно
+$9^{18}\approx 1.50\times 10^{17}$, и если потратить на вычисление порога
+синхронизации каждого заданного таким образом автомата одну наносекунду, то
+полный перебор займет около пяти лет. Понятно, что при задании $n$-автоматов с
+$k$ входными буквами наборами из $k$ функций на $n$-элементном множестве каждый
+автомат будет порождаться $n!k!$ раз. Однако ускорить процесс перебора за счет
+отбрасывания изоморфных автоматов невозможно -- даже при $n=9$ и $k=2$ на
+проверку того, изоморфен ли очередной автомат какому-либо из уже просмотренных,
+не хватит ни времени, ни памяти.
+
+Мы использовали для оптимизации перебора строковое представление автоматов,
+предложенное в~\cite{AMR}.
 
 
-По этой причине нами был произведен полный перебор всех автоматов с небольшим
-числом состояний с подсчетом их границы синхронизации. Техника вычислений кратко
-описана в разделе~\ref{experiments}. Основное же внимание статьи посвящено
-теоретическому анализу полученных данных. Мы отмечаем два основных момента.
-В секции~\ref{matrices} мы приводим распределение синхронизируемых автоматов
-по границе синхронизации и распределение примитивных графов по величине
-экспоненты, отмечаем их сходство.
-В секции~\ref{sss} представлено несколько серий медленно-синхронизируемых автоматов.
-Большинство из них было обнаружено в результате наших экспериментов.
-По нашему мнению, техника доказательства также представляет собой отдельный интерес.
-Нами предложен универсальный подход ко всем найденным медленно-синхронизируемым автоматам на
-двух буквах.
+Напомним, что детерминированный автомат $\mathrsfs{A}=\langle
+Q,\Sigma,\delta\rangle$ называется \emph{достижимым}, если существует состояние
+$q_0\in Q$, из которого произвольное состояние $q\in Q$ достижимо, то есть,
+$q=\delta(q_0,w)$ для некоторого $w\in\Sigma^*$. В общем случае,
+синхронизируемый автомат может не быть достижимым. Тем не менее, хорошо
+известно, что при рассмотрении гипотезы Черни мы можем ограничиться
+рассмотрением сильно-связных автоматов, поскольку справедливость в данном
+классе довольно легко влечет справедливость в общем случае~\cite{Pi78}. Ясно,
+что всякий сильно-связный ДКА достижим.
 
 
-%We therefore have designed and performed a set of exhaustive search
-%experiments. Our experiments are briefly described in Section~\ref{experiments}
-%while the main body of the paper is devoted to a theoretical analysis
-%of their outcome. We concentrate on two principal issues. In Section~\ref{matrices}
-%we discuss a similarity between the distribution of reset lengths of \sa\
-%and the distribution of exponents of primitive digraphs. Section~\ref{sss}
-%presents a few series of slowly \sa. Most of these series have been expanded
-%from new examples discovered in the course of our experiments. In our opinion,
-%the proof technique is also of interest; in fact, we provide a transparent
-%and uniform approach to all sufficiently large slowly \sa\ with 2~input letters,
-%both new and already known ones.
+%Here we briefly describe the settings of our experiments. Recall that a DFA
+%$\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$ is said to be \emph{initially-connected}
+%if there exists a state $q_0\in Q$ from which every state $q\in Q$ is reachable,
+%that is, $q=\delta(q_0,w)$ for some $w\in\Sigma^*$. In general a \san\ need not
+%be initially-connected. However, it is well known that when studying the \v{C}ern\'{y}
+%conjecture, we may restrict ourselves to DFA whose underlying digraphs are strongly
+%connected because the validity of the conjecture can be easily reduced to this case
+%(see \cite{Pi78} for example). Clearly, DFA with strongly connected underlying digraphs
+%are initially-connected.
+
+Мы использовали удобное строковое представление достижимых ДКА, предложенное
+в~\cite{AMR}, для порождения всех таких автоматов на двух буквах до 9 состояний
+включительно. Всякий достижимый автомат был проверен на синхронизируемость, а
+затем, вычислялась его граница синхронизации. В ходе проверок использовались
+стандартные алгоритмы(смотрите~\cite{Sa05,Vo08}) реализованные на C.
+
+%We used a convenient string representation of initially-connected DFA (ICDFA)
+%developed in~\cite{AMR} to generate all such DFA with up to 9 states and 2 input
+%letters. Each ICDFA was tested for synchronizability and then for each \san\
+%its reset length was calculated. For these tasks, we implemented standard
+%algorithms (see~\cite{Sa05,Vo08}) in C.
+
+Основной трудностью таких вычислительных экспериментов является то, что
+количество автоматов очень быстро растет с ростом числа состояний в них.
+Например, для 9 состояний и всего двух входных букв существует уже более 700
+миллионов достижимых автоматов. Однако, наша вычислительная задача может быть
+легко распараллелена. А именно, один узел порождал и распределял небольшие
+подмножества всех достижимых автоматов, а остальные узлы проводили вычисления
+на получаемых подмножествах. Для реализации данного процесса мы использовали
+известную библиотеку MPI. Вычисления, организованные указанным способом, заняли
+меньше суток на довольно скромном кластере.
+
+
+%The main difficulty that had to be overcome is that the number of ICDFA dramatically
+%grows with the number of states. (For 9 states, there are about 700 billions
+%ICDFA with 2 input letters.) The problem, however, can be efficiently parallelized.
+%For this, a dedicated processor was programmed to generate ICDFA in portions (slices
+%in terminology of~\cite{AMR}) that were fed to other processors for synchronization
+%tests etc. The management program was written in C with MPI. Calculations organized
+%this way took less than a day of running a small size computer grid based on a number
+%of AMD Opteron 2.6 GHz processors.
+
+Все найденные медленно-синхронизируемые автоматы были перепроверены с помощью
+пакета TESTAS, разработанного Трахтманом~\cite{Tr06}.
+
+
+%All slowly synchronizing automata that we found were double-checked by running on
+%them the package TESTAS developed by Trahtman~\cite{Tr06}.
+
+СТАТИСТИЧЕСКИЕ РЕЗУЛЬТАТЫ?
+
+%Our experiments have also produced some interesting statistical results that will
+%be discussed elsewhere.
+
 
 \section{Предварительные сведения}
 \label{preliminaries}
@@ -1687,70 +1761,10 @@ $v$ синхронизирующее слово для автомата $\mathrsfs{H}_n$.
 из 2 в 4. Таким образом, справедлива оценка $k \ge n^2 - 4n + 7$, а она точна, поскольку слово $aa(baba^{n - 3})^{n - 4}babaa$ является синхронизирующим.
 \end{proof}
 
-\section{Experiments}
-\label{experiments}
-В этом разделе мы кратко изложим суть наших вычеслительных экспериментов.
-Напомним, что детерминированный автомат $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$ называется
-\emph{достижимым}, если существует состояние $q_0\in Q$, из которого произвольное состояние
-$q\in Q$ достижимо, то есть, $q=\delta(q_0,w)$ для некоторого $w\in\Sigma^*$. В общем случае,
-синхронизируемый автомат может не быть достижимым. Тем не менее, хорошо известно,
-что при рассмотрении гипотезы Черни мы можем ограничиться рассмотрением сильно-связных автоматов,
-поскольку справедливость в данном классе довольно легко влечет справедливость в общем
-случае~\cite{Pi78}. Ясно, что всякий сильно-связный ДКА достижим.
+\section{Заключение}
+\label{conclusion}
 
 
-%Here we briefly describe the settings of our experiments. Recall that a DFA
-%$\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$ is said to be \emph{initially-connected}
-%if there exists a state $q_0\in Q$ from which every state $q\in Q$ is reachable,
-%that is, $q=\delta(q_0,w)$ for some $w\in\Sigma^*$. In general a \san\ need not
-%be initially-connected. However, it is well known that when studying the \v{C}ern\'{y}
-%conjecture, we may restrict ourselves to DFA whose underlying digraphs are strongly
-%connected because the validity of the conjecture can be easily reduced to this case
-%(see \cite{Pi78} for example). Clearly, DFA with strongly connected underlying digraphs
-%are initially-connected.
-
-Мы использовали удобное строковое представление достижимых ДКА, предложенное
-в~\cite{AMR}, для порождения всех таких автоматов на двух буквах до 9 состояний
-включительно. Всякий достижимый автомат был проверен на синхронизируемость, а
-затем, вычислялась его граница синхронизации. В ходе проверок использовались
-стандартные алгоритмы(смотрите~\cite{Sa05,Vo08}) реализованные на C.
-
-%We used a convenient string representation of initially-connected DFA (ICDFA)
-%developed in~\cite{AMR} to generate all such DFA with up to 9 states and 2 input
-%letters. Each ICDFA was tested for synchronizability and then for each \san\
-%its reset length was calculated. For these tasks, we implemented standard
-%algorithms (see~\cite{Sa05,Vo08}) in C.
-
-Основной трудностью таких вычислительных экспериментов является то, что количество
-автоматов очень быстро растет с ростом числа состояний в них. Например, для 9 состояний
-и всего двух входных букв существует уже более 700 миллионов достижимых автоматов.
-Однако, наша вычислительная задача может быть легко распараллелена. А именно,
-один узел порождал и распределял небольшие подмножества всех достижимых автоматов, а остальные
-узлы проводили вычисления на получаемых подмножествах. Для реализации данного процесса
-мы использовали известную библиотеку MPI. Вычисления, организованные указанным способом,
-заняли меньше суток на довольно скромном кластере.
-
-
-%The main difficulty that had to be overcome is that the number of ICDFA dramatically
-%grows with the number of states. (For 9 states, there are about 700 billions
-%ICDFA with 2 input letters.) The problem, however, can be efficiently parallelized.
-%For this, a dedicated processor was programmed to generate ICDFA in portions (slices
-%in terminology of~\cite{AMR}) that were fed to other processors for synchronization
-%tests etc. The management program was written in C with MPI. Calculations organized
-%this way took less than a day of running a small size computer grid based on a number
-%of AMD Opteron 2.6 GHz processors.
-
-Все найденные медленно-синхронизируемые автоматы были перепроверены с помощью
-пакета TESTAS, разработанного Трахтманом~\cite{Tr06}.
-
-
-%All slowly synchronizing automata that we found were double-checked by running on
-%them the package TESTAS developed by Trahtman~\cite{Tr06}.
-
-СТАТИСТИЧЕСКИЕ РЕЗУЛЬТАТЫ?
-
-%Our experiments have also produced some interesting statistical results that will
-%be discussed elsewhere.
 
 \begin{thebibliography}{99}
 \bibitem{AGW}
@@ -1763,13 +1777,17 @@ automata representation. Theor.\ Comput.\ Sci. 387, 93--102 (2007)
 
 \bibitem{AGV10}
 Ananichev, D.S., Gusev, V.V., Volkov, M.V.: Slowly synchronizing automata and
-digraphs. In P.~Hlin\v{en}\'y and A.~Ku\v{c}era (eds.), Mathematical
-Foundations of Computer Science, volume 6281 of {\em Lecture Notes in Comput.
-Sci.}, pages 55--64. Springer-Verlag, 2010.
+digraphs. In: Hlin\v{en}\'y, P.; Ku\v{c}era, A. (eds.). Mathematical
+Foundations of Computer Science. Lect.\ Notes Comput.\ Sci., vol.\,6281,
+pp.\,55--64. Springer, Berlin-Heidelberg (2010)
 
 \bibitem{AVZ}
 Ananichev, D.S., Volkov, M.V., Zaks, Yu.I.: Synchronizing automata
 with a letter of deficiency 2. Theor.\ Comput.\ Sci. 376, 30--41 (2007)
+
+\bibitem{Be11}
+Berlinkov, M.: On a conjecture by Carpi and D'Alessandro. Int.\ J. Foundations
+Comp.\ Sci. 22, 1565--1576 (2011)
 
 \bibitem{Br}
 Brualdi R., Ryser H.: Combinatorial Matrix Theory. Cambridge University Press (1991).
@@ -1786,11 +1804,6 @@ Can.\ Math.\ Bull. 5, 241--244 (1962)
 \bibitem{DM64}
 Dulmage, A.L., Mendelsohn, N.S.: Gaps in the exponent set of primitive
 matrices. Ill.\ J. Math. 8, 642--656 (1964)
-
-\bibitem{Hi88}
-Higgins, P.M.: The range order of a product of $i$ transformations
-from a finite full transformation semigroup, Semigroup Forum 37, 31--36
-(1988)
 
 \bibitem{Ka01}
 Kari, J.: A counter example to a conjecture concerning synchronizing words in
@@ -1810,22 +1823,22 @@ Ram\'{\i}rez Alfons\'{\i}n, J.L.: The diophantine Frobenius problem.
 Oxford University Press (2005)
 
 \bibitem{Sa05}
-Sandberg, S.: Homing and synchronizing sequences. In: Broy, M.
-et~al. (eds.), Model-Based Testing of Reactive Systems. Lect.\
-Notes Comput.\ Sci., vol.\,3472, pp.\,5--33. Springer, Heidelberg
-(2005)
+Sandberg, S.: Homing and synchronizing sequences. In: Broy, M. et~al. (eds.),
+Model-Based Testing of Reactive Systems. Lect.\ Notes Comput.\ Sci.,
+vol.\,3472, pp.\,5--33. Springer, Berlin-Heidelberg (2005)
 
-\bibitem{SZ}
-Skvortsov E., Zaks Yu.: Synchronizing random automata. Submitted;
-proceedings version in: Rigo, M. (ed.), AutoMathA 2009, Universit\'e
-de Li\`ege (2009)
+\bibitem{ST11}
+Skvortsov, E., Tipikin, E.: Experimental study of the shortest reset word of
+random automata. In: Bouchou-Markoff, B.;  Carron, P.;Champarnaud,  J.-M.;
+Maurel, D. (eds.). Proc. 16th Int. Conf. on Implementation and Application  of
+Automata. Lect.\ Notes Comput.\ Sci.,  vol.\,6807, pp.\,290--298. Springer,
+Berlin-Heidelberg (2011)
 
 \bibitem{Tr06}
-Trahtman, A.N.: An efficient algorithm finds noticeable trends
-and examples concerning the \v{C}ern\'y conjecture. In:
-Kr\'alovi\v{c}, R.; Urzyczyn, P. (eds.), Mathematical Foundations
-of Computer Science. Lect.\ Notes Comput.\ Sci., vol.\,4162, pp.\,789--800
-Springer, Heidelberg (2006)
+Trahtman, A.N.: An efficient algorithm finds noticeable trends and examples
+concerning the \v{C}ern\'y conjecture. In: Kr\'alovi\v{c}, R.; Urzyczyn, P.
+(eds.), Mathematical Foundations of Computer Science. Lect.\ Notes Comput.\
+Sci., vol.\,4162, pp.\,789--800 Springer, Berlin-Heidelberg (2006)
 
 \bibitem{Tr06a}
 Trahtman, A.N.: Notable trends concerning the synchronization
@@ -1840,10 +1853,10 @@ Trahtman A.N.: Modifying the Upper bound on the length of minimal synchronizing
 word. Lect. Notes in Comp. Sci, 173--180, 6914 (2011)
 
 \bibitem{Vo08}
-Volkov, M.V.: Synchronizing automata and the \v{C}ern\'{y}
-conjecture. In: Mart\'\i{}n-Vide, C.; Otto, F.; Fernau, H. (eds.),
-Languages and Automata: Theory and Applications. Lect.\ Notes
-Comput.\ Sci., vol.\,5196, pp.\,11--27.  Springer, Heidelberg (2008)
+Volkov, M.V.: Synchronizing automata and the \v{C}ern\'{y} conjecture. In:
+Mart\'\i{}n-Vide, C.; Otto, F.; Fernau, H. (eds.), Languages and Automata:
+Theory and Applications. Lect.\ Notes Comput.\ Sci., vol.\,5196, pp.\,11--27.
+Springer, Berlin-Heidelberg (2008)
 
 \bibitem{Wi50}
 Wielandt, H.: Unzerlegbare, nicht negative Matrizen. Math.\ Z.
