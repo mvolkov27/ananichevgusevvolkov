@@ -28,7 +28,7 @@
 
 \newtheorem{theorem}{Теорема}
 \newtheorem{cor}{Следствие}
-\newtheorem{prop}{Предложение}[section]
+\newtheorem{prop}{Предложение}
 \newtheorem{lemma}[prop]{Лемма}
 
 \renewenvironment{proof}{\trivlist\item[\hskip\labelsep{\bf
@@ -268,9 +268,9 @@ $n$-автоматов с двумя входными буквами следующим образом. Для вычислений
 библиотека MPI. Проверка каждого автомата на синхронизируемость и вычисление
 порога синхронизации производились с помощью стандартных алгоритмов
 (см.~\cite{Sa05,Vo08}). Оба этих алгоритма были реализованы на C. Отметим, что
-алгоритм проверки синхронизируемости очень быстр, так как работает с графом пар
-состояний, в то время как алгоритм вычисления порога синхронизации работает с
-графом непустых подмножеств состояний и в наихудшем случае время его работы
+алгоритм проверки синхронизируемости очень быстр, так как работает с орграфом
+пар состояний, в то время как алгоритм вычисления порога синхронизации работает
+с орграфом непустых подмножеств состояний и в наихудшем случае время его работы
 экспоненциально зависит от размера исходного автомата\footnote{Известно
 (см.~\cite[теорема~4]{OU10}), что задача вычисления порога синхронизации
 данного автомата полна для класса сложности $\mathsf{FP}^\mathsf{NP[log]}$ --
@@ -315,114 +315,50 @@ $n=9$. Количество автоматов в ней указано с точностью до изоморфизма.
 Понятно, что единственный автомат в столбце, отвечающем $N=64$, -- это
 9-автомат из серии Черни. Далее наблюдается разрыв: 9-автоматов с двумя
 входными буквами и значением порога синхронизации от 59 до 63 не существует.
-Этот разрыв уже упоминался в~\cite{Tr06,Tr06a}, где отмечено, что при
-$n=7,8,9,10$ эксперименты не обнаруживают ни одного $n$-автомата с двумя
-входными буквами, порог синхронизации которого был бы больше $n^2-3n+4$, но
-меньше $n^2-2n-1$. За разрывом следует небольшой <<остров>> из 6 автоматов, за
-которым снова наблюдается разрыв. Этот второй разрыв, насколько нам известно,
-ранее не отмечался в литературе.
+Данный разрыв уже упоминался в работах Трахтмана~\cite{Tr06,Tr06a}, где
+отмечено, что при $n=7,8,9,10$ эксперименты не обнаружили ни одного
+$n$-автомата с двумя входными буквами, порог синхронизации которого был бы
+больше $n^2-3n+4$, но меньше $n^2-2n-1$. За разрывом следует <<остров>> из трех
+значений, достигаемых на 6 автоматах, а за этим <<островом>> снова наблюдается
+разрыв. Этот второй разрыв, насколько нам известно, ранее не отмечался в
+литературе.
 
-Описанное только что поведение 
+Описанное только что поведение исследуемой величины -- одинокое экстремальное
+значение, за которым следуют разрыв, небольшой <<остров>> и еще один разрыв --
+сходно с поведением количества примитивных орграфов с фиксированным числом
+вершин как функции от значения экспоненты. В следующем параграфе мы обсудим это
+сходство подробнее, а в \S4 дадим его частичное объяснение.
 
+\section*{{\centerline{\large\bf \S3. Примитивные орграфы и их экспоненты}}}
 
+\emph{Ориентированным графом} (орграфом) мы называем пару $D=\langle
+V,E\rangle$, где $V$ --  конечное множество и $E\subseteq V\times V$. Элементы
+множеств $V$ и $E$ будем называть \emph{вершинами} и \emph{дугами}. Отметим,
+что наше определение допускает петли, но исключает кратные дуги. Если $v,v'\in
+V$ и $e=(v,v')\in E$, то дуга $e$ называется \emph{исходящей} из $v$. Мы
+предполагаем, что читатель знаком с основными понятиями теории орграфов, такими
+как маршрут (ориентированный путь), контур (ориентированный цикл), изоморфизм
+и~т.\,д.
 
-\section{Предварительные сведения}
-\label{preliminaries}
-
-Мы начнем с напоминания двух хорошо изветстных теоретико-числовых результатов.
-
-%We start with recalling two elementary and well-known number-theoretic results.
-
-\begin{lemma}[{\mdseries\cite[Теорема 1.0.1]{RaAl05}}]
-\label{schur}
-Пусть $k_1,\dots,k_m$ -- некоторый набор натуральных чисел, чей наибольший общий
-делитель равен еденице. Тогда найдется натуральное число $N$ такое, что всякое число
-превосходящее $N$ представимо в виде целой неотрицательной линейной комбинации
-$k_1,\dots,k_m$.
-\end{lemma}
-
-%\begin{lemma}[{\mdseries\cite[Theorem 1.0.1]{RaAl05}}]
-%\label{schur}
-%If $k_1,\dots,k_m$ are positive integers whose greatest common divisor is equal
-%to\/ $1$, then there exists an integer $N$ such that every integer larger than $N$
-%is expressible as a non-negative integer combination of $k_1,\dots,k_m$.
-%\end{lemma}
-
-Вопрос о том, как зависит наименьшее возможное $N$ удовлетворяющее свойтству из леммы~\ref{schur}
-от набора чисел $k_1,\dots,k_m$ известен как \emph{диофантова проблема Фробениуса},
-и в общем случае, крайне нетривиален, смотрите~\cite{RaAl05}. Однако, если набор состоит
-лишь из пары чисел, то ответ на него не представляет большого труда. Мы будем активно использовать
-следующее утверждение в разделе~\ref{sss}.
-
-
-%The question of how the least $N$ with the property stated in Lemma~\ref{schur}
-%depends on the integers $k_1,\dots,k_m$ is known as the \emph{diophantine Frobenius
-%problem} and in general is highly non-trivial, see~\cite{RaAl05}. There is, however,
-%a simple special case which we will need in Section~\ref{sss}.
-
-\begin{lemma}[{\mdseries\cite[Теорема 2.1.1]{RaAl05}}]
-\label{sylvester}
-Для всякой пары $k_1,k_2$ взаимнопростых натуральных чисел $k_1k_2-k_1-k_2$ является
-наибольшим числом не представимым в виде целой неотрицательной линейной комбинации
-чисел $k_1$ и $k_2$.
-\end{lemma}
-
-%\begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RaAl05}}]
-%\label{sylvester}
-%If $k_1,k_2$ are relatively prime positive integers, then $k_1k_2-k_1-k_2$ is
-%the largest integer that is not expressible as a non-negative integer combination
-%of $k_1$ and $k_2$.
-%\end{lemma}
-
-
-\emph{Ориентированным графом} (орграфом) называется пара $D=\langle V,E\rangle$,
-где $V$ некоторое конечное множество и $E\subseteq V\times V$.
-Элементы множеств $V$ и $E$ мы будем называть \emph{вершинами} и \emph{дугами}.
-Отметим, что наше определение допускает петли, но исключает возможность появления
-кратных дуг. Если $v,v'\in V$ и $e=(v,v')\in E$, то дуга $e$ называется
-\emph{исходящей} из $v$. Мы предполагаем, что читатель знаком с основными понятиями
-теории графов, такими как маршрут,
-путь, контур, изоморфизм, и так далее.
-
-
-%A \emph{directed graph} (digraph) is a pair $D=\langle V,E\rangle$ where $V$ is
-%a finite set and $E\subseteq V\times V$. We refer to elements of $V$ and $E$ as
-%\emph{vertices} and \emph{edges}. Observe that our definition allows loops but
-%excludes multiple edges. If $v,v'\in V$ and $e=(v,v')\in E$, the edge $e$ is said
-%to be \emph{outgoing} for $v$. We assume the reader's acquaintance with basic
-%notions of the theory of directed graphs such as (directed) path,
-%cycle, isomorphism etc.
-
-Рассмотрим некоторый ДКА $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$.
-\emph{Орграфом} $D(\mathrsfs{A})$ автомата $\mathrsfs{A}$ будем
-называть орграф со множеством вершин $Q$, а пара $(q,q')\in Q\times Q$ будет
-дугой лишь в том случае, когда $q'=\delta(q,a)$ для некоторой буквы $a\in\Sigma$.
-Легко видеть, что всякий орграф $D$ изоморфен орграфу некторого ДКА тогда и только тогда,
-когда любая вершина $D$ имеет хотя бы одну исходящую дугу. В дальнейшем, мы будем
-рассматривать орграфы, удовлетворяющие данному свойству.
-Всякий ДКА $\mathrsfs{A}$ со свойством $D\cong D(\mathrsfs{A})$ называется
-\emph{раскраской} орграфа $D$. Всякая раскраска $D$ может быть получена
-присваиванием каждой дуге метки, в виде непустого множества цветов из некоторого алфавита $\Sigma$ так,
-что метки исходящих дуг для всякой вершины $D$ образуют разбиение $\Sigma$. На рис.\,\ref{fig:cerny}
-изображен орграф и две его раскраски при $\Sigma=\{a,b\}$.
-
-
-%Given a DFA $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$, its \emph{underlying
-%digraph} $D(\mathrsfs{A})$ has $Q$ as the vertex set and $(q,q')\in Q\times Q$ is
-%an edge of $D(\mathrsfs{A})$ if and only if $q'=\delta(q,a)$ for some $a\in\Sigma$.
-%It is easy to see that a digraph $D$ is isomorphic to the underlying digraph of some
-%DFA if and only if each vertex of $D$ has at least one outgoing edge. In the sequel,
-%we always consider only digraphs satisfying this property. Every DFA $\mathrsfs{A}$
-%such that $D\cong D(\mathrsfs{A})$ is called a \emph{coloring} of $D$. Thus, every
-%coloring of $D$ is defined by assigning non-empty sets of labels (colors) from some
-%alphabet $\Sigma$ to edges of $D$ such that the label sets assigned to the outgoing
-%edges of each vertex form a partition of $\Sigma$. Fig.\,\ref{fig:cerny} shows a
-%digraph and two of its colorings by $\Sigma=\{a,b\}$.
+\emph{Орграфом} автомата $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$ будем
+называть орграф $D(\mathrsfs{A})$ со множеством вершин $Q$, в котором дугами
+служат все такие пары $(q,q')\in Q\times Q$, что $q'=\delta(q,a)$ для некоторой
+буквы $a\in\Sigma$. Легко видеть, что орграф $D$ изоморфен орграфу некоторого
+автомата тогда и только тогда, когда любая вершина $D$ имеет хотя бы одну
+исходящую дугу. В дальнейшем мы всегда будем предполагать, что рассматриваемые
+орграфы удовлетворяют этому условию. Если $D$ -- орграф, то его
+\emph{раскраской} называется всякий автомат $\mathrsfs{A}$ со свойством $D\cong
+D(\mathrsfs{A})$. Любая раскраска орграфа $D=\langle V,E\rangle$ получается,
+если зафиксировать некоторый конечный алфавит $\Sigma$ и приписать каждой дуге
+из $E$ непустое множество букв из $\Sigma$ так, чтобы для каждой вершины $v\in
+V$ множества, приписанные исходящим из $v$ дугам, составляли разбиение алфавита
+$\Sigma$. На рис.\,\ref{fig:cerny} изображен орграф и две его раскраски при
+помощи алфавита $\Sigma=\{a,b\}$.
 
 \begin{figure}[ht]
  \begin{center}
   \unitlength=2.8pt
-    \begin{picture}(18,30)(-60,-4)
+    \begin{picture}(18,30)(-65,-4)
     \gasset{Nw=6,Nh=6,Nmr=3}
     \node(A1)(0,18){$1$}
     \node(A2)(18,18){$2$}
@@ -450,7 +386,7 @@ $k_1,\dots,k_m$.
     \drawedge(A3,A4){$b$}
     \drawedge(A4,A1){$a,b$}
     \end{picture}
- \begin{picture}(18,30)(60,-4)
+ \begin{picture}(18,30)(65,-4)
     \gasset{Nw=6,Nh=6,Nmr=3}
     \node(A1)(0,18){$1$}
     \node(A2)(18,18){$2$}
@@ -470,53 +406,76 @@ $k_1,\dots,k_m$.
 \end{figure}
 
 
-Под \emph{матрицей} орграфа $D=\langle V,E\rangle$ мы понимаем матрицу
-смежности орграфа, то есть, матрицу размера $V\times V$, и элемент в строке
-$v$ и колонке $v'$ равен 1 лишь в случае $(v,v')\in E$, иначе он равен 0.
-Например, матрица орграфа на рис.~1, в соответствии с указанной нумерацией
-вершин равна $\left(\begin{smallmatrix}1&1&0&0\\
+Под \emph{матрицей} орграфа $D=\langle V,E\rangle$ мы понимаем его матрицу
+смежности, т.\,е.\ $V\times V$-матрицу размера, в которой элемент в строке $v$
+и столбце $v'$ равен 1, если $(v,v')\in E$, и равен 0 в противном случае.
+Например, матрица орграфа, изображенного на рис.~\ref{fig:cerny}1, в
+соответствии с указанной нумерацией вершин равна $\left(\begin{smallmatrix}1&1&0&0\\
 0&1&1&0\\ 0&0&1&1\\ 1&0&0&0 \end{smallmatrix}\right)$. Обратно, если дана
 $n\times n$-матрица $P=(p_{ij})$ с неотрицательными действительными элементами,
-то можно поставить ей в соответсвие орграф $D(P)$ на множестве $\{1,2,\dots,n\}$
-следующим образом: $(i,j)$ будет дугой в $D(P)$ лишь в случае $p_{ij}>0$.
-Указанные соответствия между матрицами и орграфами позволяют сформулировать на
-языке орграфов несколько важных понятий и результатов, которые изначально
-были получены в классической теории неотрицательных матриц Перрона--Фробениуса.
+то можно поставить ей в соответствие орграф $D(P)$ на множестве
+$\{1,2,\dots,n\}$ следующим образом: $(i,j)$ будет дугой в $D(P)$, если и
+только если $p_{ij}>0$. Указанные соответствия между матрицами и орграфами
+позволяют сформулировать на языке орграфов несколько важных понятий и
+результатов, которые возникли в классической теории неотрицательных матриц
+Перрона--Фробениуса.
 
 
-%The \emph{matrix} of a digraph $D=\langle V,E\rangle$ is just the incidence
-%matrix of the edge relation, that is, a $V\times V$-matrix whose entry in
-%the row $v$ and the column $v'$ is 1 if $(v,v')\in E$ and 0 otherwise. For
-%instance, the matrix of the digraph in Fig.~1 (with respect to the chosen
-%numbering of its vertices) is $\left(\begin{smallmatrix}1&1&0&0\\
-%0&1&1&0\\ 0&0&1&1\\ 1&0&0&0 \end{smallmatrix}\right)$. Conversely, given
-%an $n\times n$-matrix $P=(p_{ij})$ with non-negative real entries, we assign
-%to it a digraph $D(P)$ on the set $\{1,2,\dots,n\}$ as follows: $(i,j)$ is an
-%edge of $D(P)$ if and only if $p_{ij}>0$. This ``two-way'' correspondence
-%allows us to formulate in terms of digraphs several important for the sequel
-%notions and results which originated in the classical Perron--Frobenius theory
-%of non-negative matrices.
+Орграф $D=\langle V,E\rangle$ называется  \emph{сильно связным}, если для
+всякой пары $(v,v')\in V\times V$ найдется маршрут из $v$ в $v'$. Под $t$-й
+\emph{степенью} орграфа $D$ понимается орграф $D^t$ с тем же множеством вершин
+$V$, в котором $(v,v')\in V\times V$ является дугой, если и только если в $D$
+найдется маршрут из $v$ в $v'$ длины в точности $t$. Нетрудно видеть, что если
+$M$ -- это матрица орграфа $D$, то орграф $D^t$ изоморфен орграфу $D(M^t)$, где
+$M^t$ есть обычная $t$-я степень матрицы $M$.
 
-Орграф $D=\langle V,E\rangle$ называется  \emph{сильно-связным},
-если для всякой пары $(v,v')\in V\times V$ найдется маршрут из $v$ в $v'$.
-Под $t$-ой \emph{сепенью} орграфа $D$ мы понимаем орграф $D^t$ с тем
-же множеством вершин $V$, но $(v,v')\in V\times V$ является ребром $D^t$
-лишь в том случае, если найдется маршрут в $D$ из $v$ в $v'$ длины в точности $t$.
-Нетрудно видеть, что если $M$ -- это матрица орграфа $D$, то тогда орграф $D^t$
-изоморфен орграфу $D(M^t)$, где $M^t$ есть обычная $t$-ая степень матрицы $M$.
-
-%Recall that a digraph $D=\langle V,E\rangle$ is said to be \emph{strongly
-%connected} if for every pair $(v,v')\in V\times V$, there exists a path
-%from $v$ to $v'$. By the $t^{th}$ \emph{power}
-%of $D$ we mean the digraph $D^t$ with the same vertex set $V$, such that
-%$(v,v')\in V\times V$ is an edge of $D^t$ if and only if there is a path
-%in $D$ from $v$ to $v'$ of length precisely $t$. If $M$ is the matrix of $D$,
-%then the digraph $D^t$ can be equivalently defined as $D(M^t)$, where
-%$M^t$ is the usual $t^{th}$ power of $M$.
-
-Сильно-связный орграф $D$ называется \emph{примитивным} если наибольший общий
-делитель длин всех циклов в $D$ равен~1. (В литературе такие орграфы также
+Сильно связный орграф $D$ называется \emph{примитивным} если наибольший общий
+делитель длин всех контуров в $D$ равен~1. (В литературе такие орграфы также
 иногда называют \emph{апериодичными}.)
+
+
+\begin{lemma}[{\mdseries\cite[Теорема 1.0.1]{RaAl05}}]
+\label{schur} Пусть $k_1,\dots,k_m$ -- некоторый набор натуральных чисел, чей
+наибольший общий делитель равен еденице. Тогда найдется натуральное число $N$
+такое, что всякое число превосходящее $N$ представимо в виде целой
+неотрицательной линейной комбинации $k_1,\dots,k_m$.
+\end{lemma}
+
+%\begin{lemma}[{\mdseries\cite[Theorem 1.0.1]{RaAl05}}]
+%\label{schur}
+%If $k_1,\dots,k_m$ are positive integers whose greatest common divisor is equal
+%to\/ $1$, then there exists an integer $N$ such that every integer larger than $N$
+%is expressible as a non-negative integer combination of $k_1,\dots,k_m$.
+%\end{lemma}
+
+Вопрос о том, как зависит наименьшее возможное $N$ удовлетворяющее свойтству из
+леммы~\ref{schur} от набора чисел $k_1,\dots,k_m$ известен как \emph{диофантова
+проблема Фробениуса}, и в общем случае, крайне нетривиален,
+смотрите~\cite{RaAl05}. Однако, если набор состоит лишь из пары чисел, то ответ
+на него не представляет большого труда. Мы будем активно использовать следующее
+утверждение в разделе~\ref{sss}.
+
+
+%The question of how the least $N$ with the property stated in Lemma~\ref{schur}
+%depends on the integers $k_1,\dots,k_m$ is known as the \emph{diophantine Frobenius
+%problem} and in general is highly non-trivial, see~\cite{RaAl05}. There is, however,
+%a simple special case which we will need in Section~\ref{sss}.
+
+\begin{lemma}[{\mdseries\cite[Теорема 2.1.1]{RaAl05}}]
+\label{sylvester} Для всякой пары $k_1,k_2$ взаимнопростых натуральных чисел
+$k_1k_2-k_1-k_2$ является наибольшим числом не представимым в виде целой
+неотрицательной линейной комбинации чисел $k_1$ и $k_2$.
+\end{lemma}
+
+%\begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RaAl05}}]
+%\label{sylvester}
+%If $k_1,k_2$ are relatively prime positive integers, then $k_1k_2-k_1-k_2$ is
+%the largest integer that is not expressible as a non-negative integer combination
+%of $k_1$ and $k_2$.
+%\end{lemma}
+
+
+
 Из леммы~\ref{schur} нетрудно заключить следующее: если $D$ -- примитивный
 орграф, то в некоторой его степени $D^t$, произвольная пара вершин представляет
 собой дугу, другими словами, $D^t$ полный орграф с петлями. Последнее эквивалентно тому,
