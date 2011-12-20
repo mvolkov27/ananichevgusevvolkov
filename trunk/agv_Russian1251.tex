@@ -46,8 +46,8 @@
 опубликовано в \cite{AGV10}.}}
 
 \author{Д. С. Ананичев \and М. В. Волков \and В. В. Гусев\thanks{Авторы получали
-поддержку РФФИ по гранту 10-01-793. Третий автор был также поддержан Erasmus
-Mundus Action 2 Partnerships - Triple I.}}
+поддержку РФФИ по гранту 10-01-793. Третий автор был также поддержан программой
+Erasmus Mundus Action 2 Partnerships -- Triple I.}}
 
 \date{}
 
@@ -183,66 +183,123 @@ $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$ называется \emph{достижимым} (из
 $w\in\Sigma^*$ такое, что $q=\delta(q_0,w)$. Автомат, достижимый из каждого
 своего состояния, называется \emph{сильно связным}. В общем случае
 синхронизируемый автомат может не быть достижимым и тем более сильно связным.
+Однако хорошо известно, что в рассмотрениях, связанных с гипотезой Черни, можно
+ограничиться сильно связными автоматами. Дело в том, что если
+$\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$ --  синхронизируемый автомат, а
+$S$ -- множество тех состояний, к которым $\mathrsfs{A}$ можно
+синхронизировать, то $\mathrsfs{S}=\langle S,\Sigma,\delta|_S\rangle$ -- сильно
+связный подавтомат в $\mathrsfs{A}$. Нетрудно проверить (см., например,
+\cite[предложение~2.1]{Vo09}), что для любой функции
+$f:\mathbb{Z}^+\to\mathbb{N}$, удовлетворяющей неравенствам
+$f(n)\ge\frac{n(n-1)}2$ и $f(n)\ge f(n-m+1)+f(m)$ для всех $n$ и $m$ таких, что
+$n\ge m\ge 1$, из того, что порог синхронизации автомата $\mathrsfs{S}$
+ограничен числом $f(|S|)$, вытекает, что порог синхронизации для $\mathrsfs{A}$
+не превосходит числом $f(|Q|)$. В частности, беря в качестве функции $f(n)$
+функцию $(n-1)^2$, можно заключить, что если $\mathrsfs{A}$ -- контрпример к
+гипотезе Черни, то и его сильно связный подавтомат $\mathrsfs{S}$ необходимо
+будет контрпримером. Аналогично, если $\mathrsfs{A}$ -- медленно
+синхронизируемый автомат, т.\,е.\ автомат с порогом синхронизации, близким к
+квадрату числа состояний, то таков и сильно связный автомат $\mathrsfs{S}$.
+Таким образом, ограничивая перебор достижимыми автоматами, мы не рискуем
+пропустить контрпример к гипотезе Черни или какой-нибудь интересный медленно
+синхронизируемый автомат.
 
-Тем не менее, хорошо известно, что при рассмотрении гипотезы Черни мы можем
-ограничиться рассмотрением сильно-связных автоматов, поскольку справедливость в
-данном классе довольно легко влечет справедливость в общем случае~\cite{Pi78}.
-Ясно, что всякий сильно-связный ДКА достижим.
+Опишем теперь строковое представление из~\cite{AMR}. Пусть $\mathrsfs{A} =
+\langle Q, \Sigma, \delta\rangle$ -- автомат, достижимый из состояния $q_0$.
+Зафиксируем некоторый линейный порядок на входном алфавите $\Sigma$ и обойдем
+автомат поиском в ширину из $q_0$, выбирая исходящие переходы в соответствии с
+этим порядком. Присвоим состоянию $q_0$ номер 0, а остальные состояния из $Q$
+пронумеруем в порядке их посещения при указанном обходе. Например, состояния
+автомата на рис.~\ref{fig:AMR} при алфавитном упорядочении входных букв $a<b<c$
+и выборе состояния $A$ в качестве $q_0$ будут пронумерованы так:
+\begin{tabular}{c|c|c|c}
+$A$ & $B$ & $C$ & $D$\\
+\hline 0 & 2 & 1& 3\end{tabular}\,.
+
+\begin{figure}[ht]
+\begin{center}
+\begin{picture}(84,60)(0,-60)
+\gasset{Nw=11.0,Nh=11.0,Nmr=5.5}
+\node[NLangle=0.0,ilength=8.0,Nmarks=i](n1)(23.99,-24.0){$A$}
+\node[NLangle=0.0](n2)(60.49,-24.25){$C$}
+\node[NLangle=0.0](n3)(59.9,-56.18){$D$}
+\node[NLangle=0.0](n6)(25.06,-56.08){$B$} \drawloop(n1){$c$}
+\drawloop[loopangle=0.0](n3){$b$} \drawloop[loopangle=180.0](n6){$c$}
+\drawedge[curvedepth=3.6](n1,n2){$a$} \drawedge[curvedepth=3.6](n2,n1){$c$}
+\drawedge[ELside=r,curvedepth=-3.6](n3,n2){$a$}
+\drawedge[ELside=r,curvedepth=-3.6](n2,n3){$b$}
+\drawedge[ELside=r,curvedepth=-3.6](n6,n1){$b$}
+\drawedge[ELside=r,curvedepth=-3.6](n1,n6){$b$}
+\drawedge[curvedepth=3.6](n6,n3){$a$} \drawedge[curvedepth=3.6](n3,n6){$c$}
+\drawedge(n2,n6){$a$}
+\end{picture}
+\caption{Автомат с канонической строкой
+$[1,2,0,2,3,0,3,0,2,1,3,2]$}\label{fig:AMR}
+\end{center}
+\end{figure}
+
+\noindent Каждому состоянию $q$ автомата $\mathrsfs{A}$ сопоставим строку длины
+$|\Sigma|$, в которой на позиции $i$ стоит порядковый номер того состояния, в
+которое $q$ переходит под действием $i$-й буквы. Соединив все такие строки в
+порядке возрастания номеров состояний, получим строку чисел из множества
+$\{0,1,\dots,|Q|-1\}$, которая имеет длину $|Q||\Sigma|$ и однозначно
+определяет $\mathrsfs{A}$. Мы будем называть ее \emph{канонической строкой}
+автомата $\mathrsfs{A}$. Так, для автомата на рис.~\ref{fig:AMR} каноническая
+строка имеет вид $[1,2,0,2,3,0,3,0,2,1,3,2]$.
+
+Несложно проверить (см.~\cite[теорема~5]{AMR}), что строка
+$[s_0,\dots,s_{nk-1}]$ чисел из множества $\{0,1,\dots,n-1\}$ может быть
+канонической строкой некоторого достижимого $n$-автомата с $k$ входными буквами
+тогда и только тогда, когда она удовлетворяет двум условиям:
+\begin{enumerate}
+\item[(R1)] для каждого $i$ такого, что $s_i>1$, найдется такое $j<i$, что $s_j = s_i-1$,
+\item[(R2)] для каждого $m$ такого, что $1\le m\le n-1$, найдется такое $j<mk$,
+что $s_j=m$.
+\end{enumerate}
+
+Опираясь на это наблюдение, мы вычисляли пороги синхронизации для достижимых
+$n$-автоматов с двумя входными буквами следующим образом. Для вычислений
+использовался 128-ядерный кластер на базе процессоров AMD Opteron с тактовой
+частотой 2.6 ГГц. Кластер, принадлежащий Институту математики и механики УрО
+РАН, работает под управлением ОС Linux, имеет 256 ГБ оперативной памяти и
+пиковую производительность 665.6 Гфлопс. Один узел кластера генерировал
+относительно небольшие порции строк, удовлетворяющих (R1) и (R2),
+восстанавливал из них соответствующие автоматы и раздавал остальным узлам,
+которые обрабатывали полученные порции автоматов параллельно. Для организации
+данного процесса использовалась известная библиотека MPI. Проверка каждого
+автомата на синхронизируемость и вычисление порога синхронизации производились
+с помощью стандартных алгоритмов (см.~\cite{Sa05,Vo08}). Оба этих алгоритма
+были реализованы на C. Отметим, что алгоритм проверки синхронизируемости очень
+быстр, так как работает с графом пар состояний, в то время как алгоритм
+вычисления порога синхронизации работает с графом непустых подмножеств
+состояний, т.\,е.\ в наихудшем случае время его работы экспоненциально зависит
+от размера исходного автомата\footnote{Известно (см.~\cite[теорема~4]{OU10}),
+что задача вычисления порога синхронизации данного автомата полна для класса
+сложности $\mathsf{FP}^\mathsf{NP[log]}$ -- функционального аналога класса
+$\mathsf{P}^\mathsf{NP[log]}$ задач распознавания, разрешимых за полиномиальное
+время на детерминированной машине Тьюринга, которая может логарифмическое от
+размера задачи число раз обращаться за подсказкой к оракулу для
+$\mathsf{NP}$-полной задачи.}. Однако на практике порог синхронизации
+вычисляется довольно быстро, поскольку, как отмечалось в \S1, для подавляющего
+большинства автоматов он мал.
+
+Хотя задание автоматов с помощью канонических строк существенным образом
+сокращает перебор (нетрудно понять, например, что при таком задании каждый
+$n$-автомат с двумя входными буквами порождается не более $2n$ раз), его объем
+все равно остается значительным. Так, при $n=9$ число автоматов, которые
+пришлось проанализировать, составило 705\,068\,085\,303.  Тем не менее,
+благодаря распараллеливанию вычисления при $n=9$ заняли меньше суток.
+Результатом вычислений являлся массив, в котором для каждого встретившегося
+значения порога синхронизации указывалось число автоматов, реализующих это
+значение.
 
 
-%Here we briefly describe the settings of our experiments. Recall that a DFA
-%$\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$ is said to be \emph{initially-connected}
-%if there exists a state $q_0\in Q$ from which every state $q\in Q$ is reachable,
-%that is, $q=\delta(q_0,w)$ for some $w\in\Sigma^*$. In general a \san\ need not
-%be initially-connected. However, it is well known that when studying the \v{C}ern\'{y}
-%conjecture, we may restrict ourselves to DFA whose underlying digraphs are strongly
-%connected because the validity of the conjecture can be easily reduced to this case
-%(see \cite{Pi78} for example). Clearly, DFA with strongly connected underlying digraphs
-%are initially-connected.
 
-Мы использовали удобное строковое представление достижимых ДКА, предложенное
-в~\cite{AMR}, для порождения всех таких автоматов на двух буквах до 9 состояний
-включительно. Всякий достижимый автомат был проверен на синхронизируемость, а
-затем, вычислялась его граница синхронизации. В ходе проверок использовались
-стандартные алгоритмы(смотрите~\cite{Sa05,Vo08}) реализованные на C.
-
-%We used a convenient string representation of initially-connected DFA (ICDFA)
-%developed in~\cite{AMR} to generate all such DFA with up to 9 states and 2 input
-%letters. Each ICDFA was tested for synchronizability and then for each \san\
-%its reset length was calculated. For these tasks, we implemented standard
-%algorithms (see~\cite{Sa05,Vo08}) in C.
-
-Основной трудностью таких вычислительных экспериментов является то, что
-количество автоматов очень быстро растет с ростом числа состояний в них.
-Например, для 9 состояний и всего двух входных букв существует уже более 700
-миллионов достижимых автоматов. Однако, наша вычислительная задача может быть
-легко распараллелена. А именно, один узел порождал и распределял небольшие
-подмножества всех достижимых автоматов, а остальные узлы проводили вычисления
-на получаемых подмножествах. Для реализации данного процесса мы использовали
-известную библиотеку MPI. Вычисления, организованные указанным способом, заняли
-меньше суток на довольно скромном кластере.
-
-
-%The main difficulty that had to be overcome is that the number of ICDFA dramatically
-%grows with the number of states. (For 9 states, there are about 700 billions
-%ICDFA with 2 input letters.) The problem, however, can be efficiently parallelized.
-%For this, a dedicated processor was programmed to generate ICDFA in portions (slices
-%in terminology of~\cite{AMR}) that were fed to other processors for synchronization
-%tests etc. The management program was written in C with MPI. Calculations organized
-%this way took less than a day of running a small size computer grid based on a number
-%of AMD Opteron 2.6 GHz processors.
 
 Все найденные медленно-синхронизируемые автоматы были перепроверены с помощью
 пакета TESTAS, разработанного Трахтманом~\cite{Tr06}.
 
 
-%All slowly synchronizing automata that we found were double-checked by running on
-%them the package TESTAS developed by Trahtman~\cite{Tr06}.
-
-СТАТИСТИЧЕСКИЕ РЕЗУЛЬТАТЫ?
-
-%Our experiments have also produced some interesting statistical results that will
-%be discussed elsewhere.
 
 
 \section{Предварительные сведения}
@@ -1765,32 +1822,28 @@ $v$ синхронизирующее слово для автомата $\mathrsfs{H}_n$.
 \label{conclusion}
 
 
-
 \begin{thebibliography}{99}
 \bibitem{AGW}
-\textsl{R.\,L.\,Adler, L.\,W.\,Goodwyn, B.\,Weiss}, Equivalence of topological Markov shifts,
-Israel J. Math., 27,(1977), 49--63.
+\textsl{R.\,L.\,Adler, L.\,W.\,Goodwyn, B.\,Weiss}, Equivalence of topological
+Markov shifts, Israel J. Math., 27 (1977), 49--63.
 
 \bibitem{AMR}
-\textsl{M.\,Almeida, N.\,Moreira, R.\,Reis}, Enumeration and generation with a string
-automata representation, Theor.\ Comput.\ Sci., 387,(2007), 93--102.
+\textsl{M.\,Almeida, N.\,Moreira, R.\,Reis}, Enumeration and generation with a
+string automata representation, Theor.\ Comput.\ Sci., 387 (2007), 93--102.
 
 \bibitem{AGV10}
-%\textsl{D.\,S.\,Ananichev, V.\,V.\,Gusev, M.\,V.\,Volkov}, Slowly synchronizing automata and
-%digraphs, In: Hlin\v{en}\'y, P.; Ku\v{c}era, A. (eds.). Mathematical
-%Foundations of Computer Science. Lect.\ Notes Comput.\ Sci., vol.\,6281,
-%pp.\,55--64. Springer, Berlin-Heidelberg (2010)
-\textsl{D.\,S.\,Ananichev, V.\,V.\,Gusev, M.\,V.\,Volkov}, Slowly synchronizing automata and
-digraphs, Mathematical Foundations of Computer Science, Lect.\ Notes Comput.\ Sci., 6281, (2010), 55--64.
-
+\textsl{D.\,S.\,Ananichev, V.\,V.\,Gusev, M.\,V.\,Volkov}, Slowly synchronizing
+automata and digraphs, Mathematical Foundations of Computer Science, Lect.\
+Notes Comput.\ Sci., 6281 (2010), 55--64.
 
 \bibitem{AVZ}
-\textsl{D.\,S.\,Ananichev, M.\,V.\,Volkov, Yu.\,I.\,Zaks}, Synchronizing automata
-with a letter of deficiency 2, Theor.\ Comput.\ Sci., 376,(2007), 30--41.
+\textsl{D.\,S.\,Ananichev, M.\,V.\,Volkov, Yu.\,I.\,Zaks}, Synchronizing
+automata with a letter of deficiency 2, Theor.\ Comput.\ Sci., 376 (2007),
+30--41.
 
 \bibitem{Be11}
-\textsl{M.\,Berlinkov}, On a conjecture by Carpi and D'Alessandro, Int.\ J. Foundations
-Comp.\ Sci.,22, (2011), 1565--1576.
+\textsl{M.\,Berlinkov}, On a conjecture by Carpi and D'Alessandro, Int.\ J.
+Foundations Comp.\ Sci., 22 (2011), 1565--1576.
 
 \bibitem{Br}
 \textsl{R.\,Brualdi, H.\,Ryser}, Combinatorial Matrix Theory, Cambridge University Press, 1991.
@@ -1801,78 +1854,68 @@ kone\v{c}n\'{y}mi automatami, Matematicko-fyzikalny \v{C}asopis
 Slovensk.\ Akad.\ Vied, 14, \No3 (1964), 208--216, (in Slovak).
 
 \bibitem{DM62}
-\textsl{A.\,L.\,Dulmage, N.\,S.\,Mendelsohn}, The exponent of a primitive matrix,
-Can.\ Math.\ Bull., 5, (1962), 241--244.
+\textsl{A.\,L.\,Dulmage, N.\,S.\,Mendelsohn}, The exponent of a primitive
+matrix, Can.\ Math.\ Bull., 5 (1962), 241--244.
 
 \bibitem{DM64}
-\textsl{A.\,L.\,Dulmage, N.\,S.\,Mendelsohn}, Gaps in the exponent set of primitive
-matrices, Ill.\ J. Math., 8, (1964), 642--656.
+\textsl{A.\,L.\,Dulmage, N.\,S.\,Mendelsohn}, Gaps in the exponent set of
+primitive matrices, Ill.\ J. Math., 8 (1964), 642--656.
 
 \bibitem{Ka01}
-\textsl{J.\,Kari}, A counter example to a conjecture concerning synchronizing words in
-finite automata, Bull. European Assoc. Theor. Comput. Sci., 73, (2001), 146.
+\textsl{J.\,Kari}, A counter example to a conjecture concerning synchronizing
+words in finite automata, Bull.\ European Assoc.\ Theor.\ Comput.\ Sci., 73
+(2001), 146.
 
-\bibitem{Pi78}
-\textsl{J.-E.\,Pin}, Le probl\`eme de la synchronization et la conjecture de
-\v{C}ern\'y, Th\`ese de 3\`eme cycle, Universit\'e de Paris 6, (1978), (in
-French).
+\bibitem{OU10}
+\textsl{J.\,Olschewski, M.\,Ummels}, The complexity of finding reset words in
+finite automata, Mathematical Foundations of Computer Science, Lect.\ Notes
+Comput.\ Sci., 6281 (2010), 568--579.
 
 \bibitem{Pi83}
 \textsl{J.-E.\,Pin}, On two combinatorial problems arising from automata
-theory, Ann.\ Discrete Math., 17, (1983), 535--548.
+theory, Ann.\ Discrete Math., 17 (1983), 535--548.
 
 \bibitem{RaAl05}
-\textsl{J.L.\,Ram\'{\i}rez Alfons\'{\i}n}, The diophantine Frobenius problem,
+\textsl{J.\,L.\,Ram\'{\i}rez Alfons\'{\i}n}, The diophantine Frobenius problem,
 Oxford University Press, 2005.
 
 \bibitem{Sa05}
-%\textsl{S.\,Sandberg}, Homing and synchronizing sequences, In: Broy, M. et~al. (eds.),
-%Model-Based Testing of Reactive Systems. Lect.\ Notes Comput.\ Sci.,
-%vol.\,3472, pp.\,5--33. Springer, Berlin-Heidelberg (2005).
-\textsl{S.\,Sandberg}, Homing and synchronizing sequences, 
-Model-Based Testing of Reactive Systems, Lect.\ Notes Comput.\ Sci.,
-3472, (2005), 5--33.
+\textsl{S.\,Sandberg}, Homing and synchronizing sequences, Model-Based Testing
+of Reactive Systems, Lect.\ Notes Comput.\ Sci., 3472 (2005), 5--33.
 
 
 \bibitem{ST11}
-%\textsl{E.\,Skvortsov, E.\,Tipikin}, Experimental study of the shortest reset word of
-%random automata, In: Bouchou-Markoff, B.;  Carron, P.;Champarnaud,  J.-M.;
-%Maurel, D. (eds.). Proc. 16th Int. Conf. on Implementation and Application  of
-%Automata. Lect.\ Notes Comput.\ Sci.,  vol.\,6807, pp.\,290--298. Springer,
-%Berlin-Heidelberg (2011)
-\textsl{E.\,Skvortsov, E.\,Tipikin}, Experimental study of the shortest reset word of
-random automata, Proc. 16th Int. Conf. on Implementation and Application  of
-Automata, Lect.\ Notes Comput.\ Sci., 6807, (2011), 290--298.
+\textsl{E.\,Skvortsov, E.\,Tipikin}, Experimental study of the shortest reset
+word of random automata, Implementation and Application  of Automata, Lect.\
+Notes Comput.\ Sci., 6807 (2011), 290--298.
 
 
 \bibitem{Tr06}
-%\textsl{A.\,N.\,Trahtman}, An efficient algorithm finds noticeable trends and examples
-%concerning the \v{C}ern\'y conjecture, In: Kr\'alovi\v{c}, R.; Urzyczyn, P.
-%(eds.), Mathematical Foundations of Computer Science. Lect.\ Notes Comput.\
-%Sci., vol.\,4162, pp.\,789--800 Springer, Berlin-Heidelberg (2006)
-\textsl{A.\,N.\,Trahtman}, An efficient algorithm finds noticeable trends and examples
-concerning the \v{C}ern\'y conjecture, Mathematical Foundations of Computer Science,
-Lect.\ Notes Comput.\ Sci., 4162, (2006), 789--800.
+\textsl{A.\,N.\,Trahtman}, An efficient algorithm finds noticeable trends and
+examples concerning the \v{C}ern\'y conjecture, Mathematical Foundations of
+Computer Science, Lect.\ Notes Comput.\ Sci., 4162 (2006), 789--800.
 
 \bibitem{Tr06a}
-\textsl{A.\,N.\,Trahtman}, Notable trends concerning the synchronization
-of graphs and automata, Electr.\ Notes Discrete Math., 25, (2006), 173--175.
+\textsl{A.\,N.\,Trahtman}, Notable trends concerning the synchronization of
+graphs and automata, Electr.\ Notes Discrete Math., 25 (2006), 173--175.
 
 \bibitem{Tr09}
-\textsl{A.\,N.\,Trahtman}, The Road Coloring Problem, Israel J. Math., 172, (2009), 51--60.
+\textsl{A.\,N.\,Trahtman}, The Road Coloring Problem, Israel J. Math., 172
+(2009), 51--60.
 
 \bibitem{Tr11}
-\textsl{A.\,N.\,Trahtman}, Modifying the Upper bound on the length of minimal synchronizing
-word, Lect. Notes in Comp. Sci, 6914, (2011), 173--180.
+\textsl{A.\,N.\,Trahtman}, Modifying the upper bound on the length of minimal
+synchronizing word,  Fundamentals of Computation Theory, Lect.\ Notes Comput.\
+Sci, 6914 (2011), 173--180.
 
 \bibitem{Vo08}
-%\textsl{M.\,V.\,Volkov}, Synchronizing automata and the \v{C}ern\'{y} conjecture, In:
-%Mart\'\i{}n-Vide, C.; Otto, F.; Fernau, H. (eds.), Languages and Automata:
-%Theory and Applications. Lect.\ Notes Comput.\ Sci., vol.\,5196, pp.\,11--27.
-%Springer, Berlin-Heidelberg (2008)
-\textsl{M.\,V.\,Volkov}, Synchronizing automata and the \v{C}ern\'{y} conjecture, 
-Languages and Automata: Theory and Applications, Lect.\ Notes Comput.\ Sci., 5196, 
-(2008), 11--27.
+\textsl{M.\,V.\,Volkov}, Synchronizing automata and the \v{C}ern\'{y}
+conjecture, Languages and Automata: Theory and Applications, Lect.\ Notes
+Comput.\ Sci., 5196, (2008), 11--27.
+
+\bibitem{Vo09}
+\textsl{M.\,V.\,Volkov}, Synchronizing automata preserving a chain of partial
+orders, Theor.\ Comput.\ Sci., 410 (2009), 3513--3519.
 
 \bibitem{Wi50}
 \textsl{H.\,Wielandt}, Unzerlegbare, nicht negative Matrizen, Math.\ Z.,
