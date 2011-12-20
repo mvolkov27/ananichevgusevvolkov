@@ -1,4 +1,4 @@
-This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  20 DEC 2011 17:01
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  20 DEC 2011 22:23
 **agv_Russian1251.tex
 (./agv_Russian1251.tex
 LaTeX2e <2001/06/01>
@@ -245,46 +245,55 @@ Overfull \hbox (4.51183pt too wide) in paragraph at lines 143--161
 лом со-сто-я-ний как функ-
  []
 
-[2] [3] [4] [5] [6] [7]
-Overfull \hbox (79.08788pt too wide) detected at line 588
-[]  \OML/cmm/m/it/10.95 ; []  ; []  ; []  :
- []
-
-
-Overfull \hbox (74.07256pt too wide) in paragraph at lines 631--646
+[2] [3] [4]
+Overfull \hbox (2.47458pt too wide) in paragraph at lines 302--313
 [][] 
  []
 
+[5] [6] [7]
+Overfull \hbox (79.08788pt too wide) detected at line 602
+[]  \OML/cmm/m/it/10.95 ; []  ; []  ; []  :
+ []
+
 [8]
-Overfull \hbox (9.73012pt too wide) in paragraph at lines 699--699
-[]\T2A/cmr/bx/n/14.4 Некоторые се-рии медленно-синхронизируемых ав-
+Overfull \hbox (74.07256pt too wide) in paragraph at lines 645--660
+[][] 
  []
 
 
-Overfull \hbox (4.3019pt too wide) in paragraph at lines 763--765
+Overfull \hbox (9.73012pt too wide) in paragraph at lines 708--708
+[]\T2A/cmr/bx/n/14.4 Некоторые се-рии медленно-синхронизируемых ав-
+ []
+
+[9]
+Overfull \hbox (4.3019pt too wide) in paragraph at lines 772--774
 []\T2A/cmr/m/n/10.95 Нетрудно про-ве-рить, что сло-во $\OT1/cmr/m/n/10.95 (\OML
 /cmm/m/it/10.95 ab[]\OT1/cmr/m/n/10.95 )[]\OML/cmm/m/it/10.95 a$ \T2A/cmr/m/n/1
 0.95 яв-ля-ет-ся син-
  []
 
-[9] [10] [11] [12] [13] [14]
-Overfull \hbox (11.33142pt too wide) in paragraph at lines 1483--1489
+[10] [11] [12] [13] [14]
+Overfull \hbox (11.33142pt too wide) in paragraph at lines 1492--1498
 []\T2A/cmr/m/n/10.95 Кроме ав-то-ма-тов Чер-ни $\OMS/rsfs/m/n/10.95 C[]$\T2A/cm
 r/m/n/10.95 , един-ствен-ной бес-ко-неч-ной се-ри-ей 2-буквенных
  []
 
-[15] [16] [17] [18] [19] (./agv_Russian1251.aux)
+[15] [16]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[17] [18] [19] [20] (./agv_Russian1251.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 2915 strings out of 50491
- 32592 string characters out of 1189754
- 105933 words of memory out of 1500001
- 5809 multiletter control sequences out of 10000+15000
- 30786 words of font info for 85 fonts, out of 400000 for 1000
+ 2924 strings out of 50491
+ 32691 string characters out of 1189754
+ 105967 words of memory out of 1500001
+ 5816 multiletter control sequences out of 10000+15000
+ 32203 words of font info for 91 fonts, out of 400000 for 1000
  288 hyphenation exceptions out of 1000
  29i,13n,24p,1339b,362s stack positions out of 1500i,500n,1500p,200000b,5000s
 
-Output written on agv_Russian1251.dvi (19 pages, 182348 bytes).
+Output written on agv_Russian1251.dvi (20 pages, 185092 bytes).
