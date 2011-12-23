@@ -1,4 +1,4 @@
-This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  22 DEC 2011 02:14
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  24 DEC 2011 01:05
 **agv_Russian1251.tex
 (./agv_Russian1251.tex
 LaTeX2e <2001/06/01>
@@ -200,7 +200,8 @@ Package babel Info: Making " an active character on input line 188.
 \c@theorem=\count117
 \c@cor=\count118
 \c@prop=\count119
-\c@conjecture=\count120
+\c@lemma=\count120
+\c@conjecture=\count121
 
 (./agv_Russian1251.aux
 LaTeX Font Info:    Try loading font information for T2A+cmr on input line 5.
@@ -239,35 +240,31 @@ LaTeX Font Info:    Try loading font information for OMS+rsfs on input line 54.
 
 (c:/Program Files/TeXLive/texmf/tex/latex/calrsfs/omsrsfs.fd) [1
 
-]
-Overfull \hbox (4.51183pt too wide) in paragraph at lines 143--161
+] [2]
+Overfull \hbox (4.51183pt too wide) in paragraph at lines 143--162
 \T2A/cmr/m/n/10.95 син-хро-ни-зи-ру-е-мых ав-то-ма-тов с фик-си-ро-ван-ным чис-
 лом со-сто-€-ний как функ-
  []
 
-[2] [3] [4]
-Overfull \hbox (2.47458pt too wide) in paragraph at lines 302--313
+[3] [4] [5]
+Overfull \hbox (2.47458pt too wide) in paragraph at lines 306--317
 [][] 
  []
 
-[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
-Overfull \hbox (11.33142pt too wide) in paragraph at lines 1342--1348
+[6] [7] [8] [9] [10] [11] [12] [13] [14]
+Overfull \hbox (11.33142pt too wide) in paragraph at lines 1379--1385
 []\T2A/cmr/m/n/10.95  роме ав-то-ма-тов „ер-ни $\OMS/rsfs/m/n/10.95 C[]$\T2A/cm
 r/m/n/10.95 , един-ствен-ной бес-ко-неч-ной се-ри-ей 2-буквенных
  []
 
-[15] [16]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[17] [18] [19] [20] (./agv_Russian1251.aux) ) 
+[15] [16] [17] [18] [19] [20] (./agv_Russian1251.aux) ) 
 Here is how much of TeX's memory you used:
- 2915 strings out of 50491
- 32583 string characters out of 1189754
- 107042 words of memory out of 1500001
- 5807 multiletter control sequences out of 10000+15000
+ 2921 strings out of 50491
+ 32645 string characters out of 1189754
+ 106154 words of memory out of 1500001
+ 5813 multiletter control sequences out of 10000+15000
  32203 words of font info for 91 fonts, out of 400000 for 1000
  288 hyphenation exceptions out of 1000
  29i,15n,24p,1170b,362s stack positions out of 1500i,500n,1500p,200000b,5000s
 
-Output written on agv_Russian1251.dvi (20 pages, 184420 bytes).
+Output written on agv_Russian1251.dvi (20 pages, 187360 bytes).
