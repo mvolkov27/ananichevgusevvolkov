@@ -290,7 +290,7 @@ $n$-автоматов с двумя входными буквами следующим образом. Для вычислений
 $n$-автомат с двумя входными буквами порождается не более $2n$ раз), его объем
 все равно остается значительным. Так, при $n=9$ число автоматов, которые
 пришлось проанализировать, составило 705\,068\,085\,303.  Тем не менее,
-благодаря распараллеливанию вычисления при $n=9$ заняли меньше суток.
+благодаря распараллеливанию, вычисления при $n=9$ заняли меньше суток.
 
 Результатом вычислений являлся массив, в котором для каждого встретившегося
 значения порога синхронизации указывалось число автоматов, реализующих это
@@ -598,22 +598,56 @@ $n-1-\ell+t+\ell=t+n-1$.
 достаточно для того, чтобы полностью объяснить сходство между строками
 табл.~\ref{9 states}, поскольку далеко не все автоматы, отвечающие ненулевым
 позициям в третьей строке, могут быть получены как раскраски примитивных
-орграфов с~большими экспонентами. В \S4 мы укажем еще один способ получения
-медленно синхронизируемых автоматов из примитивных орграфов, который мы назвали
-распетлением. Раскраска и распетление позволяют объяснить все имеющиеся на
-сегодня экспериментальные результаты.
+орграфов с~большими экспонентами. В \S4 мы укажем ряд новых способов получения
+медленно синхронизируемых автоматов из примитивных орграфов. В совокупности с
+раскраской, эти новые способы позволяют объяснить все имеющиеся на сегодня
+экспериментальные данные о медленно синхронизируемых автоматах.
 
 \section*{{\centerline{\large\bf \S4. Серии медленно синхронизируемых автоматов}}}
 
+\paragraph*{4.1. Обзор.} Обсудим прежде всего, какими именно автоматами мы
+интересуемся, другими словами, какой точный смысл вкладывается в выражения типа
+<<медленно синхронизируемые автоматы>> или <<автоматы, с порогом синхронизации,
+близким к квадрату числа состояний>>. Как отмечалось в \S1, порог синхронизации
+$n$-автомата может достигать $(n-1)^2$ -- соответствующим примером является
+открытый Черни~\cite{Ce64} автомат $\mathrsfs{C}_n=\langle
+Q,\{a,b\},\delta\rangle$, где $Q=\{1,2,\dots,n\}$, а буквы $a$ и $b$ действуют
+следующим образом:
+$$\delta(i,a)=\begin{cases}
+i &\text{если } i<n,\\
+1 &\text{если } i=n;
+\end{cases}\quad
+\delta(i,b)=\begin{cases}
+i+1 &\text{если } i<n,\\
+1 &\text{если } i=n.
+\end{cases}$$
+Автомат $\mathrsfs{C}_n$ изображен на рис.\,\ref{fig:cerny-n} слева. Нетрудно
+понять, что если к автомату $\mathrsfs{C}_{n-1}$ добавить новое состояние
+$q_0$, а затем всевозможными способами доопределять действие букв $a$ и $b$ на
+этом новом состоянии так, чтобы хотя бы одна из них не фиксировала $q_0$, то
+можно получить $n^2-1$ неизоморфных достижимых $n$-автоматов с порогом
+синхронизации от $(n-2)^2$ до $(n-2)^2+1$. Аналогичным образом можно
+<<размножать>> до семейств $n$-автоматов и другие $(n-1)$-автоматы с порогом
+синхронизации, близким к $(n-2)^2$. Поскольку мы хотим избежать рассмотрения
+таких более или менее тривиальных модификаций, наше внимание сосредоточено на
+$n$-автоматах с порогом синхронизации, заключенным в пределах от $(n-2)^2+2$ до
+$(n-1)^2$. (В частности, именно из этих соображений выбирался диапазон значений
+порога синхронизации в табл.~\ref{automata} и~\ref{9 states}.)
+
+
+
 В этом параграфе мы построим несколько серий медленно синхронизируемых
 автоматов, исходя из примитивных орграфов с большими экспонентами,
-представленных в теореме~\ref{dulmage}. Начнем наши построения с орграфа $W_n$,
-соответствующего первой матрице в~\eqref{wielandt}. Орграф $W_n$ имеет $n$
-вершин, которые мы обозначим $1,2,\dots,n$, а также $n+1$ дугу: $(i,i+1)$ для
-$i=1,\dots,n-1$, $(n,1)$ и $(n,2)$. Нетрудно видеть, что с точностью до
-изоморфизма и переименования цветов существует единственная раскраска орграфа
-$W_n$ в два цвета. Обозначим соответствующий автомат через $\mathrsfs{W}_n$.
-Орграф $W_n$ и автомат $\mathrsfs{W}_n$ изображены на рис.\,\ref{fig:anan}.
+представленных в теореме~\ref{dulmage}.
+
+
+Начнем наши построения с орграфа $W_n$, соответствующего первой матрице
+в~\eqref{wielandt}. Орграф $W_n$ имеет $n$ вершин, которые мы обозначим
+$1,2,\dots,n$, а также $n+1$ дугу: $(i,i+1)$ для $i=1,\dots,n-1$, $(n,1)$ и
+$(n,2)$. Нетрудно видеть, что с точностью до изоморфизма и переименования
+цветов существует единственная раскраска орграфа $W_n$ в два цвета. Обозначим
+соответствующий автомат через $\mathrsfs{W}_n$. Орграф $W_n$ и автомат
+$\mathrsfs{W}_n$ изображены на рис.\,\ref{fig:anan}.
 
 \begin{figure}[ht]
 \begin{center}
@@ -649,136 +683,17 @@ $W_n$ в два цвета. Обозначим соответствующий автомат через $\mathrsfs{W}_n$.
 
 \begin{proof}
 Нетрудно проверить, что слово $(ab^{n-2})^{n-2}a$ синхронизирует автомат
-$\mathrsfs{W}_n$. Длина этого слова равна $(n-1)(n-2)+1=n^2-3n+3$.
-
-
-
-В этом и последующих доказательствах будет полезен следующий элементарный
-результат.
-\begin{lemma}[\!\!{\mdseries\cite[Теорема 2.1.1]{RaAl05}}]
-\label{sylvester} Если натуральные числа $k$ и $\ell$ взаимно просты, то
-наименьшее число, начиная с которого все натуральные числа представимы в виде
-линейных комбинаций чисел $k$ и $\ell$ c целыми неотрицательными
-коэффициентами, равно $(k-1)(\ell-1)$.
-\end{lemma}
-
-
-
-Пусть теперь $w$ -- синхронизирующее слово для $\mathrsfs{W}_n$ наименьшей
-возможной длины $|w|$. Обозначим через $j\in Q=\{1,2,\dots,n\}$ то состояние, в
-которое $w$ приводит автомат $\mathrsfs{W}_n$. Иными словами, из всякого
-состояния в $Q$, маршрут помеченный $w$ ведет в $j$. Заметим, что при всех
-$j\ne 2$ маршруты ведущие в $j$ имеют общую дугу в конце. Поэтому, если $j\ne
-2$, то удалив последнюю букву $w$ мы также получим синхронизирующее слово для
-$\mathrsfs{W}_n$. Таким образом, $j=2$, поскольку длина $w$ минимиальна.
-
-
-%Now let $w$ be a \sw\ for $\mathrsfs{W}_n$ and assume that the length
-%of $w$ (denoted $|w|$) is minimal. Let $j\in Q=\{1,2,\dots,n\}$ be the
-%state to which the action of $w$ brings $\mathrsfs{W}_n$. Then from
-%every state in $Q$ there is a path to $j$ labelled $w$. It is clear
-%that for each $j\ne 2$ all paths ending at $j$ share the last edge.
-%Therefore, if $j\ne 2$, removing the last letter from the word $w$
-%produces a word that still would be a \sw\ for $\mathrsfs{W}_n$.
-%We conclude that $j=2$ because $|w|$ is minimal.
-
-Если $u\in\{a,b\}^*$, то слово $uw$ будет также синхронизирующим словом,
-которое приводит автомат в состояние~2. Поэтому, для всякого $\ell\ge|w|$,
-найдется маршрут длины $\ell$ в $W_n$ из любой вершины $i$ в~2. В частности,
-полагая $i=2$, мы можем заключить, что для всякого $\ell\ge|w|$ найдется
-замкнутый маршрут длины $\ell$ в $W_n$. Заметим, что орграф $W_n$ обладает лишь
-двумя простыми контурами: один из них имеет длину $n$, а другой $n-1$. Ясно, что всякий
-замкнутый маршрут в $W_n$ должен состоять
-из этих двух простых контуров, пройденных несколько раз.
-Таким образом, всякое число $\ell\ge|w|$ может быть представлено в виде неотрицательной
-целой линейной комбинации $n$ и $n-1$. Лемма~\ref{sylvester} немедленно влечет, что
-$|w|>n(n-1)-n-(n-1)=n^2-3n+1$. Предположим, что $|w|=n^2-3n+2$.
-Тогда должен существовать маршрут указанной длины из вершины~1 в вершину~2.
-Но единственной исходящей дугой из~1 является $(1,2)$, поэтому, после данной дуги
-должен идти замкнутый маршрут длины $n^2-3n+1$. Но по лемме~\ref{sylvester}
-замкнутого маршрута указанной длины существовать не может.
-Отсюда мы получаем, что $|w|\ge n^2-3n+3$.
-
-
-%If $u\in\{a,b\}^*$, the word $uw$ also is a reset word and it also
-%brings the automaton to the state~2. Hence, for every $\ell\ge|w|$,
-%there is a path of length $\ell$ in $W_n$ from any given vertex $i$
-%to~2. In particular, setting $i=2$, we conclude that for every
-%$\ell\ge|w|$ there is a cycle of length $\ell$ in $W_n$. The digraph
-%$W_n$ has only two simple cycles: one of length $n$ and one of length $n-1$.
-%Each cycle of $W_n$ must consist of these two cycles traversed several times
-%whence each number $\ell\ge|w|$ must be expressible as a non-negative integer
-%combination of $n$ and $n-1$. Here we invoke Lemma~\ref{sylvester} which
-%implies that $|w|>n(n-1)-n-(n-1)=n^2-3n+1$. Suppose that $|w|=n^2-3n+2$.
-%Then there should be a path of this length from the vertex~1 to the vertex~2.
-%The only outgoing edge of~1 is $(1,2)$, and thus, in the path it must be
-%followed by a cycle of length $n^2-3n+1$. No cycle of such length may
-%exist by  Lemma~\ref{sylvester}. Hence $|w|\ge n^2-3n+3$.
+$\mathrsfs{W}_n$. Длина этого слова равна $(n-1)(n-2)+1=n^2-3n+3$. С другой
+стороны, из теоремы~\ref{dulmage}(b) и предложения~\ref{lower bound} вытекает,
+что порог синхронизации для $\mathrsfs{W}_n$ не может быть меньше чем
+$((n-1)^2+1)-(n-1)=n^2-3n+3$.
 \end{proof}
 
-Серия $\mathrsfs{W}_n$ была обнаружена Ананичевым в 2008 году(неопубликовано).
-Доказательство теоремы~\ref{theorem:anan}, данное им, было довольно сложным и
-использовало технику, разработанную в~\cite{AVZ}.
-
-
-%The series $\mathrsfs{W}_n$ was discovered by the first author in 2008
-%(unpublished). His rather involved proof of Theorem~\ref{theorem:anan}
-%used a technique developed in~\cite{AVZ}.
-
-Как уже упоминалось в \S3, из результатов Трахтмана~\cite{Tr09} следует, что
-всякий примитивный орграф имеет синхронизируемую раскраску. Это дает основания
-для следующего, довольно естественного вопроса: дан примитивный орграф на $n$
-вершинах, какова минимальная длина синхронизирующих слов для всех его
-синхронизируемых раскрасок? Заметим, что порожденные орграфы
-медленно-синхронизируемых автоматов могут обладать раскрасками с маленькой
-границей синхронизации. Рис.~\ref{fig:cerny} иллюстрирует это утверждение:
-первая раскраска -- это автомат Черни $\mathrsfs{C}_4$, кратчайшее
-синхронизирующее слово которого имеет длину~9, вторая же раскраска может быть
-синхронизирована словом $a^3$ длины~3. Орграф Виланда $W_n$, в свою очередь,
-может быть раскрашен единственным образом, поэтому теорема~\ref{theorem:anan}
-дает нижнюю оценку $n^2-3n+3$ на поставленный нами вопрос. Мы убеждены, что
-данная оценка, точна. Поэтому мы предлагаем гибридную гипотезу, которая в
-некотором смысле параллельна гипотезе Черни и проблеме раскраски дорог.
-
-%As mentioned in Section~\ref{matrices}, Trahtman's recent result~\cite{Tr09}
-%implies that every primitive digraph admits a synchronizing coloring. This
-%gives rise to the following natural question: given a primitive digraph on
-%$n$ vertices, what is the minimum length of \sws\ for its synchronizing
-%colorings? Observe that in general underlying digraphs of slowly \sa\ may
-%admit colorings with rather short \sws. Fig.~\ref{fig:cerny} illustrates
-%this phenomenon: the first coloring of the 4-vertex digraph in Fig.~\ref{fig:cerny}
-%is the \v{C}ern\'{y} automaton $\mathrsfs{C}_4$ with shortest reset word of
-%length~9 while the second coloring can be reset of the word $a^3$ of length~3.
-%Wielandt's digraphs $W_n$, however, can be colored in a essentially unique
-%way, whence Theorem~\ref{theorem:anan} gives the lower bound $n^2-3n+3$
-%for the value in question. We strongly believe that this lower bound is
-%in fact tight, in other words, we suggest a conjecture that is in a sense
-%parallel to the \v{C}ern\'{y} one.
-
-
-\begin{conjecture}
-\label{hybrid}
-Всякий примитивный орграф на $n$ вершинах допускает синхронизируемую раскраску
-граница синхронизации которой не превосходит $n^2-3n+3$.
-
-%Every primitive digraph on $n$ vertices admits a synchronizing coloring
-%that can be reset by a word of length $n^2-3n+3$.
-\end{conjecture}
-
-
-Отметим, что несмотря на тесную взаимосвязь между гипотезами~\ref{hybrid} и Черни,
-справедливость одной из них, не влечет справедливость другой.
-
-%We observe that while there is a clear analogy between Conjecture~\ref{hybrid}
-%and the \v{C}ern\'{y} conjecture, the validity of none of them immediately
-%implies the validity of the other.
-
-
-Теперь мы предложим менее простой способ получить серию медленно-синхронизируемых
-автоматов из орграфа Виланда $W_n$. А именно, мы покажем, что автомат
-Черни $\mathrsfs{C}_n$ тесно с ним связан. Начнем с определения автомата $\mathrsfs{C}_n$.
-Мы можем считать, что множество состояний $\mathrsfs{C}_n$ есть $Q=\{1,2,\dots,n\}$,
-а буквы $a$ и $b$ действуют на $Q$ следующим образом:
+Теперь мы продемонстрируем, что и серия $n$-автоматов с порогом синхронизации
+$(n-1)^2$, открытая Черни~\cite{Ce64}, тесно (хотя и менее очевидным образом)
+связана с орграфами из серии $W_n$. Для каждого $n>2$ обозначим через
+$\mathrsfs{C}_n$ автомат с множеством состояний $Q=\{1,2,\dots,n\}$, на котором
+буквы $a$ и $b$ действуют следующим образом:
 $$\delta(i,a)=\begin{cases}
 i &\text{если } i<n,\\
 1 &\text{если } i=n;
@@ -811,56 +726,53 @@ i+1 &\text{если } i<n,\\
 \begin{center}
 \unitlength .45mm
 \begin{picture}(72,66)(25,-76)
-\gasset{Nw=16,Nh=16,Nmr=8}
-\node(n0)(36.0,-16.0){1}
-\node(n1)(4.0,-40.0){$n$} \node(n2)(68.0,-40.0){2}
-\node(n3)(16.0,-72.0){$n{-}1$} \node(n4)(56.0,-72.0){3}
-\drawedge[ELdist=2.0](n1,n0){$a,b$} \drawedge[ELdist=1.5](n2,n4){$b$}
-\drawedge[ELdist=1.7](n0,n2){$b$}
-\drawedge[ELdist=1.7](n3,n1){$b$}
-\drawloop[ELdist=1.5,loopangle=30](n2){$a$}
+\gasset{Nw=16,Nh=16,Nmr=8} \node(n0)(36.0,-16.0){1} \node(n1)(4.0,-40.0){$n$}
+\node(n2)(68.0,-40.0){2} \node(n3)(16.0,-72.0){$n{-}1$}
+\node(n4)(56.0,-72.0){3} \drawedge[ELdist=2.0](n1,n0){$a,b$}
+\drawedge[ELdist=1.5](n2,n4){$b$} \drawedge[ELdist=1.7](n0,n2){$b$}
+\drawedge[ELdist=1.7](n3,n1){$b$} \drawloop[ELdist=1.5,loopangle=30](n2){$a$}
 \drawloop[ELdist=2.4,loopangle=-30](n4){$a$}
 \drawloop[ELdist=1.5,loopangle=-90](n0){$a$}
-\drawloop[ELdist=1.5,loopangle=210](n3){$a$}
-\put(31,-73){$\dots$}
+\drawloop[ELdist=1.5,loopangle=210](n3){$a$} \put(31,-73){$\dots$}
 \end{picture}
 \begin{picture}(72,66)(-25,-76)
-\gasset{Nw=16,Nh=16,Nmr=8}
-\node(n0)(36.0,-16.0){1}
-\node(n1)(4.0,-40.0){$n$} \node(n2)(68.0,-40.0){2}
-\node(n3)(16.0,-72.0){$n{-}1$} \node(n4)(56.0,-72.0){3}
-\drawedge[ELdist=2.0](n1,n0){$b$} \drawedge[ELdist=1.5](n2,n4){$b,c$}
-\drawedge[ELdist=1.7](n0,n2){$b,c$}
+\gasset{Nw=16,Nh=16,Nmr=8} \node(n0)(36.0,-16.0){1} \node(n1)(4.0,-40.0){$n$}
+\node(n2)(68.0,-40.0){2} \node(n3)(16.0,-72.0){$n{-}1$}
+\node(n4)(56.0,-72.0){3} \drawedge[ELdist=2.0](n1,n0){$b$}
+\drawedge[ELdist=1.5](n2,n4){$b,c$} \drawedge[ELdist=1.7](n0,n2){$b,c$}
 \drawedge[ELdist=1.7](n3,n1){$b,c$} \drawedge[ELdist=2.0](n1,n2){$c$}
 \put(31,-73){$\dots$}
 \end{picture}
 \end{center}
-\caption{Автомат $\mathrsfs{C}_n$ и автомат порожденный действием $b$ и $c=ab$}\label{fig:cerny-n}
+\caption{Автомат $\mathrsfs{C}_n$ и автомат порожденный действием $b$ и
+$c=ab$}\label{fig:cerny-n}
 %\caption{The automaton $\mathrsfs{C}_n$ and the automaton induced by the actions of $b$ and $c=ab$}\label{fig:cerny-n}
 \end{figure}
 
-Теперь мы готовы привести новое простое доказательство классического результата.
+Теперь мы готовы привести новое простое доказательство классического
+результата.
 %Now we present a new simple proof for the following classic result.
 
 \begin{theorem}[{\mdseries\cite[Лемма~1]{Ce64}}]
-\label{theorem:cerny}
-Автомат $\mathrsfs{C}_n$ синхронизируем, и его граница синхронизации равна $(n-1)^2$.
+\label{theorem:cerny} Автомат $\mathrsfs{C}_n$ синхронизируем, и его граница
+синхронизации равна $(n-1)^2$.
 %The automaton $\mathrsfs{C}_n$ is synchronizing and its reset length is $(n-1)^2$.
 \end{theorem}
 
 \begin{proof}
-Легко проверить, что слово $(ab^{n-1})^{n-2}a$ длины
-$n(n-2)+1=(n-1)^2$ является синхронизирующим для $\mathrsfs{C}_n$.
+Легко проверить, что слово $(ab^{n-1})^{n-2}a$ длины $n(n-2)+1=(n-1)^2$
+является синхронизирующим для $\mathrsfs{C}_n$.
 
 %It is easy to see that the word $(ab^{n-1})^{n-2}a$ of length
 %$n(n-2)+1=(n-1)^2$ is a reset word for $\mathrsfs{C}_n$.
 
 Пусть $w$ -- некоторое синхронизирующее слово автомата $\mathrsfs{C}_n$
 минимальной длины. Поскольку буква $b$ является циклической перестановкой
-элементов из $Q$, то слово $w$ не может кончаться на $b$.
-Иначе, удалив последнюю букву, мы получим более короткое синхронизирующее
-слово. Таким образом, $w$ представимо в виде $w = w'a$ для некоторого $w'\in\{a,b\}^*$,
-при этом, образом $Q$ под действием слова $w'$ будет в точности множество $\{1,n\}$.
+элементов из $Q$, то слово $w$ не может кончаться на $b$. Иначе, удалив
+последнюю букву, мы получим более короткое синхронизирующее слово. Таким
+образом, $w$ представимо в виде $w = w'a$ для некоторого $w'\in\{a,b\}^*$, при
+этом, образом $Q$ под действием слова $w'$ будет в точности множество
+$\{1,n\}$.
 
 %Now let $w$ be a \ssw\ for $\mathrsfs{C}_n$. Since the letter $b$
 %acts on $Q$ as a cyclic permutation, the word $w$ cannot end with $b$.
@@ -868,23 +780,23 @@ $n(n-2)+1=(n-1)^2$ является синхронизирующим для $\mathrsfs{C}_n$.
 %write $w$ as $w = w'a$ for some $w'\in\{a,b\}^*$ such that the image
 %of $Q$ under the action of $w'$ is precisely the set $\{1,n\}$.
 
-Поскольку действия $a^2$ и $a$ на множестве $Q$ совпадают, то после
-всякого вхождения $a$ в $w$, кроме последнего, следует вхождение
-буквы $b$. Иначе мы можем заменить вхождение $a^2$ в $w$ на $a$
-и получить более короткое синхронизирующее слово. Поэтому, если мы положим
-$c=ab$, то слово $w'$ может быть превращено в слово над алфавитом $\{b,c\}$.
-Действия $b$ и $c$ порождают новый автомат на множестве $Q$. Он изображен
-на рис.\,\ref{fig:cerny-n} справа, при этом, нетрудно видеть, что данный автомат
-изоморфен $\mathrsfs{W}_n$. Поскольку действие $w'$ и $v$ на $Q$ совпадает, то
-слово $vc$ является синхронизирующим для порожденного автомата.
-По теореме~\ref{theorem:anan} длина $vc$ (как слова над алфавитом $\{b,c\}$)
-не меньше $n^2-3n+3$. Поскольку действие $b$ на всяком множестве состояний $S$
-не может изменить его мощность, а действие буквы $c$ может уменьшить мощность лишь на~1,
-то слово $vc$ должно содержать по меньшей мере $n-1$ вхождение $c$. Отсюда,
-длина $v$ над $\{b,c\}$ не менее $n^2-3n+2$ и $v$ содержит по меньшей мере $n-2$
-вхождения $c$. А поскольку всякое вхождение $c$ в $v$ отвечает вхождению фактора $ab$ в $w'$,
-мы можем заключить, что длина $w'$ над алфавитом $\{a,b\}$ не менее $n^2-3n+2+n-2=n^2-2n$.
-В итоге, $|w|=|w'a|\ge n^2-2n+1=(n-1)^2$.
+Поскольку действия $a^2$ и $a$ на множестве $Q$ совпадают, то после всякого
+вхождения $a$ в $w$, кроме последнего, следует вхождение буквы $b$. Иначе мы
+можем заменить вхождение $a^2$ в $w$ на $a$ и получить более короткое
+синхронизирующее слово. Поэтому, если мы положим $c=ab$, то слово $w'$ может
+быть превращено в слово над алфавитом $\{b,c\}$. Действия $b$ и $c$ порождают
+новый автомат на множестве $Q$. Он изображен на рис.\,\ref{fig:cerny-n} справа,
+при этом, нетрудно видеть, что данный автомат изоморфен $\mathrsfs{W}_n$.
+Поскольку действие $w'$ и $v$ на $Q$ совпадает, то слово $vc$ является
+синхронизирующим для порожденного автомата. По теореме~\ref{theorem:anan} длина
+$vc$ (как слова над алфавитом $\{b,c\}$) не меньше $n^2-3n+3$. Поскольку
+действие $b$ на всяком множестве состояний $S$ не может изменить его мощность,
+а действие буквы $c$ может уменьшить мощность лишь на~1, то слово $vc$ должно
+содержать по меньшей мере $n-1$ вхождение $c$. Отсюда, длина $v$ над $\{b,c\}$
+не менее $n^2-3n+2$ и $v$ содержит по меньшей мере $n-2$ вхождения $c$. А
+поскольку всякое вхождение $c$ в $v$ отвечает вхождению фактора $ab$ в $w'$, мы
+можем заключить, что длина $w'$ над алфавитом $\{a,b\}$ не менее
+$n^2-3n+2+n-2=n^2-2n$. В итоге, $|w|=|w'a|\ge n^2-2n+1=(n-1)^2$.
 
 %Since the letter $a$ fixes each state in its image $\{1,2,\dots,n-1\}$,
 %every occurrence of $a$ in $w$ except the last one is followed by an
@@ -914,10 +826,10 @@ $c=ab$, то слово $w'$ может быть превращено в слово над алфавитом $\{b,c\}$.
 %$n^2-4n+6$. These two series will be presented in an extended version of
 %the paper.
 
-Следующая серия $\mathrsfs{E}_n$ также сводится к автомату $\mathrsfs{W}_{n - 1}$, но доказательство мы
-проведем сведением к $\mathrsfs{C}_{n - 1}$ из соображений простоты.
-Множество состояний $\mathrsfs{E}_n$ есть $Q=\{1,2,\dots,n\}$,
-а буквы $a$ и $b$ действуют на $Q$ следующим образом:
+Следующая серия $\mathrsfs{E}_n$ также сводится к автомату $\mathrsfs{W}_{n -
+1}$, но доказательство мы проведем сведением к $\mathrsfs{C}_{n - 1}$ из
+соображений простоты. Множество состояний $\mathrsfs{E}_n$ есть
+$Q=\{1,2,\dots,n\}$, а буквы $a$ и $b$ действуют на $Q$ следующим образом:
 $$\delta(i,a)=\begin{cases}
 2, &\text{если } i = 1,\\
 3, &\text{если } i = 2,\\
@@ -934,35 +846,26 @@ i+1, &\text{если } i<n,\\
 \begin{center}
 \unitlength .45mm
 \begin{picture}(72,66)(25,-76)
-\gasset{Nw=16,Nh=16,Nmr=8}
-\node(n0)(36.0,-16.0){2}
-\node(n1)(4.0,-40.0){$1$} \node(n2)(68.0,-40.0){3}
-\node(n3)(16.0,-72.0){$n$} \node(n4)(56.0,-72.0){4}
+\gasset{Nw=16,Nh=16,Nmr=8} \node(n0)(36.0,-16.0){2} \node(n1)(4.0,-40.0){$1$}
+\node(n2)(68.0,-40.0){3} \node(n3)(16.0,-72.0){$n$} \node(n4)(56.0,-72.0){4}
 \drawedge[ELdist=2.0](n1,n0){$a$} \drawedge[ELdist=1.5](n2,n4){$b$}
-\drawedge[ELdist=1.7](n0,n2){$a,b$}
-\drawedge[ELdist=1.7](n3,n1){$b$}
-\drawedge[ELdist=1.7](n1,n2){$b$}
-\drawloop[ELdist=1.5,loopangle=30](n2){$a$}
+\drawedge[ELdist=1.7](n0,n2){$a,b$} \drawedge[ELdist=1.7](n3,n1){$b$}
+\drawedge[ELdist=1.7](n1,n2){$b$} \drawloop[ELdist=1.5,loopangle=30](n2){$a$}
 \drawloop[ELdist=2.4,loopangle=-30](n4){$a$}
-\drawloop[ELdist=1.5,loopangle=210](n3){$a$}
-\put(31,-73){$\dots$}
+\drawloop[ELdist=1.5,loopangle=210](n3){$a$} \put(31,-73){$\dots$}
 \end{picture}
 \begin{picture}(72,66)(-25,-76)
-\gasset{Nw=16,Nh=16,Nmr=8}
-\node(n0)(36.0,-16.0){2}
-\node(n1)(4.0,-40.0){1} \node(n2)(68.0,-40.0){3}
-\node(n3)(16.0,-72.0){$n$} \node(n4)(56.0,-72.0){4}
-\drawedge[ELdist=1.5](n2,n4){$b$}
-\drawedge[ELdist=1.7](n0,n2){$b,c$}
-\drawedge[ELdist=1.7](n3,n1){$b$}
-\drawedge[ELdist=2.0](n1,n2){$b,c$}
+\gasset{Nw=16,Nh=16,Nmr=8} \node(n0)(36.0,-16.0){2} \node(n1)(4.0,-40.0){1}
+\node(n2)(68.0,-40.0){3} \node(n3)(16.0,-72.0){$n$} \node(n4)(56.0,-72.0){4}
+\drawedge[ELdist=1.5](n2,n4){$b$} \drawedge[ELdist=1.7](n0,n2){$b,c$}
+\drawedge[ELdist=1.7](n3,n1){$b$} \drawedge[ELdist=2.0](n1,n2){$b,c$}
 \drawloop[ELdist=1.5,loopangle=30](n2){$c$}
 \drawloop[ELdist=2.4,loopangle=-30](n4){$c$}
-\drawloop[ELdist=1.5,loopangle=210](n3){$c$}
-\put(31,-73){$\dots$}
+\drawloop[ELdist=1.5,loopangle=210](n3){$c$} \put(31,-73){$\dots$}
 \end{picture}
 \end{center}
-\caption{Автомат $\mathrsfs{E}_n$ и автомат порожденный действием $b$ и $c=aa$}\label{fig:e-n}
+\caption{Автомат $\mathrsfs{E}_n$ и автомат порожденный действием $b$ и
+$c=aa$}\label{fig:e-n}
 %\caption{The automaton $\mathrsfs{C}_n$ and the automaton induced by the actions of $b$ and $c=ab$}\label{fig:cerny-n}
 \end{figure}
 
@@ -1027,7 +930,8 @@ i+1, &\text{если } i<n,\\
 %\end{figure}
 
 \begin{theorem}
-Автомат $\mathrsfs{E}_n$ синхронизируем, и граница синхронизации равна $n^2 - 3n + 2$.
+Автомат $\mathrsfs{E}_n$ синхронизируем, и граница синхронизации равна $n^2 -
+3n + 2$.
 \end{theorem}
 \begin{proof}
 %НИЖЕ, УПРОЩЕННОЕ ДОКАЗАТЕЛЬСТВО
@@ -1054,20 +958,143 @@ i+1, &\text{если } i<n,\\
 %а $w$ не короче $n^2 - 3n + 2$.\\
 %В обоих случаях справедливо, что $w$ не короче $n^2 - 3n + 2$, но полученная оценка точна, поскольку слово $(aab^{n - 2})^{n - 3}a^2$
 %синхронизирует автомат $\mathrsfs{A}$.~$\square$\\
-Пусть $w$ -- некоторое синхронизирующее слово автомата $\mathrsfs{E}_n$ минимальной длины. Нетрудно проверить,
-что $bab = bb$ и $a^3 = a^2$. Отметим теперь, что
-$w$ не может начинаться с $ab$, поскольку заменив данный префикс на $b$ мы получим более короткое
-синхронизирующее слово. А также, слово $w$ не может заканчиваться на $ba$. Действительно, из минимальности
-$|w|$ мы заключаем, что букве $a$ предшествует позиция $\{2,3\}$, но ее невозможно получить
-применением буквы $b$. Суммируя вышесказанное, мы получаем, что буква $a$ в слове $w$ входит всегда
-во второй степени. Легко видеть, что автомат порожденный действиями $aa$ и $b$ содержит в себе $\mathrsfs{C}_{n - 1}$.
-А тогда, по теореме~\ref{theorem:cerny} $w$ содержит $aa$ не менее $n - 2$ раз в качестве фактора, и
-длина $w$ не менее $(n - 2)^2 + (n - 2) = n^2 - 3n + 2$.
-При этом, полученная оценка точна, поскольку слово $(aab^{n - 2})^{n - 3}a^2$ синхронизирует автомат $\mathrsfs{E}_n$.
+Пусть $w$ -- некоторое синхронизирующее слово автомата $\mathrsfs{E}_n$
+минимальной длины. Нетрудно проверить, что $bab = bb$ и $a^3 = a^2$. Отметим
+теперь, что $w$ не может начинаться с $ab$, поскольку заменив данный префикс на
+$b$ мы получим более короткое синхронизирующее слово. А также, слово $w$ не
+может заканчиваться на $ba$. Действительно, из минимальности $|w|$ мы
+заключаем, что букве $a$ предшествует позиция $\{2,3\}$, но ее невозможно
+получить применением буквы $b$. Суммируя вышесказанное, мы получаем, что буква
+$a$ в слове $w$ входит всегда во второй степени. Легко видеть, что автомат
+порожденный действиями $aa$ и $b$ содержит в себе $\mathrsfs{C}_{n - 1}$. А
+тогда, по теореме~\ref{theorem:cerny} $w$ содержит $aa$ не менее $n - 2$ раз в
+качестве фактора, и длина $w$ не менее $(n - 2)^2 + (n - 2) = n^2 - 3n + 2$.
+При этом, полученная оценка точна, поскольку слово $(aab^{n - 2})^{n - 3}a^2$
+синхронизирует автомат $\mathrsfs{E}_n$.
 %Довольно легко заметить, что в кратчайшем синхронизирующем слове $w$ буква $a$ встречается только во второй степени, поскольку $bab = bb$, и
 %$w$ не может начинаться на $ab$, или заканчиваться на $ba$. А тогда, заменив преобразование соответствующее $a$ на $a^2$ мы получим автомат Черни
 %на $n - 1$ вершинах, и оценку снизу $(n - 2)^2 + (n - 2) = n^2 - 3n + 2$.
 \end{proof}
+
+
+
+В этом и последующих доказательствах будет полезен следующий элементарный
+результат.
+\begin{lemma}[\!\!{\mdseries\cite[Теорема 2.1.1]{RaAl05}}]
+\label{sylvester} Если натуральные числа $k$ и $\ell$ взаимно просты, то
+наименьшее число, начиная с которого все натуральные числа представимы в виде
+линейных комбинаций чисел $k$ и $\ell$ c целыми неотрицательными
+коэффициентами, равно $(k-1)(\ell-1)$.
+\end{lemma}
+
+
+
+Пусть теперь $w$ -- синхронизирующее слово для $\mathrsfs{W}_n$ наименьшей
+возможной длины $|w|$. Обозначим через $j\in Q=\{1,2,\dots,n\}$ то состояние, в
+которое $w$ приводит автомат $\mathrsfs{W}_n$. Иными словами, из всякого
+состояния в $Q$, маршрут помеченный $w$ ведет в $j$. Заметим, что при всех
+$j\ne 2$ маршруты ведущие в $j$ имеют общую дугу в конце. Поэтому, если $j\ne
+2$, то удалив последнюю букву $w$ мы также получим синхронизирующее слово для
+$\mathrsfs{W}_n$. Таким образом, $j=2$, поскольку длина $w$ минимиальна.
+
+
+%Now let $w$ be a \sw\ for $\mathrsfs{W}_n$ and assume that the length
+%of $w$ (denoted $|w|$) is minimal. Let $j\in Q=\{1,2,\dots,n\}$ be the
+%state to which the action of $w$ brings $\mathrsfs{W}_n$. Then from
+%every state in $Q$ there is a path to $j$ labelled $w$. It is clear
+%that for each $j\ne 2$ all paths ending at $j$ share the last edge.
+%Therefore, if $j\ne 2$, removing the last letter from the word $w$
+%produces a word that still would be a \sw\ for $\mathrsfs{W}_n$.
+%We conclude that $j=2$ because $|w|$ is minimal.
+
+Если $u\in\{a,b\}^*$, то слово $uw$ будет также синхронизирующим словом,
+которое приводит автомат в состояние~2. Поэтому, для всякого $\ell\ge|w|$,
+найдется маршрут длины $\ell$ в $W_n$ из любой вершины $i$ в~2. В частности,
+полагая $i=2$, мы можем заключить, что для всякого $\ell\ge|w|$ найдется
+замкнутый маршрут длины $\ell$ в $W_n$. Заметим, что орграф $W_n$ обладает лишь
+двумя простыми контурами: один из них имеет длину $n$, а другой $n-1$. Ясно, что всякий
+замкнутый маршрут в $W_n$ должен состоять
+из этих двух простых контуров, пройденных несколько раз.
+Таким образом, всякое число $\ell\ge|w|$ может быть представлено в виде неотрицательной
+целой линейной комбинации $n$ и $n-1$. Лемма~\ref{sylvester} немедленно влечет, что
+$|w|>n(n-1)-n-(n-1)=n^2-3n+1$. Предположим, что $|w|=n^2-3n+2$.
+Тогда должен существовать маршрут указанной длины из вершины~1 в вершину~2.
+Но единственной исходящей дугой из~1 является $(1,2)$, поэтому, после данной дуги
+должен идти замкнутый маршрут длины $n^2-3n+1$. Но по лемме~\ref{sylvester}
+замкнутого маршрута указанной длины существовать не может.
+Отсюда мы получаем, что $|w|\ge n^2-3n+3$.
+
+
+%If $u\in\{a,b\}^*$, the word $uw$ also is a reset word and it also
+%brings the automaton to the state~2. Hence, for every $\ell\ge|w|$,
+%there is a path of length $\ell$ in $W_n$ from any given vertex $i$
+%to~2. In particular, setting $i=2$, we conclude that for every
+%$\ell\ge|w|$ there is a cycle of length $\ell$ in $W_n$. The digraph
+%$W_n$ has only two simple cycles: one of length $n$ and one of length $n-1$.
+%Each cycle of $W_n$ must consist of these two cycles traversed several times
+%whence each number $\ell\ge|w|$ must be expressible as a non-negative integer
+%combination of $n$ and $n-1$. Here we invoke Lemma~\ref{sylvester} which
+%implies that $|w|>n(n-1)-n-(n-1)=n^2-3n+1$. Suppose that $|w|=n^2-3n+2$.
+%Then there should be a path of this length from the vertex~1 to the vertex~2.
+%The only outgoing edge of~1 is $(1,2)$, and thus, in the path it must be
+%followed by a cycle of length $n^2-3n+1$. No cycle of such length may
+%exist by  Lemma~\ref{sylvester}. Hence $|w|\ge n^2-3n+3$.
+
+
+
+
+%The series $\mathrsfs{W}_n$ was discovered by the first author in 2008
+%(unpublished). His rather involved proof of Theorem~\ref{theorem:anan}
+%used a technique developed in~\cite{AVZ}.
+
+Как уже упоминалось в \S3, из результатов Трахтмана~\cite{Tr09} следует, что
+всякий примитивный орграф имеет синхронизируемую раскраску. Это дает основания
+для следующего, довольно естественного вопроса: дан примитивный орграф на $n$
+вершинах, какова минимальная длина синхронизирующих слов для всех его
+синхронизируемых раскрасок? Заметим, что порожденные орграфы
+медленно-синхронизируемых автоматов могут обладать раскрасками с маленькой
+границей синхронизации. Рис.~\ref{fig:cerny} иллюстрирует это утверждение:
+первая раскраска -- это автомат Черни $\mathrsfs{C}_4$, кратчайшее
+синхронизирующее слово которого имеет длину~9, вторая же раскраска может быть
+синхронизирована словом $a^3$ длины~3. Орграф Виланда $W_n$, в свою очередь,
+может быть раскрашен единственным образом, поэтому теорема~\ref{theorem:anan}
+дает нижнюю оценку $n^2-3n+3$ на поставленный нами вопрос. Мы убеждены, что
+данная оценка, точна. Поэтому мы предлагаем гибридную гипотезу, которая в
+некотором смысле параллельна гипотезе Черни и проблеме раскраски дорог.
+
+%As mentioned in Section~\ref{matrices}, Trahtman's recent result~\cite{Tr09}
+%implies that every primitive digraph admits a synchronizing coloring. This
+%gives rise to the following natural question: given a primitive digraph on
+%$n$ vertices, what is the minimum length of \sws\ for its synchronizing
+%colorings? Observe that in general underlying digraphs of slowly \sa\ may
+%admit colorings with rather short \sws. Fig.~\ref{fig:cerny} illustrates
+%this phenomenon: the first coloring of the 4-vertex digraph in Fig.~\ref{fig:cerny}
+%is the \v{C}ern\'{y} automaton $\mathrsfs{C}_4$ with shortest reset word of
+%length~9 while the second coloring can be reset of the word $a^3$ of length~3.
+%Wielandt's digraphs $W_n$, however, can be colored in a essentially unique
+%way, whence Theorem~\ref{theorem:anan} gives the lower bound $n^2-3n+3$
+%for the value in question. We strongly believe that this lower bound is
+%in fact tight, in other words, we suggest a conjecture that is in a sense
+%parallel to the \v{C}ern\'{y} one.
+
+
+\begin{conjecture}
+\label{hybrid}
+Всякий примитивный орграф на $n$ вершинах допускает синхронизируемую раскраску
+граница синхронизации которой не превосходит $n^2-3n+3$.
+
+%Every primitive digraph on $n$ vertices admits a synchronizing coloring
+%that can be reset by a word of length $n^2-3n+3$.
+\end{conjecture}
+
+
+Отметим, что несмотря на тесную взаимосвязь между гипотезами~\ref{hybrid} и Черни,
+справедливость одной из них, не влечет справедливость другой.
+
+%We observe that while there is a clear analogy between Conjecture~\ref{hybrid}
+%and the \v{C}ern\'{y} conjecture, the validity of none of them immediately
+%implies the validity of the other.
+
 
 
 Теперь мы готовы обсудить несколько серий, которые связаны с орграфом $D_n$,
