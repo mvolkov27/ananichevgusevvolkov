@@ -1,4 +1,4 @@
-This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  26 DEC 2011 00:36
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  26 DEC 2011 17:38
 **agv_Russian1251.tex
 (./agv_Russian1251.tex
 LaTeX2e <2001/06/01>
@@ -261,36 +261,36 @@ LaTeX Font Info:    Try loading font information for OMS+rsfs on input line 55.
 
 (c:/Program Files/TeXLive/texmf/tex/latex/calrsfs/omsrsfs.fd) [1
 
-] [2]
+]
 Overfull \hbox (4.51183pt too wide) in paragraph at lines 140--159
 \T2A/cmr/m/n/10.95 син-хро-ни-зи-ру-е-мых ав-то-ма-тов с фик-си-ро-ван-ным чис-
 лом со-сто-я-ний как функ-
  []
 
-[3] [4] [5]
+[2] [3] [4]
 Overfull \hbox (2.47458pt too wide) in paragraph at lines 303--314
 [][] 
  []
 
-[6] [7] [8] [9]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 641.
+[5] [6] [7] [8] [9]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 643.
 
  (c:/Program Files/TeXLive/texmf/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 641.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 643.
 File: relation.eps Graphic file (type eps)
 
 <relation.eps> [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
-[22] (./agv_Russian1251.aux) ) 
+[22] [23] (./agv_Russian1251.aux) ) 
 Here is how much of TeX's memory you used:
- 3216 strings out of 50491
- 36700 string characters out of 1189754
- 113536 words of memory out of 1500001
- 6086 multiletter control sequences out of 10000+15000
+ 3222 strings out of 50491
+ 36787 string characters out of 1189754
+ 114589 words of memory out of 1500001
+ 6092 multiletter control sequences out of 10000+15000
  34220 words of font info for 99 fonts, out of 400000 for 1000
  288 hyphenation exceptions out of 1000
  29i,15n,24p,1423b,368s stack positions out of 1500i,500n,1500p,200000b,5000s
 
-Output written on agv_Russian1251.dvi (22 pages, 196900 bytes).
+Output written on agv_Russian1251.dvi (23 pages, 205892 bytes).
