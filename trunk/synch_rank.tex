@@ -1,0 +1,839 @@
+\documentclass[11pt]{llncs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{epic,gastex}
+\usepackage{array}
+\usepackage{enumerate}
+
+\newcommand{\sa}{synchronizing automata}
+\newcommand{\san}{synchronizing automaton}
+\newcommand{\sw}{reset word}
+\newcommand{\sws}{reset words}
+\newcommand{\ssw}{reset word of minimum length}
+\newcommand{\rl}{reset threshold}
+
+\newcommand{\A}{\mathrsfs{A}}
+\newcommand{\C}{\mathrsfs{C}}
+\newcommand{\R}{\mathrsfs{R}}
+\newcommand{\AD}{\mathrsfs{A_{\sigma}}}
+\newcommand{\G}{\Gamma}
+\newcommand{\D}{\Delta}
+\newcommand{\g}{\gamma}
+\newcommand{\dl}{\delta}
+\newcommand{\rk}{rk}
+\newcommand{\rt}{rt}
+\newcommand{\rtc}{rt_{c}}
+
+\DeclareMathOperator{\weight}{wg}
+
+\DeclareSymbolFont{rsfscript}{OMS}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathrsfs}{rsfscript}
+
+\begin{document}
+
+\title{Synchronizing automata of bounded rank\thanks{Supported
+by the Russian Foundation for Basic Research, grants xx-xx-xxxxx
+and xx-xx-xxxxx, and by the Federal Education Agency of Russia,
+grant 2.1.1/3537.}}
+
+\titlerunning{Synchronizing automata of bounded rank}
+
+\author{Vladimir V. Gusev}
+
+\authorrunning{V. V. Gusev}
+
+\tocauthor{V. V. Gusev(Ekaterinburg, Russia)}
+
+\institute{Institute of Mathematics and Computer Science,\\
+Ural Federal University, Ekaterinburg, Russia\\
+\email{vl.gusev@gmail.com}}
+
+\maketitle
+
+\begin{abstract}
+We reduce a problem of synchronization of $n$-state automaton
+whose letters have rank $r < n$ to synchronization of $r$-state 
+automaton with constraints given by regular language.
+As an illustration of our technique we present for every 
+$r \geq \frac{n}{2}$ and $n$ strongly-connected $n$-state \sa\
+of bounded rank $r$ with \rl equal to $r(r - 1)$.
+\end{abstract}
+
+\section{Introduction}
+A complete deterministic finite automaton $\mathrsfs{A}$ is called
+\emph{synchronizing} if the action of some word $w$ resets $\mathrsfs{A}$, that
+is, leaves the automaton in one particular state no matter at which state it is
+applied. Any such word $w$ is said to be a \emph{reset word} for the automaton.
+The minimum length of reset words for $\mathrsfs{A}$ is called the \emph{\rl}
+of $\mathrsfs{A}$ and denoted by $\rt(\mathrsfs{A})$. Synchronizing automata
+constitute an interesting object and serve as natural models of error-resistant
+systems. For a brief introduction to the theory of synchronizing automata we refer
+the reader to surveys~\cite{Sa05,Vo08}. 
+%WANT SOME LYRICS ABOUT DIFFICULT PROBLEMS HERE
+The interest to the field is
+also heated by the famous \v{C}ern\'{y} conjecture.
+
+In~1964 Jan \v{C}ern\'{y}~\cite{Ce64} constructed for each $n>1$ a
+synchronizing automaton $\mathrsfs{C}_n$ with $n$ states whose \rl\ is equal to
+$(n-1)^2$. Soon after that he conjectured that these automata represent the
+worst possible case, that is, every synchronizing automaton with $n$ states can
+be reset by a word of length $(n-1)^2$. Despite intensive research, the best
+upper bound on the \rl\ of synchronizing automata with $n$ states achieved so
+far is $\frac{n^3-n}6$, see~\cite{Pi83}, so it is much larger than the
+conjectured value. There is also bound by Trahtman that contains unclear place~\cite{Tr11}.
+Though the \v{C}ern\'{y} conjecture is open in general, it
+has been confirmed for some restricted classes of synchronizing automata.
+We will mention only some of them.
+Dubuc~\cite{Du98} has proved conjecture for automata that have a letter acting as cyclic permutation.
+Kari~\cite{Ka03} confirmed conjecture for automata with eulerian undeliyng digraph.
+
+For some classes there is quadratic upper bound. For example, Berlinkov, Beal, Perrin~\cite{BBP} obtained
+such bound for automata that has one letter whoose underlying digraph is connected.
+Rystsov~\cite{Rys} obtained quadratic upper bound in case when every letter is either permutation or
+idemponent of defect 1.
+
+In present paper we are interested in synchronization automata of bounded rank.
+%cases of bounded rank in literature
+We can ask following general question: Given a synchronizing $n$-state automaton $\A$
+with $k$ letters. Let $r_1, r_2, \ldots, r_k$ be their corresponding ranks. What are the
+bounds on \rt of $\A$ in terms of $n$ and ranks?
+Of course upper bound is difficult, but sometimes possible(Rys).
+We can rewrite result of Cerny and Rystsov from this point of view. Volkov Zaks also.
+You result from mfcs also.
+Here we present a bit different lower bound.
+
+Natural desire in Cerny conjecture is to use induction by number of states. But most(all?) of the proofs 
+does not do this. Our approach in some sence gives such opportunity.
+
+\section{Preliminaries}
+Let $\A = (Q, \Sigma)$ be a totally-defined deterministic finite automaton. Let us fix some orderings 
+of $Q = \{q_1, q_2, \ldots q_n\}$ and $\Sigma = \{a_1, a_2, \ldots, a_k\}$.
+We can associate with arbitrary letter $a_\ell$
+square $(0,1)$-matrix $M(a_\ell)$ of order $n$ by the following rule:
+$M(a_\ell)[i,j] = 1$ if $q_i\cdot a_{\ell} = q_j$, otherwise $M(a_\ell)[i,j] = 0$.
+We will call the set $\langle M(a_1), \ldots, M(a_{k})\rangle$  \emph{matrix representation} of automaton $\A$,
+and will denote this fact $\A = \langle M(a_1), \ldots, M(a_{k})\rangle$. We can uniquely extend domain of mapping $M(\cdot )$ 
+from $\Sigma$ to $\Sigma^{*}$ in accordance with equation $M(uv) = M(u)M(v)$, where $u,v \in \Sigma^*$.
+It is not hard to see following important property of matrix representation: for every word $w$ we have
+$M(w)[i,j] = 1$ if $q_i \cdot w = q_j$, otherwise $M(w)[i,j] = 0$. It immediately implies that
+a word $w$ is a reset word of $\A$ if and only if $M(w)$ has column of 1's.
+
+Let us introduce pair of square matrices $A_n$ and $B_n$ of order $n$. We will denote $i$-th row of matrix
+$A_n$ as $A_n[i,.]$, and $e_i$ denote row vector whose only non-zero entry equal to 1 located in position $i$.
+$$ A_n[i,.] = 
+\begin{cases}
+e_2, &\text{if } i = 1\\
+e_i, &\text{if } i \neq 1\\
+\end{cases},\quad
+B_n[i,.] = 
+\begin{cases}
+e_{i+1}, &\text{if } i \neq n\\
+e_1, &\text{if } i = n\\
+\end{cases}.
+$$
+We will refer to automaton $\langle A_n, B_n \rangle$ as \v{C}ern\'{y} automaton and denote it $\C_n$.
+Matrix $A_n$ corresponds to action of letter $a$, matrix $B_n$ corresponds to action of letter $b$.
+Later on we will require following statement concearning reset words of $\C_n$(Proposition 3 in~\cite{Gu}).
+
+\begin{proposition}
+\label{th:cerny} Every reset word of the automaton $\mathrsfs{C}_n$ contains at
+least $n^2 - 3n + 2$ occurrences of the letter $b$ and at least $n - 1$
+occurrence of the letter $a$.
+\end{proposition}
+%Consider a square $(0,1)$-matrix $M$ of order $n$ and of rank $r$ such that every row of $M$
+%contains the only occurence of 1. Note, that matrices corresponding to actions of letters in
+%an automaton have this property. We will call representation $M=XY$, where $X,Y$ are $(0,1)$-matrices of size 
+%$n$ by $k$ and $k$ by $n$ respectively.
+%
+%
+%Then it is well known that matrix $M$ can be
+%represented as $M=XY$, where $X,Y$ are $(0,1)$-matrices of size $n$ by $k$ and $k$ by $n$
+%respectively with the following property:
+%every row of them contains exactly one 1.
+
+\section{Main results}
+For the sake of simplicity throughout this section we will consider automata only
+over two letters. All definitions and propositions can be easily generalized.
+Consider an $n$-state automaton $\A$ given by pair of matrices $A$ and $B$.
+We say that set of matrix pairs $\sigma = \langle(X,Y), (\G,\D)\rangle$ is
+a \emph{decomposition} of automaton $\A$ if:
+\begin{enumerate}[(i)]
+\item $X, \G$ are $(0,1)$-matrices of size $n$ by $k$ and $Y, \D$ are
+$(0,1)$-matrices of size $k$ by $n$.
+\item $A = XY$, $B = \G\D$.
+\item every row of $X,Y,\G,\D$ has only one occurence of 1.
+\end{enumerate}
+We say that decomposition is \emph{unavoiding} if also every column of $X$ and 
+$\G$ contains at least one occurence of 1.
+%a \emph{decomposition} of automaton $\A$ if:\\
+%$\bullet$ $X, \G$ are $(0,1)$-matrices of size $n$ by $k$ and $Y, \D$ are
+%$(0,1)$-matrices of size $k$ by $n$.\\
+%$\bullet$ $A = XY$, $B = \G\D$.\\
+%$\bullet$ every row of $X,Y,\G,\D$ has only one occurence of 1.\\
+%We say that decomposition is \emph{unavoiding} if also every column of $X$ and 
+%$\G$ contains at least one occurence of 1.
+
+It immediately follows from the definition that $k \geq max\{\rk(A),$ $\rk(B)\}$.
+And for any such $k$ we can easily construct some decomposition. 
+For example, matrix $Y$ may consist of different rows of $A$ in lexicographic order.
+If $k$ is bigger than number of different rows in $A$ then lexicografically largest row 
+appear several times. Let $j$ be the position of $i$th row of $A$ in lexicografic order.
+Then $i$th row of $X$ is equal to $e_j$. It is not hard to see that defining in the 
+same way matrices $\G$ and $\D$ gives us decomposition of $\A$. Moreover,
+if $k = \rk(A) = \rk(B)$ then presented decomposition is unavoiding. Note, that even in case
+$k = \rk(A) = \rk(B)$ there could exist several different decompositions.
+
+%For example, 
+%matrices $Y$ and $\D$ may consist of different rows of $A$ and $B$ respectively
+%in lexicographic oreder. If $k$ is bigger than number of different rows in $A$ or $B$
+%then lexicografically largest row may appear several times.
+Suppose now that we are given decomposition $\sigma = \langle(X,Y), (\G,\D)\rangle$ of 
+automaton $\A$, where $X$ has size $n$ by $k$.
+%Suppose now that we have decomposition $A = XY$, $B = \G\D$, where
+%$X$, $\G$ are $(0,1)$-matrices of size $n$ by $k$, and $Y$, $\D$ are 
+%$(0,1)$-matrices of size $k$ by $n$ with the following property:
+%every row of them contains exactly one 1.
+%There are many such decompositions. Note, that rank of matrices $A$
+%and $B$ can not be smaller than $k$. We will pay special attention
+%to the following natural case. If $\rk(A) = \rk(B) = k$ then
+%$Y, \D$ consist of different rows of $A$ and $B$ in some order.
+%Matrices $X, \G$ are chosen accordingly.
+%Let us define automaton $\AD$ that is going to be key object of current paper.
+%Now we are ready to define automaton $\AD$ using decomposition
+%of $A$ and $B$. 
+We are to define \emph{reduced automaton} $\AD$ that is going to be key object of this paper.
+Automaton $\AD$ has $\{1,\ldots, k\}$ as a state
+set. Action of input alphabet $\Sigma' = \{ y\g, yx, \dl x, \dl\g \}$ (these are letters, 
+but expressed as two symbols for convenience) is given
+by corresponding $(0,1)$-matrices $\mathcal{M} =\{ Y\G , YX, \D X, \D\G \}$ of size $k$ by $k$.
+Note, that every row of matrices $X, Y, \G, \D$ contains only one occurence of 1, 
+so their products have the same property. Thus automaton $\AD$
+is deterministic and totally-defined.
+
+%It is not hard to see that action of
+%$\Sigma'$ is deterministic and totally-defined. Since every row of matrices
+%$X, Y, \G, \D$ contain exactly one occurence of 1, thus their products have the same property.
+
+\begin{example}
+Let $\mathrsfs{D}$ be an automaton depicted on fig.~\ref{fig:d5} on the left
+(firstly appeared in \cite{AGW} as $\mathrsfs{D}''_5$).
+%Consider automaton $\mathrsfs{D}$ from fig.~\ref{fig:d5}, where 
+%Consider automaton $\mathrsfs{D''}_5 = \langle A, B \rangle$, where 
+%$A = \left(\begin{smallmatrix}0&1&0&0&0\\0&0&1&0&0\\0&0&0&1&0\\0&0&0&0&1\\0&1&0&0&0\end{smallmatrix}\right)$
+%and $B = \left(\begin{smallmatrix}0&0&1&0&0\\0&0&1&0&0\\0&0&0&1&0\\0&0&0&0&1\\1&0&0&0&0\end{smallmatrix}\right)$.
+%Let us define two decomposition $\sigma_1$ as follows: 
+We can define two decompositions of it as follows: 
+$$
+\sigma_1:\;\;
+A = 
+\left(
+\begin{smallmatrix}
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1\\
+1&0&0&0
+\end{smallmatrix}
+\right)
+\left(
+\begin{smallmatrix}
+0&1&0&0&0\\
+0&0&1&0&0\\
+0&0&0&1&0\\
+0&0&0&0&1
+\end{smallmatrix}
+\right),\;
+B = 
+\left(
+\begin{smallmatrix}
+1&0&0&0\\
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1
+\end{smallmatrix}
+\right)
+\left(
+\begin{smallmatrix}
+0&0&1&0&0\\
+0&0&0&1&0\\
+0&0&0&0&1\\
+1&0&0&0&0
+\end{smallmatrix}
+\right);
+$$
+
+%Decomposition $\sigma_2$ has the same representation for $A$, but
+$$
+\sigma_2:\;\;
+A = 
+\left(
+\begin{smallmatrix}
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1\\
+1&0&0&0
+\end{smallmatrix}
+\right)
+\left(
+\begin{smallmatrix}
+0&1&0&0&0\\
+0&0&1&0&0\\
+0&0&0&1&0\\
+0&0&0&0&1
+\end{smallmatrix}
+\right),\;
+B = 
+\left(
+\begin{smallmatrix}
+0&1&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1\\
+1&0&0&0
+\end{smallmatrix}
+\right)
+\left(
+\begin{smallmatrix}
+1&0&0&0&0\\
+0&0&1&0&0\\
+0&0&0&1&0\\
+0&0&0&0&1
+\end{smallmatrix}
+\right).
+$$
+Reduced automaton $\mathrsfs{D}_{\sigma_1}$ depicted in the middle of fig.~\ref{fig:d5}. Letter
+$y \g$ is omitted, since it acts as identitity mapping. Action of the letter $\dl \g$ coincides with
+the action of $yx$.
+%For $\sigma_1$ action of letters $yx = \dl \g$ is cyclic permutation and $y \g$ is identity
+%mapping.
+Reduced automaton $\mathrsfs{D}_{\sigma_2}$ depicted on the right of fig.~\ref{fig:d5}. Since actions
+of letters $yx, y\g, \dl \g$ are the same, we left only $yx$ on the picture.
+%Note that for $\sigma_2$ action of letters $yx = y\g = \dl \g$ is cyclic permutation.
+\begin{figure}[ht]
+ \begin{center}
+  \unitlength=2.8pt
+    \begin{picture}(18,26)(14,-24)
+    \gasset{Nw=6,Nh=6,Nmr=3}
+	\node(n0)(0,0){2}
+	\node(n1)(-13,-9){1} 
+	\node(n2)(13,-9){3}
+	\node(n3)(-8,-23){5} 
+	\node(n4)(8,-23){4}
+	\drawedge(n1,n0){$a$} \drawedge(n2,n4){$a,b$}
+	\drawedge(n0,n2){$a,b$} \drawedge[ELpos=35](n3,n0){$a$}
+	\drawedge(n3,n1){$b$} \drawedge[ELpos=25](n1,n2){$b$}
+	\drawedge(n4,n3){$a,b$}
+    \end{picture}
+ \begin{picture}(18,26)(-45,-2)
+    \gasset{Nw=6,Nh=6,Nmr=3, loopdiam=5}
+    \node(A1)(0,18){$1$}
+    \node(A2)(18,18){$2$}
+    \node(A3)(18,0){$3$}
+    \node(A4)(0,0){$4$}
+    %sigma 2 second on a picture
+    \drawloop[loopangle=135](A1){$\dl x$}
+    \drawedge(A1,A2){$yx$}
+%    \drawedge(A2,A3){}
+%    \drawedge(A3,A4){}
+%    \drawedge(A4,A1){}
+    \drawedge(A2,A3){$\dl x, yx$}
+    \drawedge(A3,A4){$\dl x, yx$}
+    \drawedge(A4,A1){$\dl x, yx$}
+    \end{picture}
+ \begin{picture}(18,26)(15,-2)
+    \gasset{Nw=6,Nh=6,Nmr=3}
+    \node(A1)(0,18){$1$}
+    \node(A2)(18,18){$2$}
+    \node(A3)(18,0){$3$}
+    \node(A4)(0,0){$4$}
+    %sigma 1 first on a picture
+    \drawedge(A1,A2){$yx$}
+    \drawedge(A2,A3){$yx$}
+    \drawedge(A3,A4){$yx$}
+    \drawedge[curvedepth=2.5, ELside=r, ELpos=35, ELdist=0.3](A1,A3){$\dl x$}
+    \drawedge[ELpos=25, ELside=r](A2,A4){$\dl x$}
+    \drawedge[curvedepth=2.5](A3,A1){}
+    \drawedge(A4,A1){$\dl x, yx$}
+    \end{picture}
+ \end{center}
+ \caption{Automata $\mathrsfs{D}$, $\mathrsfs{D}_{\sigma_1}$ and $\mathrsfs{D}_{\sigma_2}$}
+ \label{fig:d5}
+\end{figure}
+This example shows that reduced automata may be significantly different.
+%As example shows reductions for different matrix decompositions can be different. Later
+%on we will describe some way of obtaining more decompositions. So, we have freedom of choise.
+\end{example}
+Following simple proposition gives a way to obtain several decompositions of automaton $\A$.
+Proof of this fact is straightforward.
+
+\begin{proposition}
+Let $\A$ be an automaton with decomposition $\langle(X,Y), (\G,\D)\rangle$.
+Then for any pair of permutation matrices $P$ and $Q$ of appropriate size $\langle(XP,P^{T}Y), (\G Q,Q^{T}\D)\rangle$ is
+also a decomposition of $\A$.
+\end{proposition}
+Next propositions show the reason of our interest in 
+automaton $\AD$. It appears, that reduced automaton inherits important properties of the original automaton $\A$.
+
+\begin{proposition}
+\label{th:1}
+Let $\A$ be a synchronizing automaton given by pair of matrices $A$ and $B$.
+Then for every decomposition $\sigma = \langle(X,Y), (\G,\D)\rangle$ reduced automaton $\AD$ is synchronizing
+and $\rt(\AD) \leq \rt(\A) + 1$. Moreover, if decomposition $\sigma$ is unavoiding then $\rt(\AD) \leq \rt(\A)$.
+%Given a synchronizing automaton $\A = \langle A,B \rangle$. For every decomposition $\sigma$
+%automaton $\AD$ is synchronizing and $\rt(\AD) \leq \rt(\A) + 1$. If decomposition is indispensable
+%(or unavoidable, compulsory, wholesome) then $\rt(\AD) \leq \rt(\A)$.
+\end{proposition}
+
+\begin{proof}
+Since $\A$ is synchronizing then there is a matrix $W \in \{A, B\}^{\rt(\A)}$ such
+that it contains a column of 1's. We can represent $W$ as product of matrices $X,Y,\G,\D$ in 
+accordance with $\sigma$. Thus, $W = SW'T$, where $S \in \{X,\G\}$, $T \in \{Y,\D\}$ and $W' \in \mathcal{M}^{\rt(\A) - 1}$.
+Note, that matrix $YWX$ is of order $k$ and also contains a column of 1's. Moreover, it can be represented
+as a product of matrices in $\mathcal{M}$ of length $\rt(\A) + 1$. Hence, automaton $\AD$ is
+synchronizing and its reset threshold is at most $\rt(\A) + 1$.
+In case of unavoiding decomposition matrix $W'T$ has to contain a column of 1's.
+%If decomposition is indispensable then matrix $W'T$ also contains column of 1's. 
+Thus $W'TX \in \mathcal{M}^{\rt(\A)}$ can play a role of reset word. So, the inequality $\rt(\AD) \leq \rt(\A)$ holds true.
+\end{proof}
+
+
+%Introduced reduction also preserves strong connectivity of $\A$.
+\begin{proposition}
+Let $\A$ be a strongly-connected automaton given by pair of matrices $A$ and $B$.
+Then for every unavoiding decomposition $\sigma = \langle(X,Y),(\G,\D)\rangle$ reduced automaton $\AD$
+is also strongly-connected.
+%Given a strongly-connected automaton $\A = \langle A,B \rangle$. For every indispensable decomposition
+%$\sigma$ automaton $\AD$ is strongly-connected.
+\end{proposition}
+
+\begin{proof}
+Let us fix arbitrary $i,j \in \overline{1,k}$. Now we are to construct a path from $i$ to $j$ 
+in automaton $\AD$. Since every row of $Y$ contains 1 there
+exists $i'$ such that $Y[i,i'] = 1$. Decomposition $\sigma$ is unavoiding, thus
+there exists $j'$ such that $X[j',j] = 1$. Since $\A$ is strongly-connected we have matrix 
+$W \in \{A,B\}^*$ such that $W[i',j'] = 1$. It is clear that $YWX[i,j] = 1$. Moreover,
+$YWX \in \mathcal{M}^*$. Therefore, $\AD$ is strongly-connected.
+%Now it is straightforward that $YWX$ can be represented
+%as composition of $Y\G , YX, \D X, \D\G$ and $YWX[i,j] = 1$. Thus, $\AD$ is strongly-connected.
+\end{proof}
+In order to obtain upper bound on $\rt(\A)$ using $\rt(\AD)$ we will introduce a new notion.
+%Theorem~\ref{th:1} gives only lower bound for the reset threshold. We need to modify problem itself
+%in order to have also upper bound. Actually, we will suggest problem almost the same, as to sychronize
+%original automaton.
+Let $\langle \A , \mathrsfs{F} \rangle$ be a pair of automata, where $\mathrsfs{F}$ has initial and final states. 
+We say that $\A$ is \emph{synchronizing with constraint} $\mathrsfs{F}$ if there is a word $w$ such that
+$w$ resets $\A$ and is also accepted by $\mathrsfs{F}$. The length of the shortest such
+word $w$ we will call \emph{constrained reset threshold with respect to} $\mathrsfs{F}$ and denote it as $\rtc(\A, \mathrsfs{F})$.
+We will often omit explicit mention of automaton $\mathrsfs{F}$, since it will be known from context.
+
+We would like to note that constrained reset threshold can grow exponentially on number of states in automaton $\A$, even
+if automaton $\mathrsfs{F}$ is fixed. Such example can be obtained by a slight modification of 3-letter automaton $\mathrsfs{A}^3_{pfa}(n)$
+from \cite{Mart}. Letter $c$ in a new automaton will act as identity mapping on previously undefined states. All defined actions
+of letters will remain the same. %Minimal automaton of language $ba^*c$ is taken as an automaton $\mathrsfs{F}$.
+If we take minimal automaton of language $ba^*c$ as an automaton $\mathrsfs{F}$ then constrained reset word will coincide 
+with carefully synchronizing word of original automaton.
+
+%During our consideration $\mathrsfs{F}$ usually will be known from context, thus often we will omit explicit mention
+%of $\mathrsfs{F}$. We will say constrained reset threshold and denote it by $\rtc(\A)$. DISCSSION ON EXPONENTIAL
+%UPPER BOUND.
+
+Let $\R$ be an automaton shown in fig.~\ref{fig:r}. It has $\{S, YX, Y\G , \D X, \D \G, Z\}$ as a set of states.
+For the sake of clarity zero state $Z$ is not present in figure. For all letters $\ell \in \Sigma'$ we have 
+$Z \cdot \ell = Z$. If action of a letter $\ell$ on a state $q$ is not shown in picture then $q \cdot \ell = Z$.
+State $S$ is initial state of automaton $\R$. States $YX, Y\G , \D X, \D \G$ are final.
+
+\begin{figure}[ht]
+\begin{center}
+ \unitlength=2.8pt
+   \begin{picture}(18,26)(0,-2)
+   \gasset{Nw=7,Nh=6,Nmr=3,loopdiam=5}
+   \node[linewidth=0.3](A1)(0,18){$YX$}
+   \node[linewidth=0.3](A2)(18,18){$Y\G$}
+   \node[linewidth=0.3](A3)(18,0){$\D\G$}
+   \node[linewidth=0.3](A4)(0,0){$\D X$}
+   \node[Nmarks=i](AS)(-28,9){$S$}
+   \drawedge(AS,A1){$yx$}
+   \drawedge[ELpos=40,ELside=l,ELdist=0.5,curvedepth=-1.5](AS,A2){$y\g$}
+   \drawedge[ELpos=40,ELside=r,ELdist=0,curvedepth=1.5](AS,A3){$\dl \g$}
+   \drawedge[ELside=r](AS,A4){$\dl x$}
+   \drawloop[loopangle=135](A1){$yx$}
+   %\drawloop[loopangle=45](A2){$b$}
+   \drawloop[loopangle=-45](A3){$\dl \g$}
+   %\drawloop[loopangle=-135](A4){$b$}
+   \drawedge[curvedepth=2,ELpos=45](A4,A2){$y \g$}
+   \drawedge[curvedepth=2,ELpos=45](A2,A4){$\dl x$}
+   \drawedge(A1,A2){$y\g$}
+   \drawedge(A2,A3){$\dl \g$}
+   \drawedge(A3,A4){$\dl x$}
+   \drawedge(A4,A1){$yx$}
+   \end{picture}
+\end{center}
+\caption{Automaton $\R$}
+\label{fig:r}
+\end{figure}
+\begin{proposition}
+\label{th:2}
+Let $\A$ be a synchronizing automaton given by pair of matrices $A$ and $B$.
+Then for every decomposition $\sigma = \langle(X,Y), (\G,\D)\rangle$ automaton $\AD$ is synchronizing
+with constraint $\R$ and $\rtc(\AD) - 1 \leq \rt(\A) \leq \rtc(\A) + 1$. 
+Moreover, if decomposition $\sigma$ is unavoiding then $\rtc(\AD) \leq \rt(\A)$.
+%Given a synchronizing automaton $\A = \langle A,B \rangle$. For every decomposition $\sigma$
+%automaton $\AD$ is synchronizing with constraint $\R$ and $\rtc(\AD) - 1 \leq \rt(\A) \leq \rtc(\A) + 1$. 
+%If decomposition is indispensable
+%(or unavoidable, compulsory, wholesome) then lower bound can be improved $\rtc(\AD) \leq \rt(\A)$.
+\end{proposition}
+
+\begin{proof}
+Synchronizability of $\AD$ with constraint $\R$ and lower bounds on reset threshold of $\A$ immediately 
+follow from the proof of proposition~\ref{th:1}.
+Representations of matrices $YWX$ and $W'TX$ as a product of matrices in $\mathcal{M}$ satisfy the
+constraint $\R$.
+%Lower bound easily follows from proof of theorem~\ref{th:1}. Matrices constructed there satisfy
+%constraint $\R$.
+Now let matrix $W = SW'P$ be a matrix corresponding to some constrained reset word $w$ of $\AD$, where $S \in \{Y, \D\}$
+and $P \in \{ X, \G\}$. Note that $W$ can be represented as a product of matrices in $\mathcal{M}$ that automaton $\R$ 
+accepts.
+Then it is not hard to see that matrix $S'WP'$ has a column of 1's and can be represented as
+a product of matrices $A$ and $B$, where $S',P'$ are defined as follows:
+$$
+S' = 
+\begin{cases}
+X,\;& \mbox{if } S = Y,\\
+\G,\;& \mbox{if } S = \D;
+\end{cases}\;\;\;
+P' = 
+\begin{cases}
+Y,\;& \mbox{if } P = X,\\
+\D,\;& \mbox{if } P = \G.
+\end{cases}
+$$
+Thus, $S'WP'$ can play a role of reset word for $\A$ and we get $\rt(\A) \leq \rtc(\A) + 1$.
+%Then matrix $\overline{S}W\overline{P}$ has column of 1's and can be represented as
+%a product of matrices $A$ and $B$. Thus, $\rt(\A) \leq \rtc(\A) + 1$.
+\end{proof}
+
+Proposition~\ref{th:2} can be used in order to tightly estimate \rl\ of automaton of bounded rank.
+Let $\mathrsfs{E}_n$ be defined as follows:
+$$i\cdot a=\begin{cases}
+2, &\text{if } i = 1,\\
+3, &\text{if } i = 2,\\
+i, &\text{if } i>2;
+\end{cases}\quad
+i \cdot b =\begin{cases}
+i+1, &\text{if } i<n,\\
+1, &\text{if } i=n.
+\end{cases}$$
+Automaton $\mathrsfs{E}_5$ is shown in fig.~\ref{fig:e}.
+\begin{figure}[hb]
+\begin{center}
+\unitlength .45mm
+\begin{picture}(72,66)(25,-76)
+\gasset{Nw=16,Nh=16,Nmr=8,loopdiam=10} \node(n0)(36.0,-16.0){2}
+\node(n1)(4.0,-40.0){$1$} \node(n2)(68.0,-40.0){3} \node(n3)(16.0,-72.0){$5$}
+\node(n4)(56.0,-72.0){4} \drawedge[ELdist=2.0](n1,n0){$a$}
+\drawedge[ELdist=1.5](n2,n4){$b$} \drawedge[ELdist=1.7](n0,n2){$a,b$}
+\drawedge[ELdist=1.7](n3,n1){$b$} \drawedge[ELdist=1.7](n1,n2){$b$}
+\drawedge[ELdist=1.7](n4,n3){$b$}
+\drawloop[ELdist=1.5,loopangle=30](n2){$a$}
+\drawloop[ELdist=2.4,loopangle=-30](n4){$a$}
+\drawloop[ELdist=1.5,loopangle=210](n3){$a$} 
+%\put(31,-73){$\dots$}
+\end{picture}
+\begin{picture}(72,66)(-25,-76)
+\gasset{Nw=16,Nh=16,Nmr=8,loopdiam=10}
+\node(n1)(10.0,-27.0){1} \node(n2)(60.0,-27.0){2} \node(n3)(10.0,-72.0){4}
+\node(n4)(60.0,-72.0){3} \drawedge[ELdist=1.5](n2,n4){$\dl x$}
+\drawedge[ELdist=1.7](n3,n1){$\dl x$} \drawedge[ELdist=1.7](n4,n3){$\dl x$}
+\drawedge[ELdist=2.0](n1,n2){$\dl x, yx$} \drawloop[ELdist=1.5,loopangle=30](n2){$yx$}
+\drawloop[ELdist=2.4,loopangle=-30](n4){$yx$}
+\drawloop[ELdist=1.5,loopangle=210](n3){$yx$} 
+%\put(31,-73){$\dots$}
+\end{picture}
+\end{center}
+\caption{Automaton $\mathrsfs{E}_5$ and its reduced automaton}
+\label{fig:e}
+\end{figure}
+
+Let $\langle A,B\rangle$ be matrix representation of $\mathrsfs{E}_n$(in accordance with given numbering).
+We define decomposition $\sigma_n$ as follows: matrix $Y$ is obtained from $A$ by deleting second row and matrix $\D$
+obtained from $B$ by deleting first row. %Since $\sigma_n$ is decomposition, 
+Matrices $X, \G$ are uniquely 
+determined by $Y$ and $\D$.
+For example for $n = 5$ we get: 
+$$\sigma_5: \;\;
+A = 
+\left(
+\begin{smallmatrix}
+1&0&0&0\\
+0&1&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1\\
+\end{smallmatrix}
+\right)
+\left(
+\begin{smallmatrix}
+0&1&0&0&0\\
+0&0&1&0&0\\
+0&0&0&1&0\\
+0&0&0&0&1
+\end{smallmatrix}
+\right),\;
+B = 
+\left(
+\begin{smallmatrix}
+1&0&0&0\\
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1
+\end{smallmatrix}
+\right)
+\left(
+\begin{smallmatrix}
+0&0&1&0&0\\
+0&0&0&1&0\\
+0&0&0&0&1\\
+1&0&0&0&0
+\end{smallmatrix}
+\right).
+$$
+By straightforward computation we get $YX = A_{n - 1}$, $Y\G = I_{n - 1}$, $\D X = \D\G = B_{n - 1}$,
+where $I_{n - 1}$ is idetity matrix of order $n - 1$.
+Reduced automaton for $\mathrsfs{E}_5$ is shown on the right in fig.~\ref{fig:e}.
+We have omitted actions of $y\g, \dl \g$ for the sake of clarity.
+Note that $\langle YX, \D\G\rangle$ is a matrix representation of automaton $\mathrsfs{C}_{n - 1}$. We can use this fact
+and proposition~\ref{th:cerny} to estimate constrained reset threshold. 
+So, let $w \in \Sigma'$ be constrained reset word of minimal length for $\mathrsfs{E}_{\sigma_n}$.
+By proposition~\ref{th:cerny} $w$ has at least $(n - 1)^2 - 3(n - 1) + 2 = n^2 - 5n + 6$ occurences of $\dl x, \dl \g$ and $n - 2$
+occurences of $yx$. Note that $(yx)^2$ is not a factor of $w$. Otherwise we can obtain shorter constrained reset word by 
+reducing $(yx)^2$ to just $yx$. Therefore, after every occurence of $yx$, except maybe the last one, there is occurence 
+of $\dl x$, $\dl \g$ or $y \g$. Since $w$ is accepted by $\R$ we conclude that $yx$ is followed by $y\g$.
+Hence, we get $|w| \geq n^2 - 5n + 6 + n - 2 + n - 3 = n^2 -3n + 1$.
+%Note that after every merge maybe except the last one there is identity mapping due to constraints. Then theorem~\ref{th:cerny}
+%implies	$\rtc(\mathrsfs{E}_{\sigma_n}) \geq (n - 1)^2 - 3(n - 1) + 2 + (n - 2) + (n - 3) = n^2 -3n + 1$. And this bound is tight since
+%the word $(mic^{n - 2})^{n - 3}m$ is constraint reset word. 
+And proposition~\ref{th:2} implies $n^2 -3n + 1 \leq \rt(\mathrsfs{E}_n) \leq n^2 -3n + 2$. 
+There is another way to determine reset threshold of $\mathrsfs{E}_n$. Soon it will be presented in
+extended version of~\cite{AGV}.
+
+Now we will use series $\mathrsfs{E}_n$ as a base for constructing 2-letter automata of bounded
+rank $r$ with "large" reset threshold. Automaton $\mathrsfs{E}_n$ was chosen for the following reason.
+Computational experiments show that for small number of states $n$ upper bound $n^2 -3n +2$ on reset threshold is optimal
+for 2-letter automata of bounded rank $n - 1$.
+Thus, we hope that generalizations of series $\mathrsfs{E}_n$ will have reset thresholds close to optimal.
+%Now we are going to generalize series $\mathrsfs{E}_n$ on other ranks. In other words, we will find series of automata
+%of bounded rank with two letters that can be reduced to the automaton $\mathrsfs{C}_k$.
+
+\begin{proposition}
+For every $r < n$ there is synchronizing $n$-state automaton of bounded rank $r$ whose \rl\ is at least 
+$r^2 -r + 1$. If $r \leq \frac{n}{2}$ then such automaton is strongly-connected.
+\end{proposition}
+
+It can be seen as an attempt to solve system of matrix equations:
+$Y\G = I_{k}$, $\D X = \D \G = CYCLIC_{k}$, $YX = MERGE_{k}$, where $X,Y$ are of size $n$ by $k$ and $\G,\D$ are of
+size $k$ by $n$.
+
+Obvious solution can be found in following form:
+
+$$
+X =
+\left(
+\begin{array}{c}
+X' \\
+e_1 \\
+A_r
+\end{array}
+\right),
+Y = 
+\left(
+\begin{array}{c}
+O_d \mid I_r
+\end{array}
+\right),
+\G = 
+\left(
+\begin{array}{c}
+\G' \\
+e_1 \\
+I_r
+\end{array}
+\right),
+\D = 
+\left(
+\begin{array}{c}
+O_{d + 1} \mid I_{r-1}\\ \hline
+e_d
+\end{array}
+\right),
+$$
+where $X', \G'$ are arbitrary $(0,1)$-matrices of size $d-1$ by $r$ with exactly one 1
+in each row. NOTE HERE, that we deduce from synch of reduced synch of original. ADD this to
+theorem~\ref{th:2}.
+
+But this solution does not provide us with strongly-connected automaton. This can be done
+with natural restriction $r \geq d$. Otherwise, you can not expect to have connectivity.
+
+Let solution be defined as follows:
+$$
+X =
+\left(
+\begin{array}{c}
+M \\
+e_1 \\
+A_r
+\end{array}
+\right),
+Y = 
+\left(
+\begin{array}{c}
+O_d \mid I_r
+\end{array}
+\right),
+\G = 
+\left(
+\begin{array}{c}
+M \\
+e_1 \\
+I_r
+\end{array}
+\right),
+\D = 
+\left(
+\begin{array}{c}
+I_{d - 1} \mid O_{r + 1} \\ \hline
+\textbf{\,\,\,} O_{2d} \textbf{\,\,\,} \mid I_{r - d} \\ \hline
+e_d
+\end{array}
+\right),
+$$
+where matrix $M =
+\left(
+\begin{smallmatrix}
+e_2\\
+e_3\\
+\ldots\\
+e_d
+\end{smallmatrix}\right).$
+The proof of the fact that automaton reducable to this one is strongly-connected is
+straightforward. The results can be summorized in the following theorem.
+
+
+\section{Conclusion and discussion}
+Firstly, find canocical reduction. Find classes that have same reduced automaton.
+
+\begin{thebibliography}{99}
+\bibitem{AGW}
+Adler, R.L., Goodwyn, L.W., Weiss, B.: Equivalence of topological Markov shifts.
+Israel J. Math. 27, 49--63 (1977)
+
+\bibitem{AS09}
+Almeida, J.; Steinberg, B.: Matrix mortality and the \v{C}ern\'{y}--Pin
+conjecture. In:  Diekert, V.; Nowotka, D. (eds.), Developments in
+Language Theory, Lect.\ Notes Comput.\ Sci., vol.\,5583, pp. 67--80.
+Springer, Heidelberg (2009)
+
+\bibitem{AMR}
+Almeida, M.; Moreira, N.; Reis, R.: Enumeration and generation with a string
+automata representation. Theor.\ Comput.\ Sci. 387, 93--102 (2007)
+
+\bibitem{AVZ}
+Ananichev, D.S., Volkov, M.V., Zaks, Yu.I.: Synchronizing automata
+with a letter of deficiency 2. Theor.\ Comput.\ Sci. 376, 30--41 (2007)
+
+\bibitem{Ce64}
+\v{C}ern\'{y}, J.: Pozn\'{a}mka k homog\'{e}nnym eksperimentom s
+kone\v{c}n\'{y}mi automatami. Matematicko-fyzikalny \v{C}asopis
+Slovensk.\ Akad.\ Vied 14(3) 208--216 (1964) (in Slovak)
+
+\bibitem{Du98}
+Dubuc, L.: Sur les automates circulaires et la conjecture de
+\v{C}ern\'y. RAIRO Inform.\ Th\'eor.\ Appl. 32, 21--34 (1998) (in
+French)
+
+\bibitem{DM62}
+Dulmage, A.L., Mendelsohn, N.S.: The exponent of a primitive matrix.
+Can.\ Math.\ Bull. 5, 241--244 (1962)
+
+\bibitem{DM64}
+Dulmage, A.L., Mendelsohn, N.S.: Gaps in the exponent set of primitive
+matrices. Ill.\ J. Math. 8, 642--656 (1964)
+
+\bibitem{Ep90}
+Eppstein, D.: Reset sequences for monotonic automata. SIAM J.
+Comput. 19, 500--510 (1990)
+
+\bibitem{Hi88}
+Higgins, P.M.: The range order of a product of $i$ transformations
+from a finite full transformation semigroup, Semigroup Forum 37, 31--36
+(1988)
+
+\bibitem{Ka03}
+Kari, J.: Synchronizing finite automata on Eulerian digraphs.
+Theoret.\ Comput.\ Sci. 295, 223--232 (2003)
+
+\bibitem{Pi78}
+Pin, J.-E.: Le probl\`eme de la synchronization et la conjecture de
+\v{C}ern\'y. Th\`ese de 3\`eme cycle. Universit\'e de Paris 6 (1978) (in
+French)
+
+\bibitem{Pi83}
+Pin, J.-E.: On two combinatorial problems arising from automata
+theory. Ann.\ Discrete Math. 17, 535--548 (1983)
+
+\bibitem{RaAl05}
+Ram\'{\i}rez Alfons\'{\i}n, J.L.: The diophantine Frobenius problem.
+Oxford University Press (2005)
+
+\bibitem{Sa05}
+Sandberg, S.: Homing and synchronizing sequences. In: Broy, M.
+et~al. (eds.), Model-Based Testing of Reactive Systems. Lect.\
+Notes Comput.\ Sci., vol.\,3472, pp.\,5--33. Springer, Heidelberg
+(2005)
+
+\bibitem{SZ}
+Skvortsov E., Zaks Yu.: Synchronizing random automata. Submitted;
+proceedings version in: Rigo, M. (ed.), AutoMathA 2009, Universit\'e
+de Li\`ege (2009)
+
+\bibitem{Tr06}
+Trahtman, A.N.: An efficient algorithm finds noticeable trends
+and examples concerning the \v{C}ern\'y conjecture. In:
+Kr\'alovi\v{c}, R.; Urzyczyn, P. (eds.), Mathematical Foundations
+of Computer Science. Lect.\ Notes Comput.\ Sci., vol.\,4162, pp.\,789--800
+Springer, Heidelberg (2006)
+
+\bibitem{Tr06a}
+Trahtman, A.N.: Notable trends concerning the synchronization
+of graphs and automata. Electr.\ Notes Discrete Math. 25, 173--175 (2006)
+
+\bibitem{Tr07}
+Trahtman, A.N.: The \v{C}ern\'y conjecture for aperiodic automata.
+Discrete Math.\ Theor.\ Comput.\ Sci. 9(2), 3--10 (2007)
+
+\bibitem{Tr08}
+Trahtman, A.N.: Some aspects of synchronization of DFA. J. Comput.\ Sci.\
+Technol. 23, 719--727 (2008)
+
+\bibitem{Tr09}
+Trahtman, A.N.: The Road Coloring Problem. Israel J. Math. 172,
+51--60 (2009)
+
+\bibitem{Vo08}
+Volkov, M.V.: Synchronizing automata and the \v{C}ern\'{y}
+conjecture. In: Mart\'\i{}n-Vide, C.; Otto, F.; Fernau, H. (eds.),
+Languages and Automata: Theory and Applications. Lect.\ Notes
+Comput.\ Sci., vol.\,5196, pp.\,11--27.  Springer, Heidelberg (2008)
+
+\bibitem{Vo09}
+Volkov, M.V.: Synchronizing automata preserving a chain of partial
+orders. Theoret.\ Comput.\ Sci. 410, 2992--2998 (2009)
+
+\bibitem{Wi50}
+Wielandt, H.: Unzerlegbare, nicht negative Matrizen. Math.\ Z.
+52, 642--648 (1950) (in German)
+\end{thebibliography}
+
+\end{document}
