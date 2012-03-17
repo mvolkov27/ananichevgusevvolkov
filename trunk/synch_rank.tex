@@ -158,9 +158,9 @@ Consider an $n$-state automaton $\A$ given by pair of matrices $A$ and $B$.
 We say that set of matrix pairs $\sigma = \langle(X,Y), (\G,\D)\rangle$ is
 a \emph{decomposition} of automaton $\A$ if:
 \begin{enumerate}[(i)]
-\item $X, \G$ are $(0,1)$-matrices of size $n$ by $k$ and $Y, \D$ are
-$(0,1)$-matrices of size $k$ by $n$.
-\item $A = XY$, $B = \G\D$.
+\item $X, \G$ are $(0,1)$-matrices of size $n$ by $k$
+\item $Y, \D$ are $(0,1)$-matrices of size $k$ by $n$
+\item $A = XY$, $B = \G\D$
 \item every row of $X,Y,\G,\D$ has only one occurence of 1.
 \end{enumerate}
 We say that decomposition is \emph{unavoiding} if also every column of $X$ and 
@@ -628,15 +628,26 @@ Thus, we hope that generalizations of series $\mathrsfs{E}_n$ will have reset th
 %of bounded rank with two letters that can be reduced to the automaton $\mathrsfs{C}_k$.
 
 \begin{proposition}
-For every $r < n$ there is synchronizing $n$-state automaton of bounded rank $r$ whose \rl\ is at least 
-$r^2 -r + 1$. If $r \leq \frac{n}{2}$ then such automaton is strongly-connected.
+For every $r < n$ there is a synchronizing 2-letter $n$-state automaton of bounded rank $r$ whose \rl\ is at least 
+$r^2 -r - 1$. If $r \geq \frac{n}{2}$ then such automaton is strongly-connected.
 \end{proposition}
 
-It can be seen as an attempt to solve system of matrix equations:
-$Y\G = I_{k}$, $\D X = \D \G = CYCLIC_{k}$, $YX = MERGE_{k}$, where $X,Y$ are of size $n$ by $k$ and $\G,\D$ are of
-size $k$ by $n$.
-
-Obvious solution can be found in following form:
+Let us fix number of states $n$ and rank $r$. Automaton $\mathrsfs{E}_n$ essentially was reduced to $\mathrsfs{C}_{n - 1}$.
+Now we are going to reverse this procedure. We will look for automaton that can be reduced to $\mathrsfs{C}_r$.
+More precisely, consider a solution $X,Y,\G,\D$ of the following system of matrix equations:
+$YX = A_{r}$, $Y\G = I_{r}$, $\D X = \D \G = B_{r}$, such that:
+\begin{enumerate}[(i)]
+\item $X,\G$ are $(0,1)$-matrices of size $n$ by $r$
+\item $Y,\D$ are $(0,1)$-matrices of size $r$ by $n$
+\item every row of $X, Y, \G, \D$ has only one occurence of 1
+\item every column of $X$ and $\G$ contains at least one occurence of 1.
+\end{enumerate}
+Arguing as before we get $\rtc(YX, Y\G, \D X, \D \G) \geq r^2 - r - 1$.
+Consider automaton $\A = \langle XY, \G\D \rangle$. It has $n$ states and rank of each letter is bounded by $r$.
+Since $\langle (X,Y), (\G, \D) \rangle$ is unavoiding decomposition of $\A$ then by proposition~\ref{th:2} we 
+conclude that $\A$ is synchronizing.
+Moreover, its reset threshold is at least $r^2 - r - 1$.
+Simple solution with required properties can be found in the following form:
 
 $$
 X =
@@ -646,13 +657,13 @@ X' \\
 e_1 \\
 A_r
 \end{array}
-\right),
+\right),\;
 Y = 
 \left(
 \begin{array}{c}
-O_d \mid I_r
+0_d \mid I_r
 \end{array}
-\right),
+\right),\;
 \G = 
 \left(
 \begin{array}{c}
@@ -660,23 +671,24 @@ O_d \mid I_r
 e_1 \\
 I_r
 \end{array}
-\right),
+\right),\;
 \D = 
 \left(
 \begin{array}{c}
-O_{d + 1} \mid I_{r-1}\\ \hline
+0_{d + 1} \mid I_{r-1}\\ \hline
 e_d
 \end{array}
 \right),
 $$
-where $X', \G'$ are arbitrary $(0,1)$-matrices of size $d-1$ by $r$ with exactly one 1
-in each row. NOTE HERE, that we deduce from synch of reduced synch of original. ADD this to
-theorem~\ref{th:2}.
+where $X', \G'$ are arbitrary $(0,1)$-matrices of size $d-1$ by $r$ with unique occurence of 1
+in each row. Here $0_{d}$ denotes zero matrix of order $d$. This completes first part of the proof.
+%NOTE HERE, that we deduce from synch of reduced synch of original. ADD this to theorem~\ref{th:2}.
 
-But this solution does not provide us with strongly-connected automaton. This can be done
-with natural restriction $r \geq d$. Otherwise, you can not expect to have connectivity.
-
-Let solution be defined as follows:
+We need more complicated solution in order to get strongly-connected automaton.
+%Presented solution do not provide us with strongly-connected automaton. 
+If $r = n - 1$ then automaton $\mathrsfs{E}_n$ satisfies the conditions of proposition.
+Suppose now that $r \neq n - 1$.
+Then the desired solution is the following:
 $$
 X =
 \left(
@@ -689,7 +701,7 @@ A_r
 Y = 
 \left(
 \begin{array}{c}
-O_d \mid I_r
+0_d \mid I_r
 \end{array}
 \right),
 \G = 
@@ -703,20 +715,20 @@ I_r
 \D = 
 \left(
 \begin{array}{c}
-I_{d - 1} \mid O_{r + 1} \\ \hline
-\textbf{\,\,\,} O_{2d} \textbf{\,\,\,} \mid I_{r - d} \\ \hline
+I_{d - 1} \mid 0_{r + 1} \\ \hline
+\textbf{\,\,\,} 0_{2d} \textbf{\,\,\,} \mid I_{r - d} \\ \hline
 e_d
 \end{array}
 \right),
 $$
-where matrix $M =
+where $M =
 \left(
 \begin{smallmatrix}
 e_2\\
 e_3\\
 \ldots\\
 e_d
-\end{smallmatrix}\right).$
+\end{smallmatrix}\right)$ is matrix of size $d$ by $r$.
 The proof of the fact that automaton reducable to this one is strongly-connected is
 straightforward. The results can be summorized in the following theorem.
 
