@@ -20,9 +20,9 @@
 \newcommand{\D}{\Delta}
 \newcommand{\g}{\gamma}
 \newcommand{\dl}{\delta}
-\newcommand{\rk}{rk}
-\newcommand{\rt}{rt}
-\newcommand{\rtc}{rt_{c}}
+\newcommand{\rk}{\mathrm{rk}}
+\newcommand{\rt}{\mathrm{rt}}
+\newcommand{\rtc}{\mathrm{rt}_{c}}
 
 \DeclareMathOperator{\weight}{wg}
 
@@ -32,9 +32,8 @@
 \begin{document}
 
 \title{Synchronizing automata of bounded rank\thanks{Supported
-by the Russian Foundation for Basic Research, grants xx-xx-xxxxx
-and xx-xx-xxxxx, and by the Federal Education Agency of Russia,
-grant 2.1.1/3537.}}
+by grant of president of Russian Federation MK-266.2012.1. Author is also grateful to Erasmus
+Mundus Action 2 Partnerships - Triple I.}}
 
 \titlerunning{Synchronizing automata of bounded rank}
 
@@ -42,7 +41,7 @@ grant 2.1.1/3537.}}
 
 \authorrunning{V. V. Gusev}
 
-\tocauthor{V. V. Gusev(Ekaterinburg, Russia)}
+\tocauthor{V. V. Gusev}
 
 \institute{Institute of Mathematics and Computer Science,\\
 Ural Federal University, Ekaterinburg, Russia\\
@@ -120,6 +119,9 @@ from $\Sigma$ to $\Sigma^{*}$ in accordance with equation $M(uv) = M(u)M(v)$, wh
 It is not hard to see following important property of matrix representation: for every word $w$ we have
 $M(w)[i,j] = 1$ if $q_i \cdot w = q_j$, otherwise $M(w)[i,j] = 0$. It immediately implies that
 a word $w$ is a reset word of $\A$ if and only if $M(w)$ has column of 1's.
+Throughout a paper we will also make use of the following notation. Let $\mathrsfs{M}$ be a set of square matrices.
+Then $\mathrsfs{M}^{k} = M_1 \cdot M_2 \cdot \ldots \cdot M_k$, where $M_i \in \mathrsfs{M}$ for $i \in \overline{1,k}$,
+and $\mathrsfs{M}^* = \bigcup_{k = 1}^{\infty} \mathrsfs{M}^k$.
 
 Let us introduce pair of square matrices $A_n$ and $B_n$ of order $n$. We will denote $i$-th row of matrix
 $A_n$ as $A_n[i,.]$, and $e_i$ denote row vector whose only non-zero entry equal to 1 located in position $i$.
@@ -220,7 +222,7 @@ is deterministic and totally-defined.
 \begin{example}
 \label{ex}
 Let $\mathrsfs{D}$ be an automaton depicted on fig.~\ref{fig:d5} on the left
-(firstly appeared in \cite{AGW} as $\mathrsfs{D}''_5$).
+(firstly appeared in \cite{AGV} as $\mathrsfs{D}''_5$).
 %Consider automaton $\mathrsfs{D}$ from fig.~\ref{fig:d5}, where 
 %Consider automaton $\mathrsfs{D''}_5 = \langle A, B \rangle$, where 
 %$A = \left(\begin{smallmatrix}0&1&0&0&0\\0&0&1&0&0\\0&0&0&1&0\\0&0&0&0&1\\0&1&0&0&0\end{smallmatrix}\right)$
@@ -394,7 +396,7 @@ and $\rt(\AD) \leq \rt(\A) + 1$. Moreover, if decomposition $\sigma$ is unavoidi
 Since $\A$ is synchronizing then there is a matrix $W \in \{A, B\}^{\rt(\A)}$ such
 that it contains a column of 1's. We can represent $W$ as product of matrices $X,Y,\G,\D$ in 
 accordance with $\sigma$. Thus, $W = SW'T$, where $S \in \{X,\G\}$, $T \in \{Y,\D\}$ and $W' \in \mathcal{M}^{\rt(\A) - 1}$.
-Note, that matrix $YWX$ is of order $k$ and also contains a column of 1's. Moreover, it can be represented
+Note, that matrix $YWX$ is of order $r$ and also contains a column of 1's. Moreover, it can be represented
 as a product of matrices in $\mathcal{M}$ of length $\rt(\A) + 1$. Hence, automaton $\AD$ is
 synchronizing and its reset threshold is at most $\rt(\A) + 1$.
 In case of unavoiding decomposition matrix $W'T$ has to contain a column of 1's.
@@ -446,7 +448,8 @@ with carefully synchronizing word of original automaton.
 Let $\R$ be an automaton shown in fig.~\ref{fig:r}. It has $\{S, YX, Y\G , \D X, \D \G, Z\}$ as a set of states.
 For the sake of clarity zero state $Z$ is not present in figure. For all letters $\ell \in \Sigma'$ we have 
 $Z \cdot \ell = Z$. If action of a letter $\ell$ on a state $q$ is not shown in picture then $q \cdot \ell = Z$.
-State $S$ is initial state of automaton $\R$. States $YX, Y\G , \D X, \D \G$ are final.
+State $S$ is initial state of automaton $\R$. States $YX, Y\G , \D X, \D \G$ are final. From now on automaton $\R$
+will be the only contraint automaton we consider.
 
 \begin{figure}[ht]
 \begin{center}
@@ -479,10 +482,10 @@ State $S$ is initial state of automaton $\R$. States $YX, Y\G , \D X, \D \G$ are
 \end{figure}
 \begin{proposition}
 \label{th:2}
-Let $\A$ be a synchronizing automaton given by pair of matrices $A$ and $B$.
+Let $\A$ be an automaton given by pair of matrices $A$ and $B$.
 Then for every decomposition $\sigma = \langle(X,Y), (\G,\D)\rangle$ automaton $\AD$ is synchronizing
-with constraint $\R$ and $\rtc(\AD) - 1 \leq \rt(\A) \leq \rtc(\A) + 1$. 
-Moreover, if decomposition $\sigma$ is unavoiding then $\rtc(\AD) \leq \rt(\A)$.
+with constraint $\R$ if and only if $\A$ is synchronizing. Moreover, $\rtc(\AD) - 1 \leq \rt(\A) \leq \rtc(\A) + 1$. 
+If decomposition $\sigma$ is unavoiding then $\rtc(\AD) \leq \rt(\A)$.
 %Given a synchronizing automaton $\A = \langle A,B \rangle$. For every decomposition $\sigma$
 %automaton $\AD$ is synchronizing with constraint $\R$ and $\rtc(\AD) - 1 \leq \rt(\A) \leq \rtc(\A) + 1$. 
 %If decomposition is indispensable
@@ -490,9 +493,9 @@ Moreover, if decomposition $\sigma$ is unavoiding then $\rtc(\AD) \leq \rt(\A)$.
 \end{proposition}
 
 \begin{proof}
-Synchronizability of $\AD$ with constraint $\R$ and lower bounds on reset threshold of $\A$ immediately 
+If $\A$ is synchronizible then synchronizability of $\AD$ with constraint $\R$ and lower bounds on reset threshold of $\A$ immediately 
 follow from the proof of proposition~\ref{th:1}.
-Representations of matrices $YWX$ and $W'TX$ as a product of matrices in $\mathcal{M}$ satisfy the
+Representations of constructed matrices $YWX$ and $W'TX$ as a product of matrices in $\mathcal{M}$ satisfy the
 constraint $\R$.
 %Lower bound easily follows from proof of theorem~\ref{th:1}. Matrices constructed there satisfy
 %constraint $\R$.
