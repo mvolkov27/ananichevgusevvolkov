@@ -636,7 +636,7 @@ Thus, we hope that generalizations of series $\mathrsfs{E}_n$ will have reset th
 
 \begin{proposition}
 For every $r < n$ there is a synchronizing 2-letter $n$-state automaton of bounded rank $r$ whose \rl\ is at least 
-$r^2 -r - 1$. If $r \geq \frac{n}{2}$ then such automaton is strongly-connected.
+$r^2 -r - 1$. If $r > \frac{n}{2}$ then such automaton is strongly-connected.
 \end{proposition}
 
 Let us fix number of states $n$, rank $r$ and defect $d = n - r$. Automaton $\mathrsfs{E}_n$ essentially was reduced to $\mathrsfs{C}_{n - 1}$.
@@ -668,7 +668,7 @@ A_r
 Y = 
 \left(
 \begin{array}{c}
-0_d \mid I_r
+0_{r,d} \mid I_r
 \end{array}
 \right),\;
 \G = 
@@ -682,13 +682,13 @@ I_r
 \D = 
 \left(
 \begin{array}{c}
-0_{d + 1} \mid I_{r-1}\\ \hline
+0_{r-1,d + 1} \mid I_{r-1}\\ \hline
 e_d
 \end{array}
 \right),
 $$
 where $X', \G'$ are arbitrary $(0,1)$-matrices of size $d-1$ by $r$ with unique occurrence of 1
-in each row. Here $0_{d}$ denotes zero matrix of order $d$. This completes first part of the proof.
+in each row. Here $0_{r,d}$ denotes zero matrix of size $r$ by $d$. This completes first part of the proof.
 %NOTE HERE, that we deduce from synch of reduced synch of original. ADD this to theorem~\ref{th:2}.
 
 We need more complicated solution in order to get strongly-connected automaton.
@@ -708,7 +708,7 @@ A_r
 Y = 
 \left(
 \begin{array}{c}
-0_d \mid I_r
+0_{r,d} \mid I_r
 \end{array}
 \right),
 \G = 
@@ -722,8 +722,8 @@ I_r
 \D = 
 \left(
 \begin{array}{c}
-I_{d - 1} \mid 0_{r + 1} \\ \hline
-\textbf{\,\,\,} 0_{2d} \textbf{\,\,\,} \mid I_{r - d} \\ \hline
+I_{d - 1} \mid 0_{d-1,r + 1} \\ \hline
+\textbf{\,\,\,} 0_{r-d,2d} \mid I_{r - d} \\ \hline
 e_d
 \end{array}
 \right),
@@ -735,9 +735,9 @@ e_2\\
 e_3\\
 \ldots\\
 e_d
-\end{smallmatrix}\right)$ is matrix of size $d$ by $r$.
+\end{smallmatrix}\right)$ is matrix of size $d - 1$ by $r$.
 The proof that automaton $\langle XY, \G\D\rangle$ is is strongly-connected is
-straightforward and technical. We will omit it due to space restrictions.
+straightforward and technical(see appendix). We will omit it due to space restrictions.
 
 \section{Conclusion and discussion}
 We suggest to study relationship between reset threshold of automaton and ranks of letters in it.
@@ -890,4 +890,91 @@ orders. Theoret.\ Comput.\ Sci. 410, 2992--2998 (2009)
 %Wielandt, H.: Unzerlegbare, nicht negative Matrizen. Math.\ Z.
 %52, 642--648 (1950) (in German)
 \end{thebibliography}
+
+\section*{Appendix}
+If matrices $X,Y,\G,\D$ defined as follows:
+$$
+X =
+\left(
+\begin{array}{c}
+M \\
+e_1 \\
+A_r
+\end{array}
+\right),
+Y = 
+\left(
+\begin{array}{c}
+0_{r,d} \mid I_r
+\end{array}
+\right),
+\G = 
+\left(
+\begin{array}{c}
+M \\
+e_1 \\
+I_r
+\end{array}
+\right),
+\D = 
+\left(
+\begin{array}{c}
+I_{d - 1} \mid 0_{d-1,r + 1} \\ \hline
+\textbf{\,\,\,} 0_{r-d,2d} \mid I_{r - d} \\ \hline
+e_d
+\end{array}
+\right),
+$$
+where $M =
+\left(
+\begin{smallmatrix}
+e_2\\
+e_3\\
+\ldots\\
+e_d
+\end{smallmatrix}\right)$ is matrix of size $d - 1$ by $r$,
+then automaton $\A = \langle XY, \G\D\rangle$ is strongly-connected.
+By direct computation we obtain:
+$$
+XY = 
+\bordermatrix{    ~  &    ~     \cr
+                  _1 & e_{d+2}  \cr
+                  _2 & e_{d+3}  \cr
+                  _{\ldots} & _{\ldots} \cr
+                  _{d - 1} & e_{2d}  \cr
+                  _d & e_{d+1}  \cr
+                  _{d+1} & e_{d+2}  \cr
+                  _{d+2} & e_{d+2}  \cr
+                  _{d+3} & e_{d+3}  \cr
+                  _{d+4} & e_{d+4}  \cr
+                  _{\ldots} & _{\ldots} \cr
+                  _{n} & e_{n}  \cr  
+             }, \;\;\;\;
+\G\D =             
+\bordermatrix{    ~  &    ~     \cr
+                  _1 & e_{2}  \cr
+                  _2 & e_{3}  \cr
+                  _{\ldots} & _{\ldots} \cr
+                  _{d - 2} & e_{d - 1}  \cr
+                  _{d - 1} & e_{2d + 1}  \cr
+                  _d & e_{1}  \cr
+                  _{d+1} & e_{1}  \cr
+                  _{d+2} & e_{2}  \cr
+                  _{\ldots} & _{\ldots} \cr
+                  _{2d-1} & e_{d-1}  \cr
+                  _{2d} & e_{2d+1}  \cr
+                  _{2d+1} & e_{2d+2}  \cr
+                  _{\ldots} & _{\ldots} \cr
+                  _{n-1} & e_{n}  \cr
+                  _{n} & e_{d}  \cr  
+             }.
+$$
+In order to show that $\A$ is strongly-connected we will present closed walks with common vertices.
+$1\xrightarrow{\G\D}2\xrightarrow{\G\D}\ldots\xrightarrow{\G\D}d-1\xrightarrow{XY}2d\xrightarrow{\G\D}2d+1\xrightarrow{\G\D}\ldots
+\xrightarrow{\G\D}n\xrightarrow{\G\D}d\xrightarrow{\G\D}1$. Therefore, we have that all states except maybe $\overline{d+1,2d -1}$ are
+in the same strongly connected component.
+$d+1\xrightarrow{XY}d+2\xrightarrow{\G\D}2\xrightarrow{XY}d+3\xrightarrow{\G\D}3\xrightarrow{XY}d+4\xrightarrow{\G\D}
+4\xrightarrow{XY}\ldots\xrightarrow{\G\D}d-2\xrightarrow{XY}2d-1\xrightarrow{\G\D}d-1\leadsto d\xrightarrow{XY}d+1$. 
+Therefore, automaton $\A$ is strongly-connected.
+%For any $v \in \overline{d+1,2d -1}$ we have $v\xrightarrow{XY}d+v\xrightarrow{\G\D}v$.
 \end{document}
