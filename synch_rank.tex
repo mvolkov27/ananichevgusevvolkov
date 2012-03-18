@@ -51,12 +51,19 @@ Ural Federal University, Ekaterinburg, Russia\\
 \maketitle
 
 \begin{abstract}
-We reduce a problem of synchronization of $n$-state automaton
-whose letters have rank $r < n$ to synchronization of $r$-state 
+We reduce the problem of synchronization of $n$-state automaton
+with letters of rank at most $r < n$ 
+%whose letters have rank $r < n$ 
+to the problem of synchronization of $r$-state 
 automaton with constraints given by regular language.
-As an illustration of our technique we present for every 
-$r \geq \frac{n}{2}$ and $n$ strongly-connected $n$-state \sa\
-of bounded rank $r$ with \rl equal to $r(r - 1)$.
+Using this technique we construct series of synchronizing
+$n$-state automata with reset threshold at least $r^2 -r - 1$,
+where $r < n$ is rank of letters.
+%in which every letter has rank $r < n$.
+Moreover, if $r > \frac{n}{2}$ then such automaton is strongly-connected.
+%As an illustration of our technique we present for every 
+%$r \geq \frac{n}{2}$ and $n$ strongly-connected $n$-state \sa\
+%of bounded rank $r$ with \rl equal to $r(r - 1)$.
 \end{abstract}
 
 \section{Introduction}
@@ -66,44 +73,40 @@ is, leaves the automaton in one particular state no matter at which state it is
 applied. Any such word $w$ is said to be a \emph{reset word} for the automaton.
 The minimum length of reset words for $\mathrsfs{A}$ is called the \emph{\rl}
 of $\mathrsfs{A}$ and denoted by $\rt(\mathrsfs{A})$. Synchronizing automata
-constitute an interesting object and serve as natural models of error-resistant
+often serve as natural models of error-resistant
 systems. For a brief introduction to the theory of synchronizing automata we refer
 the reader to surveys~\cite{Sa05,Vo08}. 
 %WANT SOME LYRICS ABOUT DIFFICULT PROBLEMS HERE
 The interest to the field is
-also heated by the famous \v{C}ern\'{y} conjecture.
+heated by the famous \v{C}ern\'{y} conjecture.
 
 In~1964 Jan \v{C}ern\'{y}~\cite{Ce64} constructed for each $n>1$ a
 synchronizing automaton $\mathrsfs{C}_n$ with $n$ states whose \rl\ is equal to
 $(n-1)^2$. Soon after that he conjectured that these automata represent the
-worst possible case, that is, every synchronizing automaton with $n$ states can
-be reset by a word of length $(n-1)^2$. Despite intensive research, the best
+worst possible case. In other words, every synchronizing automaton with $n$ states can
+be synchronized by a word of length $(n-1)^2$. Despite intensive research, the best
 upper bound on the \rl\ of synchronizing automata with $n$ states achieved so
-far is $\frac{n^3-n}6$, see~\cite{Pi83}, so it is much larger than the
-conjectured value. There is also bound by Trahtman that contains unclear place~\cite{Tr11}.
+far is cubic. Classical bound is $\frac{n^3-n}6$, see~\cite{Pi83}. A slightly better bound
+$\frac{n(7n^2+6n-16)}{48}$ has been claimed in \cite{Tr11}.
 Though the \v{C}ern\'{y} conjecture is open in general, it
-has been confirmed for some restricted classes of synchronizing automata.
-We will mention only some of them.
-Dubuc~\cite{Du98} has proved conjecture for automata that have a letter acting as cyclic permutation.
-Kari~\cite{Ka03} confirmed conjecture for automata with eulerian undeliyng digraph.
+has been confirmed for some restricted classes of synchronizing automata, see~\cite{AS09,Du98,Ka03,Tr07,Vo09}.
+%Dubuc~\cite{Du98} has proved conjecture for automata that have a letter acting as cyclic permutation.
+%Kari~\cite{Ka03} confirmed conjecture for automata with eulerian undeliyng digraph.
+For some classes quadratic upper bound is established, see~\cite{BBP,Rys}.
+%such bound for automata that has one letter whoose underlying digraph is connected.
+%Rystsov~\cite{Rys} obtained quadratic upper bound in case when every letter is either permutation or
+%idemponent of defect 1.
 
-For some classes there is quadratic upper bound. For example, Berlinkov, Beal, Perrin~\cite{BBP} obtained
-such bound for automata that has one letter whoose underlying digraph is connected.
-Rystsov~\cite{Rys} obtained quadratic upper bound in case when every letter is either permutation or
-idemponent of defect 1.
-
-In present paper we are interested in synchronization automata of bounded rank.
-%cases of bounded rank in literature
-We can ask following general question: Given a synchronizing $n$-state automaton $\A$
-with $k$ letters. Let $r_1, r_2, \ldots, r_k$ be their corresponding ranks. What are the
-bounds on \rt of $\A$ in terms of $n$ and ranks?
-Of course upper bound is difficult, but sometimes possible(Rys).
-We can rewrite result of Cerny and Rystsov from this point of view. Volkov Zaks also.
-You result from mfcs also.
-Here we present a bit different lower bound.
-
-Natural desire in Cerny conjecture is to use induction by number of states. But most(all?) of the proofs 
-does not do this. Our approach in some sence gives such opportunity.
+In the present paper we approach the following problem. How reset threshold of automaton $\A$ depends
+on ranks of letters in $\A$. More formally, given a synchronizing $n$-state automaton $\A$
+with $k$ letters. Let $r_1, r_2, \ldots, r_k$ be their ranks. What is upper bound
+on reset threshold of $\A$ in terms of $n$ and $r_1, r_2, \ldots, r_k$?
+Full answer to this question is very hard. In this paper we will focus on examples with "large" reset threshold
+and bounded rank. There are already some results in literature. Problem of synchronizing automata
+with a letter of deficiency 2 was addresed in~\cite{AVZ}. Also several series of automata can be found in~\cite{AGV}.
+We say that automaton $\A$ is \emph{of bounded rank} $r$ if every letter of $\A$ has rank at most $r$. We present
+a uniform approach to deal with them. We also illustrate it by constructing series of automata of bounded rank $r$
+with reset threshold equal to $r^2 -r - 1$.
 
 \section{Preliminaries}
 Let $\A = (Q, \Sigma)$ be a totally-defined deterministic finite automaton. Let us fix some orderings 
@@ -158,8 +161,8 @@ Consider an $n$-state automaton $\A$ given by pair of matrices $A$ and $B$.
 We say that set of matrix pairs $\sigma = \langle(X,Y), (\G,\D)\rangle$ is
 a \emph{decomposition} of automaton $\A$ if:
 \begin{enumerate}[(i)]
-\item $X, \G$ are $(0,1)$-matrices of size $n$ by $k$
-\item $Y, \D$ are $(0,1)$-matrices of size $k$ by $n$
+\item $X, \G$ are $(0,1)$-matrices of size $n$ by $r$
+\item $Y, \D$ are $(0,1)$-matrices of size $r$ by $n$
 \item $A = XY$, $B = \G\D$
 \item every row of $X,Y,\G,\D$ has only one occurence of 1.
 \end{enumerate}
@@ -173,22 +176,22 @@ $\G$ contains at least one occurence of 1.
 %We say that decomposition is \emph{unavoiding} if also every column of $X$ and 
 %$\G$ contains at least one occurence of 1.
 
-It immediately follows from the definition that $k \geq max\{\rk(A),$ $\rk(B)\}$.
-And for any such $k$ we can easily construct some decomposition. 
+It immediately follows from the definition that $r \geq max\{\rk(A),$ $\rk(B)\}$.
+And for any such $r$ we can easily construct some decomposition. 
 For example, matrix $Y$ may consist of different rows of $A$ in lexicographic order.
-If $k$ is bigger than number of different rows in $A$ then lexicografically largest row 
+If $r$ is bigger than number of different rows in $A$ then lexicografically largest row 
 appear several times. Let $j$ be the position of $i$th row of $A$ in lexicografic order.
 Then $i$th row of $X$ is equal to $e_j$. It is not hard to see that defining in the 
 same way matrices $\G$ and $\D$ gives us decomposition of $\A$. Moreover,
-if $k = \rk(A) = \rk(B)$ then presented decomposition is unavoiding. Note, that even in case
-$k = \rk(A) = \rk(B)$ there could exist several different decompositions.
+if $r = \rk(A) = \rk(B)$ then presented decomposition is unavoiding. Note, that even in case
+$r = \rk(A) = \rk(B)$ there could exist several different decompositions.
 
 %For example, 
 %matrices $Y$ and $\D$ may consist of different rows of $A$ and $B$ respectively
 %in lexicographic oreder. If $k$ is bigger than number of different rows in $A$ or $B$
 %then lexicografically largest row may appear several times.
 Suppose now that we are given decomposition $\sigma = \langle(X,Y), (\G,\D)\rangle$ of 
-automaton $\A$, where $X$ has size $n$ by $k$.
+automaton $\A$, where $X$ has size $n$ by $r$.
 %Suppose now that we have decomposition $A = XY$, $B = \G\D$, where
 %$X$, $\G$ are $(0,1)$-matrices of size $n$ by $k$, and $Y$, $\D$ are 
 %$(0,1)$-matrices of size $k$ by $n$ with the following property:
@@ -202,10 +205,10 @@ automaton $\A$, where $X$ has size $n$ by $k$.
 %Now we are ready to define automaton $\AD$ using decomposition
 %of $A$ and $B$. 
 We are to define \emph{reduced automaton} $\AD$ that is going to be key object of this paper.
-Automaton $\AD$ has $\{1,\ldots, k\}$ as a state
+Automaton $\AD$ has $\{1,\ldots, r\}$ as a state
 set. Action of input alphabet $\Sigma' = \{ y\g, yx, \dl x, \dl\g \}$ (these are letters, 
 but expressed as two symbols for convenience) is given
-by corresponding $(0,1)$-matrices $\mathcal{M} =\{ Y\G , YX, \D X, \D\G \}$ of size $k$ by $k$.
+by corresponding $(0,1)$-matrices $\mathcal{M} =\{ Y\G , YX, \D X, \D\G \}$ of size $r$ by $r$.
 Note, that every row of matrices $X, Y, \G, \D$ contains only one occurence of 1, 
 so their products have the same property. Thus automaton $\AD$
 is deterministic and totally-defined.
@@ -215,6 +218,7 @@ is deterministic and totally-defined.
 %$X, Y, \G, \D$ contain exactly one occurence of 1, thus their products have the same property.
 
 \begin{example}
+\label{ex}
 Let $\mathrsfs{D}$ be an automaton depicted on fig.~\ref{fig:d5} on the left
 (firstly appeared in \cite{AGW} as $\mathrsfs{D}''_5$).
 %Consider automaton $\mathrsfs{D}$ from fig.~\ref{fig:d5}, where 
@@ -409,7 +413,7 @@ is also strongly-connected.
 \end{proposition}
 
 \begin{proof}
-Let us fix arbitrary $i,j \in \overline{1,k}$. Now we are to construct a path from $i$ to $j$ 
+Let us fix arbitrary $i,j \in \overline{1,r}$. Now we are to construct a path from $i$ to $j$ 
 in automaton $\AD$. Since every row of $Y$ contains 1 there
 exists $i'$ such that $Y[i,i'] = 1$. Decomposition $\sigma$ is unavoiding, thus
 there exists $j'$ such that $X[j',j] = 1$. Since $\A$ is strongly-connected we have matrix 
@@ -632,7 +636,7 @@ For every $r < n$ there is a synchronizing 2-letter $n$-state automaton of bound
 $r^2 -r - 1$. If $r \geq \frac{n}{2}$ then such automaton is strongly-connected.
 \end{proposition}
 
-Let us fix number of states $n$ and rank $r$. Automaton $\mathrsfs{E}_n$ essentially was reduced to $\mathrsfs{C}_{n - 1}$.
+Let us fix number of states $n$, rank $r$ and defect $d = n - r$. Automaton $\mathrsfs{E}_n$ essentially was reduced to $\mathrsfs{C}_{n - 1}$.
 Now we are going to reverse this procedure. We will look for automaton that can be reduced to $\mathrsfs{C}_r$.
 More precisely, consider a solution $X,Y,\G,\D$ of the following system of matrix equations:
 $YX = A_{r}$, $Y\G = I_{r}$, $\D X = \D \G = B_{r}$, such that:
@@ -729,31 +733,49 @@ e_3\\
 \ldots\\
 e_d
 \end{smallmatrix}\right)$ is matrix of size $d$ by $r$.
-The proof of the fact that automaton reducable to this one is strongly-connected is
-straightforward. The results can be summorized in the following theorem.
-
+The proof that automaton $\langle XY, \G\D\rangle$ is is strongly-connected is
+straightforward and technical. We will omit it due to space restrictions.
 
 \section{Conclusion and discussion}
-Firstly, find canocical reduction. Find classes that have same reduced automaton.
+We suggest to study relationship between reset threshold of automaton and ranks of letters in it.
+We hope that presented technique will lead to a better understanding of this relationship. 
+It may also be used to obtain 
+new examples or in study of existing ones.
+We would like to mention several questions concearning presented approach.
+Firstly, it can be seen from example~\ref{ex} that reduced automaton is not uniquely defined. 
+Is there a "canonical" reduction? The most "convinient" one?
+Secondly, different automata may have the same reduced automaton. In other words automaton $\A$ 
+is equivalent to automaton $\mathrsfs{B}$ if $\mathrsfs{A}_{\sigma} = \mathrsfs{B}_{\sigma'}$ for
+some decompositions $\sigma, \sigma'$. Essentially it means that the problem of synchronization of $\A$ 
+coincides with the problem of synchronization of $\mathrsfs{B}$. So, is there a characterization of
+such equivalent classes?
+
 
 \begin{thebibliography}{99}
-\bibitem{AGW}
-Adler, R.L., Goodwyn, L.W., Weiss, B.: Equivalence of topological Markov shifts.
-Israel J. Math. 27, 49--63 (1977)
-
+%\bibitem{AGW}
+%Adler, R.L., Goodwyn, L.W., Weiss, B.: Equivalence of topological Markov shifts.
+%Israel J. Math. 27, 49--63 (1977)
 \bibitem{AS09}
 Almeida, J.; Steinberg, B.: Matrix mortality and the \v{C}ern\'{y}--Pin
 conjecture. In:  Diekert, V.; Nowotka, D. (eds.), Developments in
 Language Theory, Lect.\ Notes Comput.\ Sci., vol.\,5583, pp. 67--80.
 Springer, Heidelberg (2009)
+%
+%\bibitem{AMR}
+%Almeida, M.; Moreira, N.; Reis, R.: Enumeration and generation with a string
+%automata representation. Theor.\ Comput.\ Sci. 387, 93--102 (2007)
 
-\bibitem{AMR}
-Almeida, M.; Moreira, N.; Reis, R.: Enumeration and generation with a string
-automata representation. Theor.\ Comput.\ Sci. 387, 93--102 (2007)
+\bibitem{AGV}
+Ananichev, D.S., Gusev, V.V., Volkov, M.V.: Slowly synchronizing automata and
+digraphs. MFCS 2010, LNCS 6281,  55--65 (2010)
 
 \bibitem{AVZ}
 Ananichev, D.S., Volkov, M.V., Zaks, Yu.I.: Synchronizing automata
 with a letter of deficiency 2. Theor.\ Comput.\ Sci. 376, 30--41 (2007)
+
+\bibitem{BBP}
+B\'{e}al, M.-P., Berlinkov, M.V., Perrin, D.: A Quadratic Upper Bound on the Size of a Synchronizing Word 
+in One-Cluster Automata. Int. J. Found. Comput. Sci. 22(2), 277--288 (2011)
 
 \bibitem{Ce64}
 \v{C}ern\'{y}, J.: Pozn\'{a}mka k homog\'{e}nnym eksperimentom s
@@ -764,74 +786,89 @@ Slovensk.\ Akad.\ Vied 14(3) 208--216 (1964) (in Slovak)
 Dubuc, L.: Sur les automates circulaires et la conjecture de
 \v{C}ern\'y. RAIRO Inform.\ Th\'eor.\ Appl. 32, 21--34 (1998) (in
 French)
+%
+%\bibitem{DM62}
+%Dulmage, A.L., Mendelsohn, N.S.: The exponent of a primitive matrix.
+%Can.\ Math.\ Bull. 5, 241--244 (1962)
+%
+%\bibitem{DM64}
+%Dulmage, A.L., Mendelsohn, N.S.: Gaps in the exponent set of primitive
+%matrices. Ill.\ J. Math. 8, 642--656 (1964)
+%
+%\bibitem{Ep90}
+%Eppstein, D.: Reset sequences for monotonic automata. SIAM J.
+%Comput. 19, 500--510 (1990)
+%
+%\bibitem{Hi88}
+%Higgins, P.M.: The range order of a product of $i$ transformations
+%from a finite full transformation semigroup, Semigroup Forum 37, 31--36
+%(1988)
 
-\bibitem{DM62}
-Dulmage, A.L., Mendelsohn, N.S.: The exponent of a primitive matrix.
-Can.\ Math.\ Bull. 5, 241--244 (1962)
-
-\bibitem{DM64}
-Dulmage, A.L., Mendelsohn, N.S.: Gaps in the exponent set of primitive
-matrices. Ill.\ J. Math. 8, 642--656 (1964)
-
-\bibitem{Ep90}
-Eppstein, D.: Reset sequences for monotonic automata. SIAM J.
-Comput. 19, 500--510 (1990)
-
-\bibitem{Hi88}
-Higgins, P.M.: The range order of a product of $i$ transformations
-from a finite full transformation semigroup, Semigroup Forum 37, 31--36
-(1988)
+\bibitem{Gu}
+Gusev, V.V.: Lower Bounds for the Length of Reset Words in Eulerian Automata. RP 2011,
+LNCS 6945, 180--190 (2011)
 
 \bibitem{Ka03}
 Kari, J.: Synchronizing finite automata on Eulerian digraphs.
 Theoret.\ Comput.\ Sci. 295, 223--232 (2003)
-
-\bibitem{Pi78}
-Pin, J.-E.: Le probl\`eme de la synchronization et la conjecture de
-\v{C}ern\'y. Th\`ese de 3\`eme cycle. Universit\'e de Paris 6 (1978) (in
-French)
+%
+%\bibitem{Pi78}
+%Pin, J.-E.: Le probl\`eme de la synchronization et la conjecture de
+%\v{C}ern\'y. Th\`ese de 3\`eme cycle. Universit\'e de Paris 6 (1978) (in
+%French)
+\bibitem{Mart}
+Martyugin, P.V.: Lower bounds for the length of the shortest carefully synchronizing 
+words for two- and three-letter partial automata. Diskretn. Anal. Issled. Oper., 15(4), 44–-56 (2008)
+(in Russian)
 
 \bibitem{Pi83}
 Pin, J.-E.: On two combinatorial problems arising from automata
 theory. Ann.\ Discrete Math. 17, 535--548 (1983)
+%
+%\bibitem{RaAl05}
+%Ram\'{\i}rez Alfons\'{\i}n, J.L.: The diophantine Frobenius problem.
+%Oxford University Press (2005)
+\bibitem{Rys}
+Rystsov, I.K.: Estimation of the length of reset words for automata with simple idempotents. 
+Cybernetics and Systems Analysis, Vol. 36, No. 3, 339--344 (2000)
 
-\bibitem{RaAl05}
-Ram\'{\i}rez Alfons\'{\i}n, J.L.: The diophantine Frobenius problem.
-Oxford University Press (2005)
 
 \bibitem{Sa05}
 Sandberg, S.: Homing and synchronizing sequences. In: Broy, M.
 et~al. (eds.), Model-Based Testing of Reactive Systems. Lect.\
 Notes Comput.\ Sci., vol.\,3472, pp.\,5--33. Springer, Heidelberg
 (2005)
-
-\bibitem{SZ}
-Skvortsov E., Zaks Yu.: Synchronizing random automata. Submitted;
-proceedings version in: Rigo, M. (ed.), AutoMathA 2009, Universit\'e
-de Li\`ege (2009)
-
-\bibitem{Tr06}
-Trahtman, A.N.: An efficient algorithm finds noticeable trends
-and examples concerning the \v{C}ern\'y conjecture. In:
-Kr\'alovi\v{c}, R.; Urzyczyn, P. (eds.), Mathematical Foundations
-of Computer Science. Lect.\ Notes Comput.\ Sci., vol.\,4162, pp.\,789--800
-Springer, Heidelberg (2006)
-
-\bibitem{Tr06a}
-Trahtman, A.N.: Notable trends concerning the synchronization
-of graphs and automata. Electr.\ Notes Discrete Math. 25, 173--175 (2006)
+%
+%\bibitem{SZ}
+%Skvortsov E., Zaks Yu.: Synchronizing random automata. Submitted;
+%proceedings version in: Rigo, M. (ed.), AutoMathA 2009, Universit\'e
+%de Li\`ege (2009)
+%
+%\bibitem{Tr06}
+%Trahtman, A.N.: An efficient algorithm finds noticeable trends
+%and examples concerning the \v{C}ern\'y conjecture. In:
+%Kr\'alovi\v{c}, R.; Urzyczyn, P. (eds.), Mathematical Foundations
+%of Computer Science. Lect.\ Notes Comput.\ Sci., vol.\,4162, pp.\,789--800
+%Springer, Heidelberg (2006)
+%
+%\bibitem{Tr06a}
+%Trahtman, A.N.: Notable trends concerning the synchronization
+%of graphs and automata. Electr.\ Notes Discrete Math. 25, 173--175 (2006)
 
 \bibitem{Tr07}
 Trahtman, A.N.: The \v{C}ern\'y conjecture for aperiodic automata.
 Discrete Math.\ Theor.\ Comput.\ Sci. 9(2), 3--10 (2007)
 
-\bibitem{Tr08}
-Trahtman, A.N.: Some aspects of synchronization of DFA. J. Comput.\ Sci.\
-Technol. 23, 719--727 (2008)
+\bibitem{Tr11}
+Trahtman, A.N.: Modifying the Upper Bound on the Length of Minimal Synchronizing Word, FCT 2011, LNCS 6914, 173--180 (2011)
 
-\bibitem{Tr09}
-Trahtman, A.N.: The Road Coloring Problem. Israel J. Math. 172,
-51--60 (2009)
+%\bibitem{Tr08}
+%Trahtman, A.N.: Some aspects of synchronization of DFA. J. Comput.\ Sci.\
+%Technol. 23, 719--727 (2008)
+%
+%\bibitem{Tr09}
+%Trahtman, A.N.: The Road Coloring Problem. Israel J. Math. 172,
+%51--60 (2009)
 
 \bibitem{Vo08}
 Volkov, M.V.: Synchronizing automata and the \v{C}ern\'{y}
@@ -842,10 +879,8 @@ Comput.\ Sci., vol.\,5196, pp.\,11--27.  Springer, Heidelberg (2008)
 \bibitem{Vo09}
 Volkov, M.V.: Synchronizing automata preserving a chain of partial
 orders. Theoret.\ Comput.\ Sci. 410, 2992--2998 (2009)
-
-\bibitem{Wi50}
-Wielandt, H.: Unzerlegbare, nicht negative Matrizen. Math.\ Z.
-52, 642--648 (1950) (in German)
+%\bibitem{Wi50}
+%Wielandt, H.: Unzerlegbare, nicht negative Matrizen. Math.\ Z.
+%52, 642--648 (1950) (in German)
 \end{thebibliography}
-
 \end{document}
