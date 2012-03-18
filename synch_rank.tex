@@ -102,10 +102,10 @@ with $k$ letters. Let $r_1, r_2, \ldots, r_k$ be their ranks. What is upper boun
 on reset threshold of $\A$ in terms of $n$ and $r_1, r_2, \ldots, r_k$?
 Full answer to this question is very hard. In this paper we will focus on examples with "large" reset threshold
 and bounded rank. There are already some results in literature. Problem of synchronizing automata
-with a letter of deficiency 2 was addresed in~\cite{AVZ}. Also several series of automata can be found in~\cite{AGV}.
+with a letter of deficiency 2 was addressed in~\cite{AVZ}. Also several series of automata can be found in~\cite{AGV}.
 We say that automaton $\A$ is \emph{of bounded rank} $r$ if every letter of $\A$ has rank at most $r$. We present
-a uniform approach to deal with them. We also illustrate it by constructing series of automata of bounded rank $r$
-with reset threshold equal to $r^2 -r - 1$.
+a uniform approach to deal with them. We also illustrate it by constructing a series of automata of bounded rank $r$
+with reset threshold at least $r^2 -r - 1$.
 
 \section{Preliminaries}
 Let $\A = (Q, \Sigma)$ be a totally-defined deterministic finite automaton. Let us fix some orderings 
@@ -138,7 +138,7 @@ e_1, &\text{if } i = n\\
 $$
 We will refer to automaton $\langle A_n, B_n \rangle$ as \v{C}ern\'{y} automaton and denote it $\C_n$.
 Matrix $A_n$ corresponds to action of letter $a$, matrix $B_n$ corresponds to action of letter $b$.
-Later on we will require following statement concearning reset words of $\C_n$(Proposition 3 in~\cite{Gu}).
+Later on we will require following statement concerning reset words of $\C_n$(Proposition 3 in~\cite{Gu}).
 
 \begin{proposition}
 \label{th:cerny} Every reset word of the automaton $\mathrsfs{C}_n$ contains at
@@ -166,10 +166,10 @@ a \emph{decomposition} of automaton $\A$ if:
 \item $X, \G$ are $(0,1)$-matrices of size $n$ by $r$
 \item $Y, \D$ are $(0,1)$-matrices of size $r$ by $n$
 \item $A = XY$, $B = \G\D$
-\item every row of $X,Y,\G,\D$ has only one occurence of 1.
+\item every row of $X,Y,\G,\D$ has only one occurrence of 1.
 \end{enumerate}
 We say that decomposition is \emph{unavoiding} if also every column of $X$ and 
-$\G$ contains at least one occurence of 1.
+$\G$ contains at least one occurrence of 1.
 %a \emph{decomposition} of automaton $\A$ if:\\
 %$\bullet$ $X, \G$ are $(0,1)$-matrices of size $n$ by $k$ and $Y, \D$ are
 %$(0,1)$-matrices of size $k$ by $n$.\\
@@ -181,9 +181,9 @@ $\G$ contains at least one occurence of 1.
 It immediately follows from the definition that $r \geq max\{\rk(A),$ $\rk(B)\}$.
 And for any such $r$ we can easily construct some decomposition. 
 For example, matrix $Y$ may consist of different rows of $A$ in lexicographic order.
-If $r$ is bigger than number of different rows in $A$ then lexicografically largest row 
-appear several times. Let $j$ be the position of $i$th row of $A$ in lexicografic order.
-Then $i$th row of $X$ is equal to $e_j$. It is not hard to see that defining in the 
+If $r$ is bigger than number of different rows in $A$ then lexicographically largest row 
+appear several times. Let $j$ be the position of $i$-th row of $A$ in lexicographic order.
+Then $i$-th row of $X$ is equal to $e_j$. It is not hard to see that defining in the 
 same way matrices $\G$ and $\D$ gives us decomposition of $\A$. Moreover,
 if $r = \rk(A) = \rk(B)$ then presented decomposition is unavoiding. Note, that even in case
 $r = \rk(A) = \rk(B)$ there could exist several different decompositions.
@@ -211,7 +211,7 @@ Automaton $\AD$ has $\{1,\ldots, r\}$ as a state
 set. Action of input alphabet $\Sigma' = \{ y\g, yx, \dl x, \dl\g \}$ (these are letters, 
 but expressed as two symbols for convenience) is given
 by corresponding $(0,1)$-matrices $\mathcal{M} =\{ Y\G , YX, \D X, \D\G \}$ of size $r$ by $r$.
-Note, that every row of matrices $X, Y, \G, \D$ contains only one occurence of 1, 
+Note, that every row of matrices $X, Y, \G, \D$ contains only one occurrence of 1, 
 so their products have the same property. Thus automaton $\AD$
 is deterministic and totally-defined.
 
@@ -310,7 +310,7 @@ B =
 \right).
 $$
 Reduced automaton $\mathrsfs{D}_{\sigma_1}$ depicted in the middle of fig.~\ref{fig:d5}. Letter
-$y \g$ is omitted, since it acts as identitity mapping. Action of the letter $\dl \g$ coincides with
+$y \g$ is omitted, since it acts as identity mapping. Action of the letter $\dl \g$ coincides with
 the action of $yx$.
 %For $\sigma_1$ action of letters $yx = \dl \g$ is cyclic permutation and $y \g$ is identity
 %mapping.
@@ -449,7 +449,7 @@ Let $\R$ be an automaton shown in fig.~\ref{fig:r}. It has $\{S, YX, Y\G , \D X,
 For the sake of clarity zero state $Z$ is not present in figure. For all letters $\ell \in \Sigma'$ we have 
 $Z \cdot \ell = Z$. If action of a letter $\ell$ on a state $q$ is not shown in picture then $q \cdot \ell = Z$.
 State $S$ is initial state of automaton $\R$. States $YX, Y\G , \D X, \D \G$ are final. From now on automaton $\R$
-will be the only contraint automaton we consider.
+will be the only constraint automaton we consider.
 
 \begin{figure}[ht]
 \begin{center}
@@ -493,7 +493,7 @@ If decomposition $\sigma$ is unavoiding then $\rtc(\AD) \leq \rt(\A)$.
 \end{proposition}
 
 \begin{proof}
-If $\A$ is synchronizible then synchronizability of $\AD$ with constraint $\R$ and lower bounds on reset threshold of $\A$ immediately 
+If $\A$ is synchronizing then synchronizability of $\AD$ with constraint $\R$ and lower bounds on reset threshold of $\A$ immediately 
 follow from the proof of proposition~\ref{th:1}.
 Representations of constructed matrices $YWX$ and $W'TX$ as a product of matrices in $\mathcal{M}$ satisfy the
 constraint $\R$.
@@ -608,15 +608,15 @@ B =
 \right).
 $$
 By straightforward computation we get $YX = A_{n - 1}$, $Y\G = I_{n - 1}$, $\D X = \D\G = B_{n - 1}$,
-where $I_{n - 1}$ is idetity matrix of order $n - 1$.
+where $I_{n - 1}$ is identity matrix of order $n - 1$.
 Reduced automaton for $\mathrsfs{E}_5$ is shown on the right in fig.~\ref{fig:e}.
 We have omitted actions of $y\g, \dl \g$ for the sake of clarity.
 Note that $\langle YX, \D\G\rangle$ is a matrix representation of automaton $\mathrsfs{C}_{n - 1}$. We can use this fact
 and proposition~\ref{th:cerny} to estimate constrained reset threshold. 
 So, let $w \in \Sigma'$ be constrained reset word of minimal length for $\mathrsfs{E}_{\sigma_n}$.
-By proposition~\ref{th:cerny} $w$ has at least $(n - 1)^2 - 3(n - 1) + 2 = n^2 - 5n + 6$ occurences of $\dl x, \dl \g$ and $n - 2$
-occurences of $yx$. Note that $(yx)^2$ is not a factor of $w$. Otherwise we can obtain shorter constrained reset word by 
-reducing $(yx)^2$ to just $yx$. Therefore, after every occurence of $yx$, except maybe the last one, there is occurence 
+By proposition~\ref{th:cerny} $w$ has at least $(n - 1)^2 - 3(n - 1) + 2 = n^2 - 5n + 6$ occurrences of $\dl x, \dl \g$ and $n - 2$
+occurrences of $yx$. Note that $(yx)^2$ is not a factor of $w$. Otherwise we can obtain shorter constrained reset word by 
+reducing $(yx)^2$ to just $yx$. Therefore, after every occurrence of $yx$, except maybe the last one, there is occurrence 
 of $\dl x$, $\dl \g$ or $y \g$. Since $w$ is accepted by $\R$ we conclude that $yx$ is followed by $y\g$.
 Hence, we get $|w| \geq n^2 - 5n + 6 + n - 2 + n - 3 = n^2 -3n + 1$.
 %Note that after every merge maybe except the last one there is identity mapping due to constraints. Then theorem~\ref{th:cerny}
@@ -646,8 +646,8 @@ $YX = A_{r}$, $Y\G = I_{r}$, $\D X = \D \G = B_{r}$, such that:
 \begin{enumerate}[(i)]
 \item $X,\G$ are $(0,1)$-matrices of size $n$ by $r$
 \item $Y,\D$ are $(0,1)$-matrices of size $r$ by $n$
-\item every row of $X, Y, \G, \D$ has only one occurence of 1
-\item every column of $X$ and $\G$ contains at least one occurence of 1.
+\item every row of $X, Y, \G, \D$ has only one occurrence of 1
+\item every column of $X$ and $\G$ contains at least one occurrence of 1.
 \end{enumerate}
 Arguing as before we get $\rtc(YX, Y\G, \D X, \D \G) \geq r^2 - r - 1$.
 Consider automaton $\A = \langle XY, \G\D \rangle$. It has $n$ states and rank of each letter is bounded by $r$.
@@ -687,7 +687,7 @@ e_d
 \end{array}
 \right),
 $$
-where $X', \G'$ are arbitrary $(0,1)$-matrices of size $d-1$ by $r$ with unique occurence of 1
+where $X', \G'$ are arbitrary $(0,1)$-matrices of size $d-1$ by $r$ with unique occurrence of 1
 in each row. Here $0_{d}$ denotes zero matrix of order $d$. This completes first part of the proof.
 %NOTE HERE, that we deduce from synch of reduced synch of original. ADD this to theorem~\ref{th:2}.
 
@@ -744,9 +744,9 @@ We suggest to study relationship between reset threshold of automaton and ranks 
 We hope that presented technique will lead to a better understanding of this relationship. 
 It may also be used to obtain 
 new examples or in study of existing ones.
-We would like to mention several questions concearning presented approach.
+We would like to mention several questions concerning presented approach.
 Firstly, it can be seen from example~\ref{ex} that reduced automaton is not uniquely defined. 
-Is there a "canonical" reduction? The most "convinient" one?
+Is there a "canonical" reduction? The most "convenient" one?
 Secondly, different automata may have the same reduced automaton. In other words automaton $\A$ 
 is equivalent to automaton $\mathrsfs{B}$ if $\mathrsfs{A}_{\sigma} = \mathrsfs{B}_{\sigma'}$ for
 some decompositions $\sigma, \sigma'$. Essentially it means that the problem of synchronization of $\A$ 
@@ -759,18 +759,18 @@ such equivalent classes?
 %Adler, R.L., Goodwyn, L.W., Weiss, B.: Equivalence of topological Markov shifts.
 %Israel J. Math. 27, 49--63 (1977)
 \bibitem{AS09}
-Almeida, J.; Steinberg, B.: Matrix mortality and the \v{C}ern\'{y}--Pin
-conjecture. In:  Diekert, V.; Nowotka, D. (eds.), Developments in
-Language Theory, Lect.\ Notes Comput.\ Sci., vol.\,5583, pp. 67--80.
-Springer, Heidelberg (2009)
-%
+Almeida, J., Steinberg, B.: Matrix mortality and the \v{C}ern\'{y}--Pin
+%conjecture. In:  Diekert, V.; Nowotka, D. (eds.), Developments in
+conjecture. Developments in
+Language Theory, Lect.\ Notes Comput.\ Sci. 5583, 67--80 (2009)
+%.Springer, Heidelberg (2009)
 %\bibitem{AMR}
 %Almeida, M.; Moreira, N.; Reis, R.: Enumeration and generation with a string
 %automata representation. Theor.\ Comput.\ Sci. 387, 93--102 (2007)
 
 \bibitem{AGV}
 Ananichev, D.S., Gusev, V.V., Volkov, M.V.: Slowly synchronizing automata and
-digraphs. MFCS 2010, LNCS 6281,  55--65 (2010)
+digraphs. Mathematical Foundations of Computer Science, Lect.\ Notes Comput.\ Sci. 6281, 55--65 (2010)
 
 \bibitem{AVZ}
 Ananichev, D.S., Volkov, M.V., Zaks, Yu.I.: Synchronizing automata
@@ -808,8 +808,8 @@ French)
 %(1988)
 
 \bibitem{Gu}
-Gusev, V.V.: Lower Bounds for the Length of Reset Words in Eulerian Automata. RP 2011,
-LNCS 6945, 180--190 (2011)
+Gusev, V.V.: Lower Bounds for the Length of Reset Words in Eulerian Automata. 
+Reachability Problems, Lect.\ Notes Comput.\ Sci. 6945, 180--190 (2011)
 
 \bibitem{Ka03}
 Kari, J.: Synchronizing finite automata on Eulerian digraphs.
@@ -821,7 +821,7 @@ Theoret.\ Comput.\ Sci. 295, 223--232 (2003)
 %French)
 \bibitem{Mart}
 Martyugin, P.V.: Lower bounds for the length of the shortest carefully synchronizing 
-words for two- and three-letter partial automata. Diskretn. Anal. Issled. Oper., 15(4), 44–-56 (2008)
+words for two- and three-letter partial automata. Diskretn. Anal. Issled. Oper., 15(4), 44--56 (2008)
 (in Russian)
 
 \bibitem{Pi83}
@@ -833,14 +833,15 @@ theory. Ann.\ Discrete Math. 17, 535--548 (1983)
 %Oxford University Press (2005)
 \bibitem{Rys}
 Rystsov, I.K.: Estimation of the length of reset words for automata with simple idempotents. 
-Cybernetics and Systems Analysis, Vol. 36, No. 3, 339--344 (2000)
+Cybernetics and Systems Analysis 36(3), 339--344 (2000)
 
 
 \bibitem{Sa05}
-Sandberg, S.: Homing and synchronizing sequences. In: Broy, M.
-et~al. (eds.), Model-Based Testing of Reactive Systems. Lect.\
-Notes Comput.\ Sci., vol.\,3472, pp.\,5--33. Springer, Heidelberg
-(2005)
+Sandberg, S.: Homing and synchronizing sequences. 
+%In: Broy, M.
+%et~al. (eds.), Model-Based Testing of Reactive Systems. Lect.\
+Model-Based Testing of Reactive Systems. Lect.\ Notes Comput.\ Sci. 3472, 5--33 (2005)
+%. Springer, Heidelberg
 %
 %\bibitem{SZ}
 %Skvortsov E., Zaks Yu.: Synchronizing random automata. Submitted;
@@ -863,7 +864,9 @@ Trahtman, A.N.: The \v{C}ern\'y conjecture for aperiodic automata.
 Discrete Math.\ Theor.\ Comput.\ Sci. 9(2), 3--10 (2007)
 
 \bibitem{Tr11}
-Trahtman, A.N.: Modifying the Upper Bound on the Length of Minimal Synchronizing Word, FCT 2011, LNCS 6914, 173--180 (2011)
+Trahtman, A.N.: Modifying the Upper Bound on the Length of Minimal Synchronizing Word.
+% FCT 2011, LNCS 6914, 173--180 (2011)
+Fundamentals of Computation Theory, Lect.\ Notes Comput.\ Sci. 6914, 173--180 (2011)
 
 %\bibitem{Tr08}
 %Trahtman, A.N.: Some aspects of synchronization of DFA. J. Comput.\ Sci.\
@@ -875,9 +878,10 @@ Trahtman, A.N.: Modifying the Upper Bound on the Length of Minimal Synchronizing
 
 \bibitem{Vo08}
 Volkov, M.V.: Synchronizing automata and the \v{C}ern\'{y}
-conjecture. In: Mart\'\i{}n-Vide, C.; Otto, F.; Fernau, H. (eds.),
-Languages and Automata: Theory and Applications. Lect.\ Notes
-Comput.\ Sci., vol.\,5196, pp.\,11--27.  Springer, Heidelberg (2008)
+conjecture. 
+%In: Mart\'\i{}n-Vide, C.; Otto, F.; Fernau, H. (eds.),
+Languages and Automata: Theory and Applications, Lect.\ Notes
+Comput.\ Sci. 5196, 11--27 (2008)
 
 \bibitem{Vo09}
 Volkov, M.V.: Synchronizing automata preserving a chain of partial
