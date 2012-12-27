@@ -556,25 +556,28 @@ acts on $Q$ as a cyclic permutation, the word $w$ cannot end with $b$.
 write $w$ as $w = w'a$ for some $w'\in\{a,b\}^*$ such that the image
 of $Q$ under the action of $w'$ is precisely the set $\{1,n\}$.
 
-Since the letter $a$ fixes each state in its image $\{1,2,\dots,n-1\}$,
-every occurrence of $a$ in $w$ except the last one is followed by an
-occurrence of $b$. (Otherwise $a^2$ occurs in $w$ as a factor and
-reducing this factor to just $a$ results in a shorter \sw.) Therefore,
-if we let $c=ab$, then the word $w'$ can be rewritten into a word $v$
-over the alphabet $\{b,c\}$. The actions of $b$ and $c$ induce
-a new automaton on the state set $Q$; this induced automaton (shown in
-Fig.\,\ref{fig:cerny-n} on the right) is obviously isomorphic to the
-automaton $\mathrsfs{W}_n$. Since $w'$ and $v$ act on $Q$ in the same way,
-the word $vc$ is a \sw\ for the induced automaton. By Theorem~\ref{theorem:anan}
-the length of $vc$ (as a word over $\{b,c\}$) is at least $n^2-3n+3$.
-Since the action of $b$ on any set $S$ of states cannot change the
-cardinality of $S$ and the action of $c$ can decrease the cardinality
-by~1 at most, the word $vc$ must contain at least $n-1$ occurrences of
-$c$. Hence the length of $v$ over $\{b,c\}$ is at least $n^2-3n+2$ and
-$v$ contain at least $n-2$ occurrences of $c$. Since each occurrence of
-$c$ in $v$ corresponds to an occurrence of the factor $ab$ in $w'$, we
-conclude that the length of $w'$ over $\{a,b\}$ is at least $n^2-3n+2+n-2=n^2-2n$.
-Thus, $|w|=|w'a|\ge n^2-2n+1=(n-1)^2$.
+Since the letter $a$ fixes each state in its image
+$\{1,2,\dots,n-1\}$, every occurrence of $a$ in $w$ except the
+last one is followed by an occurrence of $b$. (Otherwise $a^2$
+occurs in $w$ as a factor and reducing this factor to just $a$
+results in a shorter \sw.) Therefore, if we let $c=ab$, then the
+word $w'$ can be rewritten into a word $v$ over the alphabet
+$\{b,c\}$. The actions of $b$ and $c$ induce a new automaton on
+the state set $Q$; this induced automaton (shown in
+Fig.\,\ref{fig:cerny-n} on the right) is obviously isomorphic to
+the automaton $\mathrsfs{W}_n$. Since $w'$ and $v$ act on $Q$ in
+the same way, the word $vc$ is a \sw\ for the induced automaton.
+By Theorem~\ref{theorem:anan} the length of $vc$ (as a word over
+$\{b,c\}$) is at least $n^2-3n+3$. Since the action of $b$ on any
+set $S$ of states cannot change the cardinality of $S$ and the
+action of $c$ can decrease the cardinality by~1 at most, the word
+$vc$ must contain at least $n-1$ occurrences of $c$. Hence the
+length of $v$ over $\{b,c\}$ is at least $n^2-3n+2$ and $v$
+contains at least $n-2$ occurrences of $c$. Since each occurrence
+of $c$ in $v$ corresponds to an occurrence of the factor $ab$ in
+$w'$, we conclude that the length of $w'$ over $\{a,b\}$ is at
+least $n^2-3n+2+n-2=n^2-2n$. Thus, $|w|=|w'a|\ge
+n^2-2n+1=(n-1)^2$.
 \end{proof}
 
 We have found two more series of slowly \sa\ related to Wielandt's digraphs
