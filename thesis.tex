@@ -345,69 +345,6 @@ $2n$ случайно выбранных преобразований множества $Q$ в среднем является констант
 автомат обладает нулем, и когда граф автомата является сильно-связным,
 т.\,е.\ каждое состояние достижимо из любого другого.
 
-\subsection{Предварительные сведения}
-
-Чтобы зафиксировать используемые в работе терминологию и
-обозначения, приведем основные определения из теории формальных языков и автоматов.
-Через $|w|$ будем обозначать \emph{длину} слова $w$, т.\,е.\ число
-входящих в него букв; длину \emph{пустого слова} $\lambda$ будем
-считать равной нулю: $|\lambda|=0$.
-Через $\Sigma^+$ будем обозначать множество всех непустых слов над алфавитом $\Sigma$,
-а  через $\Sigma^k$ -- множество всех слов длины $k$ над $\Sigma$.
-Слово $u\in \Sigma^+$ называется \emph{фактором} слова $w$
-(соответственно \emph{префиксом}, \emph{суффиксом}), если  $w$
-представимо в виде $w=xuy$ (соответственно $w=uy$, $w=xu$)
-для некоторых $x,y\in \Sigma^*$. Фактор (префикс, суффикс) $u$ слова
-$w$ называется \emph{собственным}, если $u\ne w.$
-
-
-В теории формальных языков конечные детерминированные автоматы обычно рассматриваются как
-устройства, распознающие языки. Для этого во множестве состояний
-автомата выделяется начальное состояние $q_0$ и множество
-заключительных состояний $F$. Говорят, что автомат
-$\mathrsfs{A}=\langle Q,A,\delta,q_0,F\rangle$ \emph{распознает}
-язык $L\subseteq A^*$, если
-$$L=\{w\in A^*\mid \delta(q_0,w)\in F\},$$ т.е.\ все слова языка $L$ читаются вдоль всевозможных путей, ведущих из начального состояния в заключительные.
-Язык называется \emph{регулярным}, если он распознается некоторым конечным детерминированным автоматом. Автомат с минимальным числом состояний, распознающий данный регулярный язык $L$, называется \emph{минимальным автоматом} языка $L$.
-
-Кроме распознающих устройств, языки могут задаваться порождающими устройствами. Такими устройствами являются \emph{порождающие грамматики}.
-Порождающей грамматикой $G$ называется четверка объектов $G=(V,\Sigma,P,S)$, где $V$ -- вспомогательный алфавит (алфавит \emph{нетерминальных} символов), $\Sigma$ -- основной алфавит (алфавит \emph{терминальных} символов), $S\in V$ -- \emph{аксиома} (начальный вспомогательный символ),
-$P$ -- конечное множество \emph{правил вывода}, т.е.\ выражений вида $\alpha \rightarrow \beta$, где $\alpha,\beta\in {(V\cup\Sigma)}^*$.
-Пусть $\gamma,\delta\in{(V\cup\Sigma)}^*$.
-Слово $\delta$ непосредственно выводимо из $\gamma$ (обозначение $\gamma\Rightarrow\delta$),
-если $\gamma=x\alpha y$, $\delta=x\beta y$, и  $\alpha \rightarrow \beta\in P.$
-Через $\gamma\Rightarrow^+\delta$ обозначим транзитивное замыкание отношения $\Rightarrow$.
-
-Языком, порождаемым грамматикой $G$, называется множество всех слов над $\Sigma$, выводимых из аксиомы:
-$${\cal L}(G)=\{w\in\Sigma^* \mid S\Rightarrow^+ w\}.$$
-
-Грамматики можно классифицировать по виду их правил вывода. Общепринятой классификацией грамматик и
-порождаемых ими языков является иерархия Хомского.
-
-\emph{Грамматика типа $0$} (рекурсивно-перечислимая грамматика) -- грамматика произвольного вида, без ограничений на правила вывода. Такие грамматики порождают класс \emph{рекурсивно перечислимых} языков, т.е.\ языков, принимаемых машинами Тьюринга.
-
-\emph{Грамматика типа $1$} (контекстно зависимая грамматика) -- это грамматика, все правила вывода которой
-имеют вид $\alpha_1 A\alpha_2\rightarrow\alpha_1\beta\alpha_2$, $A\in V$, $\alpha_1,\alpha_2,\beta\in{(V\cup\Sigma)}^*.$ Класс языков, порождаемых контекстно зависимыми грамматиками, совпадает с классом языков, распознаваемых машинами Тьюринга, использующими линейную память.
-
-\emph{Грамматика типа $2$} (контекстно свободная грамматика) -- грамматика, все правила вывода
-которой имеют вид $A\rightarrow\beta$, $A\in V$, $\beta\in {(V\cup\Sigma)}^*.$
-
-\emph{Грамматика типа $3$} (регулярная грамматика) -- все правила вывода
-имеют вид $A\rightarrow aB$  или  $A\rightarrow b$, $A,B\in V$,  $a,b\in{\Sigma}^*.$ Класс языков, порождаемых регулярными грамматиками, совпадает с классом регулярных языков.
-
-
-\begin{center}\textbf{Предварительные сведения из теории сложности вычислений}\end{center}
-
-Рассматриваемые в теории сложности вычислений задачи являются \emph{массовыми задачами распознавания}, объединяющими в себе множество конкретных задач. Стандартная форма описания таких задач состоит из УСЛОВИЯ и ВОПРОСА, предполагающего один из двух ответов -- <<да>> или <<нет>>. Каждая конкретизация массовой задачи получается фиксированием УСЛОВИЯ. \emph{Размером} задачи называется длина ее записи на ленте машине Тьюринга. Задача принадлежит классу сложности P, если она решается за полиномиальное время от ее размера на \emph{детерминированной машине Тьюринга} (см. \cite{GarJons82,Papa94}).  Задача принадлежит классу сложности NP, если существует \emph{недерминированная машина Тьюринга}, решающая ее за полиномиальное время.  Если угадав каким-то образом ответ задачи, мы можем его проверить за полиномиальное время на детерминированной машине Тьюринга, то такая задача называется \emph{задачей полиномиальной проверкой}. Все такие задачи, очевидно, принадлежат классу NP. Задача принадлежит классу co-NP, если ее отрицание принадлежит NP. Нетрудно видеть, что если задача принадлежит классу NP, то для нее существует экспоненциальный по времени алгоритм решения.  При естественном (с практической точки зрения) предположении, что P$\ne$NP, задачи из класса P считаются <<легкими>>, а задачи из класса NP, для которых не известен полиномиальный алгоритм решения, -- <<труднорешаемыми>>. Конечно, поскольку до сих пор не доказано, что P$\ne$NP, нет никакой надежды показать, что некоторая задача $A$ принадлежит NP$\setminus$P. По этой причине в теории сложности вычислений доказываются более слабые результаты вида: <<если P$\ne$NP, то $A\in$NP$\setminus$P>>. Подобные доказательства основаны на идее полиномиальной сводимости. Задача $A$ \emph{полиномиально сводится} к задаче $B$, если существует полиномиальный от размера задачи $A$ алгоритм $f$, который по каждой конкретизации $a$ задачи $A$ строит конкретизацию $f(a)$ задачи $B$ так, что размер построенной задачи $f(a)$ полиномиально зависит от размера задачи $a$;  ответ на задачу $a$ положителен тогда и только тогда, когда ответ на задачу $f(a)$ также положителен.
-
-
-Задача называется NP[co-NP]-трудной, если к ней полиномиально сводится любая задача из класса NP[co-NP]. Если NP[co-NP]-трудная задача принадлежит классу NP[co-NP], то она называется NP[co-NP]-полной. Честь быть <<первой>> NP-полной задачей выпала на долю задачи \verb"ВЫПОЛНИМОСТЬ". Результат о ее NP-полноте, независимо полученный Куком \cite{Cook71} и Левиным \cite{Levin73}, позволил с тех пор доказать вычислительную трудность широкого класса алгоритмических задач. Напомним, что под задачей \verb"ВЫПОЛНИМОСТЬ" понимается следующая задача распознавания:
-
-\begin{description}
-\item[УСЛОВИЕ:] набор булевых переменных $X_1,\ldots,X_n$ и \emph{клозов} $c_1,\ldots,c_m$ (дизъюнкций переменных или их отрицаний);
-
-\item[ВОПРОС:] существует ли приписывание значений истинности переменным так, что булева формула $\wedge_{i=1}^mc_i$ становится истиной?
-\end{description}
 
 \newpage
 \subsection{Апробация результатов}
@@ -432,7 +369,7 @@ $${\cal L}(G)=\{w\in\Sigma^* \mid S\Rightarrow^+ w\}.$$
 
 %------------------------Примитивные орграфы с большими экспонентами и медленно синхронизируемые автоматы----------------------------------------------
 \section{Примитивные орграфы с большими экспонентами и медленно синхронизируемые автоматы}
-\label{ch:SlowSynch}
+\label{ch:slowsynch}
 
 В этой главе мы приводим несколько бесконечных серий синхронизируемых автоматов, для каждого
 из которых  длина кратчайшего синхронизирующего слова близка к квадрату числа
@@ -1874,32 +1811,30 @@ $n$-автомата с двумя входными буквами и порогом синхронизации $n^2-3n+2$, а
 соответствующей нижней оценки так и не было найдено. Для получения данной нижней оценки
 нам нужно построить серию эйлеровых автоматов с большим порогом синхронизации.
 
-Первая попытка состояла в применении техники из главы~\ref{ch:slow_synch}.
+Первая попытка состояла в применении техники из главы~\ref{ch:slowsynch}.
 Эйлеровы орграфы с большой экспонентой были охарактеризованы Шенем в работе~\cite{Shen00}. 
 Но оказалось, что таким образом мы не можем получить результаты, близкие к тем, что дают
 вычислительные эксперименты. Поэтому, потребовалось некоторое усовершенствование
-техники главы~\ref{ch:slow_synch}. В качестве демонстрации нового подхода мы приводим
-серию синхронизируемых эйлеровых автоматов, порог синхронизации которых в два раза больше,
-чем у той, что получена прямым применением техники главы~\ref{ch:slow_synch}.
+техники главы~\ref{ch:slowsynch}. В качестве демонстрации нового подхода мы приводим
+новую серию синхронизируемых эйлеровых автоматов, порог синхронизации которых, в два раза больше,
+чем у той, что получена прямым применением техники из главы~\ref{ch:slowsynch}.
 
 \subsection{Предварительные сведения}
 \label{ch:euler:preliminaries}
 
-Given a DFA $\mathrsfs{A}=\langle Q,\Sigma\rangle$, its \emph{underlying graph}
-$D(\mathrsfs{A})$ has $Q$ as the vertex set and has an edge $e_\tau$ with
-$t(e_\tau)=q$, $h(e_\tau)=q\cdot a$ for each transition $\tau=(q,a,q\cdot a)$
-of $\mathrsfs{A}$. We stress that if two transitions have a common source and a
-common target (but different labels), then they give rise to different edges
-(with a common tail and a common head). It is easy to see that a graph $D$ is
-isomorphic to the underlying graph of some DFA if and only if each vertex of
-$D$ serves as the tail for the same number of edges (the number is called the
-\emph{outdegree} of $D$). In the sequel, we always consider only graphs
-satisfying this property. Every DFA $\mathrsfs{A}$ such that $D\cong
-D(\mathrsfs{A})$ is called a \emph{coloring} of $D$. Thus, every coloring of
-$D$ is labeling its edges of by letters from some alphabet whose cardinality is
-equal to the outdegree of $D$ such that edges with a common tail get different
-colors. Fig.\,\ref{fig:two colorings} shows a graph and two of its colorings by
-$\Sigma=\{a,b\}$.
+Пусть $\mathrsfs{A}=\langle Q,\Sigma\rangle$ некоторый детерминированный конечный
+автомат. В этой главе мы будем использовать слегка модифицированное понятие 
+\emph{орграфа автомата}. Теперь мы будем допускать кратные дуги. 
+\emph{Орграфом} автомата $\mathrsfs{A}$ будем называть ориентированный
+мультиграф $D(\mathrsfs{A})$ со множеством вершин $Q$, в котором
+для всяких $q \in Q$ и $a \in \Sigma$ проведена дуга $(q, \delta(q,a))$.
+Подчеркнем, что в случае $\delta(q,a) = \delta(q,b)$ для некоторых различных
+букв $a,b \in \Sigma$ будет проведено две различных дуги $(q, \delta(q,a))$
+и $(q, \delta(q,b))$, которые имеют одинаковые начало и конец.
+Как и прежде, всякий детерминированный конечный автомат $\mathrsfs{A}$ со свойством 
+$D\cong D(\mathrsfs{A})$ мы будем называть \emph{раскраской} графа $D$. 
+На рис.\,\ref{fig:two colorings} изображен орграф и две его раскраски при помощи 
+алфавита $\Sigma=\{a,b\}$.
 \begin{figure}[ht]
  \begin{center}
   \unitlength=2.4pt
@@ -1949,43 +1884,31 @@ $\Sigma=\{a,b\}$.
     \drawedge[curvedepth=-3](A4,A1){}
     \end{picture}
  \end{center}
- \caption{A graph and two of its colorings}
+ \caption{Орграф и две его раскраски}
  \label{fig:two colorings}
 \end{figure}
 
-A graph $D=\langle V,E\rangle$ is said to be \emph{strongly connected} if for
-every pair $(v,v')\in V\times V$, there exists a path from $v$ to $v'$. A graph
-is \emph{Eulerian} if it is strongly connected and each of its vertices serves
-as the tail and as the head for the same number of edges. A DFA is said to be
-\emph{Eulerian} if so is its underlying graph. More generally, we will freely
-transfer graph notions (such as path, cycle, etc) from graphs to automata they
-underlie.
+Орграф называется \emph{эйлеровым}, если он сильно связен и степень захода всякой 
+вершины совпадает со степенью исхода. Детерминированный конечный автомат называется
+\emph{эйлеровым}, если его орграф эйлеров. Мы также естественным образом переносим
+некоторые понятия теории графов( такие как путь, цикл, и т.д. ) на автоматы, подразумевая,
+что данное понятие выполнено на оргафе автомата.
 
-A graph $D=\langle V,E\rangle$ is called \emph{primitive} if there exists a
-positive integer $t$ such that for every pair $(v,v')\in V\times V$, there
-exists a path from $v$ to $v'$ of length precisely $t$. The least $t$ with this
-property is called the \emph{exponent} of the digraph $D$ and is denoted by
-$\exp(D)$. 
-%FIX
-Varios facts concearning this classical notions can be found
-in~\cite{BrRy91}.
+Пусть $w$ -- это некоторое слово над алфавитом $\Sigma = \{a_1, a_2, \ldots, a_k\}$. 
+Будем говорить, что слово $u\in\Sigma^*$ \emph{входит $\ell$ раз в качестве фактора 
+в слово $w$} если найдется в точности $\ell$ различных слов 
+$x_1, \ldots, x_\ell \in \Sigma^*$ таких, что для всякого $i$, $1 \leq i \leq \ell$, 
+существует слово $y_i \in \Sigma^*$ для которого слово $w$ представимо в виде $w = x_iuy_i$.
+Число $\ell$ называется \emph{числом вхождений слова $u$ в $w$} и обозначается $|w|_u$. 
+Вектор $(|w|_{a_1}, |w|_{a_2}, \ldots,
+|w|_{a_k})\in\mathbb{N}^k_0$ называется \emph{вектором Париха} слова $w$. Здесь через 
+$\mathbb{N}_0$ обозначено множество неотрицательных целых чисел.
 
-Let $w$ be a word over the alphabet $\Sigma = \{a_1, a_2, \ldots, a_k\}$. We
-say that a word $u\in\Sigma^*$ \emph{occurs $\ell$ times as a factor of $w$} if
-there are exactly $\ell$ different words $x_1, \ldots, x_\ell \in \Sigma^*$
-such that for each $i$, $1 \leq i \leq \ell$, there is a word $y_i \in
-\Sigma^*$ for which $w$ decomposes as $w = x_iuy_i$. The number $\ell$ is
-called the \emph{number of occurrences of $u$ in $w$} and is denoted by
-$|w|_u$. The vector $(|w|_{a_1}, |w|_{a_2}, \ldots,
-|w|_{a_k})\in\mathbb{N}^k_0$ is called the \emph{Parikh vector} of the word
-$w$; here $\mathbb{N}_0$ stands for the set of non-negative integers.
-
-Now suppose that $\mathrsfs{A}=\langle Q,\Sigma\rangle$ is a DFA and $\alpha$
-is a path in $\mathrsfs{A}$ labelled by a word $w\in\Sigma^*$. If a vector
-$\mathsf{v}\in\mathbb{N}^k_0$ is equal to the Parikh vector of $w$, then we say
-that $\mathsf{v}$ is the \emph{Parikh vector} of the path $\alpha$. We refer to
-any path that has $\mathsf{v}$ as its Parikh vector as a
-$\mathsf{v}$-\emph{path}.
+Пусть $\mathrsfs{A}=\langle Q,\Sigma\rangle$ -- это детерминированный конечный автомат
+и $\alpha$ некоторый путь в нем помеченный словом $w\in\Sigma^*$. Если вектор
+$\mathsf{v}\in\mathbb{N}^k_0$ равен вектору Париха слова $w$, тогда мы говорим, что
+вектор $\mathsf{v}$ является \emph{вектором Париха} пути $\alpha$. Мы будем называть
+$\mathsf{v}$-\emph{путем} всякий путь с вектором Париха $\mathsf{v}$.
 
 \subsection{Основные результаты}
 \label{sea}
@@ -2512,44 +2435,48 @@ $\mathrsfs{A}$ является $k$-примитивный для всякого $k$  и $\rt(\mathrsfs{A}) \g
 
 %\emph{Rank} of a letter $\ell$ of automaton $\A$ with set of states $Q$ has  $\rk(\ell)$ if cardinality of image of the set $Q$ under
 %the action of the letter $\ell$.
-In the present paper we approach the following question: how does the reset threshold of an automaton $\A$ depend on the ranks of letters
-in $\A$? More formally, consider a synchronizing $n$-state automaton $\A$ with $k$ letters and let $r_1, r_2, \ldots, r_k$ be their ranks.
-What is the upper bound on the reset threshold of $\A$ in terms of $n$ and $r_1, r_2, \ldots, r_k$? In full generality, this question
-appears to be very hard. In this paper we focus on examples with ``large'' reset threshold and bounded rank. There have already been some
-related results in the literature. Synchronizing automata with a letter of deficiency 2 were considered in~\cite{AVZ} while in~\cite{AGV10} a
-series of slowly synchronizing automata in which all letters deficiency 2 was reported.
+\emph{Рангом} буквы $\ell$ автомата $\A$ со множеством состояний $Q$ называется мощность множества
+$Q\cdot \ell$ и обозначается $\rk(\ell)$.
+В этой главе, мы исследуем следующий вопрос: как порог синхронизации автомата $\A$ зависит от рангов входящих в него букв?
+Более формально, рассмотрим $n$-автомат $\A$ с $k$ входными буквами, и пусть $r_1, r_2, \ldots, r_k$ -- это соответствующие ранги.
+Какова верхняя оценка на порог синхронизации автомата $\A$ в терминах $n$ и $r_1, r_2, \ldots, r_k$? Во всей полноте, этот вопрос
+кажется очень трудным. В данной главе, мы приведем ряд примеров с <<большим>> порогом синхронизации и ограниченным рангом.
+Ряд примеров уже был приведен в литературе. Синхронизируемые автоматы с буквой дефекта 2 рассматривались в работе~\cite{AVZ}. 
+В главе~\ref{ch:slowsynch} уже была представлена серия медленно синхронизируемых автоматов, в которой все буквы имели ранг 2.
 
-We say that an automaton $\A$ is \emph{of bounded rank} $r$ if every letter of $\A$ has rank at most $r$. We present a uniform approach to
-deal with such automata. We illustrate this approach by constructing a series of automata of bounded rank $r$ with reset threshold at least
-$r^2 -r - 1$.
+Будем говорить, что автомат $\A$ является автоматом \emph{ограниченного ранга} $r$, если ранг всякой буквы автомата $\A$ 
+не превосходит $r$. Мы представим универсальный подход для анализа таких автоматов. Мы проиллюстрируем данный подход
+построением для всякого $r$ серии автоматов ограниченного ранга $r$ с порогом синхронизации не менее $r^2 -r - 1$.
 
 \subsection{Предварительные сведения}
 
-Пусть $\A = (Q, \Sigma)$ полный детерминированный автомат. Здесь $\Sigma$ is an \emph{input alphabet} and $Q$ is a \emph{set of states}.
-For an arbitrary state $q \in Q$ and a letter $a_{\ell} \in \Sigma$ we denote by $q \cdot a_\ell$ the image of the state $q$ under the action 
-of the letter $a_\ell$. Let $S \cdot a_\ell = \bigcup_{q \in S} \; q \cdot a_\ell$ for any $S \subseteq Q$.
-The \emph{rank} of a letter $a_\ell$ denoted by $\rk(a_\ell)$ is the cardinality of the set $Q \cdot a_\ell$. The \emph{defect} of a letter $a_\ell$ 
-is equal to $|Q| - \rk(a_\ell)$, where $|Q|$ is the cardinality of $Q$.
+Пусть $\A = (Q, \Sigma)$ полный детерминированный автомат.
+\emph{Рангом} буквы $\ell$ автомата $\A$ со множеством состояний $Q$ называется мощность множества
+$Q\cdot \ell$ и обозначается $\rk(\ell)$. \emph{Дефект} буквы $a_\ell$ 
+равен $|Q| - \rk(a_\ell)$, где $|Q|$ -- это мощность множества $Q$.
 
-Let us fix some orderings of $Q = \{q_1, q_2, \ldots q_n\}$ and
-$\Sigma = \{a_1, \ldots, a_k\}$. We associate with an arbitrary letter $a_\ell$ a square $(0,1)$-matrix $M(a_\ell)$ of order $n$ by
-the following rule: $M(a_\ell)[i,j] = 1$ if $q_i\cdot a_{\ell} = q_j$, otherwise $M(a_\ell)[i,j] = 0$. We call the set $\langle M(a_1),
-\ldots, M(a_{k})\rangle$ the \emph{matrix representation} of the automaton $\A$ and write $\A = \langle M(a_1), \ldots, M(a_{k})\rangle$.
-We can uniquely extend the domain of mapping the $M(\cdot )$ from $\Sigma$ to $\Sigma^{*}$ in accordance with the equation $M(uv) =
-M(u)M(v)$, where $u,v \in \Sigma^*$. It is not hard to see the following important property of the matrix representation: for every word
-$w$ we have $M(w)[i,j] = 1$ if $q_i \cdot w = q_j$, otherwise $M(w)[i,j] = 0$. This immediately implies that a word $w$ is a reset word of
-$\A$ if and only if $M(w)$ has a column of 1's. 
+Упорядочим некоторым образом множество состояний автомата $Q = \{q_1, q_2, \ldots q_n\}$ и входной алфавит
+$\Sigma = \{a_1, \ldots, a_k\}$. Сопоставим всякой букве $a_\ell$ квадратную $(0,1)$-матрицу $M(a_\ell)$ размера $n$ на $n$
+согласно правилу: $M(a_\ell)[i,j] = 1$ если $q_i\cdot a_{\ell} = q_j$, иначе $M(a_\ell)[i,j] = 0$. Мы будем называть 
+множество $\langle M(a_1),\ldots, M(a_{k})\rangle$ \emph{матричным представлением} автомата $\A$ и обозначать
+этот факт $\A = \langle M(a_1), \ldots, M(a_{k})\rangle$.
+Мы можем расширить область определения отображения $M(\cdot )$ с $\Sigma$ до $\Sigma^{*}$ согласно тождеству $M(uv) =
+M(u)M(v)$, где $u,v \in \Sigma^*$. Легко видеть справедливость следующего важного свойства матричного представления:
+для всякого слова $w$ элемент $M(w)[i,j] = 1$ при $q_i \cdot w = q_j$, иначе $M(w)[i,j] = 0$. Отсюда мы немедленно
+получаем, что некоторое слово $w$ является синхронизирующим для автомата $\A$ тогда и только тогда, когда
+$M(w)$ содержит столбец из единиц. 
 
-We will denote the rank of a matrix $M$ by $\rk(M)$. Note that the rank of a letter $a_\ell$ 
-and the rank of the corresponding matrix $M(a_\ell)$ are equal,
-i.e. $\rk(a_\ell) = \rk(M(a_\ell))$. Throughout the paper we also make use of the following notation. Let $\mathrsfs{M}$ be a
-set of square matrices. Then define
+Мы будем обозначать ранг матрицы $M$ через $\rk(M)$. Отметим, что ранг буквы $a_\ell$ и ранг соответствующей матрицы
+$M(a_\ell)$ равны между собой, т.е. $\rk(a_\ell) = \rk(M(a_\ell))$. В этой главе мы также будем придерживаться
+следующих обозначений, адаптированных из теории формальных языков. Пусть $\mathrsfs{M}$ -- это некоторое множество
+квадратных матриц, тогда 
 $\mathrsfs{M}^{k} = \{ \; M_1 \cdot M_2 \cdot \ldots \cdot M_k \; | \; M_i \in \mathrsfs{M} \text{ for } 1 \leq i \leq k \}$ 
-and $\mathrsfs{M}^* = \bigcup_{k = 1}^{\infty} \mathrsfs{M}^k$.
+и $\mathrsfs{M}^* = \bigcup_{k = 1}^{\infty} \mathrsfs{M}^k$.
 
-Let us introduce the matrix representation of the \v{C}ern\'{y} automaton $\mathrsfs{C}_n = \langle A_n, B_n \rangle$ of order $n$.
-We denote the $i$-th row of the matrix $A_n$ by $A_n[i,.]$. Let
-$e_i$ denote the row vector whose only non-zero entry is equal to 1 and is located in position $i$.
+В данной главе мы будем использовать следующее матричное представление автомата Черни $\mathrsfs{C}_n = \langle A_n, B_n \rangle$ 
+на $n$ состояниях.
+Мы будем обозначать $i$-ю строку матрицы $A_n$ через $A_n[i,.]$. Пусть $e_i$ -- это
+вектор-строка, единственная ненулевая координата которого, расположена на $i$ месте.
 $$ A_n[i,.] =
 \begin{cases}
 e_2, &\text{if } i = 1\\
@@ -2561,14 +2488,17 @@ e_{i+1}, &\text{if } i \neq n\\
 e_1, &\text{if } i = n\\
 \end{cases}.
 $$
-The matrix $A_n$ corresponds to the action of the letter $a$, 
-the matrix $B_n$ corresponds to the action of the letter $b$. Later on we will need the following
-statement concerning reset words of $\mathrsfs{C}_n$ (Proposition 3 in~\cite{Gu11}).
+Матрица $A_n$ соответствует действию буквы $a$, а матрица $B_n$ 
+соответствует действию буквы $b$. 
 
-\begin{proposition}
-\label{th:cerny} Every reset word of the automaton $\mathrsfs{C}_n$ contains at least $n^2 - 3n + 2$ occurrences of the letter $b$ and at
-least $n - 1$ occurrences of the letter $a$.
-\end{proposition}
+%КРАСИВО ВСТАВЬ ЭТО ПОЗДНЕЕ
+%Later on we will need the following
+%statement concerning reset words of $\mathrsfs{C}_n$ (Proposition 3 in~\cite{Gu11}).
+%
+%\begin{proposition}
+%\label{th:cerny} Every reset word of the automaton $\mathrsfs{C}_n$ contains at least $n^2 - 3n + 2$ occurrences of the letter $b$ and at
+%least $n - 1$ occurrences of the letter $a$.
+%\end{proposition}
 
 \subsection{Основные результаты}
 Для удобства представления результатов в данной главе мы будем рассматривать только автоматы с 
@@ -3755,6 +3685,10 @@ Theoret.\ Comput.\ Sci. 295, 223--232 (2003)
 Martyugin, P.V.: Lower bounds for the length of the shortest carefully synchronizing
 words for two- and three-letter partial automata. Diskretn. Anal. Issled. Oper., 15(4), 44--56 (2008)
 (in Russian)
+
+\bibitem{Mo56}
+Moore E. \emph{Gedanken-experiments with sequential machines}//
+В кн. C.~E.~Shannon, J.~McCarthy (eds.) Automata Studies, Ann.\ Math.\ Studies, Princeton Univ.\ Press, Princeton, N.J. 1956. V.34. P.{129--153}.
 
 \bibitem{OlShDr02}
 Olesky, D.D., Shader, B., van den Driessche, P.:
