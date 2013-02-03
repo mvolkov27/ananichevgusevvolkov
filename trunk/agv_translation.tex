@@ -366,19 +366,19 @@ respectively \emph{edges}. We notice that this definition allows
 loops but excludes multiple edges. If $v,v'\in V$ and $e=(v,v')\in
 E$, then we say that the edge $e$ \emph{starts} at $v$. We assume
 that the reader is acquainted with the basic notions of digraph
-theory such that directed path, directed cycle, isomorphism etc.
+theory such as directed path, directed cycle, isomorphism etc.
 
 If $D=\langle V,E\rangle$ is a digraph, then its \emph{incidence
 matrix} (referred to simply as \emph{matrix} in the sequel) is a
 $V\times V$-matrix whose entry in row $v$ and column $v'$ is 1 if
 $(v,v')\in E$ and is 0 otherwise. Conversely, to each $n\times
 n$-matrix $P=(p_{ij})$ with non-negative real entries, one can
-assign digraph $D(P)$ on $\{1,2,\dots,n\}$ as the vertex set in
+assign a digraph $D(P)$ on $\{1,2,\dots,n\}$ as the vertex set in
 which the pair $(i,j)$ is an edge if and only if $p_{ij}>0$. This
 correspondence between matrices and digraphs allows one to state
 in the language of digraphs a number of important notions and
-results from the classic theory of non-negative matrices
-(Perron--Frobenius theory).
+results from the classic theory of non-negative matrices (the
+Perron--Frobenius theory).
 
 A digraph $D=\langle V,E\rangle$ is said to be \emph{strongly
 connected} if for every pair  $(v,v')\in V\times V$, there is a
@@ -388,7 +388,7 @@ lengths of the directed cycles of $D$ is equal to~1. In the
 literature such digraphs are sometimes called \emph{aperiodic}.
 Our choice of the name is justified by the fact that a digraph has
 this property if and only if its matrix is primitive in the sense
-of Perron--Frobenius theory, that is the matrix has a positive
+of the Perron--Frobenius theory, that is the matrix has a positive
 eigenvalue that is strictly greater than the absolute value of any
 of its other elgenvalues.
 
@@ -414,8 +414,8 @@ is called an $n$-\emph{digraph}.
 
 \begin{theorem}
 \label{dulmage} \emph{(a) (Wielandt's theorem, see
-\cite{Wi50,DM62}, \cite[Theorem~1]{DM64})} If $D$ is a primitive
-$n$-digraph, then  $\gamma(D)\le(n-1)^2+1$.
+\cite{Wi50,DM62,DM64})} If $D$ is a primitive $n$-digraph, then
+$\gamma(D)\le(n-1)^2+1$.
 
 \emph{(b) \cite[Theorem~6 and Corollary 4]{DM64}} If $n>2$, then
 up to isomorphism, there is exactly one primitive $n$-digraph $D$
@@ -526,9 +526,9 @@ with $9$ states} \label{9 states} {\small
 \end{table}
 
 There is an obvious similarity between the second and the third
-rows of Table~\ref{9 states}. An analogous similarity reveals when
-one compares the data for other sizes of automata/digraphs. We
-believe that the observed similarity is more than a mere
+rows of Table~\ref{9 states}. An analogous similarity is revealed
+when one compares the data for other sizes of automata/digraphs.
+We believe that the observed similarity is more than a mere
 coincidence and that, in contrary, it reflects some profound and
 perhaps yet hidden interconnections between primitive digraphs and
 \sa. Some of such interconnections have been discovered in the
