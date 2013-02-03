@@ -9,8 +9,6 @@
 \usepackage{hhline}
 \usepackage{graphicx}
 
-\usepackage[cp1251]{inputenc}
-\usepackage[english,russian]{babel}
 
 \newcommand{\sa}{synchronizing automata}
 \newcommand{\san}{synchronizing automaton}
@@ -320,8 +318,9 @@ double-checked with the package TESTAS~\cite{Tr06}.
 Table~\ref{automata} shows a part of the output array for the case
 $n=9$. Here automata are counted up to isomorphism.
 \begin{table}[ht]
-\extrarowheight=1pt \tabcolsep=4.8pt \caption{Reset threshold of
-9-automata with two input letters} \label{automata} {\small
+\extrarowheight=1pt \tabcolsep=4.8pt \caption{Reset thresholds of
+synchronizing 9-automata with two input letters} \label{automata}
+{\small
 \begin{tabular}{|p{2.9cm}||c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
 \centering{$N$} & 64 & 63 & 62 & 61 & 60 & 59 & 58 & 57 & 56 & 55 & 54 & 53 & 52 & 51 \\
@@ -360,60 +359,68 @@ discuss the similarity in more detail.
 
 \section*{{\centerline{\large\bf \S3. Primitive digraphs and their exponents}}}
 
-\emph{Орграф} (т.\,е. ориентированный граф) -- это пара $D=\langle V,E\rangle$,
-где $V$ -- конечное множество и $E\subseteq V\times V$. Элементы множеств $V$ и
-$E$ будем называть соответственно \emph{вершинами} и \emph{дугами}. Отметим,
-что данное определение допускает петли, но исключает кратные дуги. Если
-$v,v'\in V$ и $e=(v,v')\in E$, то дуга $e$ называется \emph{исходящей} из $v$.
-Мы предполагаем, что читатель знаком с основными понятиями теории орграфов,
-такими как маршрут (ориентированный путь), контур (ориентированный цикл),
-изоморфизм и~т.\,д.
+A \emph{digraph} (directed graph) is a pair $D=\langle
+V,E\rangle$, where $V$ is a finite set and $E\subseteq V\times V$.
+The elements of $V$ and $E$ are called \emph{vertices} and
+respectively \emph{edges}. We notice that this definition allows
+loops but excludes multiple edges. If $v,v'\in V$ and $e=(v,v')\in
+E$, then we say that the edge $e$ \emph{starts} at $v$. We assume
+that the reader is acquainted with the basic notions of digraph
+theory such that directed path, directed cycle, isomorphism etc.
 
-\emph{Матрица смежности} (или просто матрица) орграфа $D=\langle V,E\rangle$ --
-это $V\times V$-матрица, в которой элемент в строке $v$ и столбце $v'$ равен 1,
-если $(v,v')\in E$, и равен 0 в противном случае. Обратно, $n\times n$-матрице
-$P=(p_{ij})$ с неотрицательными действительными элементами можно сопоставить
-орграф $D(P)$ на множестве $\{1,2,\dots,n\}$, в котором пара $(i,j)$ будет
-дугой, если и только если $p_{ij}>0$. Указанное соответствие между матрицами и
-орграфами позволяет переформулировать на языке орграфов ряд важных понятий и
-результатов, возникших в классической теории неотрицательных матриц (теории
-Перрона--Фробениуса).
+If $D=\langle V,E\rangle$ is a digraph, then its \emph{incidence
+matrix} (referred to simply as \emph{matrix} in the sequel) is a
+$V\times V$-matrix whose entry in row $v$ and column $v'$ is 1 if
+$(v,v')\in E$ and is 0 otherwise. Conversely, to each $n\times
+n$-matrix $P=(p_{ij})$ with non-negative real entries, one can
+assign digraph $D(P)$ on $\{1,2,\dots,n\}$ as the vertex set in
+which the pair $(i,j)$ is an edge if and only if $p_{ij}>0$. This
+correspondence between matrices and digraphs allows one to state
+in the language of digraphs a number of important notions and
+results from the classic theory of non-negative matrices
+(Perron--Frobenius theory).
 
-Орграф $D=\langle V,E\rangle$ называется  \emph{сильно связным}, если для
-всякой пары $(v,v')\in V\times V$ найдется маршрут из $v$ в $v'$. Сильно
-связный орграф $D$ называется \emph{примитивным}, если наибольший общий
-делитель длин всех контуров в $D$ равен~1. В литературе такие орграфы иногда
-называют \emph{апериодическими}. Наш выбор термина обусловлен тем, что орграф
-обладает указанным свойством тогда и только тогда, когда его матрица примитивна
-в смысле теории Перрона--Фробениуса, т.\,е.\ когда у этой матрицы есть
-положительное собственное значение, строго большее модуля любого из ее
-остальных собственных значений.
+A digraph $D=\langle V,E\rangle$ is said to be \emph{strongly
+connected} if for every pair  $(v,v')\in V\times V$, there is a
+directed path from $v$ to $v'$. A strongly connected digrpah $D$
+is called \emph{primitive} if the greatest common divisor of the
+lengths of the directed cycles of $D$ is equal to~1. In the
+literature such digraphs are sometimes called \emph{aperiodic}.
+Our choice of the name is justified by the fact that a digraph has
+this property if and only if its matrix is primitive in the sense
+of Perron--Frobenius theory, that is the matrix has a positive
+eigenvalue that is strictly greater than the absolute value of any
+of its other elgenvalues.
 
-Под $t$-й \emph{степенью} орграфа $D=\langle V,E\rangle$ понимается орграф
-$D^t$ с тем же множеством вершин $V$, в котором пара $(v,v')\in V\times V$
-является дугой, если и только если в $D$ найдется маршрут из $v$ в $v'$ длины в
-точности $t$. Нетрудно видеть, что если $M$ -- матрица орграфа $D$, то орграф
-$D^t$ изоморфен орграфу $D(M^t)$, где $M^t$ -- обычная $t$-я степень матрицы
-$M$. Известно (см., например, \cite[с.\,226]{ST00}), что если $D$ --
-примитивный орграф, то для некоторого $t$ его степень $D^t$ есть полный орграф
-с петлями, т.\,е.\ в $D^t$ все пары вершин являются дугами. На языке матрицы
-орграфа это означает, что каждый элемент матрицы $M^t$ положителен. Наименьшее
-число $t$ с таким свойством называется \emph{экспонентой} орграфа $D$ и
-обозначается через $\gamma(D)$. Экспоненты орграфов служат объектом
-интенсивного изучения на протяжении последних 60 лет, обзор накопленных в этой
-области фактов см., например, в~\cite{Br}. В данной работе потребуются лишь
-несколько классических результатов, собранных в следующем утверждении. В нем (и
-далее в работе) орграф с $n$ вершинами для краткости именуется
-$n$-\emph{орграфом}.
+The $t$-th \emph{power} of a digraph $D=\langle V,E\rangle$ is the
+digraph $D^t$ with the same vertex set $V$ in which a pair
+$(v,v')\in V\times V$ is an edge if and only if $D$ has a directed
+path from $v$ to $v'$ of length precisely $t$. It is easy to see
+that if $M$ is the matrix of $D$, then the digraph $D^t$ is
+isomorphic to the digraph $D(M^t)$, where $M^t$ is the usual
+$t$-th power of the matrix $M$. It is known (see, e.g.,
+\cite[p.\,224]{ST00}) that if $D$ is  a primitive digraph, then
+for some $t$ the power $D^t$ is a complete digraph (with loops),
+that is, in $D^t$ each pair of vertices constitutes an edge. In
+matrix terms this means that each entry of the matrix $M^t$ is
+positive. The least $t$ with this property is called the
+\emph{exponent} of the digraph $D$ is denoted by $\gamma(D)$.
+Exponents of digraphs have been intensively studied over the last
+60 years and we refer to~\cite{Br} for a survey of results
+accumulated in this area. In this paper we need only a few classic
+results collected in the following theorem. For brevity, in this
+theorem (and in the rest of the paper) a digraph with $n$ vertices
+is called an $n$-\emph{digraph}.
 
 \begin{theorem}
-\label{dulmage} \emph{(a) (Теорема Виландта, см.\ \cite{Wi50,DM62,DM64})} Если
-$D$ -- примитивный $n$-орграф, то $\gamma(D)\le(n-1)^2+1$.
+\label{dulmage} \emph{(a) (Wielandt's theorem, see
+\cite{Wi50,DM62}, \cite[Theorem~1]{DM64})} If $D$ is a primitive
+$n$-digraph, then  $\gamma(D)\le(n-1)^2+1$.
 
-\emph{(b) \cite[теорема~6 и следствие~4]{DM64}} Если $n>2$, то с точностью до
-изоморфизма есть ровно один примитивный $n$-орграф с экспонентой $(n-1)^2+1$ и
-ровно один примитивный $n$-орграф с с экспонентой $(n-1)^2$. Матрицы этих
-орграфов суть соответственно
+\emph{(b) \cite[Theorem~6 and Corollary 4]{DM64}} If $n>2$, then
+up to isomorphism, there is exactly one primitive $n$-digraph $D$
+with $\gamma(D)=(n-1)^2+1$, and exactly one with
+$\gamma(D)=(n-1)^2$. The matrices of the digraphs are
 \begin{equation}
 \label{wielandt}
 \begin{pmatrix}
@@ -422,28 +429,30 @@ $D$ -- примитивный $n$-орграф, то $\gamma(D)\le(n-1)^2+1$.
 \hdotsfor{6}\\
 0 & 0 & 0 & \dots & 0 & 1\\
 1 & 1 & 0 & \dots & 0 & 0
-\end{pmatrix} \text{ и }
+\end{pmatrix} \text{ and }
 \begin{pmatrix}
 0 & 1 & 0 & \dots & 0 & 0\\
 0 & 0 & 1 & \dots & 0 & 0\\
 \hdotsfor{6}\\
 1 & 0 & 0 & \dots & 0 & 1\\
 1 & 1 & 0 & \dots & 0 & 0
-\end{pmatrix}.
+\end{pmatrix}
+\text{ respectively.}
 \end{equation}
 
-\emph{(c) \cite[теорема~7]{DM64}} Если $n>4$ и $n$ четно, то нет ни одного
-примитивного $n$-орграфа $D$, для которого $n^2-4n+6<\gamma(D)<(n-1)^2$. С
-точностью до изоморфизма существуют ровно три, если $n$ кратно трем, или ровно
-четыре, если $n$ не кратно трем, примитивных $n$-орграфа с экспонентой
-$n^2-4n+6$.
+\emph{(c) \cite[Theorem~7]{DM64}} If $n>4$ is even, then there is
+no primitive $n$-digraph $D$ such that
+$n^2-4n+6<\gamma(D)<(n-1)^2$, and, up to isomorphism, there are
+either $3$ or $4$ primitive $n$-digraphs $D$ with
+$\gamma(D)=n^2-4n+6$, according as $n$ is or is not a~multiple of
+$3$.
 
-\emph{(d) \cite[теорема~8]{DM64}} Если $n>3$ и $n$ нечетно, то нет ни одного
-примитивного $n$-орграфа $D$, для которого $n^2-3n+4<\gamma(D)<(n-1)^2$. С
-точностью до изоморфизма есть ровно один примитивный $n$-орграф с экспонентой
-$n^2-3n+4$, ровно один примитивный $n$-орграф с экспонентой $n^2-3n+3$, и ровно
-два примитивных $n$-орграфа с экспонентой $n^2-3n+2$. Матрицы этих орграфов
-суть соответственно
+\emph{(d) \cite[Theorem~8]{DM64}} If $n>3$ is odd, then there is
+no primitive $n$-digraph $D$ such that
+$n^2-3n+4<\gamma(D)<(n-1)^2$, and, up to isomorphism, there is
+exactly one primitive $n$-digraph $D$ with $\gamma(D)=n^2-3n+4$,
+exactly one with $\gamma(D)=n^2-3n+3$, and exactly two with
+$\gamma(D)=n^2-3n+2$. The matrices of these digraphs are:
 \begin{gather}
 \label{odd island}
 \begin{pmatrix}
@@ -453,7 +462,7 @@ $n^2-3n+4$, ровно один примитивный $n$-орграф с экспонентой $n^2-3n+3$, и ровно
 0 & 0 & 0 & \dots & 1 & 0\\
 0 & 0 & 0 & \dots & 0 & 1\\
 1 & 0 & 1 & \dots & 0 & 0
-\end{pmatrix},\quad
+\end{pmatrix}\!, \quad
 \begin{pmatrix}
 0 & 1 & 0 & \dots & 0 & 0\\
 0 & 0 & 1 & \dots & 0 & 0\\
@@ -461,7 +470,7 @@ $n^2-3n+4$, ровно один примитивный $n$-орграф с экспонентой $n^2-3n+3$, и ровно
 0 & 0 & 0 & \dots & 1 & 0\\
 0 & 1 & 0 & \dots & 0 & 1\\
 1 & 0 & 1 & \dots & 0 & 0
-\end{pmatrix},\\
+\end{pmatrix}\!,\\
 \label{odd island1}
 \begin{pmatrix}
 0 & 1 & 0 & \dots & 0 & 0\\
@@ -470,7 +479,7 @@ $n^2-3n+4$, ровно один примитивный $n$-орграф с экспонентой $n^2-3n+3$, и ровно
 1 & 0 & 0 & \dots & 1 & 0\\
 0 & 1 & 0 & \dots & 0 & 1\\
 1 & 0 & 1 & \dots & 0 & 0
-\end{pmatrix}, \quad
+\end{pmatrix}\!,\quad
 \begin{pmatrix}
 0 & 1 & 0 & \dots & 0 & 0\\
 0 & 0 & 1 & \dots & 0 & 0\\
@@ -478,30 +487,35 @@ $n^2-3n+4$, ровно один примитивный $n$-орграф с экспонентой $n^2-3n+3$, и ровно
 1 & 0 & 0 & \dots & 1 & 0\\
 0 & 0 & 0 & \dots & 0 & 1\\
 1 & 0 & 1 & \dots & 0 & 0
-\end{pmatrix}.
+\end{pmatrix}\!.
 \end{gather}
 
-\emph{(e) \cite[теорема~8]{DM64}} Если $n>3$ и $n$ нечетно, то нет ни одного
-$n$-орграфа $D$, для которого $n^2-4n+6<\gamma(D)<n^2-3n+2$. С точностью до
-изоморфизма существуют ровно три, если $n$ кратно трем, или ровно четыре, если
-$n$ не кратно трем, примитивных $n$-орграфа с экспонентой $n^2-4n+6$.
+\emph{(e) \cite[Theorem~8]{DM64}} If $n>3$ is odd, then there is
+no primitive $n$-digraph $D$ such that
+$n^2-4n+6<\gamma(D)<n^2-3n+2$, and, up to isomorphism, there are
+either $3$ or $4$ primitive $n$-digraphs $D$ with
+$\gamma(D)=n^2-4n+6$, according as $n$ is or is not a~multiple of
+$3$.
 \end{theorem}
 
-В табл.~\ref{9 states} экспериментальные данные из табл.~\ref{automata}
-сопоставлены с информацией, которую можно извлечь из теоремы~\ref{dulmage}.
+In Table~\ref{9 states}, we compare the experimental data from
+Table~\ref{automata} with the data that we can extract from
+Theorem~\ref{dulmage}. Both digraphs and automata are counted up
+to isomorphism.
 
 \begin{table}[ht]
-\tabcolsep=4.2pt \extrarowheight=1pt \caption{Экспоненты примитивных 9-орграфов
-и пороги синхронизации 9-автоматов с двумя входными буквами} \label{9 states}
-{\small
+\tabcolsep=4.2pt \extrarowheight=1pt \caption{Exponents of
+primitive 9-digraphs with $9$ vertices vs \rl{}s for 2-letter \sa\
+with $9$ states} \label{9 states} {\small
 \begin{tabular}{|p{2.9cm}||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|} \hline
 \centering{$N$} & 65 & 64 & 63 & 62 & 61 & 60 & 59 & 58 & 57 & 56 & 55 & 54 & 53 & 52 & 51 \\
-\hline \raggedright{Число орграфов с~экспонентой $N$} & \raisebox{-6pt}{1} &
-\raisebox{-6pt}{1} & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} &
+\hline \raggedright{\# of digraphs with exponent $N$} &
+\raisebox{-6pt}{1} & \raisebox{-6pt}{1} & \raisebox{-6pt}{0} &
 \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} &
-\raisebox{-6pt}{1} & \raisebox{-6pt}{1} & \raisebox{-6pt}{2}
+\raisebox{-6pt}{0} & \raisebox{-6pt}{1} & \raisebox{-6pt}{1} &
+\raisebox{-6pt}{2}
 & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{0} & \raisebox{-6pt}{3} \\
-\hline \raggedright{Число автоматов с порогом синхронизации $N$}
+\hline \raggedright{\# of automata with \rl\ $N$}
 &\raisebox{-11pt}{0} &\raisebox{-11pt}{1} &\raisebox{-11pt}{0}
 &\raisebox{-11pt}{0} &\raisebox{-11pt}{0} &\raisebox{-11pt}{0}
 &\raisebox{-11pt}{0} &\raisebox{-11pt}{1} &\raisebox{-11pt}{2}
@@ -511,28 +525,30 @@ $n$ не кратно трем, примитивных $n$-орграфа с экспонентой $n^2-4n+6$.
 \end{tabular}}
 \end{table}
 
-Сходство между второй и третьей строками табл.~\ref{9 states} очевидно.
-Аналогичное сходство проявляется при сравнении данных для других размеров
-автоматов/орграфов. Нам представляется, что обнаруженное сходство не случайно,
-а напротив, отражает глубокие и, возможно, еще не до конца проясненные
-взаимосвязи между примитивными орграфами и синхронизируемыми автоматами.
-Некоторые из этих взаимосвязей были вскрыты при изучении так называемой
-проблемы раскраски дорог. Напомним соответствующие понятия.
+There is an obvious similarity between the second and the third
+rows of Table~\ref{9 states}. An analogous similarity reveals when
+one compares the data for other sizes of automata/digraphs. We
+believe that the observed similarity is more than a mere
+coincidence and that, in contrary, it reflects some profound and
+perhaps yet hidden interconnections between primitive digraphs and
+\sa. Some of such interconnections have been discovered in the
+course of investigations related to the so-called Road Coloring
+Problem. We recall notions involved there.
 
-\emph{Орграфом} автомата $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$ будем
-называть орграф $D(\mathrsfs{A})$ со множеством вершин $Q$, в котором дугами
-служат все такие пары $(q,q')\in Q\times Q$, что $q'=\delta(q,a)$ для некоторой
-буквы $a\in\Sigma$. Легко видеть, что орграф $D$ изоморфен орграфу некоторого
-автомата тогда и только тогда, когда любая вершина $D$ имеет хотя бы одну
-исходящую дугу. В дальнейшем мы всегда будем предполагать, что рассматриваемые
-орграфы удовлетворяют этому условию. Если $D$ -- орграф, то его
-\emph{раскраской} называется всякий автомат $\mathrsfs{A}$ со свойством $D\cong
-D(\mathrsfs{A})$. Любая раскраска орграфа $D=\langle V,E\rangle$ получается,
-если зафиксировать некоторый конечный алфавит $\Sigma$ и приписать каждой дуге
-из $E$ непустое множество букв из $\Sigma$ так, чтобы для каждой вершины $v\in
-V$ множества, приписанные исходящим из $v$ дугам, составляли разбиение алфавита
-$\Sigma$. На рис.\,\ref{fig:cerny} изображен орграф и две его раскраски при
-помощи алфавита $\Sigma=\{a,b\}$.
+Given a DFA $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$, its
+\emph{digraph} $D(\mathrsfs{A})$ has $Q$ as the vertex set and
+$(q,q')\in Q\times Q$ is an edge of $D(\mathrsfs{A})$ if and only
+if $q'=\delta(q,a)$ for some $a\in\Sigma$. It is easy to see that
+a digraph $D$ is isomorphic to the digraph of some DFA if and only
+if each vertex of $D$ has at least one outgoing edge. In the
+sequel, we always consider only digraphs satisfying this property.
+Every DFA $\mathrsfs{A}$ such that $D\cong D(\mathrsfs{A})$ is
+called a \emph{coloring} of $D$. Thus, every coloring of $D$ is
+defined by assigning non-empty sets of labels (colors) from some
+alphabet $\Sigma$ to edges of $D$ such that the label sets
+assigned to the outgoing edges of each vertex form a partition of
+$\Sigma$. Fig.\,\ref{fig:cerny} shows a digraph and two of its
+colorings by $\Sigma=\{a,b\}$.
 
 \begin{figure}[ht]
  \begin{center}
@@ -580,139 +596,156 @@ $\Sigma$. На рис.\,\ref{fig:cerny} изображен орграф и две его раскраски при
     \drawedge(A4,A1){}
     \end{picture}
  \end{center}
- \caption{Орграф и две его раскраски}
+ \caption{A digraph and two of its colorings}
  \label{fig:cerny}
 \end{figure}
 
-Еще в 1977 г.\ Адлер, Гудвин и Вейс~\cite{AGW} отметили, что орграф каждого
-сильно связного синхронизируемого автомата примитивен, и предположили,  что
-каждый примитивный орграф имеет синхронизируемую раскраску -- в этом и состояла
-гипотеза раскраски дорог, недавно доказанная Трахтманом~\cite{Tr09}. Нетрудно
-указать и соотношение между порогом синхронизации сильно связного
-синхронизируемого автомата и экспонентой его орграфа.
+In 1977 Adler, Goodwyn, and Weiss~\cite{AGW} observed that the
+digraph of every \scn\ \san\ is primitive and conjectured that
+every primitive digraph has a synchronizing coloring. This
+conjecture, known as the Road Coloring Conjecture,  has been
+recently proved by Trahtman~\cite{Tr09}. It is easy to relate the
+\rl\ of a \scn\ \san\ with the exponent of its digraph.
 
 \begin{prop}
-\label{lower bound} Пусть $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$ --
-сильно связный синхронизируемый $n$-автомат с порогом синхронизации $t$. Тогда
+\label{lower bound} Let $\mathrsfs{A}=\langle
+Q,\Sigma,\delta\rangle$ be a \scn\ synchronizing $n$-automaton
+with \rl\ $t$. Then
 \begin{equation}
 \label{eq:lower bound} \gamma(D(\mathrsfs{A}))\le t+n-1.
 \end{equation}
 \end{prop}
 
 \begin{proof}
-Пусть $w\in\Sigma^*$ -- синхронизирующее слово длины $t$ и пусть $p$ -- то
-состояние, к которому $w$ синхронизирует автомат $\mathrsfs{A}$, т.\,е.
-$\delta(q,w)=p$ для всех $q\in Q$. Возьмем теперь произвольную пару
-$(q',q'')\in Q\times Q$ и укажем в орграфе $D(\mathrsfs{A})$ маршрут из $q'$ в
-$q''$ длины в точности $t+n-1$. Поскольку орграф $D(\mathrsfs{A})$ сильно
-связен, в нем существует маршрут из $p$ в $q''$. Пусть $\ell$ -- минимальная
-длина такого маршрута. Так как маршрут минимальной длины не проходит ни через
-одну вершину дважды, $\ell\le n-1$. Рассмотрим теперь произвольный маршрут
-длины $n-1-\ell$, начинающийся из $q'$. Из конечной вершины этого маршрута
-пройдем по маршруту длины $t$, вдоль которого в автомате $\mathrsfs{A}$
-читается слово $w$. Поскольку $w$ -- синхронизирующее слово, такой маршрут
-необходимо окончится в $p$. Теперь осталось пройти по маршруту  длины $\ell$ из
-$p$ в $q''$, чтобы получить маршрут из $q'$ в $q''$ длины
-$(n-1-\ell)+t+\ell=t+n-1$.
+Let $w\in\Sigma^*$ be a \sw\ of length $t$ and let $p$ be such
+that $\delta(q,w)=p$ for each $q\in Q$. Now we take an arbitrary
+pair $(q',q'')\in Q\times Q$ and construct a directed path from
+$q'$ to $q''$ of length precisely  $t+n-1$ in the digraph
+$D(\mathrsfs{A})$. Since the digraph $D(\mathrsfs{A})$ is strongly
+connected, it has a directed path from $p$ в $q''$. Let $\ell$ be
+the minimum length of such a path. Since the path of minimum
+length visits no vertex twice, $\ell\le n-1$. Now we consider an
+arbitrary directed path of length $n-1-\ell$ starting with $q'$.
+From the endpoint of this path, we walk along the directed path of
+length $t$ labelled by the word $w$ in the automaton
+$\mathrsfs{A}$. Since $w$ is a reset word, this path necessarily
+ends with $p$. It remains to walk along the directed path of
+length $\ell$ from $p$ to $q''$ in order to obtain a directed path
+from $q'$ to $q''$ of length $(n-1-\ell)+t+\ell=t+n-1$.
 \end{proof}
 
-Таким образом, раскраски примитивных орграфов с~большими экспонентами приводят
-к автоматам с большими порогами синхронизации. Это наблюдение, однако, еще не
-достаточно для того, чтобы полностью объяснить сходство между строками
-табл.~\ref{9 states}, поскольку далеко не все автоматы, отвечающие ненулевым
-позициям в третьей строке, могут быть получены как раскраски примитивных
-орграфов с~большими экспонентами. В \S4 мы укажем еще один способ получения
-медленно синхронизируемых автоматов из примитивных орграфов.
+Thus, colorings of primitive digraphs with large exponents yield
+automata with large \rl{}s. This observation is not yet sufficient
+to completely explain the similarity between the rows of
+Table~\ref{9 states} since many automata corresponding to non-zero
+entries in the third row cannot be obtained as colorings of
+primitive digraphs with large exponents. In Section~4 we present
+yet another way to produce slowly \sa\ from primitive digraphs.
 
-\section*{{\centerline{\large\bf \S4. Серии медленно синхронизируемых автоматов}}}
+\section*{{\centerline{\large\bf \S4. Series of slowly \sa}}}
 
-\paragraph*{4.1. Обзор.} Обсудим прежде всего, какими именно автоматами мы
-интересуемся, другими словами, какой точный смысл вкладывается в выражения типа
-<<медленно синхронизируемые автоматы>> или <<автоматы, с порогом синхронизации,
-близким к квадрату числа состояний>>. Как отмечалось в \S1, порог синхронизации
-$n$-автомата может достигать $(n-1)^2$ -- соответствующим примером служит
-открытый Черни~\cite{Ce64} автомат $\mathrsfs{C}_n=\langle
-\{1,2,\dots,n\},\{a,b\},\delta\rangle$, где буквы $a$ и $b$ действуют следующим
-образом:
+\paragraph*{4.1. Overview.} First of all, we would like to discuss what kind
+of automata we are interested in, in other words, what is the
+precise meaning of the expressions like ``slowly \sa'' or
+``automata whose \rl\ is close to the square of the state
+number''. As mentioned in Section~1, the \rl\ of an $n$-automaton
+can reach $(n-1)^2$. The corresponding example (discovered by
+\v{C}ern\'y~\cite{Ce64}) is the automaton $\mathrsfs{C}_n=\langle
+\{1,2,\dots,n\},\{a,b\},\delta\rangle$ where the letters $a$ and
+$b$ act as follows:
 $$\delta(i,a)=\begin{cases}
-i, &\text{если } i<n,\\
-1, &\text{если } i=n;
+i &\text{if } i<n,\\
+1 &\text{if } i=n;
 \end{cases}\quad
 \delta(i,b)=\begin{cases}
-i+1, &\text{если } i<n,\\
-1, &\text{если } i=n.
+i+1 &\text{if } i<n,\\
+1 &\text{if } i=n.
 \end{cases}$$
-Автомат $\mathrsfs{C}_n$ изображен слева на рис.\,\ref{fig:cerny-n} ниже.
-Нетрудно понять, что если к автомату $\mathrsfs{C}_{n-1}$ добавить новое
-состояние $q_0$, а затем всевозможными способами доопределять действие букв $a$
-и $b$ на этом новом состоянии так, чтобы хотя бы одна из них не фиксировала
-$q_0$, то можно получить $n^2-1$ неизоморфных достижимых $n$-автоматов с
-порогами синхронизации от $(n-2)^2$ до $(n-2)^2+1$. Аналогичным образом можно
-<<размножать>> до семейств $n$-автоматов и другие $(n-1)$-автоматы с порогом
-синхронизации, близким к $(n-2)^2$. Поскольку мы хотим избежать рассмотрения
-таких более или менее тривиальных модификаций, наше внимание сосредоточено на
-$n$-автоматах с порогом синхронизации, заключенным в пределах от $(n-2)^2+2$ до
-$(n-1)^2$. (В частности, именно из этих соображений выбирался диапазон значений
-порога синхронизации в табл.~\ref{automata} и~\ref{9 states}.)
+The automaton $\mathrsfs{C}_n$ is shown in
+Fig.\,\ref{fig:cerny-n}(left). It is easy to see that if one adds
+a new state to $q_0$ to the automaton $\mathrsfs{C}_{n-1}$ and
+then defines the action of the letters $a$ and $b$ at this added
+state in all possible ways such that at least one of the letters
+does not fix $q_0$, then one gets $n^2-1$ non-isomorphic initially
+connected $n$-automata with \rl{}s between $(n-2)^2$ and
+$(n-2)^2+1$. In a similar way one can ``multiply'' other
+$(n-1)$-automata whose \rl\ is close to $(n-2)^2$, thus obtaining
+families of $n$-automata.
 
-Наши эксперименты показывают, что в указанных пределах автоматов не слишком
-много и что их распределение по возможным значениям порога синхронизации
-устойчиво следует такому образцу: изолированное экстремальное значение --
-разрыв -- небольшой <<остров>> -- разрыв -- <<материк>>, см.
-табл.~\ref{automata} и обсуждение в конце \S2. Мы продемонстрируем, что исходя
-из примитивных орграфов с большими экспонентами, представленных в
-теореме~\ref{dulmage}, можно построить следующие серии автоматов над
-двухбуквенным алфавитом:
+Since we want to avoid considering such more or less trivial
+modifications, we focus on $n$-automata whose \rl{}s are between
+$(n-2)^2+2$ and $(n-1)^2$. (This explains, in particular, our
+choice of the range of \rl{}s in Tables~\ref{automata} and~\ref{9
+states}.)
+
+Our experiments show that the number of \sa\ in this range is not
+large and that their distribution with respect to the possible
+values of \rl\ clearly reveals the following pattern: an isolated
+extreme value --- a gap --- a small ``island'' --- another gap
+--- a ``continent, see Table~\ref{automata} and the discussion at
+the end of Section~2. We shall show that departing from primitive
+digraph with large exponent presented in Theorem~\ref{dulmage},
+the following series of automata over 2-letter alphabet can be
+constructed:
 \begin{itemize}
-\item серию $\mathrsfs{C}_n$, отвечающую наблюдаемому экстремальному значению;
-\item серии $\mathrsfs{W}_n$, $\mathrsfs{D}'_n$, $\mathrsfs{D}''_n$,
-$\mathrsfs{E}_n$, а при нечетном $n$ -- еще и серии $\mathrsfs{B}_n$ и
-$\mathrsfs{F}_n$, отвечающие всем наблюдаемым <<островным>> значениям;
-\item серии $\mathrsfs{G}_n$ (при нечетном $n$) и $\mathrsfs{H}_n$,
-отвечающие максимальным наблюдаемым <<материковым>> значениям.
+\item the series $\mathrsfs{C}_n$ that corresponds to the observed extreme value;
+\item the series $\mathrsfs{W}_n$, $\mathrsfs{D}'_n$, $\mathrsfs{D}''_n$,
+$\mathrsfs{E}_n$, and for odd $n$ also the series $\mathrsfs{B}_n$
+and $\mathrsfs{F}_n$ that correspond to all observed ``island''
+values;
+\item the series $\mathrsfs{G}_n$ (for odd $n$) and $\mathrsfs{H}_n$ that
+correspond to the maximum observed ``continental values.
 \end{itemize}
-Рис.~\ref{fig:relation} показывает, из каких именно орграфов получаются
-перечисленные серии. (Для наглядности на рис.~\ref{fig:relation} вместо матриц
-из теоремы~\ref{dulmage} изображены <<типичные представители>> соответствующих
-серий орграфов.) Если от символа орграфа к букве, обозначающей серию автоматов,
-проведена сплошная стрелка, то автоматы серии получены раскраской
-соответствующих орграфов; штриховая стрелка указывает на другой способ
-получения автомата из орграфа. Пунктирной рамкой объединены серии автоматов с
-одинаковым значением порога синхронизации.
+Fig.~\ref{fig:relation} demonstrates which series of digraphs give
+rise to the series of automata just listed. (For clarity, digraph
+series in Fig.~\ref{fig:relation} are presented by their ``icons''
+rather than matrices from Theorem~\ref{dulmage}.) A solid arrow
+from an icon to a letter denoting a series of automata means that
+automata in the series are colorings of the corresponding
+digraphs; a dotted arrow  indicates another way of producing
+automata from digraphs. Dotted frames embrace series of automata
+with the same value of \rl.
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=12cm]{relation.eps}
 \unitlength 0.86mm
 \begin{picture}(1,1)(2,0)
 \put(-132,45){\Large{$\mathrsfs{C}_n$}}
-\put(-106,45){\Large{$\mathrsfs{D}'_n$}} \put(-92,45){\Large{$\mathrsfs{W}_n$}}
-\put(-84,45){\Large{$\mathrsfs{F}_n$}} \put(-71,45){\Large{$\mathrsfs{E}_n$}}
-\put(-64,45){\Large{$\mathrsfs{D}''_n$}} \put(-54,45){\Large{$\mathrsfs{B}_n$}}
-\put(-23,45){\Large{$\mathrsfs{G}_n$}} \put(-10,45){\Large{$\mathrsfs{H}_n$}}
-\put(-71,1){$\underbrace{\rule{6.1cm}{0pt}}_{\text{при нечетном $n$}}$}
+\put(-106,45){\Large{$\mathrsfs{D}'_n$}}
+\put(-92,45){\Large{$\mathrsfs{W}_n$}}
+\put(-84,45){\Large{$\mathrsfs{F}_n$}}
+\put(-71,45){\Large{$\mathrsfs{E}_n$}}
+\put(-64,45){\Large{$\mathrsfs{D}''_n$}}
+\put(-54,45){\Large{$\mathrsfs{B}_n$}}
+\put(-23,45){\Large{$\mathrsfs{G}_n$}}
+\put(-10,45){\Large{$\mathrsfs{H}_n$}}
+\put(-71,1){$\underbrace{\rule{6.1cm}{0pt}}_{\text{for odd $n$}}$}
 \end{picture}
-\caption{Связи между сериями примитивных орграфов с большими экспонентами и
-сериями медленно синхронизируемых автоматов} \label{fig:relation}
+\caption{Connections between series of primitive digraphs with
+large exponents and series of slowly \sa} \label{fig:relation}
 \end{center}
 \end{figure}
 
-Итак, здесь мы докажем ряд утверждений о перечисленных на
-рис.~\ref{fig:relation} сериях автоматов. (Два из этих утверждений -- о сериях
-$\mathrsfs{C}_n$ и $\mathrsfs{B}_n$ -- встречались в литературе, но наши
-доказательства являются существенно новыми.) Эти результаты будут объединены в
-5 групп в соответствии с <<происхождением>> серий, т.\,е.\ с типом орграфов, из
-которых получены автоматы серий.
+Thus, we are going to establish a number of results about automata
+series listed in Fig.~\ref{fig:relation}. (Two of these
+results---namely, the two concerning the series $\mathrsfs{C}_n$
+and $\mathrsfs{B}_n$---are known in the literature but our proofs
+are essentially novel.) The results are divided into 5 groups in
+the accordance with the ``origin'' of the series, that is,
+according to the type of digraphs that give rise to automata in
+the series.
 
-\paragraph*{4.2. Автоматы, связанные с орграфами серии $W_n$.} Орграф $W_n$ -- это
-$n$-орграф наибольшей экспоненты, отвечающий первой матрице в~\eqref{wielandt}.
-Если обозначить вершины $W_n$ через $1,2,\dots,n$, то его дуги суть $(n,1)$,
-$(n,2)$ и $(i,i+1)$ для $i=1,\dots,n-1$. Нетрудно видеть, что с точностью до
-изоморфизма и переименования букв существует единственная раскраска орграфа
-$W_n$ с помощью двух букв. Обозначим соответствующий автомат через
-$\mathrsfs{W}_n$. Орграф $W_n$ и автомат $\mathrsfs{W}_n$ изображены на
-рис.\,\ref{fig:anan}.
+\paragraph*{4.2. Automata related to digraphs of the series $W_n$.} The digraph
+$W_n$ is the $n$-digraph with largest exponent that corresponds to
+the first matrix in~\eqref{wielandt}. If we denote the vertices of
+$W_n$ by $1,2,\dots,n$, then its edges are $(n,1)$, $(n,2)$ and
+$(i,i+1)$ for $i=1,\dots,n-1$. It is easy to see that up to
+isomorphism and renaming of letters, there is a unique coloring of
+the digraph $W_n$ with two letters. We denote the resulting
+automaton by $\mathrsfs{W}_n$. The digraph $W_n$ and the automaton
+$\mathrsfs{W}_n$ are shown in Fig.\,\ref{fig:anan}.
 
-\begin{figure}[hb]
+\begin{figure}[thb]
 \begin{center}
 \unitlength .5mm
 \begin{picture}(72,60)(20,-67)
@@ -734,32 +767,36 @@ $\mathrsfs{W}_n$. Орграф $W_n$ и автомат $\mathrsfs{W}_n$ изображены на
 \put(31,-73){$\dots$}
 \end{picture}
 \end{center}
-\caption{Орграф $W_n$ и автомат $\mathrsfs{W}_n$}\label{fig:anan}
+\caption{The digraph $W_n$ and the automaton
+$\mathrsfs{W}_n$}\label{fig:anan}
 \end{figure}
 
 \begin{theorem}
-\label{theorem:anan} Автомат $\mathrsfs{W}_n$ синхронизируем, и его порог
-синхронизации равен $n^2-3n+3$.
+\label{theorem:anan} The automaton $\mathrsfs{W}_n$ is
+synchronizing and its \rl\ is equal to $n^2-3n+3$.
 \end{theorem}
 
 \begin{proof}
-Нетрудно проверить, что слово $(ab^{n-2})^{n-2}a$ синхронизирует автомат
-$\mathrsfs{W}_n$. Длина этого слова равна $(n-1)(n-2)+1=n^2-3n+3$. С другой
-стороны, из теоремы~\ref{dulmage}(b) и предложения~\ref{lower bound} вытекает,
-что порог синхронизации для $\mathrsfs{W}_n$ не может быть меньше чем
+It is easy to see that the word $(ab^{n-2})^{n-2}a$ resets the
+automaton $\mathrsfs{W}_n$. The length of this word is equal to
+$(n-1)(n-2)+1=n^2-3n+3$. On the other hand,
+Theorem~\ref{dulmage}(b) and Proposition~\ref{lower bound} imply
+that the \rl\ of $\mathrsfs{W}_n$ cannot be less than меньше чем
 $((n-1)^2+1)-(n-1)=n^2-3n+3$.
 \end{proof}
 
-Серия автоматов $\mathrsfs{W}_n$ была обнаружена первым автором данной работы
-в~2008 г. Его первоначальное доказательство теоремы~\ref{theorem:anan}
-использовало теоретико-игровую технику из~\cite{AVZ} и было весьма трудоемким.
+The series $\mathrsfs{W}_n$ was discovered by the first author
+in~2008. His original proof of Theorem~\ref{theorem:anan} relied a
+game-theoretic technique from~\cite{AVZ} and was rather difficult.
 
-Теперь продемонстрируем, что и серия автоматов $\mathrsfs{C}_n$ тесно (хотя и
-менее очевидным образом) связана с орграфами из серии $W_n$. Отметим, что хотя
-автоматы $\mathrsfs{C}_n$ известны уже около 50 лет и многократно
-переоткрывались, их родство с орграфами из серии $W_n$ ранее, по-видимому, не
-отмечалось.
-\begin{figure}[th]
+Now we show that also the automata in the series $\mathrsfs{C}_n$
+are tightly related to the digraphs in the series $W_n$ though the
+relation is less obvious. We notice that even though the automata
+$\mathrsfs{C}_n$ have been known for about 50 years and have been
+rediscovered several times, to the best of our knowledge, their
+relationship to the digraphs in the series $W_n$ has not been
+observed previously.
+\begin{figure}[bth]
 \begin{center}
 \unitlength .5mm
 \begin{picture}(72,66)(25,-76)
@@ -782,87 +819,107 @@ $((n-1)^2+1)-(n-1)=n^2-3n+3$.
 \put(31,-73){$\dots$}
 \end{picture}
 \end{center}
-\caption{Автомат $\mathrsfs{C}_n$ и автомат, определяемый действиями слов $b$ и
-$c=ab$}\label{fig:cerny-n}
+\caption{The automaton $\mathrsfs{C}_n$ and the automaton defined
+by the action of the words $b$ and $c=ab$}\label{fig:cerny-n}
 \end{figure}
 
-Дадим новое простое доказательство классического результата Черни.
-\begin{theorem}[\!\!{\mdseries\cite[лемма~1]{Ce64}}]
-\label{theorem:cerny} Автомат $\mathrsfs{C}_n$ синхронизируем, и его порог
-синхронизации равен $(n-1)^2$.
+We give a new simple proof of \v{C}ern\'y's classical result.
+\begin{theorem}[\!\!{\mdseries\cite[Lemma~1]{Ce64}}]
+\label{theorem:cerny} The automaton $\mathrsfs{C}_n$ is
+synchronizing and its \rl\ is equal to $(n-1)^2$.
 \end{theorem}
 
 \begin{proof}
-Легко проверить, что слово $(ab^{n-1})^{n-2}a$ синхронизирует автомат
-$\mathrsfs{C}_n$. Длина этого слова равна $n(n-2)+1=(n-1)^2$.
+It is easy to see that the word $(ab^{n-1})^{n-2}a$ resets the
+automaton $\mathrsfs{C}_n$. The length of this word is equal to
+$n(n-2)+1=(n-1)^2$.
 
-Теперь воспользуемся следующим наблюдением, которое будет полезно и в других
-доказательствах.
+Now we invoke the following observation that will be used in some
+other proofs as well.
 
 \begin{prop}
-\label{prop:simple idempotent} Пусть $\mathrsfs{A}=\langle
-Q,\{a,b\},\delta\rangle$ -- синхронизируемый $n$-авто\-мат с порогом
-синхронизации $t$, в котором буква $a$ фиксирует все состояния, кроме ровно
-одного, а буква $b$ действует как перестановка множества $Q$. Рассмотрим
-автомат $\mathrsfs{B}=\langle Q,\{b,c\},\zeta\rangle$, в котором
-$\zeta(q,b)=\delta(q,b)$ и $\zeta(q,c)=\delta(q,ab)$ для всех $q\in Q$. Тогда
-автомат $\mathrsfs{B}$ синхронизируем, и его порог синхронизации не превосходит
-$t-n+2$.
+\label{prop:simple idempotent} Let $\mathrsfs{A}=\langle
+Q,\{a,b\},\delta\rangle$ be a synchronizing $n$-automaton with
+\rl\ $t$ in which the letter $a$ fixes all but one states and the
+letter $b$ acts as a permutation of the set $Q$. Consider the
+automaton $\mathrsfs{B}=\langle Q,\{b,c\},\zeta\rangle$ in which
+$\zeta(q,b)=\delta(q,b)$ and $\zeta(q,c)=\delta(q,ab)$ for all
+$q\in Q$. Then the automaton $\mathrsfs{B}$ is synchronizing and
+its \rl\ does not exceed $t-n+2$.
 \end{prop}
 
 \begin{proof}
-Пусть $w$ -- некоторое синхронизирующее автомат $\mathrsfs{A}$ слово длины $t$.
-Поскольку буква $b$ действует как перестановка множества $Q$, слово $w$ не
-может оканчиваться на $b$ -- в противном случае, удалив последнюю букву из $w$,
-мы получили бы более короткое синхронизирующее слово. Итак, $w=w'a$ для
-некоторого слова $w'\in\{a,b\}^*$. Пусть $q_1\in Q$ -- то единственное
-состояние, которое не фиксируется буквой $a$, и пусть $q_2=\delta(q_1,a)$. Из
-минимальности длины слова $w$ вытекает, что образ множества $Q$ под действием
-слова $w'$ равен $\{q_1,q_2\}$.
+Let $w$ be a \sw\ of the automaton $\mathrsfs{A}$ of length $t$.
+Since the letter $b$ acts as a permutation of the set $Q$, the
+word $w$ cannot end with $b$---otherwise we could obtain a shorter
+\sw\ by removing the last letter of $w$. Thus, $w=w'a$ for some
+word $w'\in\{a,b\}^*$. Let $q_1\in Q$ be a unique state which is
+not fixed by the letter $a$ and let $q_2=\delta(q_1,a)$. The
+minimality of the length of the word $w$ implies that the image of
+the set $Q$ under the action of the word $w'$ is equal to
+$\{q_1,q_2\}$.
 
-Поскольку слово $a^2$ действует на $Q$ точно так же, как буква $a$, это слово
-не может появиться в $w$ в качестве фактора -- в противном случае, заменив
-вхождение $a^2$ на $a$, мы получили бы более короткое синхронизирующее слово.
-Поэтому после каждого вхождения $a$ в $w$, кроме последнего, следует вхождение
-буквы $b$, а стало быть, слово $w'$ может быть переписано в слово $v$ над
-алфавитом $\{b,c\}$ (где $c=ab$). Поскольку слова $w'$ и $v$ действуют на
-множестве $Q$ одинаково, слово $vc$ является синхронизирующим для автомата
-$\mathrsfs{B}$. Итак, автомат $\mathrsfs{B}$ синхронизируем; пусть $s$ -- его
-порог синхронизации.
+Since the word $a^2$ acts on $Q$ in the same way as the letter
+$a$, this word cannot occur in $w$ as a factor---otherwise we
+obtain a shorter \sw\ by substituting the occurrence of $a^2$ in
+$w$ by $a$. Therefore each occurrence of $a$ in $w$, except the
+last one, is followed by an occurrence of the letter $b$. Hence
+the word $w'$ can be written as a word in the generators $b$ and
+$ab$. Now we substitute each occurrence of the factor $ab$ in $w'$
+by an occurrence of the letter $c$, we rewrite $w'$ into a word
+$v$ over the alphabet $\{b,c\}$. Since the words $w'$ and $v$ act
+on the set $Q$ in the same way, $vc$ is a \sw\ for the automaton
+$\mathrsfs{B}$. Thus, $\mathrsfs{B}$ is a \san; let $s$ be its
+\rl.
 
-Поскольку $b$ лишь переставляет состояния, а каждое применение $c$ может
-перевести в одно состояние лишь одну пару состояний, слово $vc$, переводящее
-все состояния в одно, должно содержать по меньшей мере $n-1$ вхождение $c$.
-Длина $v$ как слова над $\{b,c\}$ не меньше $s-1$ и $v$ содержит по меньшей
-мере $n-2$ вхождения $c$. Поскольку каждое вхождение $c$ в $v$ отвечает
-вхождению фактора $ab$ в $w'$, мы можем заключить, что слово $w'$ имеет длину
-не меньше $(s-1)+(n-2)$. Поскольку длина слова $w=w'a$ равна $t$, получаем
-$t-1\ge (s-1)+(n-2)$, откуда $s\le t-n+2$.
+Since $b$ only permutes the states and each application of $c$ can
+send to one state only one pair of states, the word $vc$ that
+sends all states to a single state must contain at least $n-1$
+occurrences of $c$. The length of $v$ as a word over $\{b,c\}$ is
+not less than  $s-1$ and $v$ contains at least $n-2$ occurrences
+of $c$. Each occurrence of $c$ in $v$ corresponds to an occurrence
+of the factor $ab$ in $w'$, whence we conclude that the word $w'$
+has length at least $(s-1)+(n-2)$. Since the length of the word
+$w=w'a$ is equal to $t$, we obtain $t-1\ge (s-1)+(n-2)$, whence
+$s\le t-n+2$.
 \end{proof}
 
-Вернемся к доказательству теоремы~\ref{theorem:cerny}. Легко видеть, что для
-автомата $\mathrsfs{C}_n$ автомат, определяемый действиями слов $b$ и $c=ab$,
-изоморфен автомату $\mathrsfs{W}_n$, см. рис.\,\ref{fig:cerny-n}. По
-теореме~\ref{theorem:anan} порог синхронизации для $\mathrsfs{W}_n$ есть
-$n^2-3n+3$. Применяя предложение~\ref{prop:simple idempotent}, заключаем, что
-порог синхронизации для $\mathrsfs{C}_n$ не может быть меньше чем
+Observe that in the sequel we will often use modifications of a
+given automaton $\mathrsfs{A}$ in the flavor of
+Proposition~\ref{prop:simple idempotent} In such modifications, we
+consider a new automaton on the same state set but with input
+letters $c_1$ and $c_2$ whose actions are defined by the actions
+of some words $w_1$ and $w_2$ respectively in the automaton
+$\mathrsfs{A}$. Slightly abusing terminology, we refer to the
+automaton arising this way as the automaton \emph{defined by the
+actions of the words $c_1=w_1$ and $c_2=w_2$}.
+
+We return to the proof of Theorem~\ref{theorem:cerny}. It is easy
+to see that for the  automaton $\mathrsfs{C}_n$, the automaton
+defined by the actions of the words $b$ and $c=ab$ is isomorphic
+to the automaton $\mathrsfs{W}_n$, see Fig\,\ref{fig:cerny-n}. By
+Theorem~\ref{theorem:anan}, the \rl\ of $\mathrsfs{W}_n$ is
+$n^2-3n+3$. Applying Proposition~\ref{prop:simple idempotent}, we
+conclude that the \rl\ of $\mathrsfs{C}_n$ cannot be less than
 $(n^2-3n+3)+(n-2)=n^2-2n+1=(n-1)^2$.
 \end{proof}
 
-Следующая серия из семейства автоматов, связанных с орграфом $W_n$, состоит из
-автоматов $\mathrsfs{E}_n=\langle\{1,2,\dots,n\},\{a,b\},\delta\rangle$, где
-буквы $a$ и $b$ действуют следующим образом:
+The next series in the family of automata related to the
+digraph$W_n$ consists of the automata
+$\mathrsfs{E}_n=\langle\{1,2,\dots,n\},\{a,b\},\delta\rangle$,
+where the letter $a$ and $b$ act as follows:
 $$\delta(i,a)=\begin{cases}
-2, &\text{если } i = 1,\\
-3, &\text{если } i = 2,\\
-i, &\text{если } i>2;
+2 &\text{if } i = 1,\\
+3 &\text{if } i = 2,\\
+i &\text{if } i>2;
 \end{cases}\quad
 \delta(i,b)=\begin{cases}
-i+1, &\text{если } i<n,\\
-1, &\text{если } i=n.
+i+1 &\text{if } i<n,\\
+1 &\text{if } i=n.
 \end{cases}$$
-Автомат $\mathrsfs{E}_n$ изображен на рис.\,\ref{fig:e-n} слева.
-\begin{figure}[hb]
+The automaton $\mathrsfs{E}_n$ is shown in Fig.\,\ref{fig:e-n}
+(left).
+\begin{figure}[thb]
 \begin{center}
 \unitlength .45mm
 \begin{picture}(72,66)(25,-76)
@@ -885,65 +942,73 @@ i+1, &\text{если } i<n,\\
 \drawloop[ELdist=1.5,loopangle=210](n3){$c$} \put(31,-73){$\dots$}
 \end{picture}
 \end{center}
-\caption{Автомат $\mathrsfs{E}_n$ и автомат, определяемый действиями слов $b$ и
-$c=aa$}\label{fig:e-n}
+\caption{The automaton $\mathrsfs{E}_n$ and the automaton defined
+by the actions of the words $b$ and $c=aa$}\label{fig:e-n}
 \end{figure}
 
 \begin{theorem}
-\label{thm:e-n} Автомат $\mathrsfs{E}_n$ синхронизируем, и его порог
-синхронизации равен $n^2-3n+2$.
+\label{thm:e-n} The automaton  $\mathrsfs{E}_n$ is synchronizing,
+and its \rl\ is equal to $n^2-3n+2$.
 \end{theorem}
 
 \begin{proof}
-Несложно проверить, что слово $(a^2b^{n-2})^{n-3}a^2$ синхронизирует автомат
-$\mathrsfs{E}_n$. Длина этого слова равна $n(n-3)+2=n^2-3n+2$.
+It is easy to verify that $(a^2b^{n-2})^{n-3}a^2$ is a \sw\ for
+the automaton $\mathrsfs{E}_n$. The length of this word is equal
+to $n(n-3)+2=n^2-3n+2$.
 
-Пусть теперь $w$ -- некоторое синхронизирующее $\mathrsfs{E}_n$ слово
-минимальной длины. Заметим, что в $\mathrsfs{E}_n$ слова $bab$ и $b^2$
-действуют одинаково и слова $a^3$ и $a^2$ тоже действуют одинаково. Поэтому
-факторы $bab$ и $a^3$ не могут входить в слово $w$. Кроме того, $w$ не может
-начинаться с $ab$. Действительно, образ множества всех состояний под действием
-слова $ab$ равен $\{1,3,\dots,n\}$, что совпадает с образом буквы $b$. Поэтому
-если бы слово $w$ начиналось с $ab$, то, заменив $ab$ на $b$, мы получили бы
-более короткое синхронизирующее слово. Наконец, $w$ не может заканчиваться на
-$ba$. Действительно, если $w=w'a$, то из минимальности $w$ следует, что образ
-множества всех состояний под действием слова $w'$ равен $\{2,3\}$. Однако
-последнее множество не принадлежит образу буквы $b$, т.\,е.\ $w'$ не может
-оканчиваться на $b$. Итак, любое вхождение буквы $a$ в слово $w$ происходит
-внутри фактора $a^2$ и никакие два вхождения таких факторов в $w$ не
-перекрываются.
+Now let $w$ be a \ssw\ for $\mathrsfs{E}_n$. We notice that in
+$\mathrsfs{E}_n$ the words $bab$ and $b^2$ act in the same way and
+so do the words $a^3$ and $a^2$. Therefore neither $bab$ nor $a^3$
+can occur in the word $w$ as a factor. Besides that, $w$ cannot
+start with $ab$. Indeed, the image of the set of all states under
+the action of the word $ab$ is equal to $\{1,3,\dots,n\}$ and thus
+coincides with the image of the letter $b$. Therefore would the
+word $w$ start with $ab$, we could obtain a shorter \sw\ by
+substituting $ab$ by $b$. Finally, $w$ cannot end with $ba$.
+Indeed, if $w=w'a$, then the minimality of $w$ implies that the
+image of the set of all states under the action of the word $w'$
+is equal to $\{2,3\}$. This set, however, is not contained in the
+image of the letter $b$, whence $w'$ cannot end with $b$. Thus,
+every occurrence of the letter $a$ in the word $w$ happens within
+the factor $a^2$ and no occurrences of these factors in $w$ can
+overlap.
 
-Положим $c=a^2$, тогда слово $w$ может быть переписано в слово $v$ над
-алфавитом $\{b,c\}$. Действия $b$ и $c$ на множестве $\{1,2,\dots,n\}$
-определяют автомат, изображенный на рис.\,\ref{fig:e-n} справа. Поскольку слова
-$w$ и $v$ действуют на множестве $\{1,2,\dots,n\}$ одинаково, слово $v$
-является синхронизирующим для этого автомата, а значит, и для его подавтомата с
-множеством состояний $\{1,3,\dots,n\}$. Легко видеть, что этот подавтомат
-изоморфен автомату $\mathrsfs{C}_{n-1}$. По теореме~\ref{theorem:cerny} длина
-$v$ как слова над $\{b,c\}$ не меньше $(n-2)^2$ и $v$ содержит по меньшей мере
-$n-2$ вхождения $c$. Поскольку каждое вхождение $c$ в $v$ отвечает вхождению
-фактора $a^2$ в $w$, мы можем заключить, что слово $w$ имеет длину не меньше
+Let $c=a^2$, then the word $w$ can be rewritten into a word $v$
+over the alphabet $\{b,c\}$. The actions of $b$ and $c$ on the set
+$\{1,2,\dots,n\}$ define an automaton shown in Fig.\,\ref{fig:e-n}
+(right). Since the words $w$ and $v$ act on $\{1,2,\dots,n\}$ in
+the same way, $v$ is a \sw\ for this automaton, and hence, for its
+subautomaton on the set $\{1,3,\dots,n\}$. It is easy to see that
+the latter subautomaton is isomorphic to the automaton
+$\mathrsfs{C}_{n-1}$. By Theorem~\ref{theorem:cerny} the length of
+$v$ as a word over $\{b,c\}$ is at least $(n-2)^2$ and $v$
+contains at least $n-2$ occurrences of $c$. Since every occurrence
+of $c$ in $v$ corresponds to an occurrence of the factor $a^2$ in
+$w$, we conclude that the length of word $w$ is not less than
 $(n-2)^2+(n-2)=n^2-3n+2$.
 \end{proof}
 
-Доказательство теоремы~\ref{thm:e-n} показывает, что автомат $\mathrsfs{E}_n$
-возникает из одной из той <<тривиальных>> модификаций автомата
-$\mathrsfs{C}_{n-1}$, которые мы обсудили в п.\,4.1. Последняя серия медленно
-синхронизируемых автоматов из семейства автоматов, связанных с орграфом $W_n$,
-возникает из аналогичной модификации автомата $\mathrsfs{W}_{n-1}$. Она состоит
-из автоматов $\mathrsfs{H}_n=\langle\{1,2,\dots,n\},\{a,b\},\delta\rangle$, где
-буквы $a$ и $b$ действуют следующим образом:
+The proof of Theorem~\ref{thm:e-n} shows that the automaton
+$\mathrsfs{E}_n$ arises from one of the ``trivial'' modifications
+of the automaton $\mathrsfs{C}_{n-1}$ that we discussed in
+Subsection~4.1. The last series of slowly \sa\ from the automata
+family related to the digraph $W_n$ arises from a similar
+modification of the automaton $\mathrsfs{W}_{n-1}$. The series
+consists of the automata
+$\mathrsfs{H}_n=\langle\{1,2,\dots,n\},\{a,b\},\delta\rangle$,
+where the letter $a$ and $b$ act as follows:
 $$\delta(i,a)=\begin{cases}
-n, &\text{если } i=1,\\
-i, &\text{если } 1<i<n,\\
-1, &\text{если } i=n;
+n &\text{if } i=1,\\
+i &\text{if } 1<i<n,\\
+1 &\text{if } i=n;
 \end{cases}\quad
 \delta(i,b)=\begin{cases}
-i+1, &\text{если } i<n-1,\\
-1, &\text{если } i=n-1,\\
-3, &\text{если } i=n.
+i+1 &\text{if } i<n-1,\\
+1 &\text{if } i=n-1,\\
+3 &\text{if } i=n.
 \end{cases}$$
-Автомат $\mathrsfs{H}_n$ изображен на рис.\,\ref{fig:h-n} слева.
+The automaton $\mathrsfs{H}_n$ is shown in Fig.\,\ref{fig:h-n}
+(left).
 
 \begin{figure}[ht]
 \unitlength .5mm
@@ -978,52 +1043,56 @@ i+1, &\text{если } i<n-1,\\
 \drawedge[ELpos=35,ELdist=0.7](n31,n2){$c$} \put(31,-67){$\dots$}
 \end{picture}
 \end{center}
-\caption{Автомат $\mathrsfs{H}_n$ и автомат, определяемый действиями слов $b$ и
-$c=ab$}\label{fig:h-n}
+\caption{The automaton $\mathrsfs{H}_n$ and the automaton defined
+by the actions of the words $b$ and $c=ab$}\label{fig:h-n}
 \end{figure}
 
 \begin{theorem}
-\label{thm:h-n} Автомат $\mathrsfs{H}_n$ синхронизируем, и его порог
-синхронизации равен $n^2-4n+6$.
+\label{thm:h-n} The automaton $\mathrsfs{H}_n$ is synchronizing
+and its \rl\ is equal to $n^2-4n+6$.
 \end{theorem}
 
 \begin{proof}
-Легко убедиться, что слово $b(ab^{n-2})^{n-3}ab$ синхронизирует автомат
-$\mathrsfs{H}_n$. Длина этого слова равна $1+(n-1)(n-3)+2=n^2-4n+6$.
+It is easy to check that the words $b(ab^{n-2})^{n-3}ab$ resets
+the automaton $\mathrsfs{H}_n$. The length of this word is equal
+to $1+(n-1)(n-3)+2=n^2-4n+6$.
 
-Пусть теперь $w$ -- некоторое синхронизирующее $\mathrsfs{H}_n$ слово
-минимальной длины. Поскольку в $\mathrsfs{H}_n$ слово $a^2$ действует как
-тождественное преобразование, оно не может входить в $w$ в качестве фактора.
-Кроме того, слово $w$ не может ни начинаться, ни заканчиваться буквой $a$, так
-как эта буква действует на множестве всех состояний как перестановка.
+Now let $w$ be a \ssw\ for $\mathrsfs{H}_n$. Since the word $a^2$
+acts in $\mathrsfs{H}_n$ as the identity transformation, it cannot
+occur as a factor in $w$ Besides that, the word $w$ neither starts
+nor ends with the letter $a$ because this letter acts as a
+permutation of the state set of $\mathrsfs{H}_n$.
 
-Положим $c=ab$, тогда слово $w$ может быть переписано в слово $v$ над алфавитом
-$\{b,c\}$. Действия $b$ и $c$ на множестве $\{1,2,\dots,n\}$ определяют
-автомат, изображенный на рис.\,\ref{fig:h-n} справа. Поскольку слова $w$ и $v$
-действуют на множестве $\{1,2,\dots,n\}$ одинаково, слово $v$ является
-синхронизирующим для этого автомата. Выше отмечено, что слово $w$ начинается с
-буквы $b$, а значит, с нее начинается и $v$. Если записать $v=bv'$ для
-некоторого $v'\in\{b,c\}^*$, то легко видеть, что слово $v'$ будет
-синхронизирующим для подавтомата с множеством состояний $\{1,2,\dots,n-1\}$.
-Поскольку этот подавтомат изоморфен автомату $\mathrsfs{W}_{n-1}$, по
-теореме~\ref{theorem:anan} длина $v'$ как слова над $\{b,c\}$ не меньше
-$(n-1)^2-3(n-1)+3$. Кроме того, $v'$ содержит по меньшей мере $n-2$ вхождения
-$c$, поскольку $b$ лишь переставляет состояния из $\{1,2,\dots,n-1\}$, а каждое
-применение $c$ может перевести в одно состояние лишь одну пару состояний.
-Учитывая, что каждое вхождение $c$ в $v'$ отвечает вхождению фактора $ab$ в
-$w$, мы можем заключить, что длина слова $w$ не может быть меньше чем
+Let $c=ab$, then the word $w$ can be rewritten into a word $v$
+over the alphabet $\{b,c\}$. The actions of $b$ and $c$ on the set
+$\{1,2,\dots,n\}$ define an automaton shown in Fig.\,\ref{fig:h-n}
+(right). Since the words $w$ and $v$ act on $\{1,2,\dots,n\}$ in
+the same way, $v$ is a \sw\ for this automaton. We have noticed
+that the word $w$ starts with the letter $b$, hence so does the
+word $v$. If we write $v=bv'$ for some $v'\in\{b,c\}^*$, then it
+is easy to see that $v'$ is a \sw\ for the subautomaton on the set
+$\{1,2,\dots,n-1\}$. Since this subautomaton is isomorphic to the
+automaton $\mathrsfs{W}_{n-1}$, Theorem~\ref{theorem:anan} implies
+that the length of $v'$ as a word over $\{b,c\}$ is at least
+$(n-1)^2-3(n-1)+3$. Besides that, $v'$ contains at least $n-2$
+occurrences of $c$ because $b$ only permutes the states and each
+application of $c$ can send only one pair of states to a single
+state. Since every occurrence of $c$ in $v'$ corresponds to an
+occurrence of the factor $ab$ in $w$, we can conclude that the
+length of the word $w$ is not less than
 $1+((n-1)^2-3(n-1)+3)+(n-2)=n^2-4n+6$.
 \end{proof}
 
-\paragraph*{4.3. Автоматы, связанные с орграфами серии $D_n$.} Орграф $D_n$ -- это
-$n$-орграф с экспонентой $(n-1)^2$, отвечающий второй матрице
-в~\eqref{wielandt}. Он получается из орграфа $W_n$ добавлением дуги $(n-1,1)$.
-Нетрудно видеть, что с точностью до изоморфизма и переименования букв
-существуют ровно две раскраски орграфа $D_n$ с помощью двух букв. На
-рис.\,\ref{fig:dulmage} изображен орграф $D_n$ и две его раскраски -- автоматы
-$\mathrsfs{D}'_n$ и $\mathrsfs{D}''_n$.
+\paragraph*{4.3. Automata related to digraphs of the series $D_n$.} The digraph $D_n$
+is the $n$-digraph with exponent $(n-1)^2$ that corresponds to the
+second matrix in~\eqref{wielandt}. It can be obtained from the
+digraph $W_n$ by adding the edge $(n-1,1)$. It is easy to see that
+up to isomorphism and renaming of letters, there exist exactly two
+colorings of the digraph $D_n$ with two letters.
+Fig.\,\ref{fig:dulmage} shows the digraph $D_n$ and two its
+colorings, the automata $\mathrsfs{D}'_n$ and $\mathrsfs{D}''_n$.
 
-\begin{figure}[hb]
+\begin{figure}[thb]
 \begin{center}
 \unitlength .5mm
 \begin{picture}(64,60)(30,-72)
@@ -1050,86 +1119,97 @@ $\mathrsfs{D}'_n$ и $\mathrsfs{D}''_n$.
 \drawedge[ELdist=2.0](n1,n2){$b$} \put(31,-73){$\dots$}
 \end{picture}
 \end{center}
-\caption{Орграф $D_n$ и его раскраски $\mathrsfs{D}'_n$ и $\mathrsfs{D}''_n$}\label{fig:dulmage}
+\caption{The digraph $D_n$ and its colorings $\mathrsfs{D}'_n$ and
+$\mathrsfs{D}''_n$}\label{fig:dulmage}
 \end{figure}
 
 \begin{theorem}
-\label{theorem:new series} Автоматы $\mathrsfs{D}'_n$ и $\mathrsfs{D}''_n$
-синхронизируемы, и их пороги синхронизации равны $n^2-3n+4$ и $n^2-3n+2$
-соответственно.
+\label{theorem:new series} The automata $\mathrsfs{D}'_n$ and
+$\mathrsfs{D}''_n$ are synchronizing and its \rl{}s are equal to
+$n^2-3n+4$ and $n^2-3n+2$ respectively.
 \end{theorem}
 
 \begin{proof}
-Нетрудно проверить, что слово $(ab^{n-2})^{n-2}ba$ синхронизирует автомат
-$\mathrsfs{D}'_n$, а слово $(ba^{n-1})^{n-3}ba$ -- автомат $\mathrsfs{D}''_n$.
-Длины этих слов равны $(n-1)(n-2)+2=n^2-3n+4$ и $n(n-3)+2=n^2-3n+2$
-соответственно.
+It is not hard to verify that the word $(ab^{n-2})^{n-2}ba$ is a
+\sw\ for the automaton $\mathrsfs{D}'_n$ and the word is
+$(ba^{n-1})^{n-3}ba$ a \sw\ for the automaton $\mathrsfs{D}''_n$.
+The lengths of these words are equal $(n-1)(n-2)+2=n^2-3n+4$ and
+$n(n-3)+2=n^2-3n+2$ respectively.
 
-Из теоремы~\ref{dulmage}(b) и предложения~\ref{lower bound} вытекает, что порог
-синхронизации для раскрасок орграфа $D_n$ не может быть меньше чем
-$(n-1)^2-(n-1)=n^2-3n+2$. Это доказывает утверждение теоремы для автомата
-$\mathrsfs{D}''_n$.
+Theorem~\ref{dulmage}(b) and Proposition~\ref{lower bound} imply
+that the \rl\ for the colorings of the digraph $D_n$ cannot be
+less than $(n-1)^2-(n-1)=n^2-3n+2$. This proves our theorem for
+the automaton $\mathrsfs{D}''_n$.
 
-Займемся теперь автоматом $\mathrsfs{D}'_n$. Здесь будет полезен следующий
-элементарный результат.
-\begin{lemma}[\!\!{\mdseries\cite[Теорема 2.1.1]{RaAl05}}]
-\label{sylvester} Если натуральные числа $k$ и $\ell$ взаимно просты, то
-наибольшее натуральное число, не представимое в виде линейной комбинации чисел
-$k$ и $\ell$ c целыми неотрицательными коэффициентами, равно $k\ell-k-\ell$.
+Now consider the automaton $\mathrsfs{D}'_n$. Here we shall make
+use of the following elementary result.
+\begin{lemma}[\!\!{\mdseries\cite[Theorem~2.1.1]{RaAl05}}]
+\label{sylvester} If $k,\ell$ are relatively prime positive
+integers, then $k\ell-k-\ell$ is the largest integer that is not
+expressible as a non-negative integer combination of $k$ and
+$\ell$.
 \end{lemma}
 
-Пусть теперь $w$ -- некоторое синхронизирующее автомат $\mathrsfs{D}'_n$ слово
-минимальной длины. Поскольку 2 -- единственное состояние в $\mathrsfs{D}'_n$,
-являющееся общим концом двух разных дуг с одинаковой меткой, из минимальности
-$w$ следует, что под действием $w$ все состояния автомата переходят в~2. Если
-предположить, что длина $w$ равна $n^2-3n+2$, то в $D_n$ найдется маршрут такой
-длины из вершины~1 в вершину~2. Но вершина~1 имеет единственную исходящую дугу
-$(1,2)$, следовательно, указанный маршрут состоит из этой дуги и контура длины
-$n^2-3n+1$. В орграфе $D_n$ есть ровно три простых контура: один длины $n$ и
-два длины $n-1$. Любой контур можно разбить на простые контуры, а потому число
-$n^2-3n+1$ должно (как длина некоторого контура в $D_n$) быть линейной
-комбинацией чисел $n$ и $n-1$ (длин простых контуров) c целыми неотрицательными
-коэффициентами. Но это невозможно по лемме~\ref{sylvester}, поскольку
-$n^2-3n+1=n(n-1)-n-(n-1)$.
+Let $w$ be a \ssw\ for the automaton $\mathrsfs{D}'_n$. Since 2 is
+a unique state in $\mathrsfs{D}'_n$ that is a common end of two
+different edges with the same label, the minimality of $w$ implies
+that $w$ sends all state of the automaton to~2. Suppose that the
+length of $w$ is equal to $n^2-3n+2$. Then the digraph $D_n$ has a
+directed path of this length from~1 to~2. There is a unique edge
+starting at~1, namely, $(1,2)$, hence the path consists of this
+edge followed by a directed cycle of length $n^2-3n+1$. The
+digraph $D_n$ has exactly three simple directed cycles: one of
+length $n$ and two of length $n-1$. Every directed cycle consists
+of simple directed cycles whence the number $n^2-3n+1$ (as the
+length of a directed cycle in $D_n$) must be  a non-negative
+integer combination of the numbers $n$ and $n-1$ (the lengths of
+simple directed cycles). However this is impossible by
+Lemma~\ref{sylvester} since $n^2-3n+1=n(n-1)-n-(n-1)$.
 
-Предположим теперь, что длина $w$ равна $n^2-3n+3$. Тогда в $D_n$ найдется
-маршрут указанной длины из вершины~$n-1$ в вершину~2. Поскольку $b$ действует
-как перестановка множества всех состояний автомата $\mathrsfs{D}'_n$, слово $w$
-должно начинаться с буквы $a$. Состояние $n-1$ под действием $a$ переходит в
-состояние~1. Поэтому в $D_n$ должен быть и маршрут  длины $n^2-3n+2$ из~1 в~2,
-но в предыдущем абзаце показано, что это невозможно. Таким образом, длина $w$
-не может быть меньше чем $n^2-3n+4$.
+Now suppose that the length of $w$ is equal to $n^2-3n+3$. Then
+the digraph $D_n$ has a directed path of this length from~$n-1$
+to~2. Since $b$ acts as a permutation of the state set of the
+automaton $\mathrsfs{D}'_n$, the word $w$ starts with the letter
+$a$. The state $n-1$ under the action of $a$ goes to the state~1.
+Therefore $D_n$ has also a directed path of length $n^2-3n+2$
+from~1 to~2 but in the previous paragraph we have shown that this
+is impossible. Thus, the length of $w$ cannot be less than
+$n^2-3n+4$.
 \end{proof}
 
-Серия $\mathrsfs{D}'_n$ интересна тем, что при $n>6$ автоматы этой серии
-обладают наибольшим порогом синхронизации среди всех известных автоматов за
-исключением автоматов из серии Черни $\mathrsfs{C}_n$, а также наибольшим
-порогом синхронизации среди всех известных автоматов без петель. У серии
-$\mathrsfs{D}''_n$ также есть экстремальное свойство: автоматы этой серии
-обладают наибольшим порогом синхронизации среди всех известных автоматов, в
-которых ни одна буква не действует как перестановка множества состояний.
+The series $\mathrsfs{D}'_n$ is of interest because for $n>6$
+automata of this series have the largest  \rl\ among all known
+automata except the ones from the \v{C}ern\'y series
+$\mathrsfs{C}_n$ as well as the largest  \rl\ among all known
+automata without loops. The series $\mathrsfs{D}''_n$ also possess
+an extremal property: automata from this series have the largest
+\rl\ among all known automata in which no letter acts as a
+permutation of the state set.
 
-C орграфами $D_n$ связана еще одна серия $n$-автоматов с порогом синхронизации
-$n^2-4n+6$. Мы не будем ее здесь приводить, поскольку одна серия с такими же
-параметрами уже описана выше (см.\ теорему~\ref{thm:h-n}).
+There is one further series of slowly \sa\ related to the digraphs
+$D_n$; it consists of $n$-automata with \rl\ $n^2-4n+6$. We do not
+present it here since one series with the same parameters have
+already been described above, see Theorem~\ref{thm:h-n}.
 
-\paragraph*{4.4. Автоматы, связанные с орграфами серии $V_n$.} Орграф $V_n$ -- это
-$n$-орграф, отвечающий первой матрице в~\eqref{odd island}. Если обозначить
-вершины $V_n$ через $1,2,\dots,n$, то его дуги суть $(n,1)$, $(n,3)$ и
-$(i,i+1)$ для $i=1,\dots,n-1$. Орграф $V_n$ примитивен только при нечетном $n$,
-и в этом случае его экспонента равна $n^2-3n+4$. С орграфами серии $V_n$
-связано семейство автоматов
-$\mathrsfs{F}_n=\langle\{1,2,\dots,n\},\{a,b\},\delta\rangle$, в которых буквы
-$a$ и $b$ действуют следующим образом:
+\paragraph*{4.4. Automata related to digraphs of the series $V_n$.} The digraph $V_n$
+is the $n$-digraph corresponding to the first matrix in~\eqref{odd
+island}. If we denote the vertices of $V_n$ by $1,2,\dots,n$, then
+its edges are суть $(n,1)$, $(n,3)$ and $(i,i+1)$ for
+$i=1,\dots,n-1$. The digraph $V_n$ is primitive only when $n$ is
+odd, and in this case its exponent is equal to $n^2-3n+4$. The
+digraphs of the series $V_n$ give rise to the family of automata
+$\mathrsfs{F}_n=\langle\{1,2,\dots,n\},\{a,b\},\delta\rangle$ in
+which the letters $a$ and $b$ act as follows:
 $$\delta(i,a)=\begin{cases}
-i, &\text{если } i<n,\\
-2, &\text{если } i=n;
+i &\text{if } i<n,\\
+2 &\text{if } i=n;
 \end{cases}\quad
 \delta(i,b)=\begin{cases}
-i+1, &\text{если } i<n,\\
-1, &\text{если } i=n.
+i+1 &\text{if } i<n,\\
+1 &\text{if } i=n.
 \end{cases}$$
-Автомат $\mathrsfs{F}_n$ изображен на рис.\,\ref{fig:f-n} слева.
+The automaton $\mathrsfs{F}_n$ is shown in Fig.\,\ref{fig:f-n}
+(left).
 
 \begin{figure}[th]
 \begin{center}
@@ -1154,40 +1234,44 @@ i+1, &\text{если } i<n,\\
 \put(31,-73){$\dots$}
 \end{picture}
 \end{center}
-\caption{Автомат $\mathrsfs{F}_n$ и автомат, определяемый действиями слов $b$ и
-$c=ab$}\label{fig:f-n}
+\caption{The automaton $\mathrsfs{F}_n$ and the automaton, defined
+by the actions of the words $b$ and $c=ab$}\label{fig:f-n}
 \end{figure}
 
 
 \begin{theorem}
-\label{thm:f-n} Автомат $\mathrsfs{F}_n$ синхронизируем при нечетном $n>3$, и
-его порог синхронизации равен $n^2-3n+3$.
+\label{thm:f-n} For odd $n>3$, the automaton $\mathrsfs{F}_n$ is
+synchronizing and its \rl\ is equal to $n^2-3n+3$.
 \end{theorem}
 
 \begin{proof}
-Непосредственно проверяется, что при каждом нечетном $n>3$ слово
-$(ab^{n-2})^{n-2}a$ синхронизирует автомат $\mathrsfs{F}_n$. Длина этого слова
-составляет $(n-1)(n-2)+1=n^2-3n+3$.
+It can be easily verified that for each odd $n>3$ the word
+$(ab^{n-2})^{n-2}a$ is a \sw\ for $\mathrsfs{F}_n$. The length of
+this word is $(n-1)(n-2)+1=n^2-3n+3$.
 
-Ясно, что автомат $\mathrsfs{F}_n$ удовлетворяет условиям
-предложения~\ref{prop:simple idempotent}. Действия слов $b$ и $c=ab$ на
-множестве $\{1,2,\dots,n\}$ определяют автомат, изображенный на
-рис.\,\ref{fig:f-n} справа; обозначим этот автомат через $\mathrsfs{V}$. Ясно,
-что автомат $\mathrsfs{V}$ изоморфен некоторой раскраске орграфа $V_n$. Из
-теоремы~\ref{dulmage}(d) и предложения~\ref{lower bound} следует, что порог
-синхронизации для раскрасок орграфа $V_n$ не может быть меньше чем
-$(n^2-3n+4)-(n-1)=n^2-4n+5$. Применяя предложение~\ref{prop:simple idempotent},
-заключаем, что порог синхронизации для $\mathrsfs{F}_n$ не может быть меньше
-чем $(n^2-4n+5)+(n-2)=n^2-3n+3$.
+Clearly, the automaton $\mathrsfs{F}_n$ satisfies the condition of
+Proposition~\ref{prop:simple idempotent}. The action of the words
+$b$ and $c=ab$ on the set $\{1,2,\dots,n\}$ defines an automaton
+shown in Fig.\,\ref{fig:f-n} (right); we denote this automaton by
+$\mathrsfs{V}$. It is easy to see that the automaton
+$\mathrsfs{V}$ is isomorphic to a coloring of the digraph $V_n$.
+Theorem~\ref{dulmage}(d) and Proposition~\ref{lower bound} implies
+that the \rl\ for colorings of the digraph $V_n$ cannot be less
+than $(n^2-3n+4)-(n-1)=n^2-4n+5$. Applying
+Proposition~\ref{prop:simple idempotent}, we conclude that \rl\
+for $\mathrsfs{F}_n$ cannot be less than
+$(n^2-4n+5)+(n-2)=n^2-3n+3$.
 \end{proof}
 
-\paragraph*{4.5. Автоматы, связанные с орграфами серии $R_n$.} Орграф $R_n$ -- это
-$n$-орграф, отвечающий второй матрице в~\eqref{odd island}. Он получается из
-орграфа $V_n$ добавлением дуги $(n-1,2)$. Орграф $R_n$ примитивен только при
-нечетном $n$, и в этом случае его экспонента равна $n^2-3n+3$. С орграфами
-серии $R_n$ связано семейство автоматов
-$\mathrsfs{B}_n=\langle\{1,2,\dots,n\},\{a,b\},\delta\rangle$, в которых буквы
-$a$ и $b$ действуют следующим образом:
+\paragraph*{4.5. Automata related to digraphs of the series $R_n$.} The
+digraphs $R_n$ is the $n$-digraph corresponding to the second
+matrix in~\eqref{odd island}. One obtains it from the digraph
+$V_n$ by adding the edge $(n-1,2)$. The digraph $R_n$ is primitive
+only when $n$ is odd, and in this case its exponent is equal to
+$n^2-3n+3$. The digraphs of the series $R_n$ give rise to the
+family of automata
+$\mathrsfs{B}_n=\langle\{1,2,\dots,n\},\{a,b\},\delta\rangle$ in
+which the letters $a$ and $b$ act as follows:
 $$\delta(i,a)=\begin{cases}
 i &\text{if } i<n-1,\\
 1 &\text{if } i=n-1,\\
@@ -1197,7 +1281,8 @@ i &\text{if } i<n-1,\\
 i+1 &\text{if } i<n,\\
 1 &\text{if } i=n.
 \end{cases}$$
-Автомат $\mathrsfs{B}_n$ изображен на рис.\,\ref{fig:avz-n} слева.
+The automaton $\mathrsfs{B}_n$ is shown in Fig.\,\ref{fig:avz-n}
+(left).
 
 \begin{figure}[ht]
 \begin{center}
@@ -1226,77 +1311,87 @@ i+1 &\text{if } i<n,\\
 \drawedge[ELdist=1.7,ELpos=35](n6,n3){$c$} \put(31,-73){$\dots$}
 \end{picture}
 \end{center}
-\caption{Автомат $\mathrsfs{B}_n$ и автомат, определяемый действиями слов $b$ и
-$c=ab$}\label{fig:avz-n}
+\caption{The automaton $\mathrsfs{B}_n$ and the automaton, defined
+by the action of the words $b$ and $c=ab$}\label{fig:avz-n}
 \end{figure}
 
-Серия $\mathrsfs{B}_n$ (при нечетном $n>3$) была опубликована в~\cite{AVZ} и до
-недавнего времени оставалась единственной бесконечной серией медленно
-синхронизируемых автоматов с двумя входными буквами, представленной в
-литературе, помимо серии Черни. Ее связь с орграфами из серии $R_n$ ранее не
-отмечалась.
+The series $\mathrsfs{B}_n$ (for odd $n>3$) was published
+in~\cite{AVZ} and up to recently, it remained the only infinite
+series of slowly \sa\ with two input letters in the literature
+besides the \v{C}ern\'y series. The fact that the series
+$\mathrsfs{B}_n$ is related to the digraphs form the series $R_n$
+has not been reported earlier.
 
-Следующее утверждение, бывшее основным результатом статьи~\cite{AVZ},
-доказывалось в ней теоретико-игровым методом. Здесь мы даем вполне элементарное
-доказательство, сходное с доказательствами теорем~\ref{theorem:cerny}
-и~\ref{thm:f-n}.
+The next statement has been the main result of~\cite{AVZ} where it
+has been proved by a game-theoretic method. Here we present a
+completely elementary proof similar to the proofs of
+Theorems~\ref{theorem:cerny} and~\ref{thm:f-n}.
 
-\begin{theorem}[\!\!{\mdseries\cite[теорема~1.1]{AVZ}}]
-\label{theorem:avz} Если $n>3$ нечетно, то автомат $\mathrsfs{B}_n$
-синхронизируем, и его порог синхронизации равен $n^2-3n+2$.
+\begin{theorem}[\!\!{\mdseries\cite[Theorem~1.1]{AVZ}}]
+\label{theorem:avz} If $n>3$ is odd, the automaton
+$\mathrsfs{B}_n$ is synchronizing and its \rl\ is equal to
+$n^2-3n+2$.
 \end{theorem}
 
 \begin{proof}
-Нетрудно проверить, что при каждом нечетном $n>3$ слово
-$(ab^{n-2})^{\frac{n-3}{2}}ab^{n-3}(ab^{n-2})^{\frac{n-3}{2}}a$ синхронизирует
-автомат $\mathrsfs{B}_n$. Длина этого слова равна
+For each odd $n>3$ the word
+$(ab^{n-2})^{\frac{n-3}{2}}ab^{n-3}(ab^{n-2})^{\frac{n-3}{2}}a$ is
+easily seen to be a \sw\ for the automaton $\mathrsfs{B}_n$. The
+length of this word is equal to
 $(n-1)\frac{n-3}{2}+n-2+(n-1)\frac{n-3}{2}+1=n^2-3n+2.$
 
-Пусть $w$ -- некоторое синхронизирующее автомат $\mathrsfs{B}_n$ слово
-минимальной длины $t$. Поскольку буква $b$ действует как перестановка множества
-всех состояний, слово $w$ не может ни начинаться с $b$, ни оканчиваться на $b$.
-В частности, $w=w'a$ для некоторого слова $w'\in\{a,b\}^*$. Из минимальности длины
-слова $w$ вытекает, что образ множества всех состояний под действием слова $w'$
-равен либо $\{1,n-1\}$, либо $\{2,n\}$.
+Let $w$ be a \ssw\ for the automaton $\mathrsfs{B}_n$ and let $t$
+be the length of $w$. Since the letter $b$ acts as a permutation
+of the state set, the word $w$ neither starts nor ends with $b$.
+In particular, $w=w'a$ for some word $w'\in\{a,b\}^*$. The
+minimality of the word $w$ implies that the image of the state set
+under the action of the word $w'$ is equal to either $\{1,n-1\}$
+or $\{2,n\}$.
 
-Поскольку слово $a^2$ действует в $\mathrsfs{B}_n$ точно так же, как буква $a$,
-это слово не может появиться в $w$ в качестве фактора. Далее, слово $b^n$ действует
-в $\mathrsfs{B}_n$ как тождественное преобразование и, стало быть, также не может
-быть фактором в синхронизирующем слове минимальной длины. Итак, мы заключаем,
-что $w=ab^{k_1}ab^{k_2}a\cdots ab^{k_m}a$, где $1\le k_1,k_2,\dots,k_m\le n-1$.
+Since the word $a^2$ acts in $\mathrsfs{B}_n$ in the same way as
+the letter $a$, this word cannot occur in $w$ as a factor.
+Further, the word $b^n$ acts in $\mathrsfs{B}_n$ as the identity
+transformation and hence it also cannot occur as a factor in a
+\ssw. Thus, we conclude that $w=ab^{k_1}ab^{k_2}a\cdots
+ab^{k_m}a$, where $1\le k_1,k_2,\dots,k_m\le n-1$.
 
-Положим $c=ab$. Тогда слово $w'$ и слово $v=cb^{k_1-1}cb^{k_2-1}c\cdots
-cb^{k_m-1}$ одинаково действуют на множестве $\{1,2,\dots,n\}$. Поэтому слово
-$vc$ является синхронизирующим для автомата $\mathrsfs{R}$, определяемого
-действиями слов $b$ и $c=ab$ и изображенного на рис.\,\ref{fig:avz-n} справа.
-Ясно, что автомат $\mathrsfs{R}$ изоморфен некоторой раскраске орграфа $R_n$.
-Из теоремы~\ref{dulmage}(d) и предложения~\ref{lower bound} следует, что порог
-синхронизации для раскрасок орграфа $R_n$ не может быть меньше чем
-$(n^2-3n+3)-(n-1)=n^2-4n+4$, откуда длина $v$ как слова над $\{b,c\}$, равная
-$\sum_{i=1}^mk_i$, не меньше $n^2-4n+3$. Поскольку $k_i\le n-1$ для всех
-$i=1,\dots,m$, имеем
+Let $c=ab$. Then the word $w'$ and the
+$v=cb^{k_1-1}cb^{k_2-1}c\cdots cb^{k_m-1}$ act on the set
+$\{1,2,\dots,n\}$ in the same way. Therefore the word $vc$ is a
+\sw\ for the automaton $\mathrsfs{R}$ defined by the actions of
+the words $b$ and $c=ab$ and shown in Fig.\,\ref{fig:avz-n}
+(right). It is clear that the automaton $\mathrsfs{R}$ is
+isomorphic to a coloring of the digraph $R_n$.
+Theorem~\ref{dulmage}(d) and Proposition~\ref{lower bound} imply
+that \rl\ for colorings of the digraph $R_n$ cannot be less than
+$(n^2-3n+3)-(n-1)=n^2-4n+4$ whence the length of $v$ as a word
+over $\{b,c\}$, that is, $\sum_{i=1}^mk_i$, is not less than
+$n^2-4n+3$. Since $k_i\le n-1$ for all $i=1,\dots,m$, we have
 \begin{equation}
 \label{inequality} m(n-1)\ge\sum_{i=1}^mk_i\ge n^2-4n+3=(n-3)(n-1),
 \end{equation}
-откуда $m\ge n-3$. При этом равенство $m=n-3$ возможно только в случае, когда
-все неравенства в~\eqref{inequality} обращаются в равенства, т.\,е.\ когда
-$k_i=n-1$ для всех $i=1,\dots,m$. Тогда $vc=(cb^{n-2})^{n-3}c$, но последнее
-слово не является синхронизирующим для $\mathrsfs{R}$ -- легко видеть, что оно
-переставляет состояния~2 и~3. Значит, $m\ge n-2$.
+whence $m\ge n-3$. The equality $m=n-3$ is only possible when all
+inequalities in~\eqref{inequality} become equalities, that is when
+$k_i=n-1$ for all $i=1,\dots,m$. In this case
+$vc=(cb^{n-2})^{n-3}c$, but this word is not a \sw\ for
+$\mathrsfs{R}$ since, as it easy to see, this word permutes the
+states~2 and~3. Hence, $m\ge n-2$.
 
-Поскольку каждое вхождение $c$ в $v$ отвечает вхождению фактора $ab$ в $w'$,
-можем заключить, что слово $w'$ имеет длину не меньше
-$(n^2-4n+3)+(n-2)=n^2-3n+1$, откуда длина $w$ не меньше чем $n^2-3n+2$.
+Since every occurrence of $c$ in $v$ corresponds to an occurrence
+of the factor $ab$ in $w'$, we conclude that the length of $w'$ is
+at least $(n^2-4n+3)+(n-2)=n^2-3n+1$, whence the length of $w$ is
+at least $n^2-3n+2$.
 \end{proof}
 
-\paragraph*{4.6. Автоматы, связанные с орграфами серии $G_n$.} Орграф $G_n$ -- это
-$n$-орграф, отвечающий второй матрице в~\eqref{odd island1}. Он получается из
-орграфа $V_n$ добавлением дуги $(n-2,1)$. Орграф $G_n$ примитивен только при
-нечетном $n$, и в этом случае его экспонента равна $n^2-3n+2$. На
-рис.~\ref{fig:aut:fat} изображен автомат  $\mathrsfs{G}_n$, являющийся одной из
-возможных раскрасок орграфа $G_n$. Эта серия автоматов интересна для нас тем,
-что при нечетном $n$ она реализует максимальное наблюдаемое <<материковое>>
-значение порога синхронизации.
+\paragraph*{4.6. Automata related to digraphs of the series $G_n$.}
+The digraph $G_n$ is the $n$-digraph corresponding to the second
+matrix in~\eqref{odd island1}.  One obtains it from the digraph
+$V_n$ by adding the edge $(n-2,1)$. The digraph $G_n$ примитивен
+is primitive only when $n$ is odd, and in this case its exponent
+is equal to $n^2-3n+2$. Fig.~\ref{fig:aut:fat} shows the automaton
+$\mathrsfs{G}_n$ which is one of possible colorings of the digraph
+$G_n$. This series is interesting for us because for odd $n$, its
+automata attain the maximal observed ``continental'' value or \rl.
 
 \begin{figure}[ht]
 \begin{center}
@@ -1315,198 +1410,208 @@ $n$-орграф, отвечающий второй матрице в~\eqref{odd island1}. Он получается из
 \drawedge(n1,n7){$a$} \drawedge(n3,n2){$a$} \put(33,-90){$\dots$}
 \end{picture}
 \end{center}
-\caption{Автомат $\mathrsfs{G}_n$} \label{fig:aut:fat}
+\caption{The automaton $\mathrsfs{G}_n$} \label{fig:aut:fat}
 \end{figure}
 
 \begin{theorem}
-Если $n>3$ нечетно, то автомат $\mathrsfs{G}_n$ синхронизируем, и его порог
-синхронизации равен $n^2-4n+7$.
+For odd $n>3$, the automaton $\mathrsfs{G}_n$ is synchronizing and
+its \rl\ is equal to $n^2-4n+7$.
 \end{theorem}
 
 \begin{proof}
-Легко видеть, что при каждом нечетном $n>3$ слово $a^2(baba^{n-3})^{n-4}baba^2$
-синхронизирует автомат $\mathrsfs{G}_n$. Длина этого слова равна
+It is easy to see that for odd $n>3$, the word
+$a^2(baba^{n-3})^{n-4}baba^2$ is a \sw\ for the automaton
+$\mathrsfs{G}_n$. The length of this word is equal to
 $2+n(n-4)+5=n^2-4n+7$.
 
-Дальнейшие рассуждения вполне аналогичны аргументам из доказательства
-теоремы~\ref{theorem:new series}. Из теоремы~\ref{dulmage}(d) и
-предложения~\ref{lower bound} вытекает, что порог синхронизации для раскрасок
-орграфа $G_n$ не может быть меньше чем $(n^2-3n+2)-(n-1)=n^2-4n+3$.
+The following arguments are quite similar to ones from the proof
+of Theorem~\ref{theorem:new series}. Theorem~\ref{dulmage}(d) and
+Proposition~\ref{lower bound} imply that the \rl\ for colorings of
+the digraph $G_n$ cannot be the less than
+$(n^2-3n+2)-(n-1)=n^2-4n+3$.
 
-Пусть теперь $w$ -- некоторое синхронизирующее автомат $\mathrsfs{G}_n$ слово
-минимальной длины. Поскольку 3 -- единственное состояние в $\mathrsfs{G}_n$,
-являющееся общим концом двух разных дуг с одинаковой меткой, из минимальности
-$w$ следует, что под действием $w$ все состояния автомата переходят в~3. Если
-предположить, что длина $w$ равна $n^2-4n+3$, то в $D_n$ найдется маршрут такой
-длины из вершины~2 в вершину~3. Но вершина~2 имеет единственную исходящую дугу
-$(2,3)$, следовательно, указанный маршрут состоит из этой дуги и контура длины
-$n^2-4n+2$. В орграфе $G_n$ есть ровно три простых контура: один длины $n$ и
-два длины $n-2$. Любой контур можно разбить на простые контуры, а потому число
-$n^2-4n+2$ должно -- как длина некоторого контура в $G_n$ -- быть линейной
-комбинацией c целыми неотрицательными коэффициентами длин простых контуров,
-т.\,е.\ чисел $n$ и $n-2$. (Отметим, что числа $n$ и $n-2$ взаимно просты, так
-как $n$ нечетно.) Однако это невозможно по лемме~\ref{sylvester}, поскольку
-$n^2-4n+2=n(n-2)-n-(n-2)$.
+Now let $w$ be a \ssw\ for the automaton $\mathrsfs{G}_n$. Since 3
+is a unique state in $\mathrsfs{G}_n$ that is a common end of two
+different edges with the same label, the minimality of $w$ implies
+that $w$ sends all state of the automaton to~3. Suppose that the
+length of $w$ is equal to $n^2-4n+3$. Then the digraph $G_n$ has a
+directed path of this length from~2 to~3. There is a unique edge
+starting at~2, namely, $(2,3)$, hence the path consists of this
+edge followed by a directed cycle of length $n^2-4n+2$. The
+digraph $G_n$ has exactly three simple directed cycles: one of
+length $n$ and two of length $n-2$. Observe that $n$ and $n-2$
+relatively prime since $n$ is odd. Every directed cycle consists
+of simple directed cycles whence the number $n^2-4n+2$ (as the
+length of a directed cycle in $G_n$) must be  a non-negative
+integer combination of the numbers $n$ and $n-2$ (the lengths of
+simple directed cycles). However this is impossible by
+Lemma~\ref{sylvester} since $n^2-4n+2=n(n-2)-n-(n-2)$.
 
-Допустим, что длина $w$ равна $n^2-4n+4$. Тогда в $G_n$ найдется маршрут такой
-длины из вершины~1 в вершину~3. Вершина~1 имеет единственную исходящую дугу
-$(1,2)$, следовательно, указанный маршрут состоит из этой дуги и маршрута длины
-$n^2-4n+3$ из~2 в~3. В предыдущем абзаце показано, что в $G_n$ нет маршрута
-из~2 в~3 с такой длиной.
+Suppose that the length of $w$ is equal to $n^2-4n+4$. Then the
+digraph $G_n$ has a directed path of this length from~1 to~3.
+There is a unique edge starting at~1, namely, $(1,2)$, hence the
+path consists of this edge followed by a directed path of length
+$n^2-4n+3$ from~2 to~3. In the previous paragraph we have shown
+that $G_n$ contains no directed path from~2 to~3 with this length.
 
-Предположим, что длина $w$ равна $n^2-4n+5$. Подействовав словом $w$ на
-состояние $n-2$, мы должны перейти в состояние~3. Для состояния $n-2$ есть две
-исходящие дуги: $(n-2,1)$  с меткой $a$ и $(n-2,n-1)$ с меткой $b$. Поскольку
-буква $b$ действует как перестановка множества всех состояний автомата
-$\mathrsfs{G}_n$, слово $w$ начинается с буквы $a$. Поэтому первой дугой
-маршрута из $n-2$ в~3, соответствующего действию слова $w$, необходимо будет
-дуга $(n-2,1)$, за которой следует маршрут из вершины~1 в вершину~3 с длиной
-$n^2-4n+4$. В предыдущем абзаце показано, что в $G_n$ нет маршрута из~1 в~3 с
-такой длиной.
+Suppose that the length of $w$ is equal to $n^2-4n+5$. The word
+$w$ sends $n-2$ to~3. There are two edges starting at $n-2$: есть
+the edge $(n-2,1)$ labelled $a$ and the edge $(n-2,n-1)$ labelled
+$b$. Since the letter $b$ acts as a permutation on the state set
+of the automaton $\mathrsfs{G}_n$, the word $w$ starts with the
+letter $a$. Therefore the first edge of the directed path from
+$n-2$ to~3 labelled by $w$ is necessarily to edge $(n-2,1)$ and
+this edge is followed by a directed path of length $n^2-4n+4$
+from~1 to~3. In the previous paragraph we have shown that $G_n$
+contains no directed path from~1 to~3 with this length.
 
-Пусть, наконец, длина $w$ равна $n^2-4n+6$. Подействовав словом $w$ на каждое
-из состояний $n-3$ и $n-1$, мы должны перейти в состояние~3. Если вторая буква
-слова $w$ есть $a$, то маршрут из $n-3$ в~3, соответствующий действию слова
-$w$, начинается с дуг $(n-3,n-2)$ и $(n-2,1)$, за которыми должен следовать
-маршрут из вершины~1 в вершину~3 с длиной $n^2-4n+4$, что невозможно. Если же
-вторая буква слова $w$ есть $b$, то маршрут из $n-1$ в~3, соответствующий
-действию слова $w$, начинается с дуг $(n-1,n)$ и $(n,1)$, за которыми снова
-должен следовать невозможный маршрут из~1 в~3.
+Finally, let the length of $w$ is $n^2-4n+6$. The word $w$ sends
+each of the states $n-3$ and $n-1$ to the state~3. If the second
+letter of the word $w$ is $a$, then the directed path from $n-3$
+to~3 labelled by $w$ starts with the edges $(n-3,n-2)$ and
+$(n-2,1)$ which are followed by a directed path of length
+$n^2-4n+4$ from~1 to~3, and such a path is impossible. If the
+second letter of the word $w$ is  $b$, the directed path from
+$n-1$ to~3 labelled by $w$ starts with the edges $(n-1,n)$ and
+$(n,1)$, which again must be followed by an impossible directed
+path of length $n^2-4n+4$ from~1 to~3.
 
-Итак, мы показали, что порог синхронизации автомата $\mathrsfs{G}_n$  не может
-быть меньше чем $n^2-4n+7$.
+Thus, we have proved that the \rl\ of the automaton
+$\mathrsfs{G}_n$ cannot be less than $n^2-4n+7$.
 \end{proof}
 
 
-\section*{{\centerline{\large\bf \S5. Обсуждение и новые гипотезы}}}
+\section*{{\centerline{\large\bf \S5. Discussion and new conjectures}}}
 
-\paragraph*{5.1. Две гипотезы.} Построения и результаты, изложенные в \S4,
-свидетельствуют о наличии достаточно тесных связей между порогами синхронизации
-автоматов с двумя входными буквами и экспонентами примитивных орграфов. Такой
-вывод подтверждается и недавними результатами третьего
-автора~\cite{Gusev:2011}. Представляется перспективным дальнейшее исследование
-этих связей. Чтобы придать такому исследованию конкретность, мы сформулируем
-здесь одну весьма общую гипотезу в духе теоремы~\ref{dulmage}. Эта гипотеза
-уточняет гипотезу Черни для случая автоматов с двумя входными буквами и
-согласуется со всеми известными нам экспериментальными и теоретическими
-результатами.
-
-\begin{conjecture}
-\label{general} \emph{(a) (Гипотеза Черни)} Порог синхронизации любого
-синхронизируемого $n$-автомата с двумя входными буквами не превосходит
-$(n-1)^2$.
-
-\emph{(b)} Если $n>6$, то с точностью до изоморфизма есть ровно один
-синхронизируемый $n$-автомат с двумя входными буквами и порогом синхронизации
-$(n-1)^2$, а именно, автомат $\mathrsfs{C}_n$.
-
-\emph{(c)} Если $n>6$ то нет ни одного синхронизируемого $n$-автомата с двумя
-входными буквами, для которого порог синхронизации был бы больше $n^2-3n+4$, но
-меньше $(n-1)^2$.
-
-\emph{(d)} Если $n>7$ и $n$ нечетно, то с точностью до изоморфизма есть ровно
-один синхронизируемый $n$-автомат с двумя входными буквами и порогом
-синхронизации $n^2-3n+4$, а именно, автомат $\mathrsfs{D}'_n$, ровно два
-синхронизируемых $n$-автомата с двумя входными буквами и порогом синхронизации
-$n^2-3n+3$, а именно, автоматы $\mathrsfs{W}_n$ и $\mathrsfs{F}_n$, и ровно три
-синхронизируемых $n$-автомата с двумя входными буквами и порогом синхронизации
-$n^2-3n+2$, а именно, автоматы $\mathrsfs{E}_n$, $\mathrsfs{D}''_n$ и
-$\mathrsfs{B}_n$. Нет ни одного синхронизируемого $n$-автомата с двумя входными
-буквами, для которого порог синхронизации был бы больше $n^2-4n+7$, но меньше
-$n^2-3n+2$.
-
-\emph{(e)} Если $n>8$ и $n$ четно, то с точностью до изоморфизма есть ровно
-один синхронизируемый $n$-автомат с двумя входными буквами и порогом
-синхронизации $n^2-3n+4$, а именно, автомат $\mathrsfs{D}'_n$, ровно один
-синхронизируемый $n$-автомат с двумя входными буквами и порогом синхронизации
-$n^2-3n+3$, а именно, автомат $\mathrsfs{W}_n$, и ровно два синхронизируемых
-$n$-автомата с двумя входными буквами и порогом синхронизации $n^2-3n+2$, а
-именно, автоматы $\mathrsfs{E}_n$ и $\mathrsfs{D}''_n$. Нет ни одного
-синхронизируемого $n$-автомата с двумя входными буквами, для которого порог
-синхронизации был бы больше $n^2-4n+6$, но меньше $n^2-3n+2$.
-\end{conjecture}
-
-Сформулируем еще одну, более специальную, гипотезу, которую можно рассматривать
-как количественную форму упоминавшейся в \S3 гипотезы раскраски дорог.
-Поскольку теперь известно, что всякий примитивный орграф имеет синхронизируемую
-раскраску~\cite{Tr09}, понятие порога синхронизации можно естественным образом
-распространить на такие орграфы. А именно, назовем \emph{порогом синхронизации}
-примитивного орграфа минимум среди длин синхронизирующих слов для всех его
-синхронизируемых раскрасок. Немедленно возникает задача о том, как зависит
-порог синхронизации примитивного орграфа от числа его вершин.
-
-Заметим, что орграфы медленно синхронизируемых автоматов могут обладать
-раскрасками с малым порогом синхронизации. Рис.~\ref{fig:cerny} иллюстрирует
-это замечание: первая раскраска изображенного в левой части рисунка орграфа --
-это автомат Черни $\mathrsfs{C}_4$, кратчайшее синхронизирующее слово которого
-имеет длину~9, вторая же раскраска может быть синхронизирована словом $a^3$
-длины~3. В~этой связи  интересна серия орграфов $W_n$, в которой каждый орграф
-имеет единственную (с точностью до изоморфизма) раскраску. Тем самым, порог
-синхронизации этой раскраски, установленный в теореме~\ref{theorem:anan},
-совпадает с порогом синхронизации орграфа $W_n$ и дает нижнюю оценку в
-предлагаемой задаче. Мы предполагаем, что эта оценка в действительности точна.
+\paragraph*{5.1. Two conjectures.} The constructions and the results presented in Section~4
+witness that the interconnections between \rl{}s of automata with
+two input letters and exponents of primitive digraphs. This
+conclusion are also supported by recent results by the third
+author~\cite{Gusev:2011}. We believe that these interconnections
+deserve being further investigated. In order to make the future
+investigations be more concrete, we formulate a very general
+conjecture in the flavor of Theorem~\ref{dulmage}. This conjecture
+constitutes a strengthening of the \v{C}ern\'y conjecture for the
+case of automata with two input letters and agrees with all
+theoretical and experimental results that we are aware of.
 
 \begin{conjecture}
-\label{hybrid} Порог синхронизации каждого примитивного $n$-орграфа не
-превосходит $n^2-3n+3$. Если $n>3$, то с точностью до изоморфизма есть ровно
-один примитивный $n$-орграф с порогом синхронизации $n^2-3n+3$, а именно,
-орграф $W_n$.
+\label{general} \emph{(a) (The \v{C}ern\'y conjecture)} The \rl\
+of every synchronizing $n$-automaton with two input letters does
+not exceed $(n-1)^2$.
+
+\emph{(b)} If $n>6$, then up to isomorphism there exists exactly
+one synchronizing $n$-automaton with two input letters and \rl\
+$(n-1)^2$, namely, the automaton $\mathrsfs{C}_n$.
+
+\emph{(c)} If $n>6$, then there exists no synchronizing
+$n$-automaton with two input letters whose \rl\ is greater than
+$n^2-3n+4$ but less than $(n-1)^2$.
+
+\emph{(d)} If $n>7$ and $n$ is odd, then up to isomorphism there
+exists exactly one synchronizing $n$-automaton with two input
+letters and \rl\ $n^2-3n+4$, namely, the automaton
+$\mathrsfs{D}'_n$, exactly two synchronizing $n$-automata with two
+input letters and \rl\ $n^2-3n+3$, namely, the automata
+$\mathrsfs{W}_n$ and $\mathrsfs{F}_n$, and exactly three
+synchronizing $n$-automata with two input letters and \rl\
+$n^2-3n+2$, namely, the automata $\mathrsfs{E}_n$,
+$\mathrsfs{D}''_n$, and $\mathrsfs{B}_n$. There exists no
+synchronizing $n$-automaton with two input letters whose \rl\ is
+greater than $n^2-4n+7$ but less than $n^2-3n+2$.
+
+\emph{(e)} If $n>8$ and $n$ is even, then up to isomorphism there
+exists exactly one synchronizing $n$-automaton with two input
+letters and \rl\ $n^2-3n+4$,  namely, the automaton
+$\mathrsfs{D}'_n$, exactly one synchronizing $n$-automaton with
+two input letters and \rl\ $n^2-3n+3$, namely, the automaton
+$\mathrsfs{W}_n$, and exactly two synchronizing $n$-automata with
+two input letters and \rl\ $n^2-3n+2$, namely, the automata
+$\mathrsfs{E}_n$ and $\mathrsfs{D}''_n$. here exists no
+synchronizing $n$-automaton with two input letters whose \rl\ is
+greater than $n^2-4n+6$ but less than $n^2-3n+2$.
 \end{conjecture}
 
-Гипотеза~\ref{hybrid} озвучивалась в нескольких докладах второго автора начиная
-с 2008 г., и уже опубликованы некоторые первые частичные результаты в
-направлении к ее доказательству~\cite{Carpi&D'Alessandro:2010,Steinberg:2011}.
-Ясно, что гипотезу~\ref{hybrid} можно уточнять в духе гипотезы~\ref{general}:
-например, единственным (с точностью до изоморфизма) примитивным $n$-орграфом с
-порогом синхронизации $n^2-3n+2$ является, по-видимому, орграф $D_n$, и т.\,д.
+We also formulate a more special conjecture that can be treated as
+a quantitative form of the Road Coloring Conjecture mentioned in
+Section~3. Since now we know that every primitive digraph has a
+synchronizing coloring~\cite{Tr09}, the notion of \rl\ can be
+naturally extended to primitive digraphs. Namely, we call the the
+\emph{\rl} of a primitive digraph the minimum length of \sws\ for
+all synchronizing colorings of the digraph. This immediately leads
+to the the question of how the \rl\ of a primitive digraph depends
+on the vertex number.
 
-\paragraph*{5.2. Влияние размера входного алфавита.} В наших экспериментах
-рассматривались автоматы с двумя входными буквами. Это ограничение связано с
-тем, что рост размера алфавита влияет на количество автоматов значительно
-сильнее, чем рост числа состояний, и потому перебор автоматов с более чем двумя
-входными буквами даже при небольшом числе состояний находится далеко за
-пределами наших вычислительных ресурсов. Табл.~\ref{table:number of automata}
-иллюстрирует это обстоятельство. (Данные в таблице рассчитаны по формуле
-из~\cite{Lis69}.)
+We notice that the digraphs of slowly \sa\ may admit colorings
+with small \rl. Fig.~\ref{fig:cerny} illustrates this remark: the
+first coloring of the digraph shown in the left is the \v{C}ern\'y
+automaton $\mathrsfs{C}_4$ whose shortest \sw\ has length~9 while
+the second coloring can be reset by the word $a^3$ of length~3. In
+this connection, the series $W_n$ is of interest. In this series
+each digraph has a unique (up to isomorphism) coloring. Therefore
+the \rl\ of this coloring found in Theorem~\ref{theorem:anan}
+coincides with the \rl\ of the digraph $W_n$ and provides a lower
+bound for the problem under consideration. We conjecture that this
+bound is in fact tight.
+
+\begin{conjecture}
+\label{hybrid} The \rl\ of every primitive $n$-digraph does not
+exceed $n^2-3n+3$. If $n>3$, then up to isomorphism there exists
+exactly one primitive $n$-digraph with \rl\ $n^2-3n+3$, namely,
+the digraph $W_n$.
+\end{conjecture}
+
+Conjecture~\ref{hybrid} has been presented in several talks of the
+second author since 2008 and some partial results towards its
+proof have already been published,
+see~\cite{Carpi&D'Alessandro:2010,Steinberg:2011}. It is clear
+that Conjecture~\ref{hybrid} can be made more precise in the
+flavor of Conjecture~\ref{general}: for instance, it is likely
+that the digraph $D_n$ is the only (up to isomorphism) primitive
+$n$-digraph with \rl\ $n^2-3n+2$, etc.
+
+\paragraph*{5.2. The role of the alphabet size.} In our experiments
+we restrict ourselves to automata with two input letters. This
+restriction is caused by the fact that an increase in the alphabet
+size influences the number of automata much stronger than an
+increase in the state size. Therefore an exhaustive search through
+all automata with more than two input letters is far beyond our
+computational capacities even when for automata with a modest
+number of states. Table~\ref{table:number of automata} illustrates
+this fact. (The data in the table are calculated via a formula
+from~\cite{Lis69}.)
 
 \begin{table}[ht]
-\extrarowheight=2pt \tabcolsep=3.45pt  \caption{Число достижимых автоматов с 2
-и 3 входными буквами} \label{table:number of automata} {\footnotesize
+\extrarowheight=2pt \tabcolsep=3.45pt  \caption{The number of
+initially-connected automata with 2 and 3 input letters}
+\label{table:number of automata} {\footnotesize
 \begin{tabular}{|p{2.5cm}||c|c|c|} \hline
-Число состояний & 7 & 8 & 9  \\
-\hline 2 входные буквы & \hfill 256\,182\,290 & \hfill 12\,665\,445\,248 & \hfill 705\,068\,085\,303\\
-\hline 3 входные буквы &  500\,750\,172\,337\,212 &
+\# of states & 7 & 8 & 9  \\
+\hline 2 input letters & \hfill 256\,182\,290 & \hfill 12\,665\,445\,248 & \hfill 705\,068\,085\,303\\
+\hline 3 input letters &  500\,750\,172\,337\,212 &
 572\,879\,126\,392\,178\,688 & 835\,007\,874\,759\,393\,878\,655 \\
 \hline
 \end{tabular}}
 \end{table}
 
-Тем не менее, есть некоторые основания полагать, что поведение исследовавшейся
-нами величины (количества синхронизируемых автоматов с фиксированным числом
-состояний как функции от значения порога синхронизации) не слишком сильно
-зависит от размера алфавита. Например, в экспериментах Трахтмана, о результатах
-которых сообщается в~\cite{Tr06,Tr06a}, не было обнаружено ни одного 7-автомата
-с 3 или 4 входными буквами, порог синхронизации которого был бы больше 32, но
-меньше 36. Таким образом, величина разрыва между максимальным и следующим за
-ним возможным значениями порога синхронизации здесь такая же, как для
-7-автоматов с двумя входными буквами.
+Nevertheless, there are some reasons to expect that the behaviour
+of the function we are interested in (the number of \sa\ with a
+fixed number of states as a function of \rl) does not heavily
+depend on the alphabet size. For instance, Trahtman's experiments
+whose results have been reported in~\cite{Tr06,Tr06a}, has
+revealed no 7-automaton with 3 or 4 input letters and with \rl\
+larger than 32 and smaller than 36. Thus, the value of the gap
+between the maximum and the next to maximum possible value of \rl\
+is the same as for 7-automata with two input letters.
 
-Отметим еще наблюдение, впервые сделанное, по видимому, в~\cite{Be10}: если
-имеется верхняя оценка вида $\Theta(n^2)$ для порогов синхронизации
-синхронизируемых $n$-автоматов с двумя входными буквами, то оценка такого же
-порядка (возможно, с худшей константой) существует для порогов синхронизации
-синхронизируемых $n$-автоматов с любым фиксированным размером входного
-алфавита.
+We mention also the observation which, as far as we know, was
+first made in~\cite{Be10}: if there exists an upper bound of the
+form $O(n^2)$ for the \rl\ of synchronizing $n$-automata with two
+input letters, then a bound of the same magnitude (but probably
+with a worse constant) exists also for the \rl\ synchronizing
+$n$-automata with any fixed size of the input alphabet.
 
 \begin{thebibliography}{99}
-\bibitem{Lis69}
-\textsl{В.\,А.\,Лисковец}, Число связных инициальных автоматов, Кибернетика,
-\No3 (1969), 16--19.
-
-\bibitem{ST00}
-\textsl{В.\,Н.\,Сачков, В.\,Е.\,Тараканов}, Комбинаторика неотрицательных
-матриц. М.: ТВП, 2000.
-
 \bibitem{AGW}
 \textsl{R.\,L.\,Adler, L.\,W.\,Goodwyn, B.\,Weiss}, Equivalence of topological
 Markov shifts, Israel J. Math., 27 (1977), 49--63.
@@ -1543,9 +1648,10 @@ Foundations Comp.\ Sci., 22 (2011), 1565--1576.
 Lect.\ Notes Comput.\ Sci., 6224 (2010), 124--135.
 
 \bibitem{Ce64}
-\textsl{J.\,\v{C}ern\'{y}}, Pozn\'{a}mka k homog\'{e}nnym eksperimentom s
-kone\v{c}n\'{y}mi automatami, Matematicko-fyzikalny \v{C}asopis Slovensk.\
-Akad.\ Vied, 14, \No3 (1964), 208--216 (in Slovak).
+\textsl{J.\,\v{C}ern\'{y}}, Pozn\'{a}mka k homog\'{e}nnym
+eksperimentom s kone\v{c}n\'{y}mi automatami,
+Matematicko-fyzikalny \v{C}asopis Slovensk.\ Akad.\ Vied, 14, no.3
+(1964), 208--216 (in Slovak).
 
 \bibitem{DM62}
 \textsl{A.\,L.\,Dulmage, N.\,S.\,Mendelsohn}, The exponent of a primitive
@@ -1565,6 +1671,10 @@ automata, Reachability Problems, Lect.\ Notes Comput.\ Sci., 6945 (2011),
 words in finite automata, Bull.\ European Assoc.\ Theor.\ Comput.\ Sci., 73
 (2001), 146.
 
+\bibitem{Lis69}
+\textsl{V.\,A.\,Liskovets}, The number of connected initial
+automata, Кибернетика, no.3 (1969), 16--19 (in Russian).
+
 \bibitem{OU10}
 \textsl{J.\,Olschewski, M.\,Ummels}, The complexity of finding reset words in
 finite automata, Mathematical Foundations of Computer Science, Lect.\ Notes
@@ -1577,6 +1687,11 @@ theory, Ann.\ Discrete Math., 17 (1983), 535--548.
 \bibitem{RaAl05}
 \textsl{J.\,L.\,Ram\'{\i}rez Alfons\'{\i}n}, The diophantine Frobenius problem,
 Oxford University Press, 2005.
+
+
+\bibitem{ST00}
+\textsl{V.\,N.\,Sachkov, V.\,E.\,Tarakanov}, Combinatorics of
+Nonnegative Matrices. American Mathematical Society, 2002.
 
 \bibitem{Sa05}
 \textsl{S.\,Sandberg}, Homing and synchronizing sequences, Model-Based Testing
