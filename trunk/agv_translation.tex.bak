@@ -18,10 +18,7 @@
 \newcommand{\ssw}{reset word of minimum length}
 \newcommand{\rl}{reset threshold}
 
-\DeclareMathOperator{\weight}{wg}
-
-\DeclareSymbolFont{rsfscript}{OMS}{rsfs}{m}{n}
-\DeclareSymbolFontAlphabet{\mathrsfs}{rsfscript}
+\DeclareSymbolFont{rsfscript}{OMS}{rsfs}{m}{n} \DeclareSymbolFontAlphabet{\mathrsfs}{rsfscript}
 
 \newcommand{\hm}[1]{#1\nobreak\discretionary{}{\hbox{\ensuremath{#1}}}{}}
 \newcommand{\qqed}{\hfill$\Box$}
@@ -113,37 +110,21 @@ $\frac{n(7n^2+6n-16)}{48}$ has been recently published
 in\cite{Tr11} but the proof of this result contains an unclear
 place.}.
 
-Why is the \v{C}ern\'{y} conjecture so inaccessible? A detailed
-discussion of this important issue would go far beyond the scope
-of the present paper but one of the difficulties encountered by
-the theory of \sa\ is worth registering here. We mean the shortage
-of examples of \emph{extremal} automata, i.e.\ $n$-automata having
-\rl\ $(n-1)^2$. In fact, the series found in~\cite{Ce64} stiil
-remains the only known infinite series of extremal automata
-Besides that, we know only a few isolated examples of such
-automata, the largest (with respect to the state number) being the
-6-automaton discovered by Kari~\cite{Ka01} in 2001.
-(See~\cite{Vo08} for a complete list of known extremal automata.)
-Moreover, even $n$-automata whose \rl\ is close to $(n-1)^2$ have
-been very rare in the literature so far --- besides the
-\v{C}ern\'{y} series one can only refer to the series
-from~\cite{AVZ}. With a very restricted number of examples, it has
-been difficult to verify various guesses and assumptions that
-arose when researchers were searching for approaches to the
-\v{C}ern\'{y} conjecture. That is why the history of
-investigations in this area abounds by  ``false trails'', i.e.\
-auxiliary hypotheses that looked promising at first but were
-disproved after some time. (Cf.~\cite{Be11} for an analysis of a
-number of such ``false trails''.)
+Why is the \v{C}ern\'{y} conjecture so inaccessible? A detailed discussion of this important issue would go far beyond the scope of the
+present paper but one of the difficulties encountered by the theory of \sa\ is worth registering here. We mean the shortage of examples of
+\emph{extremal} automata, i.e.\ $n$-automata having \rl\ $(n-1)^2$. In fact, the series found in~\cite{Ce64} still remains the only known
+infinite series of extremal automata. Besides that, we know only a few isolated examples of such automata, the largest (with respect to the
+state number) being the 6-automaton discovered by Kari~\cite{Ka01} in 2001. (See~\cite{Vo08} for a complete list of known extremal
+automata.) Moreover, even $n$-automata whose \rl\ is close to $(n-1)^2$ have been very rare in the literature so far --- besides the
+\v{C}ern\'{y} series one can only refer to the series from~\cite{AVZ}. With a very restricted number of examples, it has been difficult to
+verify various guesses and assumptions that arose when researchers were searching for approaches to the \v{C}ern\'{y} conjecture. That is
+why the history of investigations in this area abounds in  ``false trails'', i.e.\ auxiliary hypotheses that looked promising at first but
+were disproved after some time. (Cf.~\cite{Be11} for an analysis of a number of such ``false trails''.)
 
-How can one find slowly \sa? Experiments (see, e.g., \cite{ST11})
-demonstrate that with probability very close to~1, a random
-automaton is reset by a word of length much less than the state
-number. Therefore it is impossible to encounter by chance an
-automaton whose \rl\ is close to the square of state number, and
-one has to reveal such automata via an exhaustive search. It was
-such an exhaustive search experiment that served as a departure
-point of the present paper.
+How can one find slowly \sa? Experiments (see, e.g., \cite{ST11}) demonstrate that with probability very close to~1, a random automaton is
+reset by a word of length much less than the state number. Therefore it is impossible to encounter by chance an automaton whose \rl\ is
+close to the square of state number, and one has to reveal such automata via exhaustive search. It was such an exhaustive search experiment
+that served as a departure point of the present paper.
 
 Our methodology and some results of the experiment are described
 in Section~2. We have noticed a similarity between the observable
@@ -682,7 +663,7 @@ Our experiments show that the number of \sa\ in this range is not
 large and that their distribution with respect to the possible
 values of \rl\ clearly reveals the following pattern: an isolated
 extreme value --- a gap --- a small ``island'' --- another gap
---- a ``continent, see Table~\ref{automata} and the discussion at
+--- a ``continent'', see Table~\ref{automata} and the discussion at
 the end of Section~2. We shall show that departing from primitive
 digraph with large exponent presented in Theorem~\ref{dulmage},
 the following series of automata over 2-letter alphabet can be
@@ -694,7 +675,7 @@ $\mathrsfs{E}_n$, and for odd $n$ also the series $\mathrsfs{B}_n$
 and $\mathrsfs{F}_n$ that correspond to all observed ``island''
 values;
 \item the series $\mathrsfs{G}_n$ (for odd $n$) and $\mathrsfs{H}_n$ that
-correspond to the maximum observed ``continental values.
+correspond to the maximum observed ``continental'' values.
 \end{itemize}
 Fig.~\ref{fig:relation} demonstrates which series of digraphs give
 rise to the series of automata just listed. (For clarity, digraph

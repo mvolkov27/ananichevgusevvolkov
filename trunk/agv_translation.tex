@@ -110,37 +110,21 @@ $\frac{n(7n^2+6n-16)}{48}$ has been recently published
 in\cite{Tr11} but the proof of this result contains an unclear
 place.}.
 
-Why is the \v{C}ern\'{y} conjecture so inaccessible? A detailed
-discussion of this important issue would go far beyond the scope
-of the present paper but one of the difficulties encountered by
-the theory of \sa\ is worth registering here. We mean the shortage
-of examples of \emph{extremal} automata, i.e.\ $n$-automata having
-\rl\ $(n-1)^2$. In fact, the series found in~\cite{Ce64} stiil
-remains the only known infinite series of extremal automata
-Besides that, we know only a few isolated examples of such
-automata, the largest (with respect to the state number) being the
-6-automaton discovered by Kari~\cite{Ka01} in 2001.
-(See~\cite{Vo08} for a complete list of known extremal automata.)
-Moreover, even $n$-automata whose \rl\ is close to $(n-1)^2$ have
-been very rare in the literature so far --- besides the
-\v{C}ern\'{y} series one can only refer to the series
-from~\cite{AVZ}. With a very restricted number of examples, it has
-been difficult to verify various guesses and assumptions that
-arose when researchers were searching for approaches to the
-\v{C}ern\'{y} conjecture. That is why the history of
-investigations in this area abounds by  ``false trails'', i.e.\
-auxiliary hypotheses that looked promising at first but were
-disproved after some time. (Cf.~\cite{Be11} for an analysis of a
-number of such ``false trails''.)
+Why is the \v{C}ern\'{y} conjecture so inaccessible? A detailed discussion of this important issue would go far beyond the scope of the
+present paper but one of the difficulties encountered by the theory of \sa\ is worth registering here. We mean the shortage of examples of
+\emph{extremal} automata, i.e.\ $n$-automata having \rl\ $(n-1)^2$. In fact, the series found in~\cite{Ce64} still remains the only known
+infinite series of extremal automata. Besides that, we know only a few isolated examples of such automata, the largest (with respect to the
+state number) being the 6-automaton discovered by Kari~\cite{Ka01} in 2001. (See~\cite{Vo08} for a complete list of known extremal
+automata.) Moreover, even $n$-automata whose \rl\ is close to $(n-1)^2$ have been very rare in the literature so far --- besides the
+\v{C}ern\'{y} series one can only refer to the series from~\cite{AVZ}. With a very restricted number of examples, it has been difficult to
+verify various guesses and assumptions that arose when researchers were searching for approaches to the \v{C}ern\'{y} conjecture. That is
+why the history of investigations in this area abounds in  ``false trails'', i.e.\ auxiliary hypotheses that looked promising at first but
+were disproved after some time. (Cf.~\cite{Be11} for an analysis of a number of such ``false trails''.)
 
-How can one find slowly \sa? Experiments (see, e.g., \cite{ST11})
-demonstrate that with probability very close to~1, a random
-automaton is reset by a word of length much less than the state
-number. Therefore it is impossible to encounter by chance an
-automaton whose \rl\ is close to the square of state number, and
-one has to reveal such automata via an exhaustive search. It was
-such an exhaustive search experiment that served as a departure
-point of the present paper.
+How can one find slowly \sa? Experiments (see, e.g., \cite{ST11}) demonstrate that with probability very close to~1, a random automaton is
+reset by a word of length much less than the state number. Therefore it is impossible to encounter by chance an automaton whose \rl\ is
+close to the square of state number, and one has to reveal such automata via exhaustive search. It was such an exhaustive search experiment
+that served as a departure point of the present paper.
 
 Our methodology and some results of the experiment are described
 in Section~2. We have noticed a similarity between the observable
@@ -181,19 +165,13 @@ automata---even for $n=9$ and $k=2$ neither time nor memory would
 suffice to check whether the current automaton is isomorphic to
 one of the previously generated automata.
 
-In order to optimize search, we have employed a string
-representation of initially-connected automata suggested
-in~\cite{AMR}. Recall that a DFA $\mathrsfs{A}=\langle
-Q,\Sigma,\delta\rangle$ is said to be \emph{initially-connected}
-(from a state $q_0$), if one can reach any state from $q_0$ by
-applying a suitable word: for every $q\in Q$ there exists
-$w\in\Sigma^*$ such that $q=\delta(q_0,w)$. A DFA which is
-initially-connected from each of its state is called \emph{\scn}.
-In general, a \san\ may fail to be \scn\ or initially-connected.
-However it is well known that one can restrict to \scn\ automata
-when dealing with issues related to the \v{C}ern\'{y} conjecture.
-This is a consequence of the following easy result.
-\begin{prop}[\!\!{\mdseries\cite[Proposition~2.1]{Vo09}}]
+In order to optimize search, we have employed a string representation of initially-connected automata suggested in~\cite{AMR}. Recall that
+a DFA $\mathrsfs{A}=\langle Q,\Sigma,\delta\rangle$ is said to be \emph{initially-connected} (from a state $q_0$), if one can reach any
+state from $q_0$ by applying a suitable word: for every $q\in Q$ there exists $w\in\Sigma^*$ such that $q=\delta(q_0,w)$. A DFA which is
+initially-connected from each of its states is called \emph{\scn}. In general, a \san\ may fail to be \scn\ or initially-connected. However
+it is well known that one can restrict to \scn\ automata when dealing with issues related to the \v{C}ern\'{y} conjecture. This is a
+consequence of the following easy result.
+\begin{prop}[\!{\mdseries\cite[Proposition~2.1]{Vo09}}]
 \label{reduction} Let $\mathrsfs{A}=\langle
 Q,\Sigma,\delta\rangle$ be a \san\ and let $S$ be the set of all
 states to which $\mathrsfs{A}$ can be reset. Then
@@ -201,8 +179,7 @@ $\mathrsfs{S}=\langle S,\Sigma,\delta|_S\rangle$ is a \scn\
 subautomaton in $\mathrsfs{A}$ and for every function
 $f:\mathbb{Z}^+\to\mathbb{N}$ satisfying
 $$f(n)\ge\frac{n(n-1)}2\ \text{ and }\ f(n)\ge f(n-m+1)+f(m) \text{ for } n\ge m\ge 1,$$
-the fact the \rl\ of the automaton $\mathrsfs{S}$ is bounded by
-$f(|S|)$ implies that the \rl\ for $\mathrsfs{A}$ does not exceed
+the fact that the \rl\ of the automaton $\mathrsfs{S}$ is bounded by $f(|S|)$ implies that the \rl\ for $\mathrsfs{A}$ does not exceed
 $f(|Q|)$.
 \end{prop}
 In particular, taking $(n-1)^2$ as $f(n)$, we can conclude that if
@@ -267,7 +244,7 @@ $k$ input letters if and only if the following two conditions are
 satisfied:
 \begin{enumerate}
 \item[(R1)] for each $i$ such that $s_i>1$, there is $j<i$ with $s_j = s_i-1$,
-\item[(R2)] for each $m$ such that $1{\le}m{<}n$, there is $j{<}mk$ with $s_j=m$.
+\item[(R2)] for each $m$ such that $1\le m <n$, there is $j<mk$ with $s_j=m$.
 \end{enumerate}
 
 Using this observation, we calculated \rl{}s of
@@ -389,25 +366,15 @@ of the Perron--Frobenius theory, that is the matrix has a positive
 eigenvalue that is strictly greater than the absolute value of any
 of its other elgenvalues.
 
-The $t$-th \emph{power} of a digraph $D=\langle V,E\rangle$ is the
-digraph $D^t$ with the same vertex set $V$ in which a pair
-$(v,v')\in V\times V$ is an edge if and only if $D$ has a directed
-path from $v$ to $v'$ of length precisely $t$. It is easy to see
-that if $M$ is the matrix of $D$, then the digraph $D^t$ is
-isomorphic to the digraph $D(M^t)$, where $M^t$ is the usual
-$t$-th power of the matrix $M$. It is known (see, e.g.,
-\cite[p.\,224]{ST00}) that if $D$ is  a primitive digraph, then
-for some $t$ the power $D^t$ is a complete digraph (with loops),
-that is, in $D^t$ each pair of vertices constitutes an edge. In
-matrix terms this means that each entry of the matrix $M^t$ is
-positive. The least $t$ with this property is called the
-\emph{exponent} of the digraph $D$ is denoted by $\gamma(D)$.
-Exponents of digraphs have been intensively studied over the last
-60 years and we refer to~\cite{Br} for a survey of results
-accumulated in this area. In this paper we need only a few classic
-results collected in the following theorem. For brevity, in this
-theorem (and in the rest of the paper) a digraph with $n$ vertices
-is called an $n$-\emph{digraph}.
+The $t$-th \emph{power} of a digraph $D=\langle V,E\rangle$ is the digraph $D^t$ with the same vertex set $V$ in which a pair $(v,v')\in
+V\times V$ is an edge if and only if $D$ has a directed path from $v$ to $v'$ of length precisely $t$. It is easy to see that if $M$ is the
+matrix of $D$, then the digraph $D^t$ is isomorphic to the digraph $D(M^t)$, where $M^t$ is the usual $t$-th power of the matrix $M$. It is
+known (see, e.g., \cite[p.\,224]{ST00}) that if $D$ is  a primitive digraph, then for some $t$ the power $D^t$ is a complete digraph (with
+loops), that is, in $D^t$ each pair of vertices constitutes an edge. In matrix terms this means that each entry of the matrix $M^t$ is
+positive. The least $t$ with this property is called the \emph{exponent} of the digraph $D$ and is denoted by $\gamma(D)$. Exponents of
+digraphs have been intensively studied over the last 60 years and we refer to~\cite{Br} for a survey of results accumulated in this area.
+In this paper we need only a few classic results collected in the following theorem. For brevity, in this theorem (and in the rest of the
+paper) a digraph with $n$ vertices is called an $n$-\emph{digraph}.
 
 \begin{theorem}
 \label{dulmage} \emph{(a) (Wielandt's theorem, see
@@ -614,21 +581,13 @@ with \rl\ $t$. Then
 \end{prop}
 
 \begin{proof}
-Let $w\in\Sigma^*$ be a \sw\ of length $t$ and let $p$ be such
-that $\delta(q,w)=p$ for each $q\in Q$. Now we take an arbitrary
-pair $(q',q'')\in Q\times Q$ and construct a directed path from
-$q'$ to $q''$ of length precisely  $t+n-1$ in the digraph
-$D(\mathrsfs{A})$. Since the digraph $D(\mathrsfs{A})$ is strongly
-connected, it has a directed path from $p$ в $q''$. Let $\ell$ be
-the minimum length of such a path. Since the path of minimum
-length visits no vertex twice, $\ell\le n-1$. Now we consider an
-arbitrary directed path of length $n-1-\ell$ starting with $q'$.
-From the endpoint of this path, we walk along the directed path of
-length $t$ labelled by the word $w$ in the automaton
-$\mathrsfs{A}$. Since $w$ is a reset word, this path necessarily
-ends with $p$. It remains to walk along the directed path of
-length $\ell$ from $p$ to $q''$ in order to obtain a directed path
-from $q'$ to $q''$ of length $(n-1-\ell)+t+\ell=t+n-1$.
+Let $w\in\Sigma^*$ be a \sw\ of length $t$ and let $p$ be such that $\delta(q,w)=p$ for each $q\in Q$. Now we take an arbitrary pair
+$(q',q'')\in Q\times Q$ and construct a directed path from $q'$ to $q''$ of length precisely  $t+n-1$ in the digraph $D(\mathrsfs{A})$.
+Since the digraph $D(\mathrsfs{A})$ is strongly connected, it has a directed path from $p$ to $q''$. Let $\ell$ be the minimum length of
+such a path. Since the path of minimum length visits no vertex twice, $\ell\le n-1$. Now we consider an arbitrary directed path of length
+$n-1-\ell$ starting with $q'$. From the endpoint of this path, we walk along the directed path of length $t$ labelled by the word $w$ in
+the automaton $\mathrsfs{A}$. Since $w$ is a reset word, this path necessarily ends with $p$. It remains to walk along the directed path of
+length $\ell$ from $p$ to $q''$ in order to obtain a directed path from $q'$ to $q''$ of length $(n-1-\ell)+t+\ell=t+n-1$.
 \end{proof}
 
 Thus, colorings of primitive digraphs with large exponents yield
@@ -658,15 +617,10 @@ i &\text{if } i<n,\\
 i+1 &\text{if } i<n,\\
 1 &\text{if } i=n.
 \end{cases}$$
-The automaton $\mathrsfs{C}_n$ is shown in
-Fig.\,\ref{fig:cerny-n}(left). It is easy to see that if one adds
-a new state to $q_0$ to the automaton $\mathrsfs{C}_{n-1}$ and
-then defines the action of the letters $a$ and $b$ at this added
-state in all possible ways such that at least one of the letters
-does not fix $q_0$, then one gets $n^2-1$ non-isomorphic initially
-connected $n$-automata with \rl{}s between $(n-2)^2$ and
-$(n-2)^2+1$. In a similar way one can ``multiply'' other
-$(n-1)$-automata whose \rl\ is close to $(n-2)^2$, thus obtaining
+The automaton $\mathrsfs{C}_n$ is shown in Fig.\,\ref{fig:cerny-n}(left). It is easy to see that if one adds a new state $q_0$ to the
+automaton $\mathrsfs{C}_{n-1}$ and then defines the action of the letters $a$ and $b$ at this added state in all possible ways such that at
+least one of the letters does not fix $q_0$, then one gets $n^2-1$ non-isomorphic initially connected $n$-automata with \rl{}s between
+$(n-2)^2$ and $(n-2)^2+1$. In a similar way one can ``multiply'' other $(n-1)$-automata whose \rl\ is close to $(n-2)^2$, thus obtaining
 families of $n$-automata.
 
 Since we want to avoid considering such more or less trivial
@@ -782,8 +736,7 @@ that the \rl\ of $\mathrsfs{W}_n$ cannot be less than меньше чем
 $((n-1)^2+1)-(n-1)=n^2-3n+3$.
 \end{proof}
 
-The series $\mathrsfs{W}_n$ was discovered by the first author
-in~2008. His original proof of Theorem~\ref{theorem:anan} relied a
+The series $\mathrsfs{W}_n$ was discovered by the first author in~2008. His original proof of Theorem~\ref{theorem:anan} relied on a
 game-theoretic technique from~\cite{AVZ} and was rather difficult.
 
 Now we show that also the automata in the series $\mathrsfs{C}_n$
@@ -856,18 +809,12 @@ minimality of the length of the word $w$ implies that the image of
 the set $Q$ under the action of the word $w'$ is equal to
 $\{q_1,q_2\}$.
 
-Since the word $a^2$ acts on $Q$ in the same way as the letter
-$a$, this word cannot occur in $w$ as a factor---otherwise we
-obtain a shorter \sw\ by substituting the occurrence of $a^2$ in
-$w$ by $a$. Therefore each occurrence of $a$ in $w$, except the
-last one, is followed by an occurrence of the letter $b$. Hence
-the word $w'$ can be written as a word in the generators $b$ and
-$ab$. Now we substitute each occurrence of the factor $ab$ in $w'$
-by an occurrence of the letter $c$, we rewrite $w'$ into a word
-$v$ over the alphabet $\{b,c\}$. Since the words $w'$ and $v$ act
-on the set $Q$ in the same way, $vc$ is a \sw\ for the automaton
-$\mathrsfs{B}$. Thus, $\mathrsfs{B}$ is a \san; let $s$ be its
-\rl.
+Since the word $a^2$ acts on $Q$ in the same way as the letter $a$, this word cannot occur in $w$ as a factor---otherwise we obtain a
+shorter \sw\ by substituting the occurrence of $a^2$ in $w$ by $a$. Therefore each occurrence of $a$ in $w$, except the last one, is
+followed by an occurrence of the letter $b$. Hence the word $w'$ can be written as a word in the generators $b$ and $ab$. Now we substitute
+each occurrence of the factor $ab$ in $w'$ by an occurrence of the letter $c$ so that we rewrite $w'$ into a word $v$ over the alphabet
+$\{b,c\}$. Since the words $w'$ and $v$ act on the set $Q$ in the same way, $vc$ is a \sw\ for the automaton $\mathrsfs{B}$. Thus,
+$\mathrsfs{B}$ is a \san; let $s$ be its \rl.
 
 Since $b$ only permutes the states and each application of $c$ can
 send to one state only one pair of states, the word $vc$ that
@@ -881,30 +828,20 @@ $w=w'a$ is equal to $t$, we obtain $t-1\ge (s-1)+(n-2)$, whence
 $s\le t-n+2$.
 \end{proof}
 
-Observe that in the sequel we will often use modifications of a
-given automaton $\mathrsfs{A}$ in the flavor of
-Proposition~\ref{prop:simple idempotent} In such modifications, we
-consider a new automaton on the same state set but with input
-letters $c_1$ and $c_2$ whose actions are defined by the actions
-of some words $w_1$ and $w_2$ respectively in the automaton
-$\mathrsfs{A}$. Slightly abusing terminology, we refer to the
-automaton arising this way as the automaton \emph{defined by the
-actions of the words $c_1=w_1$ and $c_2=w_2$}.
+Observe that in the sequel we will often use modifications of a given automaton $\mathrsfs{A}$ in the flavor of
+Proposition~\ref{prop:simple idempotent}. In such modifications, we consider a new automaton on the same state set but with input letters
+$c_1$ and $c_2$ whose actions are defined by the actions of some words $w_1$ and $w_2$ respectively in the automaton $\mathrsfs{A}$.
+Slightly abusing terminology, we refer to the automaton arising this way as the automaton \emph{defined by the actions of the words
+$c_1=w_1$ and $c_2=w_2$}.
 
-We return to the proof of Theorem~\ref{theorem:cerny}. It is easy
-to see that for the  automaton $\mathrsfs{C}_n$, the automaton
-defined by the actions of the words $b$ and $c=ab$ is isomorphic
-to the automaton $\mathrsfs{W}_n$, see Fig\,\ref{fig:cerny-n}. By
-Theorem~\ref{theorem:anan}, the \rl\ of $\mathrsfs{W}_n$ is
-$n^2-3n+3$. Applying Proposition~\ref{prop:simple idempotent}, we
-conclude that the \rl\ of $\mathrsfs{C}_n$ cannot be less than
-$(n^2-3n+3)+(n-2)=n^2-2n+1=(n-1)^2$.
+We return to the proof of Theorem~\ref{theorem:cerny}. It is easy to see that for the  automaton $\mathrsfs{C}_n$, the automaton defined by
+the actions of the words $b$ and $c=ab$ is isomorphic to the automaton $\mathrsfs{W}_n$, see Fig.\,\ref{fig:cerny-n}(right). By
+Theorem~\ref{theorem:anan}, the \rl\ of $\mathrsfs{W}_n$ is $n^2-3n+3$. Applying Proposition~\ref{prop:simple idempotent}, we conclude that
+the \rl\ of $\mathrsfs{C}_n$ cannot be less than $(n^2-3n+3)+(n-2)=n^2-2n+1=(n-1)^2$.
 \end{proof}
 
-The next series in the family of automata related to the
-digraph$W_n$ consists of the automata
-$\mathrsfs{E}_n=\langle\{1,2,\dots,n\},\{a,b\},\delta\rangle$,
-where the letter $a$ and $b$ act as follows:
+The next series in the family of automata related to the digraph $W_n$ consists of the automata
+$\mathrsfs{E}_n=\langle\{1,2,\dots,n\},\{a,b\},\delta\rangle$, where the letter $a$ and $b$ act as follows:
 $$\delta(i,a)=\begin{cases}
 2 &\text{if } i = 1,\\
 3 &\text{if } i = 2,\\
@@ -1127,11 +1064,9 @@ $n^2-3n+4$ and $n^2-3n+2$ respectively.
 \end{theorem}
 
 \begin{proof}
-It is not hard to verify that the word $(ab^{n-2})^{n-2}ba$ is a
-\sw\ for the automaton $\mathrsfs{D}'_n$ and the word is
-$(ba^{n-1})^{n-3}ba$ a \sw\ for the automaton $\mathrsfs{D}''_n$.
-The lengths of these words are equal $(n-1)(n-2)+2=n^2-3n+4$ and
-$n(n-3)+2=n^2-3n+2$ respectively.
+It is not hard to verify that the word $(ab^{n-2})^{n-2}ba$ is a \sw\ for the automaton $\mathrsfs{D}'_n$ and the word $(ba^{n-1})^{n-3}ba$
+is a \sw\ for the automaton $\mathrsfs{D}''_n$. The lengths of these words are equal $(n-1)(n-2)+2=n^2-3n+4$ and $n(n-3)+2=n^2-3n+2$
+respectively.
 
 Theorem~\ref{dulmage}(b) and Proposition~\ref{lower bound} imply
 that the \rl\ for the colorings of the digraph $D_n$ cannot be
@@ -1147,21 +1082,13 @@ expressible as a non-negative integer combination of $k$ and
 $\ell$.
 \end{lemma}
 
-Let $w$ be a \ssw\ for the automaton $\mathrsfs{D}'_n$. Since 2 is
-a unique state in $\mathrsfs{D}'_n$ that is a common end of two
-different edges with the same label, the minimality of $w$ implies
-that $w$ sends all state of the automaton to~2. Suppose that the
-length of $w$ is equal to $n^2-3n+2$. Then the digraph $D_n$ has a
-directed path of this length from~1 to~2. There is a unique edge
-starting at~1, namely, $(1,2)$, hence the path consists of this
-edge followed by a directed cycle of length $n^2-3n+1$. The
-digraph $D_n$ has exactly three simple directed cycles: one of
-length $n$ and two of length $n-1$. Every directed cycle consists
-of simple directed cycles whence the number $n^2-3n+1$ (as the
-length of a directed cycle in $D_n$) must be  a non-negative
-integer combination of the numbers $n$ and $n-1$ (the lengths of
-simple directed cycles). However this is impossible by
-Lemma~\ref{sylvester} since $n^2-3n+1=n(n-1)-n-(n-1)$.
+Let $w$ be a \ssw\ for the automaton $\mathrsfs{D}'_n$. Since 2 is a unique state in $\mathrsfs{D}'_n$ that is a common end of two
+different edges with the same label, the minimality of $w$ implies that $w$ sends all states of the automaton to~2. Suppose that the length
+of $w$ is equal to $n^2-3n+2$. Then the digraph $D_n$ has a directed path of this length from~1 to~2. There is a unique edge starting at~1,
+namely, $(1,2)$, hence the path consists of this edge followed by a directed cycle of length $n^2-3n+1$. The digraph $D_n$ has exactly
+three simple directed cycles: one of length $n$ and two of length $n-1$. Every directed cycle consists of simple directed cycles whence the
+number $n^2-3n+1$ (as the length of a directed cycle in $D_n$) must be  a non-negative integer combination of the numbers $n$ and $n-1$
+(the lengths of simple directed cycles). However this is impossible by Lemma~\ref{sylvester} since $n^2-3n+1=n(n-1)-n-(n-1)$.
 
 Now suppose that the length of $w$ is equal to $n^2-3n+3$. Then
 the digraph $D_n$ has a directed path of this length from~$n-1$
@@ -1174,19 +1101,13 @@ is impossible. Thus, the length of $w$ cannot be less than
 $n^2-3n+4$.
 \end{proof}
 
-The series $\mathrsfs{D}'_n$ is of interest because for $n>6$
-automata of this series have the largest  \rl\ among all known
-automata except the ones from the \v{C}ern\'y series
-$\mathrsfs{C}_n$ as well as the largest  \rl\ among all known
-automata without loops. The series $\mathrsfs{D}''_n$ also possess
-an extremal property: automata from this series have the largest
-\rl\ among all known automata in which no letter acts as a
-permutation of the state set.
+The series $\mathrsfs{D}'_n$ is of interest because for $n>6$, the automata of this series have the largest  \rl\ among all known automata
+except the ones from the \v{C}ern\'y series $\mathrsfs{C}_n$ as well as the largest  \rl\ among all known automata without loops. The
+series $\mathrsfs{D}''_n$ also possess an extremal property: the automata from this series have the largest \rl\ among all known automata
+in which no letter acts as a permutation of the state set.
 
-There is one further series of slowly \sa\ related to the digraphs
-$D_n$; it consists of $n$-automata with \rl\ $n^2-4n+6$. We do not
-present it here since one series with the same parameters have
-already been described above, see Theorem~\ref{thm:h-n}.
+There is one further series of slowly \sa\ related to the digraphs $D_n$; it consists of $n$-automata with \rl\ $n^2-4n+6$. We do not
+present it here since one series with the same parameters has already been described above, see Theorem~\ref{thm:h-n}.
 
 \paragraph*{4.4. Automata related to digraphs of the series $V_n$.} The digraph $V_n$
 is the $n$-digraph corresponding to the first matrix in~\eqref{odd
@@ -1246,29 +1167,19 @@ It can be easily verified that for each odd $n>3$ the word
 $(ab^{n-2})^{n-2}a$ is a \sw\ for $\mathrsfs{F}_n$. The length of
 this word is $(n-1)(n-2)+1=n^2-3n+3$.
 
-Clearly, the automaton $\mathrsfs{F}_n$ satisfies the condition of
-Proposition~\ref{prop:simple idempotent}. The action of the words
-$b$ and $c=ab$ on the set $\{1,2,\dots,n\}$ defines an automaton
-shown in Fig.\,\ref{fig:f-n} (right); we denote this automaton by
-$\mathrsfs{V}$. It is easy to see that the automaton
-$\mathrsfs{V}$ is isomorphic to a coloring of the digraph $V_n$.
-Theorem~\ref{dulmage}(d) and Proposition~\ref{lower bound} implies
-that the \rl\ for colorings of the digraph $V_n$ cannot be less
-than $(n^2-3n+4)-(n-1)=n^2-4n+5$. Applying
-Proposition~\ref{prop:simple idempotent}, we conclude that \rl\
-for $\mathrsfs{F}_n$ cannot be less than
-$(n^2-4n+5)+(n-2)=n^2-3n+3$.
+Clearly, the automaton $\mathrsfs{F}_n$ satisfies the condition of Proposition~\ref{prop:simple idempotent}. The action of the words $b$
+and $c=ab$ on the set $\{1,2,\dots,n\}$ defines an automaton shown in Fig.\,\ref{fig:f-n} (right); we denote this automaton by
+$\mathrsfs{V}$. It is easy to see that the automaton $\mathrsfs{V}$ is isomorphic to a coloring of the digraph $V_n$.
+Theorem~\ref{dulmage}(d) and Proposition~\ref{lower bound} imply that the \rl\ for colorings of the digraph $V_n$ cannot be less than
+$(n^2-3n+4)-(n-1)=n^2-4n+5$. Applying Proposition~\ref{prop:simple idempotent}, we conclude that \rl\ for $\mathrsfs{F}_n$ cannot be less
+than $(n^2-4n+5)+(n-2)=n^2-3n+3$.
 \end{proof}
 
 \paragraph*{4.5. Automata related to digraphs of the series $R_n$.} The
-digraphs $R_n$ is the $n$-digraph corresponding to the second
-matrix in~\eqref{odd island}. One obtains it from the digraph
-$V_n$ by adding the edge $(n-1,2)$. The digraph $R_n$ is primitive
-only when $n$ is odd, and in this case its exponent is equal to
-$n^2-3n+3$. The digraphs of the series $R_n$ give rise to the
-family of automata
-$\mathrsfs{B}_n=\langle\{1,2,\dots,n\},\{a,b\},\delta\rangle$ in
-which the letters $a$ and $b$ act as follows:
+digraph $R_n$ is the $n$-digraph corresponding to the second matrix in~\eqref{odd island}. One obtains it from the digraph $V_n$ by adding
+the edge $(n-1,2)$. The digraph $R_n$ is primitive only when $n$ is odd, and in this case its exponent is equal to $n^2-3n+3$. The digraphs
+of the series $R_n$ give rise to the family of automata $\mathrsfs{B}_n=\langle\{1,2,\dots,n\},\{a,b\},\delta\rangle$ in which the letters
+$a$ and $b$ act as follows:
 $$\delta(i,a)=\begin{cases}
 i &\text{if } i<n-1,\\
 1 &\text{if } i=n-1,\\
@@ -1352,18 +1263,12 @@ transformation and hence it also cannot occur as a factor in a
 \ssw. Thus, we conclude that $w=ab^{k_1}ab^{k_2}a\cdots
 ab^{k_m}a$, where $1\le k_1,k_2,\dots,k_m\le n-1$.
 
-Let $c=ab$. Then the word $w'$ and the
-$v=cb^{k_1-1}cb^{k_2-1}c\cdots cb^{k_m-1}$ act on the set
-$\{1,2,\dots,n\}$ in the same way. Therefore the word $vc$ is a
-\sw\ for the automaton $\mathrsfs{R}$ defined by the actions of
-the words $b$ and $c=ab$ and shown in Fig.\,\ref{fig:avz-n}
-(right). It is clear that the automaton $\mathrsfs{R}$ is
-isomorphic to a coloring of the digraph $R_n$.
-Theorem~\ref{dulmage}(d) and Proposition~\ref{lower bound} imply
-that \rl\ for colorings of the digraph $R_n$ cannot be less than
-$(n^2-3n+3)-(n-1)=n^2-4n+4$ whence the length of $v$ as a word
-over $\{b,c\}$, that is, $\sum_{i=1}^mk_i$, is not less than
-$n^2-4n+3$. Since $k_i\le n-1$ for all $i=1,\dots,m$, we have
+Let $c=ab$. Then the word $w'$ and the word $v=cb^{k_1-1}cb^{k_2-1}c\cdots cb^{k_m-1}$ act on the set $\{1,2,\dots,n\}$ in the same way.
+Therefore the word $vc$ is a \sw\ for the automaton $\mathrsfs{R}$ defined by the actions of the words $b$ and $c=ab$ and shown in
+Fig.\,\ref{fig:avz-n} (right). It is clear that the automaton $\mathrsfs{R}$ is isomorphic to a coloring of the digraph $R_n$.
+Theorem~\ref{dulmage}(d) and Proposition~\ref{lower bound} imply that the \rl\ for colorings of the digraph $R_n$ cannot be less than
+$(n^2-3n+3)-(n-1)=n^2-4n+4$ whence the length of $v$ as a word over $\{b,c\}$, that is, $\sum_{i=1}^mk_i$, is not less than $n^2-4n+3$.
+Since $k_i\le n-1$ for all $i=1,\dots,m$, we have
 \begin{equation}
 \label{inequality} m(n-1)\ge\sum_{i=1}^mk_i\ge n^2-4n+3=(n-3)(n-1),
 \end{equation}
@@ -1381,14 +1286,10 @@ at least $n^2-3n+2$.
 \end{proof}
 
 \paragraph*{4.6. Automata related to digraphs of the series $G_n$.}
-The digraph $G_n$ is the $n$-digraph corresponding to the second
-matrix in~\eqref{odd island1}.  One obtains it from the digraph
-$V_n$ by adding the edge $(n-2,1)$. The digraph $G_n$ примитивен
-is primitive only when $n$ is odd, and in this case its exponent
-is equal to $n^2-3n+2$. Fig.~\ref{fig:aut:fat} shows the automaton
-$\mathrsfs{G}_n$ which is one of possible colorings of the digraph
-$G_n$. This series is interesting for us because for odd $n$, its
-automata attain the maximal observed ``continental'' value or \rl.
+The digraph $G_n$ is the $n$-digraph corresponding to the second matrix in~\eqref{odd island1}.  One obtains it from the digraph $V_n$ by
+adding the edge $(n-2,1)$. The digraph $G_n$ примитивен is primitive only when $n$ is odd, and in this case its exponent is equal to
+$n^2-3n+2$. Fig.~\ref{fig:aut:fat} shows the automaton $\mathrsfs{G}_n$ which is one of possible colorings of the digraph $G_n$. This
+series is interesting for us because for odd $n$, its automata attain the maximal observed ``continental'' value of \rl.
 
 \begin{figure}[ht]
 \begin{center}
@@ -1427,21 +1328,13 @@ Proposition~\ref{lower bound} imply that the \rl\ for colorings of
 the digraph $G_n$ cannot be the less than
 $(n^2-3n+2)-(n-1)=n^2-4n+3$.
 
-Now let $w$ be a \ssw\ for the automaton $\mathrsfs{G}_n$. Since 3
-is a unique state in $\mathrsfs{G}_n$ that is a common end of two
-different edges with the same label, the minimality of $w$ implies
-that $w$ sends all state of the automaton to~3. Suppose that the
-length of $w$ is equal to $n^2-4n+3$. Then the digraph $G_n$ has a
-directed path of this length from~2 to~3. There is a unique edge
-starting at~2, namely, $(2,3)$, hence the path consists of this
-edge followed by a directed cycle of length $n^2-4n+2$. The
-digraph $G_n$ has exactly three simple directed cycles: one of
-length $n$ and two of length $n-2$. Observe that $n$ and $n-2$
-relatively prime since $n$ is odd. Every directed cycle consists
-of simple directed cycles whence the number $n^2-4n+2$ (as the
-length of a directed cycle in $G_n$) must be  a non-negative
-integer combination of the numbers $n$ and $n-2$ (the lengths of
-simple directed cycles). However this is impossible by
+Now let $w$ be a \ssw\ for the automaton $\mathrsfs{G}_n$. Since 3 is a unique state in $\mathrsfs{G}_n$ that is a common end of two
+different edges with the same label, the minimality of $w$ implies that $w$ sends all states of the automaton to~3. Suppose that the length
+of $w$ is equal to $n^2-4n+3$. Then the digraph $G_n$ has a directed path of this length from~2 to~3. There is a unique edge starting at~2,
+namely, $(2,3)$, hence the path consists of this edge followed by a directed cycle of length $n^2-4n+2$. The digraph $G_n$ has exactly
+three simple directed cycles: one of length $n$ and two of length $n-2$. Observe that $n$ and $n-2$ are relatively prime since $n$ is odd.
+Every directed cycle consists of simple directed cycles whence the number $n^2-4n+2$ (as the length of a directed cycle in $G_n$) must be a
+non-negative integer combination of the numbers $n$ and $n-2$ (the lengths of simple directed cycles). However this is impossible by
 Lemma~\ref{sylvester} since $n^2-4n+2=n(n-2)-n-(n-2)$.
 
 Suppose that the length of $w$ is equal to $n^2-4n+4$. Then the
@@ -1481,16 +1374,11 @@ $\mathrsfs{G}_n$ cannot be less than $n^2-4n+7$.
 \section*{{\centerline{\large\bf \S5. Discussion and new conjectures}}}
 
 \paragraph*{5.1. Two conjectures.} The constructions and the results presented in Section~4
-witness that the interconnections between \rl{}s of automata with
-two input letters and exponents of primitive digraphs. This
-conclusion are also supported by recent results by the third
-author~\cite{Gusev:2011}. We believe that these interconnections
-deserve being further investigated. In order to make the future
-investigations be more concrete, we formulate a very general
-conjecture in the flavor of Theorem~\ref{dulmage}. This conjecture
-constitutes a strengthening of the \v{C}ern\'y conjecture for the
-case of automata with two input letters and agrees with all
-theoretical and experimental results that we are aware of.
+witness that the interconnections between \rl{}s of automata with two input letters and exponents of primitive digraphs are sufficiently
+tight. This conclusion are also supported by recent results by the third author~\cite{Gusev:2011}. We believe that these interconnections
+deserve being further investigated. In order to make the future investigations be more concrete, we formulate a very general conjecture in
+the flavor of Theorem~\ref{dulmage}. This conjecture constitutes a strengthening of the \v{C}ern\'y conjecture for the case of automata
+with two input letters and agrees with all theoretical and experimental results that we are aware of.
 
 \begin{conjecture}
 \label{general} \emph{(a) (The \v{C}ern\'y conjecture)} The \rl\
@@ -1517,27 +1405,17 @@ $\mathrsfs{D}''_n$, and $\mathrsfs{B}_n$. There exists no
 synchronizing $n$-automaton with two input letters whose \rl\ is
 greater than $n^2-4n+7$ but less than $n^2-3n+2$.
 
-\emph{(e)} If $n>8$ and $n$ is even, then up to isomorphism there
-exists exactly one synchronizing $n$-automaton with two input
-letters and \rl\ $n^2-3n+4$,  namely, the automaton
-$\mathrsfs{D}'_n$, exactly one synchronizing $n$-automaton with
-two input letters and \rl\ $n^2-3n+3$, namely, the automaton
-$\mathrsfs{W}_n$, and exactly two synchronizing $n$-automata with
-two input letters and \rl\ $n^2-3n+2$, namely, the automata
-$\mathrsfs{E}_n$ and $\mathrsfs{D}''_n$. here exists no
-synchronizing $n$-automaton with two input letters whose \rl\ is
-greater than $n^2-4n+6$ but less than $n^2-3n+2$.
+\emph{(e)} If $n>8$ and $n$ is even, then up to isomorphism there exists exactly one synchronizing $n$-automaton with two input letters and
+\rl\ $n^2-3n+4$,  namely, the automaton $\mathrsfs{D}'_n$, exactly one synchronizing $n$-automaton with two input letters and \rl\
+$n^2-3n+3$, namely, the automaton $\mathrsfs{W}_n$, and exactly two synchronizing $n$-automata with two input letters and \rl\ $n^2-3n+2$,
+namely, the automata $\mathrsfs{E}_n$ and $\mathrsfs{D}''_n$. There exists no synchronizing $n$-automaton with two input letters whose \rl\
+is greater than $n^2-4n+6$ but less than $n^2-3n+2$.
 \end{conjecture}
 
-We also formulate a more special conjecture that can be treated as
-a quantitative form of the Road Coloring Conjecture mentioned in
-Section~3. Since now we know that every primitive digraph has a
-synchronizing coloring~\cite{Tr09}, the notion of \rl\ can be
-naturally extended to primitive digraphs. Namely, we call the the
-\emph{\rl} of a primitive digraph the minimum length of \sws\ for
-all synchronizing colorings of the digraph. This immediately leads
-to the the question of how the \rl\ of a primitive digraph depends
-on the vertex number.
+We also formulate a more special conjecture that can be treated as a quantitative form of the Road Coloring Conjecture mentioned in
+Section~3. Since now we know that every primitive digraph has a synchronizing coloring~\cite{Tr09}, the notion of \rl\ can be naturally
+extended to primitive digraphs. Namely, we call the \emph{\rl} of a primitive digraph the minimum length of \sws\ for all synchronizing
+colorings of the digraph. This immediately leads to the question of how the \rl\ of a primitive digraph depends on the vertex number.
 
 We notice that the digraphs of slowly \sa\ may admit colorings
 with small \rl. Fig.~\ref{fig:cerny} illustrates this remark: the
@@ -1568,15 +1446,10 @@ that the digraph $D_n$ is the only (up to isomorphism) primitive
 $n$-digraph with \rl\ $n^2-3n+2$, etc.
 
 \paragraph*{5.2. The role of the alphabet size.} In our experiments
-we restrict ourselves to automata with two input letters. This
-restriction is caused by the fact that an increase in the alphabet
-size influences the number of automata much stronger than an
-increase in the state size. Therefore an exhaustive search through
-all automata with more than two input letters is far beyond our
-computational capacities even when for automata with a modest
-number of states. Table~\ref{table:number of automata} illustrates
-this fact. (The data in the table are calculated via a formula
-from~\cite{Lis69}.)
+we restrict ourselves to automata with two input letters. This restriction is caused by the fact that an increase in the alphabet size
+influences the number of automata much stronger than an increase in the state size. Therefore an exhaustive search through all automata
+with more than two input letters is far beyond our computational capacities even  for automata with a modest number of states.
+Table~\ref{table:number of automata} illustrates this fact. (The data in the table are calculated via a formula from~\cite{Lis69}.)
 
 \begin{table}[ht]
 \extrarowheight=2pt \tabcolsep=3.45pt  \caption{The number of
@@ -1601,12 +1474,9 @@ larger than 32 and smaller than 36. Thus, the value of the gap
 between the maximum and the next to maximum possible value of \rl\
 is the same as for 7-automata with two input letters.
 
-We mention also the observation which, as far as we know, was
-first made in~\cite{Be10}: if there exists an upper bound of the
-form $O(n^2)$ for the \rl\ of synchronizing $n$-automata with two
-input letters, then a bound of the same magnitude (but probably
-with a worse constant) exists also for the \rl\ synchronizing
-$n$-automata with any fixed size of the input alphabet.
+We mention also the observation which, as far as we know, was first made in~\cite{Be10}: if there exists an upper bound of the form
+$O(n^2)$ for the \rl\ of synchronizing $n$-automata with two input letters, then a bound of the same magnitude (but probably with a worse
+constant) exists also for the \rl\ of synchronizing $n$-automata with any fixed size of the input alphabet.
 
 \begin{thebibliography}{99}
 \bibitem{AGW}
@@ -1669,8 +1539,7 @@ words in finite automata, Bull.\ European Assoc.\ Theor.\ Comput.\ Sci., 73
 (2001), 146.
 
 \bibitem{Lis69}
-\textsl{V.\,A.\,Liskovets}, The number of connected initial
-automata,  ибернетика, no.3 (1969), 16--19 (in Russian).
+\textsl{V.\,A.\,Liskovets}, The number of connected initial automata, Kibernetika, no.3 (1969), 16--19 (in Russian).
 
 \bibitem{OU10}
 \textsl{J.\,Olschewski, M.\,Ummels}, The complexity of finding reset words in
